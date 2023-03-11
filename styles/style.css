@@ -109,13 +109,15 @@ body main .header__switchbutton-label.active::after {
   left: unset;
   right: 0.3rem;
 }
-body main .header__nav {
-  display: flex;
-  gap: 1rem;
+body main .header__icon {
+  display: none;
 }
-body main .header__nav a {
+body main .header__enlace {
+  display: flex;
+}
+body main .header__enlace a {
   text-decoration: none;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   letter-spacing: 1.5px;
@@ -131,40 +133,40 @@ body main .header__nav a {
   overflow: hidden;
   transition: 0.3s ease all;
 }
-body main .header__nav a span {
+body main .header__enlace a span {
   position: relative;
-  z-index: 2;
+  z-index: 500;
 }
-body main .header__nav a::after {
+body main .header__enlace a::after {
   content: "";
   width: 100%;
   height: 320%;
   background: #ffa400;
   position: absolute;
-  z-index: 1;
+  z-index: 450;
   top: -110px;
   left: 0;
   transition: 0.6s ease-in-out all;
   border-radius: 0px 0px 300px 300px;
 }
-body main .header__nav a:hover {
+body main .header__enlace a:hover {
   color: rgb(35, 37, 40);
 }
-body main .header__nav a:hover::after {
+body main .header__enlace a:hover::after {
   top: 0;
 }
 body main .principal {
   width: 100%;
   height: 95vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 body main .principal__biography {
   display: flex;
   flex-direction: row;
   gap: 4rem;
-  margin-bottom: 5rem;
+  margin-top: 20vh;
 }
 body main .principal__biography-title {
   width: 50rem;
@@ -199,6 +201,11 @@ body main .principal__biography-title-summary {
   font-size: 1rem;
   text-align: justify;
 }
+body main .principal__biography-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 body main .principal__biography-profile-wave {
   width: 15rem;
 }
@@ -211,7 +218,7 @@ body main .principal__slide {
   position: absolute;
   margin-bottom: 1.5rem;
   bottom: 0;
-  z-index: 875;
+  z-index: 480;
   cursor: pointer;
   animation: SwipeUp 2s infinite;
 }
@@ -233,7 +240,7 @@ body main .principal__container {
   height: 25%;
   position: absolute;
   bottom: 0;
-  z-index: 850;
+  z-index: 475;
 }
 body main .principal__container-one {
   width: 100%;
@@ -275,4 +282,70 @@ body main .hability {
   width: 100%;
   height: 100vh;
   background-color: #a44700;
+}
+
+@media (max-width: 480px) {
+  body main {
+    overflow: hidden;
+  }
+  body main .header__icon {
+    display: block;
+    z-index: 600;
+  }
+  body main .header__icon-image {
+    width: 1.8rem;
+  }
+  body main .header__enlace {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 200vh;
+    padding-top: 10vh;
+    z-index: 550;
+    background-color: #c92d2d;
+    transform: translateX(100%);
+    transition: all 1s ease-in-out;
+  }
+  body main .header__enlace.active {
+    transform: translateX(0);
+  }
+  body main .header__enlace a {
+    width: 70%;
+    margin: auto;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    transition: 0.3s ease all;
+  }
+  body main .header__enlace a::after {
+    content: none;
+  }
+  body main .header__enlace a:hover {
+    color: #000000;
+  }
+  body main .principal {
+    position: relative;
+  }
+  body main .principal__biography {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 15vh;
+  }
+  body main .principal__biography-title {
+    max-width: 75vw;
+  }
+  body main .principal__biography-title-greetings {
+    font-size: 2rem;
+  }
+  body main .principal__biography-title-name {
+    font-size: 2rem;
+  }
+  body main .principal__biography-title-summary {
+    font-size: 0.7rem;
+  }
+  body main .principal__biography-profile-wave {
+    width: 10rem;
+  }
 }/*# sourceMappingURL=style.css.map */

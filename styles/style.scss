@@ -81,6 +81,7 @@ body {
     height: 100%;
     background-color: map-get($map: $Colors, $key: "Raisin Black");
 
+
     &::-webkit-scrollbar {
         width: 5px;
         background: transparent;
@@ -161,13 +162,16 @@ body {
                 }
             }
 
-            &__nav {
+            &__icon {
+                display: none;
+            }
+
+            &__enlace {
                 display: flex;
-                gap: 1rem;
 
                 & a {
                     text-decoration: none;
-                    display: inline-flex;
+                    display: flex;
                     align-items: center;
                     justify-content: center;
                     letter-spacing: 1.5px;
@@ -185,7 +189,7 @@ body {
 
                     & span {
                         position: relative;
-                        z-index: 2;
+                        z-index: 500;
                     }
 
                     &::after {
@@ -194,7 +198,7 @@ body {
                         height: 320%;
                         background: map-get($map: $Colors, $key: "Orange");
                         position: absolute;
-                        z-index: 1;
+                        z-index: 450;
                         top: -110px;
                         left: 0;
                         transition: .6s ease-in-out all;
@@ -217,14 +221,14 @@ body {
             width: 100%;
             height: 95vh;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
 
             &__biography {
                 display: flex;
                 flex-direction: row;
                 gap: 4rem;
-                margin-bottom: 5rem;
+                margin-top: 20vh;
 
                 &-title {
                     width: 50rem;
@@ -266,6 +270,9 @@ body {
                 }
 
                 &-profile {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
 
                     &-wave {
                         width: 15rem;
@@ -283,7 +290,7 @@ body {
                 position: absolute;
                 margin-bottom: 1.5rem;
                 bottom: 0;
-                z-index: 875;
+                z-index: 480;
                 cursor: pointer;
                 animation: SwipeUp 2s infinite;
 
@@ -311,7 +318,7 @@ body {
                 height: 25%;
                 position: absolute;
                 bottom: 0;
-                z-index: 850;
+                z-index: 475;
 
                 &-one {
                     width: 100%;
@@ -358,6 +365,101 @@ body {
             width: 100%;
             height: 100vh;
             background-color: map-get($map: $Colors, $key: "Dark Orange");
+        }
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    body {
+
+        main {
+            overflow: hidden;
+
+            & .header {
+
+                &__icon {
+                    display: block;
+                    z-index: 600;
+
+                    &-image {
+                        width: 1.8rem;
+                    }
+                }
+
+                &__enlace {
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 200vh;
+                    padding-top: 10vh;
+                    z-index: 550;
+                    background-color: map-get($map: $Colors, $key: "Red");
+                    transform: translateX(100%);
+                    transition: all 1s ease-in-out;
+
+                    &.active {
+                        transform: translateX(0);
+                    }
+
+                    & a {
+                        width: 70%;
+                        margin: auto;
+                        margin-bottom: 2rem;
+                        font-size: 1rem;
+                        transition: .3s ease all;
+
+                        &::after {
+                            content: none;
+                        }
+
+                        &:hover {
+                            color: map-get($map: $Colors, $key: "Black");
+                        }
+
+                    }
+                }
+
+
+            }
+
+            & .principal {
+                position: relative;
+
+                &__biography {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2rem;
+                    margin-top: 15vh;
+    
+                    &-title {
+                        max-width: 75vw;
+    
+                        &-greetings {
+                            font-size: 2rem;
+                        }
+    
+                        &-name {
+                            font-size: 2rem;
+                        }
+    
+                        &-summary {
+                            font-size: 0.7rem;
+                        }
+                    }
+    
+                    &-profile {
+    
+                        &-wave {
+                            width: 10rem;
+                        }
+                    }
+    
+                }
+            }
         }
     }
 }
