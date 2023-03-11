@@ -1,0 +1,363 @@
+//TODO: Fuentes
+@font-face {
+    font-family: Secular Uno;
+    src: url(../media/fonts/secular_uno.ttf);
+}
+
+@font-face {
+    font-family: Titan One;
+    src: url(../media/fonts/titan_one.ttf);
+}
+
+//TODO: Variables
+
+//Colores
+$Colors: ("White": #ffffff,
+    "Grey": #9c9c9c,
+    "Alice Blue": #eaf6ff,
+    "Black": #000000,
+    "Raisin Black": rgb(35, 37, 40),
+    "Orange": #ffa400,
+    "Grey Orange": #e07500,
+    "Dark Orange": #a44700,
+    "Royal Blue": rgb(42, 42, 114),
+    "Red": #c92d2d);
+
+//Fuentes
+$Fonts: ("Secular Uno": Secular Uno,
+    "Titan One": Titan One,
+);
+
+// Resolucion
+$Resolution: ("MovilSmall": 375px,
+    "MovilStandard": 480px,
+    "TabletSmall": 768px,
+    "TabletStandard": 960px,
+    "Laptop": 1024px,
+    "Desktop": 1328px,
+);
+
+//TODO: Funciones
+
+//TODO: Key Frames
+@keyframes SwipeUp {
+    0% {
+        bottom: 0;
+    }
+
+    50% {
+        bottom: 1%;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes Move {
+    0% {
+        background-position-x: 1%;
+    }
+
+    50% {
+        background-position-x: 100%;
+    }
+
+    100% {
+        background-position-x: 1%;
+    }
+}
+
+//TODO: Principal
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: map-get($map: $Colors, $key: "Raisin Black");
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: map-get($map: $Colors, $key: "Red");
+        border-radius: 5px;
+    }
+
+    main {
+        width: 100%;
+        height: 100%;
+
+        & .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 75vw;
+            height: 5vh;
+            margin: auto;
+            padding-top: 5vh;
+
+            &__switchbutton {
+                outline: none;
+                display: flex;
+                gap: 0.4rem;
+                align-items: center;
+                justify-content: center;
+
+                &-sun {
+                    width: 1rem;
+                    height: 1rem;
+                }
+
+                &-moon {
+                    width: 1rem;
+                    height: 1rem;
+                }
+
+                &-checkbox {
+                    display: none;
+                }
+
+                &-label {
+                    display: inline-block;
+                    width: 2.7rem;
+                    height: 1.5rem;
+                    border-radius: 1rem;
+                    background-color: map-get($map: $Colors, $key: "Orange");
+                    position: relative;
+                    cursor: pointer;
+
+
+                    &::after {
+                        content: "";
+                        display: block;
+                        width: 1rem;
+                        height: 1rem;
+                        border-radius: 50%;
+                        background-color: map-get($map: $Colors, $key: "White");
+                        position: absolute;
+                        top: .25rem;
+                        left: .3rem;
+                        right: unset;
+                        box-shadow: 0px 0px 2px 2px map-get($map: $Colors, $key: "Black");
+                        transition: .2s ease all;
+                    }
+
+                    &.active {
+                        background-color: map-get($map: $Colors, $key: "Orange");
+
+                        &::after {
+                            left: unset;
+                            right: .3rem;
+                        }
+                    }
+                }
+            }
+
+            &__nav {
+                display: flex;
+                gap: 1rem;
+
+                & a {
+                    text-decoration: none;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    letter-spacing: 1.5px;
+                    width: 100%;
+                    font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                    color: map-get($map: $Colors, $key: "White");
+                    background: transparent;
+                    font-size: 1rem;
+                    padding: 0.3rem 1rem;
+                    border-radius: .2rem;
+                    position: relative;
+                    cursor: pointer;
+                    overflow: hidden;
+                    transition: .3s ease all;
+
+                    & span {
+                        position: relative;
+                        z-index: 2;
+                    }
+
+                    &::after {
+                        content: "";
+                        width: 100%;
+                        height: 320%;
+                        background: map-get($map: $Colors, $key: "Orange");
+                        position: absolute;
+                        z-index: 1;
+                        top: -110px;
+                        left: 0;
+                        transition: .6s ease-in-out all;
+                        border-radius: 0px 0px 300px 300px;
+
+                    }
+
+                    &:hover {
+                        color: map-get($map: $Colors, $key: "Raisin Black");
+                    }
+
+                    &:hover::after {
+                        top: 0;
+                    }
+                }
+            }
+        }
+
+        & .principal {
+            width: 100%;
+            height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &__biography {
+                display: flex;
+                flex-direction: row;
+                gap: 4rem;
+                margin-bottom: 5rem;
+
+                &-title {
+                    width: 50rem;
+
+                    & .red {
+                        color: map-get($map: $Colors, $key: "Red");
+                    }
+
+                    &-greetings {
+                        font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                        color: map-get($map: $Colors, $key: "White");
+                        letter-spacing: 2px;
+                        font-size: 2rem;
+                    }
+
+                    &-name {
+                        font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                        color: map-get($map: $Colors, $key: "White");
+                        letter-spacing: 2px;
+                        font-size: 4rem;
+                        line-height: 1;
+                        margin-bottom: 2rem;
+
+                        & span {
+                            font-family: map-get($map: $Fonts, $key: "Titan One");
+                            color: map-get($map: $Colors, $key: "Orange");
+                            text-transform: uppercase;
+                        }
+                    }
+
+                    &-summary {
+                        font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                        color: map-get($map: $Colors, $key: "Grey");
+                        max-width: 45rem;
+                        letter-spacing: 2px;
+                        font-size: 1rem;
+                        text-align: justify;
+                    }
+                }
+
+                &-profile {
+
+                    &-wave {
+                        width: 15rem;
+                    }
+                }
+
+            }
+
+            &__slide {
+                text-decoration: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                margin-bottom: 1.5rem;
+                bottom: 0;
+                z-index: 875;
+                cursor: pointer;
+                animation: SwipeUp 2s infinite;
+
+                &-title {
+                    font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                    color: map-get($map: $Colors, $key: "White");
+                    font-size: 1rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                &-image {
+                    width: 1.5rem;
+                    height: 0.6rem;
+
+                }
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+
+            }
+
+            &__container {
+                width: 100%;
+                height: 25%;
+                position: absolute;
+                bottom: 0;
+                z-index: 850;
+
+                &-one {
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+                    background-image: url(../media/images/wave_one.png);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position-x: 0%;
+                    animation: Move 500s infinite;
+                    position: absolute;
+                    bottom: 0;
+                }
+
+                &-two {
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+                    background-image: url(../media/images/wave_two.png);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position-x: 0%;
+                    animation: Move 300s reverse infinite;
+                    position: absolute;
+                    bottom: 0;
+                }
+
+                &-three {
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+                    background-image: url(../media/images/wave_three.png);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position-x: 0%;
+                    animation: Move 900s alternate infinite;
+                    position: absolute;
+                    bottom: 0;
+                }
+            }
+        }
+
+        & .hability {
+            width: 100%;
+            height: 100vh;
+            background-color: map-get($map: $Colors, $key: "Dark Orange");
+        }
+    }
+}

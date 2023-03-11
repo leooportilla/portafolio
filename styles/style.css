@@ -1,0 +1,278 @@
+@font-face {
+  font-family: Secular Uno;
+  src: url(../media/fonts/secular_uno.ttf);
+}
+@font-face {
+  font-family: Titan One;
+  src: url(../media/fonts/titan_one.ttf);
+}
+@keyframes SwipeUp {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 1%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+@keyframes Move {
+  0% {
+    background-position-x: 1%;
+  }
+  50% {
+    background-position-x: 100%;
+  }
+  100% {
+    background-position-x: 1%;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(35, 37, 40);
+}
+body::-webkit-scrollbar {
+  width: 5px;
+  background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #c92d2d;
+  border-radius: 5px;
+}
+body main {
+  width: 100%;
+  height: 100%;
+}
+body main .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 75vw;
+  height: 5vh;
+  margin: auto;
+  padding-top: 5vh;
+}
+body main .header__switchbutton {
+  outline: none;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  justify-content: center;
+}
+body main .header__switchbutton-sun {
+  width: 1rem;
+  height: 1rem;
+}
+body main .header__switchbutton-moon {
+  width: 1rem;
+  height: 1rem;
+}
+body main .header__switchbutton-checkbox {
+  display: none;
+}
+body main .header__switchbutton-label {
+  display: inline-block;
+  width: 2.7rem;
+  height: 1.5rem;
+  border-radius: 1rem;
+  background-color: #ffa400;
+  position: relative;
+  cursor: pointer;
+}
+body main .header__switchbutton-label::after {
+  content: "";
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: #ffffff;
+  position: absolute;
+  top: 0.25rem;
+  left: 0.3rem;
+  right: unset;
+  box-shadow: 0px 0px 2px 2px #000000;
+  transition: 0.2s ease all;
+}
+body main .header__switchbutton-label.active {
+  background-color: #ffa400;
+}
+body main .header__switchbutton-label.active::after {
+  left: unset;
+  right: 0.3rem;
+}
+body main .header__nav {
+  display: flex;
+  gap: 1rem;
+}
+body main .header__nav a {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1.5px;
+  width: 100%;
+  font-family: Secular Uno;
+  color: #ffffff;
+  background: transparent;
+  font-size: 1rem;
+  padding: 0.3rem 1rem;
+  border-radius: 0.2rem;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.3s ease all;
+}
+body main .header__nav a span {
+  position: relative;
+  z-index: 2;
+}
+body main .header__nav a::after {
+  content: "";
+  width: 100%;
+  height: 320%;
+  background: #ffa400;
+  position: absolute;
+  z-index: 1;
+  top: -110px;
+  left: 0;
+  transition: 0.6s ease-in-out all;
+  border-radius: 0px 0px 300px 300px;
+}
+body main .header__nav a:hover {
+  color: rgb(35, 37, 40);
+}
+body main .header__nav a:hover::after {
+  top: 0;
+}
+body main .principal {
+  width: 100%;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main .principal__biography {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  margin-bottom: 5rem;
+}
+body main .principal__biography-title {
+  width: 50rem;
+}
+body main .principal__biography-title .red {
+  color: #c92d2d;
+}
+body main .principal__biography-title-greetings {
+  font-family: Secular Uno;
+  color: #ffffff;
+  letter-spacing: 2px;
+  font-size: 2rem;
+}
+body main .principal__biography-title-name {
+  font-family: Secular Uno;
+  color: #ffffff;
+  letter-spacing: 2px;
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: 2rem;
+}
+body main .principal__biography-title-name span {
+  font-family: Titan One;
+  color: #ffa400;
+  text-transform: uppercase;
+}
+body main .principal__biography-title-summary {
+  font-family: Secular Uno;
+  color: #9c9c9c;
+  max-width: 45rem;
+  letter-spacing: 2px;
+  font-size: 1rem;
+  text-align: justify;
+}
+body main .principal__biography-profile-wave {
+  width: 15rem;
+}
+body main .principal__slide {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-bottom: 1.5rem;
+  bottom: 0;
+  z-index: 875;
+  cursor: pointer;
+  animation: SwipeUp 2s infinite;
+}
+body main .principal__slide-title {
+  font-family: Secular Uno;
+  color: #ffffff;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+body main .principal__slide-image {
+  width: 1.5rem;
+  height: 0.6rem;
+}
+body main .principal__slide:hover {
+  transform: scale(1.1);
+}
+body main .principal__container {
+  width: 100%;
+  height: 25%;
+  position: absolute;
+  bottom: 0;
+  z-index: 850;
+}
+body main .principal__container-one {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: url(../media/images/wave_one.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 0%;
+  animation: Move 500s infinite;
+  position: absolute;
+  bottom: 0;
+}
+body main .principal__container-two {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: url(../media/images/wave_two.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 0%;
+  animation: Move 300s reverse infinite;
+  position: absolute;
+  bottom: 0;
+}
+body main .principal__container-three {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: url(../media/images/wave_three.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 0%;
+  animation: Move 900s alternate infinite;
+  position: absolute;
+  bottom: 0;
+}
+body main .hability {
+  width: 100%;
+  height: 100vh;
+  background-color: #a44700;
+}/*# sourceMappingURL=style.css.map */

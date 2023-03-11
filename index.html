@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portafolio - Leonardo Portilla</title>
+    <link rel="icon" href="./media/images/portfolio.png">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+
+    <main>
+        <header class="header">
+
+            <div class="header__switchbutton">
+                <img class="header__switchbutton-moon" src="./media/images/moon_light.png" alt="Icono del luna">
+                <input class="header__switchbutton-checkbox" id="switch" type="checkbox" name="label">
+                <label class="header__switchbutton-label" for="switch"></label>
+                <img class="header__switchbutton-sun" src="./media/images/sun_light.png" alt="Icono del sol">
+            </div>
+
+            <nav class="header__nav">
+                <a class="header__nav-about" href="#about"><span>ACERCA</span></a>
+                <a class="header__nav-project" href="#project"><span>PROYECTOS</span></a>
+                <a class="header__nav-contact" href="#contact"><span>CONTACTO</span></a>
+            </nav>
+
+        </header>
+
+        <section class="principal">
+
+            <div class="principal__biography">
+
+                <div class="principal__biography-title">
+                    <h3 class="principal__biography-title-greetings">Saludo<span class="red">!</span></h3>
+                    <h1 class="principal__biography-title-name">Soy <span>Leonardo Portilla</span><span
+                            class="red">,</span> un gusto</h1>
+                    <p class="principal__biography-title-summary">Frontend Developer❗Soy un desarrollador autodidacta,
+                        aunque por ahora no cuento con experiencia laboral como desarrollador frontend, así bien he
+                        trabajado en proyectos personales para seguir aprendiendo y practicando en mi formacion, además
+                        de estar dispuesto a aprender de mis compañeros de equipo, me apasionado por el mundo del
+                        desarrollo.</p>
+                </div>
+
+                <div class="principal__biography-profile">
+                    <img class="principal__biography-profile-wave" src="./media/images/wave_profile.svg"
+                        alt="Circulo de fondo para foto de perfil">
+                </div>
+            </div>
+
+            <a class="principal__slide" href="#about">
+                <h6 class="principal__slide-title">Desliza</h6>
+                <img class="principal__slide-image" src="./media/images/slide.png" alt="Icono de flecha hacia abajo">
+            </a>
+
+            <div class="principal__container">
+                <div class="principal__container-one"></div>
+                <div class="principal__container-two"></div>
+                <div class="principal__container-three"></div>
+            </div>
+
+        </section>
+
+        <section id="about" class="hability"></section>
+    </main>
+
+    <script src="./javascripts/index.js" type="module"></script>
+</body>
+
+</html>
