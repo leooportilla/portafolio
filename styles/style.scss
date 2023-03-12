@@ -16,12 +16,13 @@ $Colors: ("White": #ffffff,
     "Grey": #9c9c9c,
     "Alice Blue": #eaf6ff,
     "Black": #000000,
-    "Raisin Black": rgb(35, 37, 40),
+    "Raisin Black": #232528,
     "Orange": #ffa400,
     "Grey Orange": #e07500,
     "Dark Orange": #a44700,
-    "Royal Blue": rgb(42, 42, 114),
-    "Red": #c92d2d);
+    "Red": #c92d2d,
+    "Podria": #1EA896,
+);
 
 //Fuentes
 $Fonts: ("Secular Uno": Secular Uno,
@@ -367,10 +368,11 @@ body {
             height: 100vh;
             background-color: map-get($map: $Colors, $key: "Dark Orange");
         }
-
-
     }
+}
 
+#dark {
+    color: map-get($map: $Colors, $key: "Raisin Black");
 }
 
 @media (max-width: map-get($Resolution, "Laptop")) {
