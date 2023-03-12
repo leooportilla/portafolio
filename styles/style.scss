@@ -101,7 +101,6 @@ body {
             justify-content: space-between;
             align-items: center;
             width: 75vw;
-            height: 5vh;
             margin: auto;
             padding-top: 5vh;
 
@@ -157,6 +156,7 @@ body {
                         &::after {
                             left: unset;
                             right: .3rem;
+                            background-color: map-get($map: $Colors, $key: "Black")
                         }
                     }
                 }
@@ -218,24 +218,20 @@ body {
         }
 
         & .principal {
-            width: 100%;
-            height: 95vh;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
+            width: 75%;
+            height: 90vh;
+            margin: auto;
 
             &__biography {
                 display: flex;
                 flex-direction: row;
-                gap: 4rem;
-                margin-top: 20vh;
+                justify-content: center;
+                gap: 5rem;
+                padding-top: 10vh;
 
                 &-title {
-                    width: 50rem;
-
-                    & .red {
-                        color: map-get($map: $Colors, $key: "Red");
-                    }
+                    width: 100%;
+                    max-width: 50rem;
 
                     &-greetings {
                         font-family: map-get($map: $Fonts, $key: "Secular Uno");
@@ -269,6 +265,10 @@ body {
                     }
                 }
 
+                & .red {
+                    color: map-get($map: $Colors, $key: "Red");
+                }
+
                 &-profile {
                     display: flex;
                     justify-content: center;
@@ -278,7 +278,6 @@ body {
                         width: 15rem;
                     }
                 }
-
             }
 
             &__slide {
@@ -288,7 +287,8 @@ body {
                 justify-content: center;
                 align-items: center;
                 position: absolute;
-                margin-bottom: 1.5rem;
+                padding-bottom: 5vh;
+                left: 50%;
                 bottom: 0;
                 z-index: 480;
                 cursor: pointer;
@@ -317,6 +317,7 @@ body {
                 width: 100%;
                 height: 25%;
                 position: absolute;
+                left: 0;
                 bottom: 0;
                 z-index: 475;
 
@@ -366,50 +367,111 @@ body {
             height: 100vh;
             background-color: map-get($map: $Colors, $key: "Dark Orange");
         }
+
+
     }
 
 }
 
-@media (max-width: 480px) {
+@media (max-width: map-get($Resolution, "Laptop")) {
+    body {
+        main {
+            & .principal {
+                &__biography {
+                    padding-top: 15vh;
+
+                    &-title {
+
+                        &-greetings {
+                            font-size: 2rem;
+                        }
+
+                        &-name {
+                            font-size: 3rem;
+                        }
+
+                        &-summary {
+                            font-size: .8rem;
+                        }
+                    }
+
+                    &-profile {
+                        &-wave {
+                            width: 10rem;
+                        }
+                    }
+                }
+
+                &__container {
+                    bottom: -1vh;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: map-get($Resolution, "TabletStandard")) {
 
     body {
-
         main {
-            overflow: hidden;
-
             & .header {
+                width: 85vw;
+
+                &__switchbutton {
+                    &-sun {
+                        width: 1.7rem;
+                        height: 1.7rem;
+                    }
+
+                    &-moon {
+                        width: 1.7rem;
+                        height: 1.7rem;
+                    }
+
+                    &-label {
+                        width: 4rem;
+                        height: 2.5rem;
+                        border-radius: 1.5rem;
+
+                        &::after {
+                            width: 1.9rem;
+                            height: 1.9rem;
+                        }
+                    }
+                }
 
                 &__icon {
                     display: block;
                     z-index: 600;
 
                     &-image {
-                        width: 1.8rem;
+                        width: 2.5rem;
+                        height: 2.5rem;
                     }
                 }
 
                 &__enlace {
+
+                    &.active {
+                        width: 100%;
+                    }
+
                     display: block;
                     position: absolute;
                     right: 0;
                     top: 0;
-                    width: 100%;
+                    width: 0;
                     height: 200vh;
-                    padding-top: 10vh;
+                    padding-top: 20vh;
                     z-index: 550;
                     background-color: map-get($map: $Colors, $key: "Red");
-                    transform: translateX(100%);
                     transition: all 1s ease-in-out;
-
-                    &.active {
-                        transform: translateX(0);
-                    }
 
                     & a {
                         width: 70%;
                         margin: auto;
-                        margin-bottom: 2rem;
-                        font-size: 1rem;
+                        padding: 2rem 0;
+                        font-size: 2rem;
                         transition: .3s ease all;
 
                         &::after {
@@ -422,42 +484,276 @@ body {
 
                     }
                 }
-
-
             }
 
             & .principal {
+                width: 100%;
+                height: 95vh;
                 position: relative;
 
                 &__biography {
+                    width: 85vw;
                     display: flex;
                     flex-direction: column;
-                    gap: 2rem;
-                    margin-top: 15vh;
-    
+                    gap: 10vh;
+                    margin: auto;
+                    padding-top: 10vh;
+
                     &-title {
-                        max-width: 75vw;
-    
+                        width: 100%;
+
                         &-greetings {
-                            font-size: 2rem;
+                            font-size: 2.5rem;
                         }
-    
+
                         &-name {
-                            font-size: 2rem;
+                            font-size: 4rem;
                         }
-    
+
                         &-summary {
-                            font-size: 0.7rem;
+                            max-width: 100%;
+                            font-size: .8rem;
                         }
                     }
-    
+
                     &-profile {
-    
+
                         &-wave {
                             width: 10rem;
                         }
                     }
-    
+                }
+
+                &__slide {
+                    left: 45%;
+                }
+                &__container {
+                    height: 30%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: map-get($Resolution, "TabletSmall")) {
+
+    body {
+        main {
+            & .header {
+                &__switchbutton {
+                    &-sun {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                    }
+
+                    &-moon {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                    }
+
+                    &-label {
+                        width: 3rem;
+                        height: 2rem;
+
+                        &::after {
+                            width: 1.5rem;
+                            height: 1.5rem;
+                        }
+                    }
+                }
+
+                &__icon {
+                    &-image {
+                        width: 2rem;
+                        height: 2rem;
+                    }
+                }
+
+                &__enlace {
+                    & a {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+
+            & .principal {
+                &__biography {
+                    &-title {
+                        &-greetings {
+                            font-size: 2.5rem;
+                        }
+
+                        &-name {
+                            font-size: 3rem;
+                        }
+
+                        &-summary {
+                            max-width: 100%;
+                            font-size: .8rem;
+                        }
+                    }
+
+                    &-profile {
+
+                        &-wave {
+                            width: 10rem;
+                        }
+                    }
+                }
+
+                &__container {
+                    height: 25%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: map-get($Resolution, "MovilStandard")) {
+
+    body {
+        main {
+            & .header {
+                &__switchbutton {
+                    &-sun {
+                        width: 1.3rem;
+                        height: 1.3rem;
+                    }
+
+                    &-moon {
+                        width: 1.3rem;
+                        height: 1.3rem;
+                    }
+
+                    &-label {
+                        width: 3.5rem;
+                        height: 2rem;
+
+                        &::after {
+                            width: 1.5rem;
+                            height: 1.5rem;
+                        }
+                    }
+                }
+                &__icon {
+                    &-image {
+                        width: 2rem;
+                        height: 2rem;
+                    }
+                }
+                &__enlace {
+                    & a {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+
+            & .principal {
+                &__biography {
+                    gap: 7vh;
+                    &-title {
+                        &-greetings {
+                            font-size: 1.3rem;
+                        }
+
+                        &-name {
+                            font-size: 2.5rem;
+                        }
+
+                        &-summary {
+                            font-size: .5rem;
+                        }
+                    }
+
+                    &-profile {
+
+                        &-wave {
+                            width: 8rem;
+                        }
+                    }
+                }
+
+                &__container {
+                    height: 25%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: map-get($Resolution, "MovilSmall")) {
+
+    body {
+        main {
+            & .header {
+                width: 85vw;
+                padding-top: 3vh;
+
+                &__switchbutton {
+                    &-sun {
+                        width: 1.3rem;
+                        height: 1.3rem;
+                    }
+
+                    &-moon {
+                        width: 1.3rem;
+                        height: 1.3rem;
+                    }
+
+                    &-label {
+                        width: 3.5rem;
+                        height: 2rem;
+
+                        &::after {
+                            width: 1.4rem;
+                            height: 1.4rem;
+                        }
+                    }
+                }
+
+                &__icon {
+                    &-image {
+                        width: 2rem;
+                        height: 2rem;
+                    }
+                }
+
+                &__enlace {
+                    & a {
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+
+            & .principal {
+
+                &__biography {
+                    padding-top: 8vh;
+
+                    &-title {
+                        &-greetings {
+                            font-size: 1.5rem;
+                        }
+
+                        &-name {
+                            font-size: 2rem;
+                        }
+
+                        &-summary {
+                            font-size: .5rem;
+                        }
+                    }
+
+                    &-profile {
+
+                        &-wave {
+                            width: 8rem;
+                        }
+                    }
+                }
+
+                &__container {
+                    height: 25%;
                 }
             }
         }

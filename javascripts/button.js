@@ -1,13 +1,13 @@
-export function Button(Boton, Sol, Luna) {
+export function Button() {
 
-    let Buttoon = document.querySelector(Boton)
-    let Sun = document.querySelector(Sol)
-    let Moon = document.querySelector(Luna)
+    let Buttoon = document.querySelector(`.header__switchbutton-label`)
+    let Sun = document.querySelector(`.header__switchbutton-sun`)
+    let Moon = document.querySelector(`.header__switchbutton-moon`)
     let Enlace = document.querySelector(`.header__enlace`)
     let Icono = document.querySelector(`.header__icon-image`)
 
     document.addEventListener(`click`, evento => {
-        if (evento.target.matches(Boton)) {
+        if (evento.target.matches(`.header__switchbutton-label`)) {
             Buttoon.classList.toggle(`active`)
 
             if (Buttoon.classList.contains(`active`)) {

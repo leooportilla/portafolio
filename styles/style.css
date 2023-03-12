@@ -57,7 +57,6 @@ body main .header {
   justify-content: space-between;
   align-items: center;
   width: 75vw;
-  height: 5vh;
   margin: auto;
   padding-top: 5vh;
 }
@@ -108,6 +107,7 @@ body main .header__switchbutton-label.active {
 body main .header__switchbutton-label.active::after {
   left: unset;
   right: 0.3rem;
+  background-color: #000000;
 }
 body main .header__icon {
   display: none;
@@ -156,23 +156,20 @@ body main .header__enlace a:hover::after {
   top: 0;
 }
 body main .principal {
-  width: 100%;
-  height: 95vh;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  width: 75%;
+  height: 90vh;
+  margin: auto;
 }
 body main .principal__biography {
   display: flex;
   flex-direction: row;
-  gap: 4rem;
-  margin-top: 20vh;
+  justify-content: center;
+  gap: 5rem;
+  padding-top: 10vh;
 }
 body main .principal__biography-title {
-  width: 50rem;
-}
-body main .principal__biography-title .red {
-  color: #c92d2d;
+  width: 100%;
+  max-width: 50rem;
 }
 body main .principal__biography-title-greetings {
   font-family: Secular Uno;
@@ -201,6 +198,9 @@ body main .principal__biography-title-summary {
   font-size: 1rem;
   text-align: justify;
 }
+body main .principal__biography .red {
+  color: #c92d2d;
+}
 body main .principal__biography-profile {
   display: flex;
   justify-content: center;
@@ -216,7 +216,8 @@ body main .principal__slide {
   justify-content: center;
   align-items: center;
   position: absolute;
-  margin-bottom: 1.5rem;
+  padding-bottom: 5vh;
+  left: 50%;
   bottom: 0;
   z-index: 480;
   cursor: pointer;
@@ -239,6 +240,7 @@ body main .principal__container {
   width: 100%;
   height: 25%;
   position: absolute;
+  left: 0;
   bottom: 0;
   z-index: 475;
 }
@@ -284,38 +286,75 @@ body main .hability {
   background-color: #a44700;
 }
 
-@media (max-width: 480px) {
-  body main {
-    overflow: hidden;
+@media (max-width: 1024px) {
+  body main .principal__biography {
+    padding-top: 15vh;
+  }
+  body main .principal__biography-title-greetings {
+    font-size: 2rem;
+  }
+  body main .principal__biography-title-name {
+    font-size: 3rem;
+  }
+  body main .principal__biography-title-summary {
+    font-size: 0.8rem;
+  }
+  body main .principal__biography-profile-wave {
+    width: 10rem;
+  }
+  body main .principal__container {
+    bottom: -1vh;
+  }
+}
+@media (max-width: 960px) {
+  body main .header {
+    width: 85vw;
+  }
+  body main .header__switchbutton-sun {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+  body main .header__switchbutton-moon {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+  body main .header__switchbutton-label {
+    width: 4rem;
+    height: 2.5rem;
+    border-radius: 1.5rem;
+  }
+  body main .header__switchbutton-label::after {
+    width: 1.9rem;
+    height: 1.9rem;
   }
   body main .header__icon {
     display: block;
     z-index: 600;
   }
   body main .header__icon-image {
-    width: 1.8rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
   body main .header__enlace {
     display: block;
     position: absolute;
     right: 0;
     top: 0;
-    width: 100%;
+    width: 0;
     height: 200vh;
-    padding-top: 10vh;
+    padding-top: 20vh;
     z-index: 550;
     background-color: #c92d2d;
-    transform: translateX(100%);
     transition: all 1s ease-in-out;
   }
   body main .header__enlace.active {
-    transform: translateX(0);
+    width: 100%;
   }
   body main .header__enlace a {
     width: 70%;
     margin: auto;
-    margin-bottom: 2rem;
-    font-size: 1rem;
+    padding: 2rem 0;
+    font-size: 2rem;
     transition: 0.3s ease all;
   }
   body main .header__enlace a::after {
@@ -325,27 +364,169 @@ body main .hability {
     color: #000000;
   }
   body main .principal {
+    width: 100%;
+    height: 95vh;
     position: relative;
   }
   body main .principal__biography {
+    width: 85vw;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    margin-top: 15vh;
+    gap: 10vh;
+    margin: auto;
+    padding-top: 10vh;
   }
   body main .principal__biography-title {
-    max-width: 75vw;
+    width: 100%;
   }
   body main .principal__biography-title-greetings {
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+  body main .principal__biography-title-name {
+    font-size: 4rem;
+  }
+  body main .principal__biography-title-summary {
+    max-width: 100%;
+    font-size: 0.8rem;
+  }
+  body main .principal__biography-profile-wave {
+    width: 10rem;
+  }
+  body main .principal__slide {
+    left: 45%;
+  }
+  body main .principal__container {
+    height: 30%;
+  }
+}
+@media (max-width: 768px) {
+  body main .header__switchbutton-sun {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  body main .header__switchbutton-moon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  body main .header__switchbutton-label {
+    width: 3rem;
+    height: 2rem;
+  }
+  body main .header__switchbutton-label::after {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  body main .header__icon-image {
+    width: 2rem;
+    height: 2rem;
+  }
+  body main .header__enlace a {
+    font-size: 1.5rem;
+  }
+  body main .principal__biography-title-greetings {
+    font-size: 2.5rem;
+  }
+  body main .principal__biography-title-name {
+    font-size: 3rem;
+  }
+  body main .principal__biography-title-summary {
+    max-width: 100%;
+    font-size: 0.8rem;
+  }
+  body main .principal__biography-profile-wave {
+    width: 10rem;
+  }
+  body main .principal__container {
+    height: 25%;
+  }
+}
+@media (max-width: 480px) {
+  body main .header__switchbutton-sun {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  body main .header__switchbutton-moon {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  body main .header__switchbutton-label {
+    width: 3.5rem;
+    height: 2rem;
+  }
+  body main .header__switchbutton-label::after {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  body main .header__icon-image {
+    width: 2rem;
+    height: 2rem;
+  }
+  body main .header__enlace a {
+    font-size: 1.5rem;
+  }
+  body main .principal__biography {
+    gap: 7vh;
+  }
+  body main .principal__biography-title-greetings {
+    font-size: 1.3rem;
+  }
+  body main .principal__biography-title-name {
+    font-size: 2.5rem;
+  }
+  body main .principal__biography-title-summary {
+    font-size: 0.5rem;
+  }
+  body main .principal__biography-profile-wave {
+    width: 8rem;
+  }
+  body main .principal__container {
+    height: 25%;
+  }
+}
+@media (max-width: 375px) {
+  body main .header {
+    width: 85vw;
+    padding-top: 3vh;
+  }
+  body main .header__switchbutton-sun {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  body main .header__switchbutton-moon {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  body main .header__switchbutton-label {
+    width: 3.5rem;
+    height: 2rem;
+  }
+  body main .header__switchbutton-label::after {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+  body main .header__icon-image {
+    width: 2rem;
+    height: 2rem;
+  }
+  body main .header__enlace a {
+    font-size: 1.2rem;
+  }
+  body main .principal__biography {
+    padding-top: 8vh;
+  }
+  body main .principal__biography-title-greetings {
+    font-size: 1.5rem;
   }
   body main .principal__biography-title-name {
     font-size: 2rem;
   }
   body main .principal__biography-title-summary {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
   }
   body main .principal__biography-profile-wave {
-    width: 10rem;
+    width: 8rem;
+  }
+  body main .principal__container {
+    height: 25%;
   }
 }/*# sourceMappingURL=style.css.map */
