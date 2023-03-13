@@ -6,6 +6,7 @@ import {
 } from "./menu.js";
 
 document.addEventListener(`DOMContentLoaded`, evento => {
-    Button()
     Menu()
 })
+
+Button()

@@ -68,8 +68,8 @@ body main .header__switchbutton {
   justify-content: center;
 }
 body main .header__switchbutton-sun {
-  width: 1rem;
-  height: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
 }
 body main .header__switchbutton-moon {
   width: 1rem;
