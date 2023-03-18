@@ -1,13 +1,14 @@
+let Buttoon = document.querySelector(`.header__switchbutton-label`)
+let Sun = document.querySelector(`.header__switchbutton-sun`)
+let Moon = document.querySelector(`.header__switchbutton-moon`)
+let Enlace = document.querySelector(`.header__enlace`)
+let Icono = document.querySelector(`.header__icon-image`)
+let Flecha = document.querySelector(`.principal__slide-image`)
+let Dark = document.querySelectorAll(`[data-dark]`)
+let Body = document.querySelector(`body`)
+
 export function Button() {
 
-    let Buttoon = document.querySelector(`.header__switchbutton-label`)
-    let Sun = document.querySelector(`.header__switchbutton-sun`)
-    let Moon = document.querySelector(`.header__switchbutton-moon`)
-    let Enlace = document.querySelector(`.header__enlace`)
-    let Icono = document.querySelector(`.header__icon-image`)
-    let Flecha = document.querySelector(`.principal__slide-image`)
-    let Dark = document.querySelectorAll(`[data-dark]`)
-    let Body = document.querySelector(`body`)
 
     function Light() {
         Sun.setAttribute("src", `./media/images/sun_dark.png`)

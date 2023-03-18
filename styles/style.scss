@@ -13,15 +13,14 @@
 
 //Colores
 $Colors: ("White": #ffffff,
-    "Grey": #9c9c9c,
+    "Grey": #bebebe,
     "Alice Blue": #eaf6ff,
     "Black": #000000,
     "Raisin Black": #232528,
-    "Orange": #ffa400,
-    "Grey Orange": #e07500,
-    "Dark Orange": #a44700,
-    "Red": #c92d2d,
-    "Podria": #1EA896,
+    "Red": #c82d2d,
+    "Red Light": #ae2629,
+    "Red Dark": #942025,
+    "Yellow": #F5B82E,
 );
 
 //Fuentes
@@ -131,7 +130,7 @@ body {
                     width: 2.7rem;
                     height: 1.5rem;
                     border-radius: 1rem;
-                    background-color: map-get($map: $Colors, $key: "Orange");
+                    background-color: map-get($map: $Colors, $key: "Red");
                     position: relative;
                     cursor: pointer;
 
@@ -147,12 +146,10 @@ body {
                         top: .25rem;
                         left: .3rem;
                         right: unset;
-                        box-shadow: 0px 0px 2px 2px map-get($map: $Colors, $key: "Black");
                         transition: .2s ease all;
                     }
 
                     &.active {
-                        background-color: map-get($map: $Colors, $key: "Orange");
 
                         &::after {
                             left: unset;
@@ -197,7 +194,7 @@ body {
                         content: "";
                         width: 100%;
                         height: 320%;
-                        background: map-get($map: $Colors, $key: "Orange");
+                        background: map-get($map: $Colors, $key: "Red");
                         position: absolute;
                         z-index: 450;
                         top: -110px;
@@ -226,9 +223,9 @@ body {
             &__biography {
                 display: flex;
                 flex-direction: row;
-                justify-content: center;
+                justify-content: flex-end;
                 gap: 5rem;
-                padding-top: 10vh;
+                padding-top: 20vh;
 
                 &-title {
                     width: 100%;
@@ -251,7 +248,7 @@ body {
 
                         & span {
                             font-family: map-get($map: $Fonts, $key: "Titan One");
-                            color: map-get($map: $Colors, $key: "Orange");
+                            color: map-get($map: $Colors, $key: "Yellow");
                             text-transform: uppercase;
                         }
                     }
@@ -330,7 +327,7 @@ body {
                     background-repeat: no-repeat;
                     background-size: cover;
                     background-position-x: 0%;
-                    animation: Move 500s infinite;
+                    animation: Move 300s infinite;
                     position: absolute;
                     bottom: 0;
                 }
@@ -343,7 +340,7 @@ body {
                     background-repeat: no-repeat;
                     background-size: cover;
                     background-position-x: 0%;
-                    animation: Move 300s reverse infinite;
+                    animation: Move 200s reverse infinite;
                     position: absolute;
                     bottom: 0;
                 }
@@ -356,7 +353,7 @@ body {
                     background-repeat: no-repeat;
                     background-size: cover;
                     background-position-x: 0%;
-                    animation: Move 900s alternate infinite;
+                    animation: Move 50s reverse infinite;
                     position: absolute;
                     bottom: 0;
                 }
@@ -366,7 +363,195 @@ body {
         & .hability {
             width: 100%;
             height: 100vh;
-            background-color: map-get($map: $Colors, $key: "Dark Orange");
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            column-gap: 2rem;
+            padding: 7rem 12.5vw 0 12.5vw;
+            background-color: map-get($map: $Colors, $key: "Blue Green");
+            background-image: url(../media/images/wave_about.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            &__about {
+                width: 70%;
+                display: flex;
+                flex-direction: column;
+
+                &-title {
+                    text-align: end;
+                    font-family: map-get($map: $Fonts, $key: "Titan One");
+                    color: map-get($map: $Colors, $key: "Yellow");
+                    letter-spacing: 2px;
+                    font-size: 3rem;
+                    margin-bottom: 2rem;
+
+                    & span {
+                        color: map-get($map: $Colors, $key: "Red");
+                    }
+                }
+
+                &-summary {
+                    text-align: justify;
+                    letter-spacing: 2px;
+                    font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                    color: map-get($map: $Colors, $key: "Grey");
+                    margin-bottom: 1rem;
+
+                    & span {
+                        color: map-get($map: $Colors, $key: "Yellow");
+                    }
+                }
+            }
+
+            &__skills {
+                width: 30%;
+                display: grid;
+                align-items: center;
+                grid-template-rows: repeat(auto-fit, 9rem);
+                grid-template-columns: repeat(auto-fit, 8rem);
+                gap: 2rem;
+                position: relative;
+                overflow: hidden;
+                padding: 2rem;
+
+                &-container {
+                    cursor: pointer;
+
+                    &-image {
+                        width: 100%;
+                    }
+
+                    &-title {
+                        text-align: center;
+                        letter-spacing: 2px;
+                        font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                        color: map-get($map: $Colors, $key: "Grey");
+                    }
+                }
+
+                &-active {
+                    position: absolute;
+                    width: 95%;
+                    height: 95%;
+                    background: #232528;
+                    border-radius: 10px;
+                    padding: 2rem;
+                    box-shadow: 0 0 10px 2px black;
+                    transform: translateX(-100%);
+                    transition: 1s ease all;
+                }
+
+                &-name {
+                    position: absolute;
+                    width: 95%;
+                    height: 95%;
+                    background: #232528;
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px 2px black;
+                    padding: 2rem;
+                    letter-spacing: 2px;
+                    transform: translateX(2%);
+                    transition: 1s ease all;
+
+                    &-icon {
+                        width: 1.5rem;
+                        position: absolute;
+                        right: 0;
+                        margin-right: 2rem;
+                        cursor: pointer;
+                    }
+
+                    &-title {
+                        font-family: map-get($map: $Fonts, $key: "Titan One");
+                        color: map-get($map: $Colors, $key: "Yellow");
+                        font-size: 1.3rem;
+                        margin-bottom: 2rem;
+
+                        & span {
+                            color: map-get($map: $Colors, $key: "Red");
+                        }
+                    }
+
+                    &-summary {
+                        font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                        color: map-get($map: $Colors, $key: "Grey");
+                        font-size: 0.7rem;
+                        letter-spacing: 1px;
+                        text-align: justify;
+                    }
+
+                    &-process {
+                        font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                        color: map-get($map: $Colors, $key: "Grey");
+                        font-size: 0.7rem;
+                        letter-spacing: 2px;
+                        margin-top: 2rem;
+                    }
+
+                    &-quantity {
+                        width: 100%;
+                        height: 0.5rem;
+                        background: map-get($map: $Colors, $key: "White");
+                        border-radius: 4px;
+                        position: relative;
+
+                        &-html {
+                            content: "";
+                            position: absolute;
+                            border-radius: 4px;
+                            width: 90%;
+                            height: 100%;
+                            background-color: map-get($map: $Colors, $key: "Red");
+                        }
+
+                        &-css {
+                            content: "";
+                            position: absolute;
+                            border-radius: 4px;
+                            width: 95%;
+                            height: 100%;
+                            background-color: map-get($map: $Colors, $key: "Red");
+                        }
+
+                        &-javascript {
+                            content: "";
+                            position: absolute;
+                            border-radius: 4px;
+                            width: 60%;
+                            height: 100%;
+                            background-color: map-get($map: $Colors, $key: "Red");
+                        }
+
+                        &-sass {
+                            content: "";
+                            position: absolute;
+                            border-radius: 4px;
+                            width: 95%;
+                            height: 100%;
+                            background-color: map-get($map: $Colors, $key: "Red");
+                        }
+
+                        &-githud {
+                            content: "";
+                            position: absolute;
+                            border-radius: 4px;
+                            width: 80%;
+                            height: 100%;
+                            background-color: map-get($map: $Colors, $key: "Red");
+                        }
+
+                        &-photoshop {
+                            content: "";
+                            position: absolute;
+                            border-radius: 4px;
+                            width: 40%;
+                            height: 100%;
+                            background-color: map-get($map: $Colors, $key: "Red");
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -529,6 +714,7 @@ body {
                 &__slide {
                     left: 45%;
                 }
+
                 &__container {
                     height: 30%;
                 }
@@ -637,12 +823,14 @@ body {
                         }
                     }
                 }
+
                 &__icon {
                     &-image {
                         width: 2rem;
                         height: 2rem;
                     }
                 }
+
                 &__enlace {
                     & a {
                         font-size: 1.5rem;
@@ -653,6 +841,7 @@ body {
             & .principal {
                 &__biography {
                     gap: 7vh;
+
                     &-title {
                         &-greetings {
                             font-size: 1.3rem;

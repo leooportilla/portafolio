@@ -1,8 +1,9 @@
+let Icono = document.querySelector(`.header__icon-image`)
+let Opcion = document.querySelector(`.header__enlace`)
+let Boton = document.querySelector(`.header__switchbutton-label`)
+
 export function Menu() {
 
-    let Icono = document.querySelector(`.header__icon-image`)
-    let Opcion = document.querySelector(`.header__enlace`)
-    let Boton = document.querySelector(`.header__switchbutton-label`)
 
     document.addEventListener(`click`, evento => {
 
