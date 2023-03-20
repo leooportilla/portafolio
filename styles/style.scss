@@ -366,23 +366,23 @@ body {
             display: flex;
             flex-direction: row;
             align-items: center;
-            column-gap: 2rem;
-            padding: 7rem 12.5vw 0 12.5vw;
+            padding: 7vh 12.5vw 5vh 12.5vw;
             background-color: map-get($map: $Colors, $key: "Blue Green");
             background-image: url(../media/images/wave_about.png);
             background-repeat: no-repeat;
             background-size: cover;
 
             &__about {
-                width: 70%;
+                width: 65%;
                 display: flex;
                 flex-direction: column;
+                padding-right: 2rem;
 
                 &-title {
                     text-align: end;
                     font-family: map-get($map: $Fonts, $key: "Titan One");
                     color: map-get($map: $Colors, $key: "Yellow");
-                    letter-spacing: 2px;
+                    letter-spacing: 0.125rem;
                     font-size: 3rem;
                     margin-bottom: 2rem;
 
@@ -392,8 +392,9 @@ body {
                 }
 
                 &-summary {
+                    font-size: 1rem;
                     text-align: justify;
-                    letter-spacing: 2px;
+                    letter-spacing: 0.125rem;
                     font-family: map-get($map: $Fonts, $key: "Secular Uno");
                     color: map-get($map: $Colors, $key: "Grey");
                     margin-bottom: 1rem;
@@ -405,26 +406,32 @@ body {
             }
 
             &__skills {
-                width: 30%;
+                width: 35%;
+                height: 90%;
                 display: grid;
                 align-items: center;
-                grid-template-rows: repeat(auto-fit, 9rem);
-                grid-template-columns: repeat(auto-fit, 8rem);
+                align-content: center;
+                grid-template-columns: repeat(2, 8rem);
+                grid-template-rows: repeat(3, 8rem);
                 gap: 2rem;
                 position: relative;
                 overflow: hidden;
                 padding: 2rem;
+                padding-right: 0;
 
                 &-container {
+                    width: 100%;
+                    height: 100%;
                     cursor: pointer;
 
                     &-image {
                         width: 100%;
+                        height: 100%;
                     }
 
                     &-title {
                         text-align: center;
-                        letter-spacing: 2px;
+                        letter-spacing: 0.125rem;
                         font-family: map-get($map: $Fonts, $key: "Secular Uno");
                         color: map-get($map: $Colors, $key: "Grey");
                     }
@@ -432,8 +439,8 @@ body {
 
                 &-active {
                     position: absolute;
-                    width: 95%;
-                    height: 95%;
+                    width: 96.5%;
+                    height: 96.5%;
                     background: #232528;
                     border-radius: 10px;
                     padding: 2rem;
@@ -444,13 +451,13 @@ body {
 
                 &-name {
                     position: absolute;
-                    width: 95%;
-                    height: 95%;
+                    width: 96.5%;
+                    height: 96.5%;
                     background: #232528;
                     border-radius: 10px;
                     box-shadow: 0 0 10px 2px black;
                     padding: 2rem;
-                    letter-spacing: 2px;
+                    letter-spacing: 0.125rem;
                     transform: translateX(2%);
                     transition: 1s ease all;
 
@@ -476,8 +483,8 @@ body {
                     &-summary {
                         font-family: map-get($map: $Fonts, $key: "Secular Uno");
                         color: map-get($map: $Colors, $key: "Grey");
-                        font-size: 0.7rem;
-                        letter-spacing: 1px;
+                        font-size: 0.85rem;
+                        letter-spacing: 0.1rem;
                         text-align: justify;
                     }
 
@@ -485,7 +492,7 @@ body {
                         font-family: map-get($map: $Fonts, $key: "Secular Uno");
                         color: map-get($map: $Colors, $key: "Grey");
                         font-size: 0.7rem;
-                        letter-spacing: 2px;
+                        letter-spacing: 0.125rem;
                         margin-top: 2rem;
                     }
 
@@ -560,17 +567,57 @@ body {
     color: map-get($map: $Colors, $key: "Raisin Black");
 }
 
+
+@media (max-width: map-get($Resolution, "Desktop")) {
+    body {
+        main {
+            & .hability {
+
+                &__about {
+                    width: 60%;
+
+                    &-title {
+                        font-size: 2rem;
+                    }
+
+                    &-summary {
+                        font-size: 0.8rem;
+                    }
+                }
+
+                &__skills {
+                    width: 40%;
+                    grid-template-columns: repeat(2, 7rem);
+                    grid-template-rows: repeat(3, 7rem);
+
+                    &-name {
+
+                        &-title {
+                            font-size: 1rem;
+                        }
+
+                        &-summary {
+                            font-size: 0.75rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: map-get($Resolution, "Laptop")) {
     body {
         main {
+
             & .principal {
                 &__biography {
-                    padding-top: 15vh;
+                    padding-top: 20vh;
 
                     &-title {
 
                         &-greetings {
-                            font-size: 2rem;
+                            font-size: 2.5rem;
                         }
 
                         &-name {
@@ -578,19 +625,52 @@ body {
                         }
 
                         &-summary {
-                            font-size: .8rem;
+                            font-size: 1rem;
                         }
                     }
 
                     &-profile {
                         &-wave {
-                            width: 10rem;
+                            width: 12rem;
                         }
                     }
                 }
+            }
 
-                &__container {
-                    bottom: -1vh;
+            & .hability {
+
+                &__about {
+                    width: 60%;
+
+                    &-title {
+                        font-size: 2rem;
+                    }
+
+                    &-summary {
+                        font-size: 0.8rem;
+                    }
+                }
+
+                &__skills {
+                    height: 75%;
+                    grid-template-columns: repeat(2, 6.5rem);
+                    grid-template-rows: repeat(3, 6.5rem);
+
+                    &-name {
+
+                        &-icon {
+                            width: 1.1rem;
+                        }
+
+                        &-title {
+                            font-size: 1.1rem;
+                            margin-bottom: 1rem;
+                        }
+
+                        &-summary {
+                            font-size: 0.7rem;
+                        }
+                    }
                 }
             }
         }
@@ -679,12 +759,12 @@ body {
                 position: relative;
 
                 &__biography {
-                    width: 85vw;
+                    width: 75vw;
                     display: flex;
                     flex-direction: column;
-                    gap: 10vh;
+                    gap: 1vh;
                     margin: auto;
-                    padding-top: 10vh;
+                    padding-top: 5vh;
 
                     &-title {
                         width: 100%;
@@ -699,14 +779,14 @@ body {
 
                         &-summary {
                             max-width: 100%;
-                            font-size: .8rem;
+                            font-size: 1rem;
                         }
                     }
 
                     &-profile {
 
                         &-wave {
-                            width: 10rem;
+                            width: 15rem;
                         }
                     }
                 }
@@ -714,9 +794,72 @@ body {
                 &__slide {
                     left: 45%;
                 }
+            }
 
-                &__container {
-                    height: 30%;
+            & .hability {
+                height: 100%;
+                flex-direction: column;
+                background-size: contain;
+
+
+                &__about {
+                    width: 100%;
+                    padding: 0;
+                    margin-bottom: 0;
+
+                    &-title {
+                        text-align: start;
+                        margin-top: 2rem;
+                        font-size: 2.5rem;
+                    }
+                }
+
+                &__skills {
+                    width: 100%;
+                    padding: 0;
+                    justify-items: center;
+                    grid-template-rows: repeat(2, 8rem);
+                    grid-template-columns: repeat(3, 8rem);
+                    justify-content: center;
+                    padding-top: 2rem;
+                    padding-bottom: 2rem;
+
+                    &-container {
+
+                        &-title {
+                            font-size: .6rem;
+                        }
+                    }
+
+                    &-active {
+                        width: 96%;
+                        height: 97%;
+                        transform: translateY(-102%);
+                    }
+
+                    &-name {
+                        padding: 1rem;
+                        width: 96%;
+                        height: 97%;
+                        transform: translateY(0);
+
+                        &-icon {
+                            width: 1.5rem;
+                        }
+
+                        &-title {
+                            font-size: 1.5rem;
+                            margin-bottom: 1rem;
+                        }
+
+                        &-summary {
+                            font-size: 0.8rem;
+                        }
+
+                        &-process {
+                            margin-top: .5rem;
+                        }
+                    }
                 }
             }
         }
@@ -768,11 +911,11 @@ body {
                 &__biography {
                     &-title {
                         &-greetings {
-                            font-size: 2.5rem;
+                            font-size: 3rem;
                         }
 
                         &-name {
-                            font-size: 3rem;
+                            font-size: 3.5rem;
                         }
 
                         &-summary {
@@ -791,6 +934,64 @@ body {
 
                 &__container {
                     height: 25%;
+                }
+            }
+
+            & .hability {
+
+                &__about {
+                    width: 100%;
+                    padding: 0;
+                    margin-bottom: 0;
+
+                    &-title {
+                        text-align: start;
+                        margin-top: 0rem;
+                        margin-bottom: 1rem;
+                        font-size: 2.5rem;
+                    }
+
+                    &-summary {
+                        font-size: 0.7rem;
+                    }
+                }
+
+                &__skills {
+                    width: 100%;
+                    justify-items: center;
+                    grid-template-rows: repeat(2, 6rem);
+                    grid-template-columns: repeat(3, 6rem);
+                    justify-content: center;
+
+                    &-active {
+                        width: 96%;
+                        height: 97%;
+                        transform: translateY(-102%);
+                    }
+
+                    &-name {
+                        width: 96%;
+                        height: 97%;
+                        transform: translateY(0);
+
+                        &-icon {
+                            width: 1rem;
+                            margin-right: 1rem;
+                        }
+
+                        &-title {
+                            font-size: 1rem;
+                            margin-bottom: .5rem;
+                        }
+
+                        &-summary {
+                            font-size: 0.55rem;
+                        }
+
+                        &-process {
+                            font-size: .6rem;
+                        }
+                    }
                 }
             }
         }
@@ -844,7 +1045,7 @@ body {
 
                     &-title {
                         &-greetings {
-                            font-size: 1.3rem;
+                            font-size: 2rem;
                         }
 
                         &-name {
@@ -852,22 +1053,54 @@ body {
                         }
 
                         &-summary {
-                            font-size: .5rem;
+                            font-size: .6rem;
                         }
                     }
 
                     &-profile {
 
                         &-wave {
-                            width: 8rem;
+                            width: 10rem;
                         }
                     }
                 }
+            }
 
-                &__container {
-                    height: 25%;
+            & .hability {
+
+                &__about {
+    
+                    &-title {
+                        font-size: 2rem;
+                    }
+                }
+
+                &__skills {
+                    grid-template-rows: repeat(2, 4.5rem);
+                    grid-template-columns: repeat(3, 4.5rem);
+
+                    &-name {
+
+                        &-title {
+                            font-size: 1rem;
+                            margin-bottom: .5rem;
+                        }
+
+                        &-summary {
+                            font-size: 0.45rem;
+                        }
+
+                        &-process {
+                            font-size: .6rem;
+                        }
+
+                        &-quantity {
+                            height: 0.3rem;
+                        }
+                    }
                 }
             }
+
         }
     }
 }
@@ -945,6 +1178,41 @@ body {
 
                 &__container {
                     height: 25%;
+                }
+            }
+
+            & .hability {
+
+                &__about {
+
+                    &-title {
+                        font-size: 1.5rem;
+                    }
+                }
+
+                &__skills {
+                    grid-template-rows: repeat(2, 3.5rem);
+                    grid-template-columns: repeat(3, 3.5rem);
+
+                    &-name {
+
+                        &-title {
+                            font-size: 1rem;
+                            margin-bottom: .5rem;
+                        }
+
+                        &-summary {
+                            font-size: 0.35rem;
+                        }
+
+                        &-process {
+                            font-size: .4rem;
+                        }
+
+                        &-quantity {
+                            height: 0.3rem;
+                        }
+                    }
                 }
             }
         }

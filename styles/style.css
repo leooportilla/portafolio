@@ -282,23 +282,22 @@ body main .hability {
   display: flex;
   flex-direction: row;
   align-items: center;
-  -moz-column-gap: 2rem;
-       column-gap: 2rem;
-  padding: 7rem 12.5vw 0 12.5vw;
+  padding: 7vh 12.5vw 5vh 12.5vw;
   background-image: url(../media/images/wave_about.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
 body main .hability__about {
-  width: 70%;
+  width: 65%;
   display: flex;
   flex-direction: column;
+  padding-right: 2rem;
 }
 body main .hability__about-title {
   text-align: end;
   font-family: Titan One;
   color: #F5B82E;
-  letter-spacing: 2px;
+  letter-spacing: 0.125rem;
   font-size: 3rem;
   margin-bottom: 2rem;
 }
@@ -306,8 +305,9 @@ body main .hability__about-title span {
   color: #c82d2d;
 }
 body main .hability__about-summary {
+  font-size: 1rem;
   text-align: justify;
-  letter-spacing: 2px;
+  letter-spacing: 0.125rem;
   font-family: Secular Uno;
   color: #bebebe;
   margin-bottom: 1rem;
@@ -316,32 +316,38 @@ body main .hability__about-summary span {
   color: #F5B82E;
 }
 body main .hability__skills {
-  width: 30%;
+  width: 35%;
+  height: 90%;
   display: grid;
   align-items: center;
-  grid-template-rows: repeat(auto-fit, 9rem);
-  grid-template-columns: repeat(auto-fit, 8rem);
+  align-content: center;
+  grid-template-columns: repeat(2, 8rem);
+  grid-template-rows: repeat(3, 8rem);
   gap: 2rem;
   position: relative;
   overflow: hidden;
   padding: 2rem;
+  padding-right: 0;
 }
 body main .hability__skills-container {
+  width: 100%;
+  height: 100%;
   cursor: pointer;
 }
 body main .hability__skills-container-image {
   width: 100%;
+  height: 100%;
 }
 body main .hability__skills-container-title {
   text-align: center;
-  letter-spacing: 2px;
+  letter-spacing: 0.125rem;
   font-family: Secular Uno;
   color: #bebebe;
 }
 body main .hability__skills-active {
   position: absolute;
-  width: 95%;
-  height: 95%;
+  width: 96.5%;
+  height: 96.5%;
   background: #232528;
   border-radius: 10px;
   padding: 2rem;
@@ -351,13 +357,13 @@ body main .hability__skills-active {
 }
 body main .hability__skills-name {
   position: absolute;
-  width: 95%;
-  height: 95%;
+  width: 96.5%;
+  height: 96.5%;
   background: #232528;
   border-radius: 10px;
   box-shadow: 0 0 10px 2px black;
   padding: 2rem;
-  letter-spacing: 2px;
+  letter-spacing: 0.125rem;
   transform: translateX(2%);
   transition: 1s ease all;
 }
@@ -380,15 +386,15 @@ body main .hability__skills-name-title span {
 body main .hability__skills-name-summary {
   font-family: Secular Uno;
   color: #bebebe;
-  font-size: 0.7rem;
-  letter-spacing: 1px;
+  font-size: 0.85rem;
+  letter-spacing: 0.1rem;
   text-align: justify;
 }
 body main .hability__skills-name-process {
   font-family: Secular Uno;
   color: #bebebe;
   font-size: 0.7rem;
-  letter-spacing: 2px;
+  letter-spacing: 0.125rem;
   margin-top: 2rem;
 }
 body main .hability__skills-name-quantity {
@@ -451,24 +457,67 @@ body main .hability__skills-name-quantity-photoshop {
   color: #232528;
 }
 
+@media (max-width: 1328px) {
+  body main .hability__about {
+    width: 60%;
+  }
+  body main .hability__about-title {
+    font-size: 2rem;
+  }
+  body main .hability__about-summary {
+    font-size: 0.8rem;
+  }
+  body main .hability__skills {
+    width: 40%;
+    grid-template-columns: repeat(2, 7rem);
+    grid-template-rows: repeat(3, 7rem);
+  }
+  body main .hability__skills-name-title {
+    font-size: 1rem;
+  }
+  body main .hability__skills-name-summary {
+    font-size: 0.75rem;
+  }
+}
 @media (max-width: 1024px) {
   body main .principal__biography {
-    padding-top: 15vh;
+    padding-top: 20vh;
   }
   body main .principal__biography-title-greetings {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   body main .principal__biography-title-name {
     font-size: 3rem;
   }
   body main .principal__biography-title-summary {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   body main .principal__biography-profile-wave {
-    width: 10rem;
+    width: 12rem;
   }
-  body main .principal__container {
-    bottom: -1vh;
+  body main .hability__about {
+    width: 60%;
+  }
+  body main .hability__about-title {
+    font-size: 2rem;
+  }
+  body main .hability__about-summary {
+    font-size: 0.8rem;
+  }
+  body main .hability__skills {
+    height: 75%;
+    grid-template-columns: repeat(2, 6.5rem);
+    grid-template-rows: repeat(3, 6.5rem);
+  }
+  body main .hability__skills-name-icon {
+    width: 1.1rem;
+  }
+  body main .hability__skills-name-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  body main .hability__skills-name-summary {
+    font-size: 0.7rem;
   }
 }
 @media (max-width: 960px) {
@@ -534,12 +583,12 @@ body main .hability__skills-name-quantity-photoshop {
     position: relative;
   }
   body main .principal__biography {
-    width: 85vw;
+    width: 75vw;
     display: flex;
     flex-direction: column;
-    gap: 10vh;
+    gap: 1vh;
     margin: auto;
-    padding-top: 10vh;
+    padding-top: 5vh;
   }
   body main .principal__biography-title {
     width: 100%;
@@ -552,16 +601,65 @@ body main .hability__skills-name-quantity-photoshop {
   }
   body main .principal__biography-title-summary {
     max-width: 100%;
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   body main .principal__biography-profile-wave {
-    width: 10rem;
+    width: 15rem;
   }
   body main .principal__slide {
     left: 45%;
   }
-  body main .principal__container {
-    height: 30%;
+  body main .hability {
+    height: 100%;
+    flex-direction: column;
+    background-size: contain;
+  }
+  body main .hability__about {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  body main .hability__about-title {
+    text-align: start;
+    margin-top: 2rem;
+    font-size: 2.5rem;
+  }
+  body main .hability__skills {
+    width: 100%;
+    padding: 0;
+    justify-items: center;
+    grid-template-rows: repeat(2, 8rem);
+    grid-template-columns: repeat(3, 8rem);
+    justify-content: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  body main .hability__skills-container-title {
+    font-size: 0.6rem;
+  }
+  body main .hability__skills-active {
+    width: 96%;
+    height: 97%;
+    transform: translateY(-102%);
+  }
+  body main .hability__skills-name {
+    padding: 1rem;
+    width: 96%;
+    height: 97%;
+    transform: translateY(0);
+  }
+  body main .hability__skills-name-icon {
+    width: 1.5rem;
+  }
+  body main .hability__skills-name-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  body main .hability__skills-name-summary {
+    font-size: 0.8rem;
+  }
+  body main .hability__skills-name-process {
+    margin-top: 0.5rem;
   }
 }
 @media (max-width: 768px) {
@@ -589,10 +687,10 @@ body main .hability__skills-name-quantity-photoshop {
     font-size: 1.5rem;
   }
   body main .principal__biography-title-greetings {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   body main .principal__biography-title-name {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
   body main .principal__biography-title-summary {
     max-width: 100%;
@@ -603,6 +701,51 @@ body main .hability__skills-name-quantity-photoshop {
   }
   body main .principal__container {
     height: 25%;
+  }
+  body main .hability__about {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  body main .hability__about-title {
+    text-align: start;
+    margin-top: 0rem;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+  }
+  body main .hability__about-summary {
+    font-size: 0.7rem;
+  }
+  body main .hability__skills {
+    width: 100%;
+    justify-items: center;
+    grid-template-rows: repeat(2, 6rem);
+    grid-template-columns: repeat(3, 6rem);
+    justify-content: center;
+  }
+  body main .hability__skills-active {
+    width: 96%;
+    height: 97%;
+    transform: translateY(-102%);
+  }
+  body main .hability__skills-name {
+    width: 96%;
+    height: 97%;
+    transform: translateY(0);
+  }
+  body main .hability__skills-name-icon {
+    width: 1rem;
+    margin-right: 1rem;
+  }
+  body main .hability__skills-name-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  body main .hability__skills-name-summary {
+    font-size: 0.55rem;
+  }
+  body main .hability__skills-name-process {
+    font-size: 0.6rem;
   }
 }
 @media (max-width: 480px) {
@@ -633,19 +776,36 @@ body main .hability__skills-name-quantity-photoshop {
     gap: 7vh;
   }
   body main .principal__biography-title-greetings {
-    font-size: 1.3rem;
+    font-size: 2rem;
   }
   body main .principal__biography-title-name {
     font-size: 2.5rem;
   }
   body main .principal__biography-title-summary {
-    font-size: 0.5rem;
+    font-size: 0.6rem;
   }
   body main .principal__biography-profile-wave {
-    width: 8rem;
+    width: 10rem;
   }
-  body main .principal__container {
-    height: 25%;
+  body main .hability__about-title {
+    font-size: 2rem;
+  }
+  body main .hability__skills {
+    grid-template-rows: repeat(2, 4.5rem);
+    grid-template-columns: repeat(3, 4.5rem);
+  }
+  body main .hability__skills-name-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  body main .hability__skills-name-summary {
+    font-size: 0.45rem;
+  }
+  body main .hability__skills-name-process {
+    font-size: 0.6rem;
+  }
+  body main .hability__skills-name-quantity {
+    height: 0.3rem;
   }
 }
 @media (max-width: 375px) {
@@ -693,5 +853,25 @@ body main .hability__skills-name-quantity-photoshop {
   }
   body main .principal__container {
     height: 25%;
+  }
+  body main .hability__about-title {
+    font-size: 1.5rem;
+  }
+  body main .hability__skills {
+    grid-template-rows: repeat(2, 3.5rem);
+    grid-template-columns: repeat(3, 3.5rem);
+  }
+  body main .hability__skills-name-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  body main .hability__skills-name-summary {
+    font-size: 0.35rem;
+  }
+  body main .hability__skills-name-process {
+    font-size: 0.4rem;
+  }
+  body main .hability__skills-name-quantity {
+    height: 0.3rem;
   }
 }
