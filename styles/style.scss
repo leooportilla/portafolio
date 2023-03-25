@@ -1,10 +1,12 @@
 //TODO: Fuentes
 @font-face {
+    font-display: swap;
     font-family: Secular Uno;
     src: url(../media/fonts/secular_uno.ttf);
 }
 
 @font-face {
+    font-display: swap;
     font-family: Titan One;
     src: url(../media/fonts/titan_one.ttf);
 }
@@ -14,11 +16,12 @@
 //Colores
 $Colors: ("White": #ffffff,
     "Grey": #bebebe,
-    "Alice Blue": #eaf6ff,
     "Black": #000000,
     "Raisin Black": #232528,
     "Red": #c82d2d,
+    "Dark Red": #AD1A20,
     "Yellow": #F5B82E,
+    "Blue": #3066be,
 );
 
 //Fuentes
@@ -422,11 +425,40 @@ body {
                     height: 100%;
                     cursor: pointer;
                     border-radius: 1.1rem;
-                    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+                    box-shadow: rgba(0, 0, 0, .2) 0px 5px 15px;
 
-                    &-image {
+                    & div{
                         width: 100%;
                         height: 100%;
+                        overflow: hidden;
+                        border-radius: 1.1rem;
+                        position: relative;
+                        margin-bottom: .3rem;
+                        z-index: 600;
+
+                        &::after {
+                            content: "";
+                            border-radius: 0px 0px 300px 300px;
+                            position: absolute;
+                            top: -20rem;
+                            left: 0;
+                            width: 100%;
+                            height: 150%;
+                            background-color: map-get($map: $Colors, $key: "White");
+                            z-index: 610;
+                            transition: 2s ease all;
+                        }
+
+                        &:hover::after {
+                            top: 0;
+                        }
+
+                        & img {
+                            width: 100%;
+                            height: 100%;
+                            position: relative;
+                            z-index: 850;
+                        }
                     }
 
                     &-title {
@@ -434,6 +466,7 @@ body {
                         letter-spacing: 0.125rem;
                         font-family: map-get($map: $Fonts, $key: "Secular Uno");
                         color: map-get($map: $Colors, $key: "White");
+
                     }
                 }
 
@@ -447,6 +480,7 @@ body {
                     box-shadow: 0 0 10px 2px black;
                     transform: translateX(-100%);
                     transition: 1s ease all;
+                    z-index: 650;
                 }
 
                 &-name {
@@ -460,6 +494,7 @@ body {
                     letter-spacing: 0.125rem;
                     transform: translateX(2%);
                     transition: 1s ease all;
+                    z-index: 650;
 
                     &-icon {
                         width: 1.5rem;
