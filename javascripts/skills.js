@@ -77,7 +77,6 @@ export function Skills() {
 
         if (evento.target.matches(`.hability__skills-name-icon`)) {
             Container.classList.toggle(`hability__skills-name`)
-
             setTimeout(() => {
                 Container.innerHTML = ``
             }, 700);

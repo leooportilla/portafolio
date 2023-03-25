@@ -334,7 +334,7 @@ body main .hability__skills-container {
   height: 100%;
   cursor: pointer;
   border-radius: 1.1rem;
-  box-shadow: rgba(35, 37, 40, 0.2) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
 }
 body main .hability__skills-container-image {
   width: 100%;
