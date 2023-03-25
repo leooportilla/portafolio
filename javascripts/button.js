@@ -7,6 +7,11 @@ let Flecha      = document.querySelector(`.principal__slide-image`)
 let Dark        = document.querySelectorAll(`[data-dark]`)
 let Body        = document.querySelector(`body`)
 let SubBody     = document.querySelector(`.hability__skills-active`)
+let Summary     = document.querySelector(`.principal__biography-title-summary`)
+let Instagram   = document.querySelector(`.instagram`)
+let Linkedin    = document.querySelector(`.linkedin`)
+let GitHud      = document.querySelector(`.githud`)
+let Arrow       = document.querySelector(`.title__container-link-arrow`)
 let Description
 let Process
 let SubIcon
@@ -17,9 +22,14 @@ export function Button() {
         Sun.setAttribute("src", `./media/images/sun_dark.png`)
         Moon.setAttribute("src", `./media/images/moon_dark.png`)
         Flecha.setAttribute("src", `./media/images/slide_dark.png`)
+        Arrow.setAttribute("src", `./media/images/arrow_dark.png`)
+        Instagram.setAttribute("src", `./media/images/instragram_dark.png`)
+        Linkedin.setAttribute("src", `./media/images/linkedin_dark.png`)
+        GitHud.setAttribute("src", `./media/images/githud_dark.png`)
 
         Body.style.backgroundColor = `#ffffff`
         SubBody.style.backgroundColor = `#ffffff`
+        Summary.style.color = `#232528`
         Dark.forEach(elemento => elemento.setAttribute(`id`, `dark`))
 
         if (SubBody.classList.contains(`hability__skills-name`)) {
@@ -44,9 +54,14 @@ export function Button() {
         Sun.setAttribute("src", `./media/images/sun_light.png`)
         Moon.setAttribute("src", `./media/images/moon_light.png`)
         Flecha.setAttribute("src", `./media/images/slide_light.png`)
+        Arrow.setAttribute("src", `./media/images/arrow_light.png`)
+        Instagram.setAttribute("src", `./media/images/instragram_light.png`)
+        Linkedin.setAttribute("src", `./media/images/linkedin_light.png`)
+        GitHud.setAttribute("src", `./media/images/githud_light.png`)
 
         Body.style.backgroundColor = `#232528`
         SubBody.style.backgroundColor = `#232528`
+        Summary.style.color = `#bebebe`
         Dark.forEach(elemento => elemento.setAttribute(`id`, ``))
         
         if (SubBody.classList.contains(`hability__skills-name`)) {
