@@ -18,8 +18,6 @@ $Colors: ("White": #ffffff,
     "Black": #000000,
     "Raisin Black": #232528,
     "Red": #c82d2d,
-    "Red Light": #ae2629,
-    "Red Dark": #942025,
     "Yellow": #F5B82E,
 );
 
@@ -396,7 +394,7 @@ body {
                     text-align: justify;
                     letter-spacing: 0.125rem;
                     font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                    color: map-get($map: $Colors, $key: "Grey");
+                    color: map-get($map: $Colors, $key: "White");
                     margin-bottom: 1rem;
 
                     & span {
@@ -423,6 +421,8 @@ body {
                     width: 100%;
                     height: 100%;
                     cursor: pointer;
+                    border-radius: 1.1rem;
+                    box-shadow: rgb(35, 37, 40,.2) 0px 5px 15px;
 
                     &-image {
                         width: 100%;
@@ -433,7 +433,7 @@ body {
                         text-align: center;
                         letter-spacing: 0.125rem;
                         font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                        color: map-get($map: $Colors, $key: "Grey");
+                        color: map-get($map: $Colors, $key: "White");
                     }
                 }
 
@@ -482,7 +482,6 @@ body {
 
                     &-summary {
                         font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                        color: map-get($map: $Colors, $key: "Grey");
                         font-size: 0.85rem;
                         letter-spacing: 0.1rem;
                         text-align: justify;
@@ -490,7 +489,6 @@ body {
 
                     &-process {
                         font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                        color: map-get($map: $Colors, $key: "Grey");
                         font-size: 0.7rem;
                         letter-spacing: 0.125rem;
                         margin-top: 2rem;
@@ -1069,7 +1067,7 @@ body {
             & .hability {
 
                 &__about {
-    
+
                     &-title {
                         font-size: 2rem;
                     }

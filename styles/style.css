@@ -309,7 +309,7 @@ body main .hability__about-summary {
   text-align: justify;
   letter-spacing: 0.125rem;
   font-family: Secular Uno;
-  color: #bebebe;
+  color: #ffffff;
   margin-bottom: 1rem;
 }
 body main .hability__about-summary span {
@@ -333,6 +333,8 @@ body main .hability__skills-container {
   width: 100%;
   height: 100%;
   cursor: pointer;
+  border-radius: 1.1rem;
+  box-shadow: rgba(35, 37, 40, 0.2) 0px 5px 15px;
 }
 body main .hability__skills-container-image {
   width: 100%;
@@ -342,7 +344,7 @@ body main .hability__skills-container-title {
   text-align: center;
   letter-spacing: 0.125rem;
   font-family: Secular Uno;
-  color: #bebebe;
+  color: #ffffff;
 }
 body main .hability__skills-active {
   position: absolute;
@@ -385,14 +387,12 @@ body main .hability__skills-name-title span {
 }
 body main .hability__skills-name-summary {
   font-family: Secular Uno;
-  color: #bebebe;
   font-size: 0.85rem;
   letter-spacing: 0.1rem;
   text-align: justify;
 }
 body main .hability__skills-name-process {
   font-family: Secular Uno;
-  color: #bebebe;
   font-size: 0.7rem;
   letter-spacing: 0.125rem;
   margin-top: 2rem;
