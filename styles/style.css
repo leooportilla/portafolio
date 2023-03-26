@@ -199,6 +199,8 @@ body main .principal__biography-title-summary {
 body main .principal__biography-title .title__container {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  width: 70%;
   margin-top: 1rem;
 }
 body main .principal__biography-title .title__container-link {
@@ -207,8 +209,8 @@ body main .principal__biography-title .title__container-link {
   align-items: center;
   justify-content: flex-start;
   padding-left: 1rem;
-  margin-right: 1.5rem;
-  width: 10rem;
+  margin-right: 2rem;
+  width: 100%;
   height: 2.5rem;
   background-color: #3066be;
   border-radius: 1rem;
@@ -533,6 +535,24 @@ body main .hability__skills-name-quantity-photoshop {
 }
 
 @media (max-width: 1328px) {
+  body main .principal__biography-title-greetings {
+    font-size: 1.7rem;
+  }
+  body main .principal__biography-title-name {
+    font-size: 2.8rem;
+  }
+  body main .principal__biography-title-summary {
+    font-size: 0.8rem;
+  }
+  body main .principal__biography-title .title__container {
+    width: 100%;
+  }
+  body main .principal__biography-title .title__container-link {
+    margin-right: 1rem;
+  }
+  body main .principal__biography-profile-wave {
+    width: 13rem;
+  }
   body main .hability__about {
     width: 60%;
   }
@@ -559,13 +579,13 @@ body main .hability__skills-name-quantity-photoshop {
     padding-top: 20vh;
   }
   body main .principal__biography-title-greetings {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   body main .principal__biography-title-name {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   body main .principal__biography-title-summary {
-    font-size: 1rem;
+    font-size: 0.7rem;
   }
   body main .principal__biography-profile-wave {
     width: 12rem;
@@ -600,29 +620,29 @@ body main .hability__skills-name-quantity-photoshop {
     width: 85vw;
   }
   body main .header__switchbutton-sun {
-    width: 1.7rem;
-    height: 1.7rem;
+    width: 1.5rem;
+    height: 1.5rem;
   }
   body main .header__switchbutton-moon {
-    width: 1.7rem;
-    height: 1.7rem;
+    width: 1.5rem;
+    height: 1.5rem;
   }
   body main .header__switchbutton-label {
-    width: 4rem;
-    height: 2.5rem;
+    width: 3.5rem;
+    height: 2rem;
     border-radius: 1.5rem;
   }
   body main .header__switchbutton-label::after {
-    width: 1.9rem;
-    height: 1.9rem;
+    width: 1.5rem;
+    height: 1.5rem;
   }
   body main .header__icon {
     display: block;
     z-index: 600;
   }
   body main .header__icon-image {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
+    height: 2rem;
   }
   body main .header__enlace {
     display: block;
@@ -669,17 +689,40 @@ body main .hability__skills-name-quantity-photoshop {
     width: 100%;
   }
   body main .principal__biography-title-greetings {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
   body main .principal__biography-title-name {
-    font-size: 4rem;
+    font-size: 3rem;
   }
   body main .principal__biography-title-summary {
     max-width: 100%;
-    font-size: 1rem;
+    font-size: 0.8rem;
+  }
+  body main .principal__biography-title .title__container {
+    gap: 1rem;
+  }
+  body main .principal__biography-title .title__container-link {
+    margin: 0;
+    padding: 0;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    justify-content: center;
+  }
+  body main .principal__biography-title .title__container-link-red {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0;
+  }
+  body main .principal__biography-title .title__container-link-title {
+    display: none;
+  }
+  body main .principal__biography-title .title__container-link-arrow {
+    display: none;
   }
   body main .principal__biography-profile-wave {
-    width: 15rem;
+    width: 13rem;
   }
   body main .principal__slide {
     left: 45%;
@@ -762,10 +805,10 @@ body main .hability__skills-name-quantity-photoshop {
     font-size: 1.5rem;
   }
   body main .principal__biography-title-greetings {
-    font-size: 3rem;
+    font-size: 2rem;
   }
   body main .principal__biography-title-name {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
   }
   body main .principal__biography-title-summary {
     max-width: 100%;
@@ -854,10 +897,10 @@ body main .hability__skills-name-quantity-photoshop {
     font-size: 2rem;
   }
   body main .principal__biography-title-name {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
   body main .principal__biography-title-summary {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
   body main .principal__biography-profile-wave {
     width: 10rem;

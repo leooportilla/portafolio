@@ -11,7 +11,7 @@ let Summary     = document.querySelector(`.principal__biography-title-summary`)
 let Instagram   = document.querySelector(`.instagram`)
 let Linkedin    = document.querySelector(`.linkedin`)
 let GitHud      = document.querySelector(`.githud`)
-let Arrow       = document.querySelector(`.title__container-link-arrow`)
+let Arrow       = document.querySelectorAll(`.title__container-link-arrow`)
 let Description
 let Process
 let SubIcon
@@ -22,15 +22,15 @@ export function Button() {
         Sun.setAttribute("src", `./media/images/sun_dark.png`)
         Moon.setAttribute("src", `./media/images/moon_dark.png`)
         Flecha.setAttribute("src", `./media/images/slide_dark.png`)
-        Arrow.setAttribute("src", `./media/images/arrow_dark.png`)
         Instagram.setAttribute("src", `./media/images/instragram_dark.png`)
         Linkedin.setAttribute("src", `./media/images/linkedin_dark.png`)
         GitHud.setAttribute("src", `./media/images/githud_dark.png`)
-
+        
         Body.style.backgroundColor = `#ffffff`
         SubBody.style.backgroundColor = `#ffffff`
         Summary.style.color = `#232528`
         Dark.forEach(elemento => elemento.setAttribute(`id`, `dark`))
+        Arrow.forEach(elemento => elemento.setAttribute(`src`, `./media/images/arrow_dark.png`))
 
         if (SubBody.classList.contains(`hability__skills-name`)) {
             SubIcon      = document.querySelector(`.hability__skills-name-icon`)
@@ -42,7 +42,9 @@ export function Button() {
             Process.style.color = `#232528`
         }
 
-        Enlace.classList.contains(`active`) ? Icono.setAttribute(`src`, `./media/images/close_dark.png`): Icono.setAttribute(`src`, `./media/images/menu_dark.png`)
+        Enlace.classList.contains(`active`) 
+        ? Icono.setAttribute(`src`, `./media/images/close_dark.png`)
+        : Icono.setAttribute(`src`, `./media/images/menu_dark.png`)
     }
 
     function MoodLight() {
@@ -54,7 +56,6 @@ export function Button() {
         Sun.setAttribute("src", `./media/images/sun_light.png`)
         Moon.setAttribute("src", `./media/images/moon_light.png`)
         Flecha.setAttribute("src", `./media/images/slide_light.png`)
-        Arrow.setAttribute("src", `./media/images/arrow_light.png`)
         Instagram.setAttribute("src", `./media/images/instragram_light.png`)
         Linkedin.setAttribute("src", `./media/images/linkedin_light.png`)
         GitHud.setAttribute("src", `./media/images/githud_light.png`)
@@ -63,6 +64,7 @@ export function Button() {
         SubBody.style.backgroundColor = `#232528`
         Summary.style.color = `#bebebe`
         Dark.forEach(elemento => elemento.setAttribute(`id`, ``))
+        Arrow.forEach(elemento => elemento.setAttribute(`src`, `./media/images/arrow_light.png`))
         
         if (SubBody.classList.contains(`hability__skills-name`)) {
             SubIcon     = document.querySelector(`.hability__skills-name-icon`)

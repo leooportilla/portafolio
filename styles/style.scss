@@ -268,6 +268,8 @@ body {
                         &__container {
                             display: flex;
                             flex-direction: row;
+                            justify-content: flex-start;
+                            width: 70%;
                             margin-top: 1rem;
 
                             &-link{
@@ -276,8 +278,8 @@ body {
                                 align-items: center;
                                 justify-content: flex-start;
                                 padding-left: 1rem;
-                                margin-right: 1.5rem;
-                                width: 10rem;
+                                margin-right: 2rem;
+                                width: 100%;
                                 height: 2.5rem;
                                 background-color: map-get($map: $Colors, $key: "Blue");
                                 border-radius: 1rem;
@@ -659,6 +661,46 @@ body {
 @media (max-width: map-get($Resolution, "Desktop")) {
     body {
         main {
+
+            & .principal {
+    
+                &__biography {
+    
+                    &-title {
+    
+                        &-greetings {
+                            font-size: 1.7rem;
+                        }
+    
+                        &-name {
+                            font-size: 2.8rem;
+                        }
+    
+                        &-summary {
+                            font-size: .8rem;
+                        }
+    
+                        .title {
+    
+                            &__container {
+                                width: 100%;
+    
+                                &-link{
+                                    margin-right: 1rem;
+                                }
+                            }
+                        }
+                    }
+    
+                    &-profile {
+    
+                        &-wave {
+                            width: 13rem;
+                        }
+                    }
+                }
+            }
+
             & .hability {
 
                 &__about {
@@ -705,15 +747,15 @@ body {
                     &-title {
 
                         &-greetings {
-                            font-size: 2.5rem;
+                            font-size: 2rem;
                         }
 
                         &-name {
-                            font-size: 3rem;
+                            font-size: 2.5rem;
                         }
 
                         &-summary {
-                            font-size: 1rem;
+                            font-size: .7rem;
                         }
                     }
 
@@ -774,23 +816,23 @@ body {
 
                 &__switchbutton {
                     &-sun {
-                        width: 1.7rem;
-                        height: 1.7rem;
+                        width: 1.5rem;
+                        height: 1.5rem;
                     }
 
                     &-moon {
-                        width: 1.7rem;
-                        height: 1.7rem;
+                        width: 1.5rem;
+                        height: 1.5rem;
                     }
 
                     &-label {
-                        width: 4rem;
-                        height: 2.5rem;
+                        width: 3.5rem;
+                        height: 2rem;
                         border-radius: 1.5rem;
 
                         &::after {
-                            width: 1.9rem;
-                            height: 1.9rem;
+                            width: 1.5rem;
+                            height: 1.5rem;
                         }
                     }
                 }
@@ -800,8 +842,8 @@ body {
                     z-index: 600;
 
                     &-image {
-                        width: 2.5rem;
-                        height: 2.5rem;
+                        width: 2rem;
+                        height: 2rem;
                     }
                 }
 
@@ -858,23 +900,54 @@ body {
                         width: 100%;
 
                         &-greetings {
-                            font-size: 2.5rem;
+                            font-size: 1.8rem;
                         }
 
                         &-name {
-                            font-size: 4rem;
+                            font-size: 3rem;
                         }
 
                         &-summary {
                             max-width: 100%;
-                            font-size: 1rem;
+                            font-size: .8rem;
+                        }
+
+                        .title {
+
+                            &__container {
+                                gap: 1rem;
+    
+                                &-link{
+                                    margin: 0;
+                                    padding: 0;
+                                    width: 3rem;
+                                    height: 3rem;
+                                    border-radius: 50%;
+                                    overflow: hidden;
+                                    justify-content: center;
+        
+                                    &-red {
+                                        width: 1.2rem;
+                                        height: 1.2rem;
+                                        margin: 0;
+                                    }
+        
+                                    &-title {
+                                        display: none;
+                                    }
+        
+                                    &-arrow {
+                                        display: none;
+                                    }
+                                }
+                            }
                         }
                     }
 
                     &-profile {
 
                         &-wave {
-                            width: 15rem;
+                            width: 13rem;
                         }
                     }
                 }
@@ -999,11 +1072,11 @@ body {
                 &__biography {
                     &-title {
                         &-greetings {
-                            font-size: 3rem;
+                            font-size: 2rem;
                         }
 
                         &-name {
-                            font-size: 3.5rem;
+                            font-size: 2.5rem;
                         }
 
                         &-summary {
@@ -1137,11 +1210,11 @@ body {
                         }
 
                         &-name {
-                            font-size: 2.5rem;
+                            font-size: 2.2rem;
                         }
 
                         &-summary {
-                            font-size: .6rem;
+                            font-size: .7rem;
                         }
                     }
 
