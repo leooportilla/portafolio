@@ -6,82 +6,99 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- * Titulo de la ventana -->
     <title>Portafolio - Leonardo Portilla</title>
+
+    <!-- * Enlaces a docuemntos -->
     <link rel="icon" href="./media/images/portfolio.png">
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
+    <!-- * Section de navegacion del usuario -->
+    <header class="header">
 
+        <!-- TODO: Boton para modo oscuro -->
+        <div class="header__switchbutton">
+            <img loading="lazy" class="header__switchbutton-moon" src="./media/images/moon_light.png" alt="Icono del luna">
+            <input class="header__switchbutton-checkbox" id="switch" type="checkbox" name="label">
+            <label class="header__switchbutton-label" for="switch"></label>
+            <img loading="lazy" class="header__switchbutton-sun" src="./media/images/sun_light.png" alt="Icono del sol">
+        </div>
+
+        <!-- TODO: Iconos para identificar en que modo esta actualmente -->
+        <div class="header__icon" id="icono">
+            <img loading="lazy" class="header__icon-image" src="./media/images/menu_light.png" alt="">
+        </div>
+
+        <!-- TODO: Enlaces para desplazar por la web -->
+        <div class="header__enlace">
+            <a class="header__enlace-a" href="#about" data-dark><span>ACERCA</span></a>
+            <a class="header__enlace-a" href="#project" data-dark><span>PROYECTOS</span></a>
+            <a class="header__enlace-a" href="#contact" data-dark><span>CONTACTO</span></a>
+        </div>
+
+
+    </header>
+
+    <!-- * Contenido completo de la web -->
     <main>
-        <header class="header">
 
-            <div class="header__switchbutton">
-                <img class="header__switchbutton-moon" src="./media/images/moon_light.png" alt="Icono del luna">
-                <input class="header__switchbutton-checkbox" id="switch" type="checkbox" name="label">
-                <label class="header__switchbutton-label" for="switch"></label>
-                <img class="header__switchbutton-sun" src="./media/images/sun_light.png" alt="Icono del sol">
-            </div>
-
-            <div class="header__icon" id="icono">
-                <img class="header__icon-image" src="./media/images/menu_light.png" alt="">
-            </div>
-
-            <div class="header__enlace">
-                <a class="header__enlace-a" href="#about" data-dark><span class="header__enlace-a">ACERCA</span></a>
-                <a class="header__enlace-a" href="#project" data-dark><span
-                        class="header__enlace-a">PROYECTOS</span></a>
-                <a class="header__enlace-a" href="#contact" data-dark><span class="header__enlace-a">CONTACTO</span></a>
-            </div>
-
-
-        </header>
-
+        <!-- TODO: Section principal, foto de perfil y enlaces a mis redes -->
         <section class="principal">
 
+            <!-- ! Contenido de la informacion, foto y enlaces -->
             <div class="principal__biography">
 
+                <!-- ? Contenido de la imagen de perfil -->
                 <div class="principal__biography-profile">
-                    <img class="principal__biography-profile-wave" src="./media/images/wave_profile.png"
+                    <img loading="lazy" src="./media/images/wave_profile.png"
                         alt="Circulo de fondo para foto de perfil">
                 </div>
 
-                <div class="principal__biography-title">
-                    <h3 class="principal__biography-title-greetings" data-dark>Saludo<span class="red">!</span></h3>
-                    <h1 class="principal__biography-title-name" data-dark>Soy <span>Leonardo Portilla</span><span
-                            class="red">,</span> un gusto</h1>
-                    <p class="principal__biography-title-summary">Frontend Developer❗<br> Apasionado por el mundo del
-                        desarrollo web.</p>
-                    
-                    <div class="title__container">
-                        <a class="title__container-link" href="https://www.instagram.com/leooportilla/" target="_blank">
-                            <img class="title__container-link-red instagram" src="./media/images/instragram_light.png" alt="Instagram de Leonardo Portilla">
-                            <h6 class="title__container-link-title" data-dark>Instagram</h6>
-                            <img class="title__container-link-arrow" src="./media/images/arrow_light.png" alt="Flecha">
+                <!-- ? Contanido de la informacion  -->
+                <!-- ? Agregre nueva bloque de clase -->
+                <div class="principal__biography-headline headline">
+                    <h2 class="headline__greetings" data-dark>Saludo<span class="red">!</span></h2>
+                    <h1 class="headline__name" data-dark>Soy <span>Leonardo Portilla</span><span class="red">,</span> un
+                        gusto</h1>
+                    <p class="headline__summary">Frontend Developer❗<br> Apasionado por el mundo del desarrollo web.</p>
+
+                    <div class="headline__container">
+                        <a class="headline__container-link" href="https://www.instagram.com/leooportilla/" target="_blank">
+                            <img loading="lazy" class="instagram" src="./media/images/instragram_light.png"
+                                alt="Instagram de Leonardo Portilla">
+                            <h6 data-dark>Instagram</h6>
+                            <img loading="lazy" class="arrow" src="./media/images/arrow_light.png" alt="Flecha">
                         </a>
 
-                        <a class="title__container-link" href="https://www.linkedin.com/in/leooportilla" target="_blank">
-                            <img class="title__container-link-red linkedin" src="./media/images/linkedin_light.png" alt="Linkedin de Leonardo Portilla">
-                            <h6 class="title__container-link-title" data-dark>Linkedin</h6>
-                            <img class="title__container-link-arrow" src="./media/images/arrow_light.png" alt="Flecha">
+                        <a class="headline__container-link" href="https://www.linkedin.com/in/leooportilla"
+                            target="_blank">
+                            <img loading="lazy" class="linkedin" src="./media/images/linkedin_light.png"
+                                alt="Linkedin de Leonardo Portilla">
+                            <h6 data-dark>Linkedin</h6>
+                            <img loading="lazy" class="arrow" src="./media/images/arrow_light.png" alt="Flecha">
                         </a>
 
-                        <a class="title__container-link" href="https://github.com/leooportilla" target="_blank">
-                            <img class="title__container-link-red githud" src="./media/images/githud_light.png" alt="GitHud de Leonardo Portilla">
-                            <h6 class="title__container-link-title" data-dark>GitHud</h6>
-                            <img class="title__container-link-arrow" src="./media/images/arrow_light.png" alt="Flecha">
+                        <a class="headline__container-link" href="https://github.com/leooportilla" target="_blank">
+                            <img loading="lazy" class="githud" src="./media/images/githud_light.png"
+                                alt="GitHud de Leonardo Portilla">
+                            <h6 data-dark>GitHud</h6>
+                            <img loading="lazy" class="arrow" src="./media/images/arrow_light.png" alt="Flecha">
                         </a>
                     </div>
                 </div>
 
             </div>
 
+            <!-- ! Enlace para desplazar hacia la primera section de la web -->
             <a class="principal__slide" href="#about">
                 <h6 class="principal__slide-title" data-dark>Desliza</h6>
-                <img class="principal__slide-image" src="./media/images/slide_light.png"
+                <img loading="lazy" class="principal__slide-image" src="./media/images/slide_light.png"
                     alt="Icono de flecha hacia abajo">
             </a>
 
+            <!-- ! Disenio de fondo animado -->
             <div class="principal__container">
                 <div class="principal__container-one"></div>
                 <div class="principal__container-two"></div>
@@ -90,8 +107,10 @@
 
         </section>
 
+        <!-- TODO: Section donde estan informacion acerca de mi, tanto de mis habilidades como mi experiencia -->
         <section id="about" class="hability">
 
+            <!-- ! Contenido de texto sobre mi experiencia de aprendizaje -->
             <div class="hability__about">
                 <h3 class="hability__about-title">Acerca de Mi <span>!</span></h3>
 
@@ -110,7 +129,8 @@
                     <span>GitHud</span>, extender las bases de la logica en la programacion, preprocesadores como Sass.
                 </p>
 
-                <p class="hability__about-summary" data-dark>Estoy comprometido a aprender y crecer en el campo del desarrollo
+                <p class="hability__about-summary" data-dark>Estoy comprometido a aprender y crecer en el campo del
+                    desarrollo
                     frontend y estoy dispuesto a
                     trabajar duro para alcanzar mis objetivos profesionales. Me encantaria trabajar en equipo y estoy
                     emocionado de colaborar con otros desarrolladores, diseñadores y miembros del equipo para crear
@@ -123,64 +143,69 @@
                     usuario posible para tus usuarios.</p>
             </div>
 
+            <!-- ! Contenido de mis habilidades -->
             <div class="hability__skills">
 
+                <!-- ? Tarjeta de HTML -->
                 <div class="hability__skills-container">
 
                     <div>
-                        <img class="html" src="./media/images/html.png"
-                        alt="Logotipo de HTML">
+                        <img loading="lazy" class="html" src="./media/images/html.png" alt="Logotipo de HTML">
                     </div>
 
-                    <h5 class="hability__skills-container-title html" data-dark>HTML</h5>
+                    <h5 class="html" data-dark>HTML</h5>
                 </div>
 
+                <!-- ? Tarjeta de CSS -->
                 <div class="hability__skills-container">
                     <div>
-                        <img class="css" src="./media/images/css.png"
-                            alt="Logotipo de CSS">
+                        <img loading="lazy" class="css" src="./media/images/css.png" alt="Logotipo de CSS">
                     </div>
-                    <h5 class="hability__skills-container-title css" data-dark>CSS</h5>
+                    <h5 class="css" data-dark>CSS</h5>
                 </div>
 
+                <!-- ? Tarjeta de Sass -->
                 <div class="hability__skills-container">
                     <div>
-                        <img class="sass" src="./media/images/sass.png"
-                            alt="Logotipo de Sass">
+                        <img loading="lazy" class="sass" src="./media/images/sass.png" alt="Logotipo de Sass">
                     </div>
-                    <h5 class="hability__skills-container-title sass" data-dark>Sass</h5>
+                    <h5 class="sass" data-dark>Sass</h5>
                 </div>
 
+                <!-- ? Tarjeta de JavaScripts -->
                 <div class="hability__skills-container">
                     <div>
-                        <img class="javascript" src="./media/images/javascript.png"
+                        <img loading="lazy" class="javascript" src="./media/images/javascript.png"
                             alt="Logotipo de Javascripts">
                     </div>
-                    <h5 class="hability__skills-container-title javascript" data-dark>JavaScript</h5>
+                    <h5 class="javascript" data-dark>JavaScript</h5>
                 </div>
 
+                <!-- ? Tarjeta de Git Hud -->
                 <div class="hability__skills-container">
                     <div>
-                        <img class="githud" src="./media/images/githud.png"
-                            alt="Logotipo de Git Hud">
+                        <img loading="lazy" class="githud" src="./media/images/githud.png" alt="Logotipo de Git Hud">
                     </div>
-                    <h5 class="hability__skills-container-title githud" data-dark>Git Hud</h5>
+                    <h5 class="githud" data-dark>Git Hud</h5>
                 </div>
 
+                <!-- ? Tarjeta de Photoshop -->
                 <div class="hability__skills-container">
                     <div>
-                        <img class="photoshop" src="./media/images/photoshop.png"
+                        <img loading="lazy" class="photoshop" src="./media/images/photoshop.png"
                             alt="Logotipo de Photoshop">
                     </div>
-                    <h5 class="hability__skills-container-title photoshop" data-dark>Photoshop</h5>
+                    <h5 class="photoshop" data-dark>Photoshop</h5>
                 </div>
-                
-                <div class="hability__skills-active"></div>
+
+                <!-- ? Panel de informacion de cada lenguaje o preprocesadores -->
+                <div class="hability__skills-hover"></div>
             </div>
 
         </section>
     </main>
 
+    <!-- * Enlace a documento de JavaScript -->
     <script src="./javascripts/index.js" type="module"></script>
 </body>
 

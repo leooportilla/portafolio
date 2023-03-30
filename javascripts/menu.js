@@ -1,25 +1,29 @@
-let Opcion = document.querySelector(`.header__enlace`)
-let Icono  = document.querySelector(`.header__icon-image`)
-let Boton  = document.querySelector(`.header__switchbutton-label`)
+const Opcion = document.querySelector(`.header__enlace`)
+const Icono  = document.querySelector(`.header__icon-image`)
+const Boton  = document.querySelector(`.header__switchbutton-label`)
 
 export function Menu() {
 
+    //* Cuando se de un click al icono de hamburguesa
     document.addEventListener(`click`, evento => {
 
+        //! Evalua si el click proviene del icono, si lo es le agrego la clase .active para abrir el menu
         if (evento.target.matches(`.header__icon-image`)) {
-            Opcion.classList.toggle(`active`)
+            Opcion.classList.toggle(`open`)
 
-            if (Opcion.classList.contains(`active`)) {
-                Boton.classList.contains(`active`) ? Icono.setAttribute(`src`, `./media/images/close_dark.png`) : Icono.setAttribute(`src`, `./media/images/close_light.png`)
+            //! If para poder cambiar los iconos en torno al modo oscuro
+            if (Opcion.classList.contains(`open`)) {
+                Boton.classList.contains(`open`) ? Icono.setAttribute(`src`, `./media/images/close_dark.png`) : Icono.setAttribute(`src`, `./media/images/close_light.png`)
                
             } else {
-                Boton.classList.contains(`active`) ? Icono.setAttribute(`src`, `./media/images/menu_dark.png`) : Icono.setAttribute(`src`, `./media/images/menu_light.png`)
+                Boton.classList.contains(`open`) ? Icono.setAttribute(`src`, `./media/images/menu_dark.png`) : Icono.setAttribute(`src`, `./media/images/menu_light.png`)
             }
         }
 
+        //! Si se selecciona una opcion, cerrar el menu inmediato
         if (evento.target.matches(`.header__enlace-a`)) {
-            Opcion.classList.remove(`active`)
-            Boton.classList.contains(`active`) ? Icono.setAttribute(`src`, `./media/images/menu_dark.png`) : Icono.setAttribute(`src`, `./media/images/menu_light.png`)
+            Opcion.classList.remove(`open`)
+            Boton.classList.contains(`open`) ? Icono.setAttribute(`src`, `./media/images/menu_dark.png`) : Icono.setAttribute(`src`, `./media/images/menu_light.png`)
         }
     })
 }

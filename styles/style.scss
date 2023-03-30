@@ -1,3 +1,5 @@
+@use "./normalize.scss";
+
 //TODO: Fuentes
 @font-face {
     font-display: swap;
@@ -11,9 +13,8 @@
     src: url(../media/fonts/titan_one.ttf);
 }
 
-//TODO: Variables
-
-//Colores
+// TODO: Variables
+//* Colores
 $Colors: ("White": #ffffff,
     "Grey": #bebebe,
     "Black": #000000,
@@ -23,13 +24,11 @@ $Colors: ("White": #ffffff,
     "Yellow": #F5B82E,
     "Blue": #3066be,
 );
-
-//Fuentes
+//* Fuentes
 $Fonts: ("Secular Uno": Secular Uno,
     "Titan One": Titan One,
 );
-
-// Resolucion
+//* Resolucion
 $Resolution: ("MovilSmall": 375px,
     "MovilStandard": 480px,
     "TabletSmall": 768px,
@@ -38,9 +37,10 @@ $Resolution: ("MovilSmall": 375px,
     "Desktop": 1328px,
 );
 
-//TODO: Funciones
+//TODO: Los Mixin
 
 //TODO: Key Frames
+//* Animacion para enlace con texto "Desliza"
 @keyframes SwipeUp {
     0% {
         bottom: 0;
@@ -55,6 +55,7 @@ $Resolution: ("MovilSmall": 375px,
     }
 }
 
+//* Animacion para el fondo de la section principal
 @keyframes Move {
     0% {
         background-position-x: 1%;
@@ -70,19 +71,12 @@ $Resolution: ("MovilSmall": 375px,
 }
 
 //TODO: Principal
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
 body {
     width: 100%;
     height: 100%;
     background-color: map-get($map: $Colors, $key: "Raisin Black");
 
-
+    //* Disenio para barra de scroll
     &::-webkit-scrollbar {
         width: 5px;
         background: transparent;
@@ -92,1288 +86,1360 @@ body {
         background-color: map-get($map: $Colors, $key: "Red");
         border-radius: 5px;
     }
+}
 
-    main {
-        width: 100%;
-        height: 100%;
+//* Contenido del header
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75vw;
+    margin: auto;
+    padding-top: 5vh;
 
-        & .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 75vw;
-            margin: auto;
-            padding-top: 5vh;
+    &__switchbutton {
+        outline: none;
+        display: flex;
+        gap: 0.4rem;
+        align-items: center;
+        justify-content: center;
 
-            &__switchbutton {
-                outline: none;
-                display: flex;
-                gap: 0.4rem;
-                align-items: center;
-                justify-content: center;
+        &-sun {
+            width: 1.2rem;
+            height: 1.2rem;
+        }
 
-                &-sun {
-                    width: 1.2rem;
-                    height: 1.2rem;
-                }
+        &-moon {
+            width: 1rem;
+            height: 1rem;
+        }
 
-                &-moon {
-                    width: 1rem;
-                    height: 1rem;
-                }
+        &-checkbox {
+            display: none;
+        }
 
-                &-checkbox {
-                    display: none;
-                }
-
-                &-label {
-                    display: inline-block;
-                    width: 2.7rem;
-                    height: 1.5rem;
-                    border-radius: 1rem;
-                    background-color: map-get($map: $Colors, $key: "Red");
-                    position: relative;
-                    cursor: pointer;
+        &-label {
+            display: inline-block;
+            width: 2.7rem;
+            height: 1.5rem;
+            border-radius: 1rem;
+            background-color: map-get($map: $Colors, $key: "Red");
+            position: relative;
+            cursor: pointer;
 
 
-                    &::after {
-                        content: "";
-                        display: block;
-                        width: 1rem;
-                        height: 1rem;
-                        border-radius: 50%;
-                        background-color: map-get($map: $Colors, $key: "White");
-                        position: absolute;
-                        top: .25rem;
-                        left: .3rem;
-                        right: unset;
-                        transition: .2s ease all;
-                    }
-
-                    &.active {
-
-                        &::after {
-                            left: unset;
-                            right: .3rem;
-                            background-color: map-get($map: $Colors, $key: "Black")
-                        }
-                    }
-                }
+            &::after {
+                content: "";
+                display: block;
+                width: 1rem;
+                height: 1rem;
+                border-radius: 50%;
+                background-color: map-get($map: $Colors, $key: "White");
+                position: absolute;
+                top: .25rem;
+                left: .3rem;
+                right: unset;
+                transition: .2s ease all;
             }
 
-            &__icon {
-                display: none;
-            }
+            .active {
 
-            &__enlace {
-                display: flex;
-
-                & a {
-                    text-decoration: none;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    letter-spacing: 1.5px;
-                    width: 100%;
-                    font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                    color: map-get($map: $Colors, $key: "White");
-                    background: transparent;
-                    font-size: 1rem;
-                    padding: 0.3rem 1rem;
-                    border-radius: 1rem;
-                    position: relative;
-                    cursor: pointer;
-                    overflow: hidden;
-                    transition: .3s ease all;
-
-                    & span {
-                        position: relative;
-                        z-index: 500;
-                    }
-
-                    &::after {
-                        content: "";
-                        width: 100%;
-                        height: 320%;
-                        background: map-get($map: $Colors, $key: "Red");
-                        position: absolute;
-                        z-index: 450;
-                        top: -110px;
-                        left: 0;
-                        transition: .6s ease-in-out all;
-                        border-radius: 0px 0px 300px 300px;
-
-                    }
-
-                    &:hover {
-                        color: map-get($map: $Colors, $key: "Raisin Black");
-                    }
-
-                    &:hover::after {
-                        top: 0;
-                    }
+                &::after {
+                    left: unset;
+                    right: .3rem;
+                    background-color: map-get($map: $Colors, $key: "Black")
                 }
             }
         }
+    }
 
-        & .principal {
-            width: 75%;
-            height: 90vh;
-            margin: auto;
+    &__icon {
+        display: none;
+    }
 
-            &__biography {
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-end;
-                gap: 5rem;
-                padding-top: 20vh;
+    &__enlace {
+        display: flex;
 
-                &-title {
-                    width: 100%;
-                    max-width: 50rem;
+        & a {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 1.5px;
+            width: 9rem;
+            font-family: map-get($map: $Fonts, $key: "Secular Uno");
+            color: map-get($map: $Colors, $key: "White");
+            background: transparent;
+            font-size: 1rem;
+            padding: 0.3rem 1rem;
+            border-radius: .9rem;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            z-index: 925;
+            transition: .3s ease all;
 
-                    &-greetings {
-                        font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                        color: map-get($map: $Colors, $key: "White");
-                        letter-spacing: 2px;
-                        font-size: 2rem;
-                    }
+            & span {
+                position: relative;
+                z-index: 950;
+            }
 
-                    &-name {
-                        font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                        color: map-get($map: $Colors, $key: "White");
-                        letter-spacing: 2px;
-                        font-size: 4rem;
-                        line-height: 1;
-                        margin-bottom: 2rem;
+            &::after {
+                content: "";
+                width: 100%;
+                height: 320%;
+                background: map-get($map: $Colors, $key: "Red");
+                position: absolute;
+                z-index: 975;
+                top: -320%;
+                left: 0;
+                transition: .6s ease-in-out all;
+                border-radius: 0px 0px 300px 300px;
 
-                        & span {
-                            font-family: map-get($map: $Fonts, $key: "Titan One");
-                            color: map-get($map: $Colors, $key: "Yellow");
-                            text-transform: uppercase;
-                        }
-                    }
+            }
 
-                    &-summary {
-                        font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                        color: map-get($map: $Colors, $key: "Grey");
-                        max-width: 45rem;
-                        letter-spacing: 2px;
-                        font-size: 1rem;
-                        text-align: justify;
-                    }
+            &:hover {
+                color: map-get($map: $Colors, $key: "Raisin Black");
+            }
 
-                    .title {
+            &:hover::after {
+                top: 0;
+            }
+        }
+    }
+}
 
-                        &__container {
-                            display: flex;
-                            flex-direction: row;
-                            justify-content: flex-start;
-                            width: 70%;
-                            margin-top: 1rem;
+//* todo el contenido de la web
+.principal {
+    width: 75%;
+    height: 90vh;
+    margin: auto;
 
-                            &-link{
-                                text-decoration: none;
-                                display: flex;
-                                align-items: center;
-                                justify-content: flex-start;
-                                padding-left: 1rem;
-                                margin-right: 2rem;
-                                width: 100%;
-                                height: 2.5rem;
-                                background-color: map-get($map: $Colors, $key: "Blue");
-                                border-radius: 1rem;
-                                position: relative;
+    &__biography {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 5rem;
+        padding-top: 20vh;
 
-                                &:hover .title__container-link-arrow {
-                                    right: 1rem;
-                                    opacity: 1;
-                                }
+        &-profile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-                                &:hover {
-                                    justify-content: flex-start;
-                                }
-    
-                                &-red {
-                                    width: 1.2rem;
-                                    height: 1.2rem;
-                                    margin-right: .5rem;
-                                }
-    
-                                &-title {
-                                    font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                                    color: map-get($map: $Colors, $key: "White");
-                                    font-size: .8rem;
-                                    letter-spacing: 2px;
-                                    margin-top: .1rem;
-                                }
-    
-                                &-arrow {
-                                    width: .5em;
-                                    height: 1rem;
-                                    position: absolute;
-                                    right: 10rem;
-                                    opacity: 0;
-                                    transition: .5s ease-in-out all;
-                                }
-                            }
-                        }
-                    }
-                }
+            & img {
+                width: 15rem;
+            }
+        }
 
-                & .red {
-                    color: map-get($map: $Colors, $key: "Red");
-                }
+        .headline {
+            width: 100%;
+            max-width: 50rem;
 
-                &-profile {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
+            &__greetings {
+                font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                color: map-get($map: $Colors, $key: "White");
+                letter-spacing: 2px;
+                font-size: 2rem;
+            }
 
-                    &-wave {
-                        width: 15rem;
-                    }
+            &__name {
+                font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                color: map-get($map: $Colors, $key: "White");
+                letter-spacing: 2px;
+                font-size: 4rem;
+                line-height: 1;
+                margin-bottom: 2rem;
+
+                & span {
+                    font-family: map-get($map: $Fonts, $key: "Titan One");
+                    color: map-get($map: $Colors, $key: "Yellow");
+                    text-transform: uppercase;
                 }
             }
 
-            &__slide {
-                text-decoration: none;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                position: absolute;
-                padding-bottom: 5vh;
-                left: 50%;
-                bottom: 0;
-                z-index: 480;
-                cursor: pointer;
-                animation: SwipeUp 2s infinite;
+            &__summary {
+                font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                color: map-get($map: $Colors, $key: "Grey");
+                max-width: 45rem;
+                letter-spacing: 2px;
+                font-size: 1rem;
+                text-align: justify;
+            }
 
-                &-title {
-                    font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                    color: map-get($map: $Colors, $key: "White");
-                    font-size: 1rem;
-                    margin-bottom: 0.5rem;
-                }
-
-                &-image {
-                    width: 1.5rem;
-                    height: 0.6rem;
-
-                }
-
-                &:hover {
-                    transform: scale(1.1);
-                }
-
+            .red {
+                color: map-get($map: $Colors, $key: "Red");
             }
 
             &__container {
-                width: 100%;
-                height: 25%;
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                z-index: 475;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                width: 70%;
+                margin-top: 1rem;
 
-                &-one {
+                &-link {
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    padding-left: 1rem;
+                    margin-right: 2rem;
                     width: 100%;
-                    height: 100%;
-                    overflow: hidden;
-                    background-image: url(../media/images/wave_one.png);
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    background-position-x: 0%;
-                    animation: Move 300s infinite;
-                    position: absolute;
-                    bottom: 0;
-                }
+                    height: 2.5rem;
+                    background-color: map-get($map: $Colors, $key: "Blue");
+                    border-radius: 1rem;
+                    position: relative;
 
-                &-two {
-                    width: 100%;
-                    height: 100%;
-                    overflow: hidden;
-                    background-image: url(../media/images/wave_two.png);
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    background-position-x: 0%;
-                    animation: Move 200s reverse infinite;
-                    position: absolute;
-                    bottom: 0;
-                }
+                    &:hover .arrow {
+                        right: 1rem;
+                        opacity: 1;
+                    }
 
-                &-three {
-                    width: 100%;
-                    height: 100%;
-                    overflow: hidden;
-                    background-image: url(../media/images/wave_three.png);
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    background-position-x: 0%;
-                    animation: Move 50s reverse infinite;
-                    position: absolute;
-                    bottom: 0;
+                    &:hover {
+                        justify-content: flex-start;
+                    }
+
+                    & img {
+                        width: 1.2rem;
+                        height: 1.2rem;
+                        margin-right: .5rem;
+                    }
+
+                    & h6 {
+                        font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                        color: map-get($map: $Colors, $key: "White");
+                        font-size: .8rem;
+                        letter-spacing: 2px;
+                        margin-top: .1rem;
+                    }
+
+                    .arrow {
+                        width: .5em;
+                        height: 1rem;
+                        position: absolute;
+                        right: 10rem;
+                        opacity: 0;
+                        margin: 0;
+                        transition: .5s ease-in-out all;
+                    }
                 }
             }
         }
 
-        & .hability {
+    }
+
+    &__slide {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        padding-bottom: 5vh;
+        left: 50%;
+        bottom: 0;
+        z-index: 800;
+        cursor: pointer;
+        animation: SwipeUp 2s infinite;
+
+        &-title {
+            font-family: map-get($map: $Fonts, $key: "Secular Uno");
+            color: map-get($map: $Colors, $key: "White");
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        &-image {
+            width: 1.5rem;
+            height: 100%;
+
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+    }
+
+    &__container {
+        width: 100%;
+        height: 25%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 750;
+
+        &-one {
             width: 100%;
-            height: 100vh;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            padding: 7vh 12.5vw 5vh 12.5vw;
-            background-color: map-get($map: $Colors, $key: "Blue Green");
-            background-image: url(../media/images/wave_about.png);
+            height: 100%;
+            overflow: hidden;
+            background-image: url(../media/images/wave_one.png);
             background-repeat: no-repeat;
             background-size: cover;
+            background-position-x: 0%;
+            animation: Move 300s infinite;
+            position: absolute;
+            bottom: 0;
+        }
 
-            &__about {
-                width: 65%;
-                display: flex;
-                flex-direction: column;
-                padding-right: 2rem;
+        &-two {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-image: url(../media/images/wave_two.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position-x: 0%;
+            animation: Move 200s reverse infinite;
+            position: absolute;
+            bottom: 0;
+        }
 
-                &-title {
-                    text-align: end;
-                    font-family: map-get($map: $Fonts, $key: "Titan One");
-                    color: map-get($map: $Colors, $key: "Yellow");
-                    letter-spacing: 0.125rem;
-                    font-size: 3rem;
-                    margin-bottom: 2rem;
+        &-three {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-image: url(../media/images/wave_three.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position-x: 0%;
+            animation: Move 50s reverse infinite;
+            position: absolute;
+            bottom: 0;
+        }
+    }
+}
 
-                    & span {
-                        color: map-get($map: $Colors, $key: "Red");
-                    }
+.hability {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 7vh 12.5vw 5vh 12.5vw;
+    background-color: map-get($map: $Colors, $key: "Blue Green");
+    background-image: url(../media/images/wave_about.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &__about {
+        width: 65%;
+        display: flex;
+        flex-direction: column;
+        padding-right: 2rem;
+
+        &-title {
+            text-align: end;
+            font-family: map-get($map: $Fonts, $key: "Titan One");
+            color: map-get($map: $Colors, $key: "Yellow");
+            letter-spacing: 0.125rem;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+
+            & span {
+                color: map-get($map: $Colors, $key: "Red");
+            }
+        }
+
+        &-summary {
+            font-size: 1rem;
+            text-align: justify;
+            letter-spacing: 0.125rem;
+            font-family: map-get($map: $Fonts, $key: "Secular Uno");
+            color: map-get($map: $Colors, $key: "White");
+            margin-bottom: 1rem;
+
+            & span {
+                color: map-get($map: $Colors, $key: "Yellow");
+            }
+        }
+    }
+
+    &__skills {
+        width: 35%;
+        height: 90%;
+        display: grid;
+        align-items: center;
+        align-content: center;
+        grid-template-columns: repeat(2, 8rem);
+        grid-template-rows: repeat(3, 8rem);
+        gap: 2rem;
+        position: relative;
+        overflow: hidden;
+        padding: 2rem;
+        padding-right: 0;
+
+        &-container {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            border-radius: 1.1rem;
+            box-shadow: rgba(0, 0, 0, .2) 0px 5px 15px;
+
+            & div {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                border-radius: 1.1rem;
+                position: relative;
+                margin-bottom: .3rem;
+                z-index: 750;
+
+                &::after {
+                    content: "";
+                    border-radius: 0px 0px 300px 300px;
+                    position: absolute;
+                    top: -12rem;
+                    left: 0;
+                    width: 100%;
+                    height: 150%;
+                    background-color: map-get($map: $Colors, $key: "White");
+                    z-index: 725;
+                    transition: 2s ease all;
                 }
 
-                &-summary {
-                    font-size: 1rem;
-                    text-align: justify;
-                    letter-spacing: 0.125rem;
-                    font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                    color: map-get($map: $Colors, $key: "White");
-                    margin-bottom: 1rem;
+                &:hover::after {
+                    top: 0;
+                }
 
-                    & span {
-                        color: map-get($map: $Colors, $key: "Yellow");
-                    }
+                & img {
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+                    z-index: 750;
                 }
             }
 
-            &__skills {
-                width: 35%;
-                height: 90%;
-                display: grid;
-                align-items: center;
-                align-content: center;
-                grid-template-columns: repeat(2, 8rem);
-                grid-template-rows: repeat(3, 8rem);
-                gap: 2rem;
+            & h5 {
+                text-align: center;
+                letter-spacing: 0.125rem;
+                font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                color: map-get($map: $Colors, $key: "White");
+
+            }
+        }
+
+        &-hover {
+            position: absolute;
+            width: 96.5%;
+            height: 96.5%;
+            background: #232528;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 0 10px 2px black;
+            transform: translateX(-100%);
+            transition: 1s ease all;
+            z-index: 800;
+        }
+
+        .name {
+            position: absolute;
+            width: 96.5%;
+            height: 96.5%;
+            background: #232528;
+            border-radius: 10px;
+            box-shadow: 0 0 10px 2px black;
+            padding: 2rem;
+            letter-spacing: 0.125rem;
+            transform: translateX(2%);
+            transition: 1s ease all;
+            z-index: 850;
+
+            &__icon {
+                width: 1.5rem;
+                position: absolute;
+                right: 0;
+                margin-right: 2rem;
+                cursor: pointer;
+            }
+
+            &__title {
+                font-family: map-get($map: $Fonts, $key: "Titan One");
+                color: map-get($map: $Colors, $key: "Yellow");
+                font-size: 1.3rem;
+                margin-bottom: 2rem;
+
+                & span {
+                    color: map-get($map: $Colors, $key: "Red");
+                }
+            }
+
+            &__summary {
+                font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                font-size: 0.85rem;
+                letter-spacing: 0.1rem;
+                text-align: justify;
+            }
+
+            &__process {
+                font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                font-size: 0.7rem;
+                letter-spacing: 0.125rem;
+                margin-top: 2rem;
+            }
+
+            &__quantity {
+                width: 100%;
+                height: 0.5rem;
+                background: map-get($map: $Colors, $key: "White");
+                border-radius: 4px;
                 position: relative;
-                overflow: hidden;
-                padding: 2rem;
-                padding-right: 0;
 
-                &-container {
-                    width: 100%;
+                &-html {
+                    content: "";
+                    position: absolute;
+                    border-radius: 4px;
+                    width: 90%;
                     height: 100%;
-                    cursor: pointer;
-                    border-radius: 1.1rem;
-                    box-shadow: rgba(0, 0, 0, .2) 0px 5px 15px;
-
-                    & div{
-                        width: 100%;
-                        height: 100%;
-                        overflow: hidden;
-                        border-radius: 1.1rem;
-                        position: relative;
-                        margin-bottom: .3rem;
-                        z-index: 600;
-
-                        &::after {
-                            content: "";
-                            border-radius: 0px 0px 300px 300px;
-                            position: absolute;
-                            top: -12rem;
-                            left: 0;
-                            width: 100%;
-                            height: 150%;
-                            background-color: map-get($map: $Colors, $key: "White");
-                            z-index: 610;
-                            transition: 2s ease all;
-                        }
-
-                        &:hover::after {
-                            top: 0;
-                        }
-
-                        & img {
-                            width: 100%;
-                            height: 100%;
-                            position: relative;
-                            z-index: 850;
-                        }
-                    }
-
-                    &-title {
-                        text-align: center;
-                        letter-spacing: 0.125rem;
-                        font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                        color: map-get($map: $Colors, $key: "White");
-
-                    }
+                    background-color: map-get($map: $Colors, $key: "Red");
                 }
 
-                &-active {
+                &-css {
+                    content: "";
                     position: absolute;
-                    width: 96.5%;
-                    height: 96.5%;
-                    background: #232528;
-                    border-radius: 10px;
-                    padding: 2rem;
-                    box-shadow: 0 0 10px 2px black;
-                    transform: translateX(-100%);
-                    transition: 1s ease all;
-                    z-index: 650;
+                    border-radius: 4px;
+                    width: 95%;
+                    height: 100%;
+                    background-color: map-get($map: $Colors, $key: "Red");
                 }
 
-                &-name {
+                &-javascript {
+                    content: "";
                     position: absolute;
-                    width: 96.5%;
-                    height: 96.5%;
-                    background: #232528;
-                    border-radius: 10px;
-                    box-shadow: 0 0 10px 2px black;
-                    padding: 2rem;
-                    letter-spacing: 0.125rem;
-                    transform: translateX(2%);
-                    transition: 1s ease all;
-                    z-index: 650;
+                    border-radius: 4px;
+                    width: 60%;
+                    height: 100%;
+                    background-color: map-get($map: $Colors, $key: "Red");
+                }
 
-                    &-icon {
-                        width: 1.5rem;
-                        position: absolute;
-                        right: 0;
-                        margin-right: 2rem;
-                        cursor: pointer;
-                    }
+                &-sass {
+                    content: "";
+                    position: absolute;
+                    border-radius: 4px;
+                    width: 95%;
+                    height: 100%;
+                    background-color: map-get($map: $Colors, $key: "Red");
+                }
 
-                    &-title {
-                        font-family: map-get($map: $Fonts, $key: "Titan One");
-                        color: map-get($map: $Colors, $key: "Yellow");
-                        font-size: 1.3rem;
-                        margin-bottom: 2rem;
+                &-githud {
+                    content: "";
+                    position: absolute;
+                    border-radius: 4px;
+                    width: 80%;
+                    height: 100%;
+                    background-color: map-get($map: $Colors, $key: "Red");
+                }
 
-                        & span {
-                            color: map-get($map: $Colors, $key: "Red");
-                        }
-                    }
-
-                    &-summary {
-                        font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                        font-size: 0.85rem;
-                        letter-spacing: 0.1rem;
-                        text-align: justify;
-                    }
-
-                    &-process {
-                        font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                        font-size: 0.7rem;
-                        letter-spacing: 0.125rem;
-                        margin-top: 2rem;
-                    }
-
-                    &-quantity {
-                        width: 100%;
-                        height: 0.5rem;
-                        background: map-get($map: $Colors, $key: "White");
-                        border-radius: 4px;
-                        position: relative;
-
-                        &-html {
-                            content: "";
-                            position: absolute;
-                            border-radius: 4px;
-                            width: 90%;
-                            height: 100%;
-                            background-color: map-get($map: $Colors, $key: "Red");
-                        }
-
-                        &-css {
-                            content: "";
-                            position: absolute;
-                            border-radius: 4px;
-                            width: 95%;
-                            height: 100%;
-                            background-color: map-get($map: $Colors, $key: "Red");
-                        }
-
-                        &-javascript {
-                            content: "";
-                            position: absolute;
-                            border-radius: 4px;
-                            width: 60%;
-                            height: 100%;
-                            background-color: map-get($map: $Colors, $key: "Red");
-                        }
-
-                        &-sass {
-                            content: "";
-                            position: absolute;
-                            border-radius: 4px;
-                            width: 95%;
-                            height: 100%;
-                            background-color: map-get($map: $Colors, $key: "Red");
-                        }
-
-                        &-githud {
-                            content: "";
-                            position: absolute;
-                            border-radius: 4px;
-                            width: 80%;
-                            height: 100%;
-                            background-color: map-get($map: $Colors, $key: "Red");
-                        }
-
-                        &-photoshop {
-                            content: "";
-                            position: absolute;
-                            border-radius: 4px;
-                            width: 40%;
-                            height: 100%;
-                            background-color: map-get($map: $Colors, $key: "Red");
-                        }
-                    }
+                &-photoshop {
+                    content: "";
+                    position: absolute;
+                    border-radius: 4px;
+                    width: 40%;
+                    height: 100%;
+                    background-color: map-get($map: $Colors, $key: "Red");
                 }
             }
         }
     }
 }
 
+//* Clase para cambiar modo oscuro
 #dark {
     color: map-get($map: $Colors, $key: "Raisin Black");
 }
 
+//TODO: Media Query 
 
+//* 1328px
 @media (max-width: map-get($Resolution, "Desktop")) {
-    body {
-        main {
+    .principal {
 
-            & .principal {
-    
-                &__biography {
-    
-                    &-title {
-    
-                        &-greetings {
-                            font-size: 1.7rem;
-                        }
-    
-                        &-name {
-                            font-size: 2.8rem;
-                        }
-    
-                        &-summary {
-                            font-size: .8rem;
-                        }
-    
-                        .title {
-    
-                            &__container {
-                                width: 100%;
-    
-                                &-link{
-                                    margin-right: 1rem;
-                                }
-                            }
-                        }
-                    }
-    
-                    &-profile {
-    
-                        &-wave {
-                            width: 13rem;
-                        }
-                    }
+        &__biography {
+
+            &-profile {
+
+                & img {
+                    width: 13rem;
                 }
             }
 
-            & .hability {
+            .headline {
 
-                &__about {
-                    width: 60%;
-
-                    &-title {
-                        font-size: 2rem;
-                    }
-
-                    &-summary {
-                        font-size: 0.8rem;
-                    }
+                &__greetings {
+                    font-size: 1.7rem;
                 }
 
-                &__skills {
-                    width: 40%;
-                    grid-template-columns: repeat(2, 7rem);
-                    grid-template-rows: repeat(3, 7rem);
+                &__name {
+                    font-size: 2.8rem;
+                }
 
-                    &-name {
+                &__summary {
+                    font-size: .8rem;
+                }
 
-                        &-title {
-                            font-size: 1rem;
-                        }
 
-                        &-summary {
-                            font-size: 0.75rem;
-                        }
+                &__container {
+
+                    &-link {
+                        margin-right: 1rem;
                     }
                 }
             }
         }
     }
+
+    .hability {
+
+        &__about {
+            width: 60%;
+
+            &-title {
+                font-size: 2rem;
+            }
+
+            &-summary {
+                font-size: 0.8rem;
+            }
+        }
+
+        &__skills {
+            width: 40%;
+            grid-template-columns: repeat(2, 7rem);
+            grid-template-rows: repeat(3, 7rem);
+
+            .name {
+
+                &__title {
+                    font-size: 1rem;
+                }
+
+                &__summary {
+                    font-size: 0.75rem;
+                }
+            }
+        }
+    }
+
 }
 
+//* 1024px
 @media (max-width: map-get($Resolution, "Laptop")) {
-    body {
-        main {
+    .principal {
+        &__biography {
+            padding-top: 20vh;
 
-            & .principal {
-                &__biography {
-                    padding-top: 20vh;
-
-                    &-title {
-
-                        &-greetings {
-                            font-size: 2rem;
-                        }
-
-                        &-name {
-                            font-size: 2.5rem;
-                        }
-
-                        &-summary {
-                            font-size: .7rem;
-                        }
-                    }
-
-                    &-profile {
-                        &-wave {
-                            width: 12rem;
-                        }
-                    }
+            &-profile {
+                & img {
+                    width: 12rem;
                 }
             }
 
-            & .hability {
+            .headline {
 
-                &__about {
-                    width: 60%;
-
-                    &-title {
-                        font-size: 2rem;
-                    }
-
-                    &-summary {
-                        font-size: 0.8rem;
-                    }
+                &__greetings {
+                    font-size: 2rem;
                 }
 
-                &__skills {
-                    height: 75%;
-                    grid-template-columns: repeat(2, 6.5rem);
-                    grid-template-rows: repeat(3, 6.5rem);
+                &__name {
+                    font-size: 2.5rem;
+                }
 
-                    &-name {
-
-                        &-icon {
-                            width: 1.1rem;
-                        }
-
-                        &-title {
-                            font-size: 1.1rem;
-                            margin-bottom: 1rem;
-                        }
-
-                        &-summary {
-                            font-size: 0.7rem;
-                        }
-                    }
+                &__summary {
+                    font-size: .7rem;
                 }
             }
         }
     }
-}
 
-@media (max-width: map-get($Resolution, "TabletStandard")) {
+    .hability {
 
-    body {
-        main {
-            & .header {
-                width: 85vw;
+        &__about {
+            width: 60%;
 
-                &__switchbutton {
-                    &-sun {
-                        width: 1.5rem;
-                        height: 1.5rem;
-                    }
+            &-title {
+                font-size: 2rem;
+            }
 
-                    &-moon {
-                        width: 1.5rem;
-                        height: 1.5rem;
-                    }
+            &-summary {
+                font-size: 0.8rem;
+            }
+        }
 
-                    &-label {
-                        width: 3.5rem;
-                        height: 2rem;
-                        border-radius: 1.5rem;
+        &__skills {
+            height: 75%;
+            width: 40%;
+            grid-template-columns: repeat(2, 6.5rem);
+            grid-template-rows: repeat(3, 6.5rem);
 
-                        &::after {
-                            width: 1.5rem;
-                            height: 1.5rem;
-                        }
-                    }
-                }
+            .name {
 
                 &__icon {
-                    display: block;
-                    z-index: 600;
-
-                    &-image {
-                        width: 2rem;
-                        height: 2rem;
-                    }
+                    width: 1.1rem;
                 }
 
-                &__enlace {
+                &__title {
+                    font-size: 1.1rem;
+                    margin-bottom: 1rem;
+                }
 
-                    &.active {
-                        width: 100%;
-                    }
+                &__summary {
+                    font-size: 0.7rem;
+                }
+            }
+        }
+    }
+}
 
-                    display: block;
-                    position: absolute;
-                    right: 0;
-                    top: 0;
-                    width: 0;
-                    height: 200vh;
-                    padding-top: 20vh;
-                    z-index: 550;
-                    background-color: map-get($map: $Colors, $key: "Red");
-                    transition: all 1s ease-in-out;
+//* 960px
+@media (max-width: map-get($Resolution, "TabletStandard")) {
+    body {
+        position: relative;
+    }
 
-                    & a {
-                        width: 70%;
-                        margin: auto;
-                        padding: 2rem 0;
-                        font-size: 2rem;
-                        transition: .3s ease all;
+    .header {
+        width: 85vw;
 
-                        &::after {
-                            content: none;
-                        }
+        &__switchbutton {
+            &-sun {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+
+            &-moon {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+
+            &-label {
+                width: 3.5rem;
+                height: 2rem;
+                border-radius: 1.5rem;
+
+                &::after {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                }
+            }
+        }
+
+        &__icon {
+            display: block;
+            z-index: 950;
+
+            &-image {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+
+        .open {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 925;
+        }
+
+        &__enlace {
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 0;
+            height: 250vh;
+            padding-top: 20vh;
+            z-index: 925;
+            background-color: map-get($map: $Colors, $key: "Red");
+            transition: all 1s ease-in-out;
+
+            & a {
+                width: 70%;
+                margin: auto;
+                padding: 2rem 0;
+                font-size: 2rem;
+                transition: .3s ease all;
+
+                &::after {
+                    content: none;
+                }
+
+                &:hover {
+                    color: map-get($map: $Colors, $key: "Black");
+                }
+
+            }
+        }
+    }
+
+    .principal {
+        width: 100%;
+        height: 95vh;
+        position: relative;
+
+        &__biography {
+            width: 75vw;
+            display: flex;
+            flex-direction: column;
+            gap: 1vh;
+            margin: auto;
+            padding-top: 5vh;
+
+            .headline {
+                width: 100%;
+
+                &__greetings {
+                    font-size: 2.2rem;
+                }
+
+                &__name {
+                    font-size: 3.2rem;
+                }
+
+                &__summary {
+                    max-width: 100%;
+                    font-size: .9rem;
+                }
+
+                &__container {
+                    gap: 1rem;
+
+                    &-link {
+                        margin: 0;
+                        padding: 0;
+                        width: 4rem;
+                        height: 4rem;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        justify-content: center;
 
                         &:hover {
-                            color: map-get($map: $Colors, $key: "Black");
+                            justify-content: center;
                         }
 
-                    }
-                }
-            }
-
-            & .principal {
-                width: 100%;
-                height: 95vh;
-                position: relative;
-
-                &__biography {
-                    width: 75vw;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 1vh;
-                    margin: auto;
-                    padding-top: 5vh;
-
-                    &-title {
-                        width: 100%;
-
-                        &-greetings {
-                            font-size: 1.8rem;
+                        .red {
+                            width: 1.2rem;
+                            height: 1.2rem;
+                            margin: 0;
                         }
 
-                        &-name {
-                            font-size: 3rem;
-                        }
-
-                        &-summary {
-                            max-width: 100%;
-                            font-size: .8rem;
-                        }
-
-                        .title {
-
-                            &__container {
-                                gap: 1rem;
-    
-                                &-link{
-                                    margin: 0;
-                                    padding: 0;
-                                    width: 3rem;
-                                    height: 3rem;
-                                    border-radius: 50%;
-                                    overflow: hidden;
-                                    justify-content: center;
-        
-                                    &-red {
-                                        width: 1.2rem;
-                                        height: 1.2rem;
-                                        margin: 0;
-                                    }
-        
-                                    &-title {
-                                        display: none;
-                                    }
-        
-                                    &-arrow {
-                                        display: none;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    &-profile {
-
-                        &-wave {
-                            width: 13rem;
-                        }
-                    }
-                }
-
-                &__slide {
-                    left: 45%;
-                }
-            }
-
-            & .hability {
-                height: 100%;
-                flex-direction: column;
-                background-size: contain;
-
-
-                &__about {
-                    width: 100%;
-                    padding: 0;
-                    margin-bottom: 0;
-
-                    &-title {
-                        text-align: start;
-                        margin-top: 2rem;
-                        font-size: 2.5rem;
-                    }
-                }
-
-                &__skills {
-                    width: 100%;
-                    padding: 0;
-                    justify-items: center;
-                    grid-template-rows: repeat(2, 8rem);
-                    grid-template-columns: repeat(3, 8rem);
-                    justify-content: center;
-                    padding-top: 2rem;
-                    padding-bottom: 2rem;
-
-                    &-container {
-
-                        &-title {
-                            font-size: .6rem;
-                        }
-                    }
-
-                    &-active {
-                        width: 96%;
-                        height: 97%;
-                        transform: translateY(-102%);
-                    }
-
-                    &-name {
-                        padding: 1rem;
-                        width: 96%;
-                        height: 97%;
-                        transform: translateY(0);
-
-                        &-icon {
+                        & img {
                             width: 1.5rem;
+                            height: 1.5rem;
+                            margin: 0;
                         }
 
-                        &-title {
-                            font-size: 1.5rem;
-                            margin-bottom: 1rem;
+                        & h6 {
+                            display: none;
                         }
 
-                        &-summary {
-                            font-size: 0.8rem;
+                        .arrow {
+                            display: none;
                         }
 
-                        &-process {
-                            margin-top: .5rem;
-                        }
                     }
+                }
+            }
+
+            &-profile {
+
+                &-wave {
+                    width: 13rem;
+                }
+            }
+        }
+
+        &__slide {
+            left: 45%;
+
+            &-title {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .hability {
+        height: 100%;
+        flex-direction: column;
+        background-size: contain;
+
+
+        &__about {
+            width: 100%;
+            padding: 0;
+            margin-bottom: 0;
+
+            &-title {
+                text-align: start;
+                margin-top: 2rem;
+                font-size: 2.5rem;
+            }
+        }
+
+        &__skills {
+            width: 100%;
+            padding: 0;
+            justify-items: center;
+            grid-template-rows: repeat(2, 8rem);
+            grid-template-columns: repeat(3, 8rem);
+            justify-content: center;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+
+            &-container {
+
+                &-title {
+                    font-size: .6rem;
+                }
+            }
+
+            &-hover {
+                width: 96%;
+                height: 97%;
+                transform: translateY(-102%);
+            }
+
+            .name {
+                padding: 1rem;
+                width: 96%;
+                height: 97%;
+                transform: translateY(0);
+
+                &__icon {
+                    width: 1.5rem;
+                }
+
+                &__title {
+                    font-size: 1.5rem;
+                    margin-bottom: 1rem;
+                }
+
+                &__summary {
+                    font-size: 0.8rem;
+                }
+
+                &__process {
+                    margin-top: .5rem;
                 }
             }
         }
     }
+
 }
 
+//* 768px
 @media (max-width: map-get($Resolution, "TabletSmall")) {
-
-    body {
-        main {
-            & .header {
-                &__switchbutton {
-                    &-sun {
-                        width: 1.5rem;
-                        height: 1.5rem;
-                    }
-
-                    &-moon {
-                        width: 1.5rem;
-                        height: 1.5rem;
-                    }
-
-                    &-label {
-                        width: 3rem;
-                        height: 2rem;
-
-                        &::after {
-                            width: 1.5rem;
-                            height: 1.5rem;
-                        }
-                    }
-                }
-
-                &__icon {
-                    &-image {
-                        width: 2rem;
-                        height: 2rem;
-                    }
-                }
-
-                &__enlace {
-                    & a {
-                        font-size: 1.5rem;
-                    }
-                }
+    .header {
+        &__switchbutton {
+            &-sun {
+                width: 1.5rem;
+                height: 1.5rem;
             }
 
-            & .principal {
-                &__biography {
-                    &-title {
-                        &-greetings {
-                            font-size: 2rem;
-                        }
+            &-moon {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
 
-                        &-name {
-                            font-size: 2.5rem;
-                        }
+            &-label {
+                width: 3rem;
+                height: 2rem;
 
-                        &-summary {
-                            max-width: 100%;
-                            font-size: .8rem;
-                        }
-                    }
+                &::after {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                }
+            }
+        }
 
-                    &-profile {
+        &__icon {
+            &-image {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
 
-                        &-wave {
-                            width: 10rem;
-                        }
-                    }
+        &__enlace {
+            & a {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .principal {
+        &__biography {
+            .headline {
+                &__greetings {
+                    font-size: 2rem;
+                }
+
+                &__name {
+                    font-size: 2.5rem;
+                }
+
+                &__summary {
+                    max-width: 100%;
+                    font-size: .8rem;
                 }
 
                 &__container {
-                    height: 25%;
+
+                    &-link {
+                        width: 3.2rem;
+                        height: 3.2rem;
+
+                        &:hover {
+                            justify-content: center;
+                        }
+
+                        & img {
+                            width: 1.2rem;
+                            height: 1.2rem;
+                        }
+                    }
                 }
             }
 
-            & .hability {
+            &-profile {
 
-                &__about {
-                    width: 100%;
-                    padding: 0;
-                    margin-bottom: 0;
+                &-wave {
+                    width: 10rem;
+                }
+            }
+        }
 
-                    &-title {
-                        text-align: start;
-                        margin-top: 0rem;
-                        margin-bottom: 1rem;
-                        font-size: 2.5rem;
-                    }
+        &__container {
+            height: 25%;
+        }
+    }
 
-                    &-summary {
-                        font-size: 0.7rem;
-                    }
+    .hability {
+
+        &__about {
+            width: 100%;
+            padding: 0;
+            margin-bottom: 0;
+
+            &-title {
+                text-align: start;
+                margin-top: 0rem;
+                margin-bottom: 1rem;
+                font-size: 2.5rem;
+            }
+
+            &-summary {
+                font-size: 0.7rem;
+            }
+        }
+
+        &__skills {
+            width: 100%;
+            justify-items: center;
+            grid-template-rows: repeat(2, 6rem);
+            grid-template-columns: repeat(3, 6rem);
+            justify-content: center;
+
+            &-hover {
+                width: 96%;
+                height: 97%;
+                transform: translateY(-102%);
+            }
+
+            .name {
+                width: 96%;
+                height: 97%;
+                transform: translateY(0);
+
+                &__icon {
+                    width: 1rem;
+                    margin-right: 1rem;
                 }
 
-                &__skills {
-                    width: 100%;
-                    justify-items: center;
-                    grid-template-rows: repeat(2, 6rem);
-                    grid-template-columns: repeat(3, 6rem);
-                    justify-content: center;
+                &__title {
+                    font-size: 1rem;
+                    margin-bottom: .5rem;
+                }
 
-                    &-active {
-                        width: 96%;
-                        height: 97%;
-                        transform: translateY(-102%);
-                    }
+                &__summary {
+                    font-size: 0.55rem;
+                }
 
-                    &-name {
-                        width: 96%;
-                        height: 97%;
-                        transform: translateY(0);
-
-                        &-icon {
-                            width: 1rem;
-                            margin-right: 1rem;
-                        }
-
-                        &-title {
-                            font-size: 1rem;
-                            margin-bottom: .5rem;
-                        }
-
-                        &-summary {
-                            font-size: 0.55rem;
-                        }
-
-                        &-process {
-                            font-size: .6rem;
-                        }
-                    }
+                &__process {
+                    font-size: .6rem;
                 }
             }
         }
     }
 }
 
+//* 480px
 @media (max-width: map-get($Resolution, "MovilStandard")) {
+    .header {
+        &__switchbutton {
+            &-sun {
+                width: 1rem;
+                height: 1rem;
+            }
 
-    body {
-        main {
-            & .header {
-                &__switchbutton {
-                    &-sun {
-                        width: 1.3rem;
-                        height: 1.3rem;
-                    }
+            &-moon {
+                width: 1rem;
+                height: 1rem;
+            }
 
-                    &-moon {
-                        width: 1.3rem;
-                        height: 1.3rem;
-                    }
+            &-label {
+                width: 2.5rem;
+                height: 1.5rem;
 
-                    &-label {
-                        width: 3.5rem;
-                        height: 2rem;
-
-                        &::after {
-                            width: 1.5rem;
-                            height: 1.5rem;
-                        }
-                    }
+                &::after {
+                    width: 1rem;
+                    height: 1rem;
                 }
+            }
+        }
 
-                &__icon {
-                    &-image {
-                        width: 2rem;
-                        height: 2rem;
-                    }
-                }
+        &__icon {
+            & img {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
 
-                &__enlace {
-                    & a {
-                        font-size: 1.5rem;
-                    }
+        &__enlace {
+            & a {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .principal {
+        &__biography {
+            gap: 7vh;
+
+            &-profile {
+
+                & img {
+                    width: 10rem;
                 }
             }
 
-            & .principal {
-                &__biography {
-                    gap: 7vh;
-
-                    &-title {
-                        &-greetings {
-                            font-size: 2rem;
-                        }
-
-                        &-name {
-                            font-size: 2.2rem;
-                        }
-
-                        &-summary {
-                            font-size: .7rem;
-                        }
-                    }
-
-                    &-profile {
-
-                        &-wave {
-                            width: 10rem;
-                        }
-                    }
-                }
-            }
-
-            & .hability {
-
-                &__about {
-
-                    &-title {
-                        font-size: 2rem;
-                    }
+            .headline {
+                &__greetings {
+                    font-size: 1.7rem;
                 }
 
-                &__skills {
-                    grid-template-rows: repeat(2, 4.5rem);
-                    grid-template-columns: repeat(3, 4.5rem);
+                &__name {
+                    font-size: 2rem;
+                }
 
-                    &-name {
+                &__summary {
+                    text-align: start;
+                    font-size: .7rem;
+                }
 
-                        &-title {
-                            font-size: 1rem;
-                            margin-bottom: .5rem;
+                &__container {
+
+                    &-link {
+                        width: 3rem;
+                        height: 3rem;
+
+                        &:hover {
+                            justify-content: center;
                         }
 
-                        &-summary {
-                            font-size: 0.45rem;
-                        }
-
-                        &-process {
-                            font-size: .6rem;
-                        }
-
-                        &-quantity {
-                            height: 0.3rem;
+                        & img {
+                            width: 1rem;
+                            height: 1rem;
                         }
                     }
                 }
             }
+        }
 
+        &__slide {
+
+            &-title {
+                font-size: .8rem;
+            }
+
+            &-image {
+                width: 1rem;
+            }
+        }
+    }
+
+    .hability {
+
+        &__about {
+
+            &-title {
+                font-size: 1.7rem;
+            }
+        }
+
+        &__skills {
+            height: 22rem;
+            align-content: flex-start;
+            grid-template-rows: repeat(2, 4.5rem);
+            grid-template-columns: repeat(3, 4.5rem);
+            gap: 1rem;
+            row-gap: 2rem;
+
+            &-container {
+
+                & h5 {
+                    font-size: .6rem;
+                }
+            }
+
+            .name {
+                padding: 1rem;
+
+                &__title {
+                    font-size: 1rem;
+                    margin-bottom: .5rem;
+                }
+
+                &__summary {
+                    font-size: 0.55rem;
+                }
+
+                &__process {
+                    font-size: .6rem;
+                }
+
+                &__quantity {
+                    height: 0.3rem;
+                }
+            }
         }
     }
 }
 
+//* 375px
 @media (max-width: map-get($Resolution, "MovilSmall")) {
+    .header {
+        width: 85vw;
+        padding-top: 3vh;
 
-    body {
-        main {
-            & .header {
-                width: 85vw;
-                padding-top: 3vh;
-
-                &__switchbutton {
-                    &-sun {
-                        width: 1.3rem;
-                        height: 1.3rem;
-                    }
-
-                    &-moon {
-                        width: 1.3rem;
-                        height: 1.3rem;
-                    }
-
-                    &-label {
-                        width: 3.5rem;
-                        height: 2rem;
-
-                        &::after {
-                            width: 1.4rem;
-                            height: 1.4rem;
-                        }
-                    }
-                }
-
-                &__icon {
-                    &-image {
-                        width: 2rem;
-                        height: 2rem;
-                    }
-                }
-
-                &__enlace {
-                    & a {
-                        font-size: 1.2rem;
-                    }
-                }
+        &__switchbutton {
+            &-sun {
+                width: 1rem;
+                height: 1rem;
             }
 
-            & .principal {
+            &-moon {
+                width: 1rem;
+                height: 1rem;
+            }
 
-                &__biography {
-                    padding-top: 8vh;
+            &-label {
+                width: 3rem;
+                height: 1.7rem;
 
-                    &-title {
-                        &-greetings {
-                            font-size: 1.5rem;
-                        }
+                &::after {
+                    width: 1.2rem;
+                    height: 1.2rem;
+                }
+            }
+        }
 
-                        &-name {
-                            font-size: 2rem;
-                        }
+        &__icon {
+            &-image {
+                width: 1rem;
+                height: 1rem;
+            }
+        }
 
-                        &-summary {
-                            font-size: .5rem;
-                        }
-                    }
+        &__enlace {
+            & a {
+                font-size: 1.2rem;
+            }
+        }
+    }
+    .principal {
 
-                    &-profile {
+        &__biography {
+            padding-top: 8vh;
 
-                        &-wave {
-                            width: 8rem;
-                        }
-                    }
+            .headline {
+                &__greetings {
+                    font-size: 1.2rem;
                 }
 
+                &__name {
+                    font-size: 1.8rem;
+                }
+
+                &__summary {
+                    font-size: .6rem;
+                }
                 &__container {
-                    height: 25%;
+
+                    &-link {
+                        width: 2.8rem;
+                        height: 2.8rem;
+
+                        & img {
+                            width: 1rem;
+                            height: 1rem;
+                        }
+                    }
                 }
             }
 
-            & .hability {
+            &-profile {
 
-                &__about {
+                & img {
+                    width: 8rem;
+                }
+            }
+        }
 
-                    &-title {
-                        font-size: 1.5rem;
-                    }
+        &__container {
+            height: 25%;
+        }
+    }
+
+    .hability {
+
+        &__about {
+
+            &-title {
+                font-size: 1rem;
+            }
+
+            &-summary {
+                font-size: .6rem;
+            }
+        }
+
+        &__skills {
+            grid-template-rows: repeat(2, 3.5rem);
+            grid-template-columns: repeat(3, 3.5rem);
+
+            &-container {
+
+                & h5 {
+                    font-size: .55rem;
+                }
+            }
+
+            .name {
+                padding: .8rem;
+
+                &__title {
+                    font-size: .8rem;
                 }
 
-                &__skills {
-                    grid-template-rows: repeat(2, 3.5rem);
-                    grid-template-columns: repeat(3, 3.5rem);
+                &__summary {
+                    font-size: 0.55rem;
+                }
 
-                    &-name {
+                &__process {
+                    font-size: .4rem;
+                }
 
-                        &-title {
-                            font-size: 1rem;
-                            margin-bottom: .5rem;
-                        }
-
-                        &-summary {
-                            font-size: 0.35rem;
-                        }
-
-                        &-process {
-                            font-size: .4rem;
-                        }
-
-                        &-quantity {
-                            height: 0.3rem;
-                        }
-                    }
+                &__quantity {
+                    height: 0.3rem;
                 }
             }
         }
