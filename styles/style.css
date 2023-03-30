@@ -252,7 +252,7 @@ body::-webkit-scrollbar-thumb {
   right: unset;
   transition: 0.2s ease all;
 }
-.header__switchbutton-label .active::after {
+.header__switchbutton-label.active::after {
   left: unset;
   right: 0.3rem;
   background-color: #000000;
@@ -284,7 +284,7 @@ body::-webkit-scrollbar-thumb {
 }
 .header__enlace a span {
   position: relative;
-  z-index: 950;
+  z-index: 980;
 }
 .header__enlace a::after {
   content: "";
@@ -818,14 +818,18 @@ body::-webkit-scrollbar-thumb {
     transition: all 1s ease-in-out;
   }
   .header__enlace a {
-    width: 70%;
+    width: 90%;
     margin: auto;
     padding: 2rem 0;
     font-size: 2rem;
+    border-radius: 2rem;
     transition: 0.3s ease all;
   }
+  .header__enlace a span {
+    color: #ffffff;
+  }
   .header__enlace a::after {
-    content: none;
+    background-color: #232528;
   }
   .header__enlace a:hover {
     color: #000000;

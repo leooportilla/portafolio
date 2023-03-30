@@ -142,24 +142,26 @@ body {
                 transition: .2s ease all;
             }
 
-            .active {
-
+            &.active {
+                
                 &::after {
                     left: unset;
                     right: .3rem;
                     background-color: map-get($map: $Colors, $key: "Black")
-                }
+                } 
             }
-        }
-    }
 
+        }
+        
+    }
+    
     &__icon {
         display: none;
     }
-
+    
     &__enlace {
         display: flex;
-
+    
         & a {
             text-decoration: none;
             display: flex;
@@ -178,12 +180,12 @@ body {
             overflow: hidden;
             z-index: 925;
             transition: .3s ease all;
-
+    
             & span {
                 position: relative;
-                z-index: 950;
+                z-index: 980;
             }
-
+    
             &::after {
                 content: "";
                 width: 100%;
@@ -195,13 +197,13 @@ body {
                 left: 0;
                 transition: .6s ease-in-out all;
                 border-radius: 0px 0px 300px 300px;
-
+    
             }
-
+    
             &:hover {
                 color: map-get($map: $Colors, $key: "Raisin Black");
             }
-
+    
             &:hover::after {
                 top: 0;
             }
@@ -853,14 +855,19 @@ body {
             transition: all 1s ease-in-out;
 
             & a {
-                width: 70%;
+                width: 90%;
                 margin: auto;
                 padding: 2rem 0;
                 font-size: 2rem;
+                border-radius: 2rem;
                 transition: .3s ease all;
 
+                span {
+                    color: map-get($map: $Colors, $key: "White");
+                }
+
                 &::after {
-                    content: none;
+                    background-color: map-get($map: $Colors, $key: "Raisin Black");
                 }
 
                 &:hover {
@@ -1355,6 +1362,7 @@ body {
             }
         }
     }
+
     .principal {
 
         &__biography {
@@ -1372,6 +1380,7 @@ body {
                 &__summary {
                     font-size: .6rem;
                 }
+
                 &__container {
 
                     &-link {

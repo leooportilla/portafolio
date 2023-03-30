@@ -13,10 +13,10 @@ export function Menu() {
 
             //! If para poder cambiar los iconos en torno al modo oscuro
             if (Opcion.classList.contains(`open`)) {
-                Boton.classList.contains(`open`) ? Icono.setAttribute(`src`, `./media/images/close_dark.png`) : Icono.setAttribute(`src`, `./media/images/close_light.png`)
+                Boton.classList.contains(`active`) ? Icono.setAttribute(`src`, `./media/images/close_dark.png`) : Icono.setAttribute(`src`, `./media/images/close_light.png`)
                
             } else {
-                Boton.classList.contains(`open`) ? Icono.setAttribute(`src`, `./media/images/menu_dark.png`) : Icono.setAttribute(`src`, `./media/images/menu_light.png`)
+                Boton.classList.contains(`active`) ? Icono.setAttribute(`src`, `./media/images/menu_dark.png`) : Icono.setAttribute(`src`, `./media/images/menu_light.png`)
             }
         }
 

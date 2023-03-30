@@ -38,10 +38,10 @@ export function Button() {
         Arrow.forEach(elemento => elemento.setAttribute(`src`, `./media/images/arrow_dark.png`))
 
         //! Evalua si el panel de informacion del lenguaje esta abierto para poder cambiar al modo 
-        if (SubBody.classList.contains(`hability__skills-name`)) {
-            SubIcon = document.querySelector(`.hability__skills-name-icon`)
-            Process = document.querySelector(`.hability__skills-name-process`)
-            Description = document.querySelector(`.hability__skills-name-summary`)
+        if (SubBody.classList.contains(`name`)) {
+            SubIcon = document.querySelector(`.name__icon`)
+            Process = document.querySelector(`.name__process`)
+            Description = document.querySelector(`.name__summary`)
 
             SubIcon.setAttribute(`src`, "./media/images/close_dark.png")
             Description.style.color = `#232528`
@@ -49,9 +49,7 @@ export function Button() {
         }
 
         //! Cambia los iconos del menu segun el modo
-        Enlace.classList.contains(`active`) ?
-            Icono.setAttribute(`src`, `./media/images/close_dark.png`) :
-            Icono.setAttribute(`src`, `./media/images/menu_dark.png`)
+        Enlace.classList.contains(`open`) ? Icono.setAttribute(`src`, `./media/images/close_dark.png`) : Icono.setAttribute(`src`, `./media/images/menu_dark.png`)
     }
 
     //* Cambio el modo a light con esta funcion para poder agregarle la clase active
@@ -80,19 +78,17 @@ export function Button() {
         Arrow.forEach(elemento => elemento.setAttribute(`src`, `./media/images/arrow_light.png`))
 
         //! Evalua si el panel de informacion del lenguaje esta abierto para poder cambiar al modo 
-        if (SubBody.classList.contains(`hability__skills-name`)) {
-            SubIcon = document.querySelector(`.hability__skills-name-icon`)
-            Process = document.querySelector(`.hability__skills-name-process`)
-            Description = document.querySelector(`.hability__skills-name-summary`)
+        if (SubBody.classList.contains(`name`)) {
+            SubIcon = document.querySelector(`.name__icon`)
+            Process = document.querySelector(`.name__process`)
+            Description = document.querySelector(`.name__summary`)
 
             SubIcon.setAttribute(`src`, "./media/images/close_light.png")
             Description.style.color = `#bebebe`
             Process.style.color = `#bebebe`
         }
         //! Cambia los iconos del menu segun el modo
-        Enlace.classList.contains(`active`) ?
-            Icono.setAttribute(`src`, `./media/images/close_light.png`) :
-            Icono.setAttribute(`src`, `./media/images/menu_light.png`)
+        Enlace.classList.contains(`open`) ? Icono.setAttribute(`src`, `./media/images/close_light.png`) : Icono.setAttribute(`src`, `./media/images/menu_light.png`)
     }
 
     //* Al clickear el boton cambia de posicion con la clase active
