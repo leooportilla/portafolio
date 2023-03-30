@@ -88,6 +88,10 @@ body {
     }
 }
 
+main {
+    overflow: hidden;
+}
+
 //* Contenido del header
 .header {
     display: flex;
@@ -143,25 +147,25 @@ body {
             }
 
             &.active {
-                
+
                 &::after {
                     left: unset;
                     right: .3rem;
                     background-color: map-get($map: $Colors, $key: "Black")
-                } 
+                }
             }
 
         }
-        
+
     }
-    
+
     &__icon {
         display: none;
     }
-    
+
     &__enlace {
         display: flex;
-    
+
         & a {
             text-decoration: none;
             display: flex;
@@ -180,12 +184,12 @@ body {
             overflow: hidden;
             z-index: 925;
             transition: .3s ease all;
-    
+
             & span {
                 position: relative;
                 z-index: 980;
             }
-    
+
             &::after {
                 content: "";
                 width: 100%;
@@ -197,15 +201,71 @@ body {
                 left: 0;
                 transition: .6s ease-in-out all;
                 border-radius: 0px 0px 300px 300px;
-    
+
             }
-    
+
             &:hover {
                 color: map-get($map: $Colors, $key: "Raisin Black");
             }
-    
+
             &:hover::after {
                 top: 0;
+            }
+        }
+
+        .headline {
+            width: 100%;
+
+            &__greetings {
+                font-size: 2.2rem;
+            }
+
+            &__name {
+                font-size: 3.2rem;
+            }
+
+            &__summary {
+                max-width: 100%;
+                font-size: .9rem;
+            }
+
+            &__container {
+                gap: 1rem;
+
+                &-link {
+                    margin: 0;
+                    padding: 0;
+                    width: 4rem;
+                    height: 4rem;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    justify-content: center;
+
+                    &:hover {
+                        justify-content: center;
+                    }
+
+                    .red {
+                        width: 1.2rem;
+                        height: 1.2rem;
+                        margin: 0;
+                    }
+
+                    & img {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        margin: 0;
+                    }
+
+                    & h6 {
+                        display: none;
+                    }
+
+                    .arrow {
+                        display: none;
+                    }
+
+                }
             }
         }
     }
@@ -328,7 +388,6 @@ body {
                 }
             }
         }
-
     }
 
     &__slide {
@@ -873,7 +932,55 @@ body {
                 &:hover {
                     color: map-get($map: $Colors, $key: "Black");
                 }
+            }
 
+            .headline {
+                display: flex;
+                justify-content: center;
+                position: absolute;
+                bottom: 5vh;
+                gap: 2rem;
+
+                &__container {
+                    z-index: 980;
+                    gap: 1rem;
+
+                    &-link {
+                        margin: 0;
+                        padding: 0;
+                        width: 5rem;
+                        height: 5rem;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        justify-content: center;
+                        background-color: map-get($map: $Colors, $key: "Raisin Black");
+
+                        &:hover {
+                            justify-content: center;
+                        }
+
+                        .red {
+                            width: 2rem;
+                            height: 2rem;
+                            margin: 0;
+                        }
+
+                        & img {
+                            width: 2rem;
+                            height: 2rem;
+                            margin: 0;
+                        }
+
+                        & h6 {
+                            display: none;
+                        }
+
+                        .arrow {
+                            display: none;
+                        }
+
+                    }
+                }
             }
         }
     }
@@ -893,23 +1000,23 @@ body {
 
             .headline {
                 width: 100%;
-
+        
                 &__greetings {
                     font-size: 2.2rem;
                 }
-
+        
                 &__name {
                     font-size: 3.2rem;
                 }
-
+        
                 &__summary {
                     max-width: 100%;
                     font-size: .9rem;
                 }
-
+        
                 &__container {
                     gap: 1rem;
-
+        
                     &-link {
                         margin: 0;
                         padding: 0;
@@ -918,31 +1025,31 @@ body {
                         border-radius: 50%;
                         overflow: hidden;
                         justify-content: center;
-
+        
                         &:hover {
                             justify-content: center;
                         }
-
+        
                         .red {
                             width: 1.2rem;
                             height: 1.2rem;
                             margin: 0;
                         }
-
+        
                         & img {
                             width: 1.5rem;
                             height: 1.5rem;
                             margin: 0;
                         }
-
+        
                         & h6 {
                             display: none;
                         }
-
+        
                         .arrow {
                             display: none;
                         }
-
+        
                     }
                 }
             }
