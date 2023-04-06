@@ -11,7 +11,7 @@ const Summary = document.querySelector(`.headline__summary`)
 const Instagram = document.querySelector(`.instagram`)
 const Linkedin = document.querySelector(`.linkedin`)
 const GitHud = document.querySelector(`.githud`)
-const Arrow = document.querySelectorAll(`arrow`)
+const Arrow = document.querySelectorAll(`.arrow`)
 let SubIcon
 let Process
 let Description
@@ -23,7 +23,7 @@ export function Button() {
         Sun.setAttribute("src", `./media/images/sun_dark.png`)
         Moon.setAttribute("src", `./media/images/moon_dark.png`)
         Flecha.setAttribute("src", `./media/images/slide_dark.png`)
-        Instagram.setAttribute("src", `./media/images/instragram_dark.png`)
+        Instagram.setAttribute("src", `./media/images/instagram_dark.png`)
         Linkedin.setAttribute("src", `./media/images/linkedin_dark.png`)
         GitHud.setAttribute("src", `./media/images/githud_dark.png`)
 
@@ -63,7 +63,7 @@ export function Button() {
         Sun.setAttribute("src", `./media/images/sun_light.png`)
         Moon.setAttribute("src", `./media/images/moon_light.png`)
         Flecha.setAttribute("src", `./media/images/slide_light.png`)
-        Instagram.setAttribute("src", `./media/images/instragram_light.png`)
+        Instagram.setAttribute("src", `./media/images/instagram_light.png`)
         Linkedin.setAttribute("src", `./media/images/linkedin_light.png`)
         GitHud.setAttribute("src", `./media/images/githud_light.png`)
 

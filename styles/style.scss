@@ -214,59 +214,7 @@ main {
         }
 
         .headline {
-            width: 100%;
-
-            &__greetings {
-                font-size: 2.2rem;
-            }
-
-            &__name {
-                font-size: 3.2rem;
-            }
-
-            &__summary {
-                max-width: 100%;
-                font-size: .9rem;
-            }
-
-            &__container {
-                gap: 1rem;
-
-                &-link {
-                    margin: 0;
-                    padding: 0;
-                    width: 4rem;
-                    height: 4rem;
-                    border-radius: 50%;
-                    overflow: hidden;
-                    justify-content: center;
-
-                    &:hover {
-                        justify-content: center;
-                    }
-
-                    .red {
-                        width: 1.2rem;
-                        height: 1.2rem;
-                        margin: 0;
-                    }
-
-                    & img {
-                        width: 1.5rem;
-                        height: 1.5rem;
-                        margin: 0;
-                    }
-
-                    & h6 {
-                        display: none;
-                    }
-
-                    .arrow {
-                        display: none;
-                    }
-
-                }
-            }
+            display: none;
         }
     }
 }
@@ -280,9 +228,10 @@ main {
     &__biography {
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
         gap: 5rem;
-        padding-top: 20vh;
 
         &-profile {
             display: flex;
@@ -335,45 +284,57 @@ main {
 
             &__container {
                 display: flex;
-                flex-direction: row;
                 justify-content: flex-start;
-                width: 70%;
+                width: 100%;
                 margin-top: 1rem;
 
                 &-link {
-                    text-decoration: none;
                     display: flex;
                     align-items: center;
                     justify-content: flex-start;
-                    padding-left: 1rem;
-                    margin-right: 2rem;
-                    width: 100%;
                     height: 2.5rem;
+                    width: 100%;
+                    max-width: 9rem;
+                    padding-left: 1rem;
+                    margin-right: 1rem;
+                    text-decoration: none;
                     background-color: map-get($map: $Colors, $key: "Blue");
                     border-radius: 1rem;
-                    position: relative;
+                    position: relative;                    
+
+                    &:hover img {
+                        opacity: 0;
+                        visibility: collapse;
+                    }
 
                     &:hover .arrow {
                         right: 1rem;
                         opacity: 1;
+                        visibility: visible;
                     }
 
-                    &:hover {
-                        justify-content: flex-start;
+                    &:hover h6 {
+                       position: absolute;
+                       left: 1rem;
                     }
 
                     & img {
                         width: 1.2rem;
                         height: 1.2rem;
                         margin-right: .5rem;
+                        visibility: visible;
+                        opacity: 1;
+                        transition: .5s ease-in-out all;
                     }
 
                     & h6 {
+                        width: 100%;
                         font-family: map-get($map: $Fonts, $key: "Secular Uno");
                         color: map-get($map: $Colors, $key: "White");
                         font-size: .8rem;
                         letter-spacing: 2px;
-                        margin-top: .1rem;
+                        left: 3rem;
+                        transition: .8s ease-in-out all;
                     }
 
                     .arrow {
@@ -383,7 +344,8 @@ main {
                         right: 10rem;
                         opacity: 0;
                         margin: 0;
-                        transition: .5s ease-in-out all;
+                        visibility: hidden;
+                        transition: .8s ease-in-out all;
                     }
                 }
             }
@@ -418,7 +380,7 @@ main {
         }
 
         &:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
     }
@@ -574,6 +536,7 @@ main {
 
             & h5 {
                 text-align: center;
+                font-size: .8rem;
                 letter-spacing: 0.125rem;
                 font-family: map-get($map: $Fonts, $key: "Secular Uno");
                 color: map-get($map: $Colors, $key: "White");
@@ -788,7 +751,6 @@ main {
 @media (max-width: map-get($Resolution, "Laptop")) {
     .principal {
         &__biography {
-            padding-top: 20vh;
 
             &-profile {
                 & img {
@@ -935,11 +897,11 @@ main {
             }
 
             .headline {
-                display: flex;
                 justify-content: center;
                 position: absolute;
-                bottom: 5vh;
+                bottom: 15vh;
                 gap: 2rem;
+                width: 100%;
 
                 &__container {
                     z-index: 980;
@@ -955,30 +917,11 @@ main {
                         justify-content: center;
                         background-color: map-get($map: $Colors, $key: "Raisin Black");
 
-                        &:hover {
-                            justify-content: center;
-                        }
-
-                        .red {
-                            width: 2rem;
-                            height: 2rem;
-                            margin: 0;
-                        }
-
                         & img {
                             width: 2rem;
                             height: 2rem;
                             margin: 0;
                         }
-
-                        & h6 {
-                            display: none;
-                        }
-
-                        .arrow {
-                            display: none;
-                        }
-
                     }
                 }
             }
@@ -994,29 +937,28 @@ main {
             width: 75vw;
             display: flex;
             flex-direction: column;
-            gap: 1vh;
             margin: auto;
-            padding-top: 5vh;
+            gap: 1vh;
 
             .headline {
                 width: 100%;
-        
+
                 &__greetings {
                     font-size: 2.2rem;
                 }
-        
+
                 &__name {
                     font-size: 3.2rem;
                 }
-        
+
                 &__summary {
                     max-width: 100%;
                     font-size: .9rem;
                 }
-        
+
                 &__container {
                     gap: 1rem;
-        
+
                     &-link {
                         margin: 0;
                         padding: 0;
@@ -1025,31 +967,36 @@ main {
                         border-radius: 50%;
                         overflow: hidden;
                         justify-content: center;
-        
+
                         &:hover {
                             justify-content: center;
                         }
-        
+                        
+                        &:hover img {
+                            opacity: 1;
+                            visibility: visible;
+                        }
+
                         .red {
                             width: 1.2rem;
                             height: 1.2rem;
                             margin: 0;
                         }
-        
+
                         & img {
                             width: 1.5rem;
                             height: 1.5rem;
                             margin: 0;
                         }
-        
+
                         & h6 {
                             display: none;
                         }
-        
+
                         .arrow {
                             display: none;
                         }
-        
+
                     }
                 }
             }
@@ -1101,8 +1048,8 @@ main {
 
             &-container {
 
-                &-title {
-                    font-size: .6rem;
+                h5 {
+                    font-size: .8rem;
                 }
             }
 
@@ -1252,6 +1199,13 @@ main {
             grid-template-columns: repeat(3, 6rem);
             justify-content: center;
 
+            &-container {
+
+                h5 {
+                    font-size: .7rem;
+                }
+            }
+
             &-hover {
                 width: 96%;
                 height: 97%;
@@ -1399,9 +1353,10 @@ main {
 
             &-container {
 
-                & h5 {
-                    font-size: .6rem;
+                h5 {
+                    font-size: .55rem;
                 }
+
             }
 
             .name {
@@ -1473,7 +1428,6 @@ main {
     .principal {
 
         &__biography {
-            padding-top: 8vh;
 
             .headline {
                 &__greetings {
@@ -1534,8 +1488,8 @@ main {
 
             &-container {
 
-                & h5 {
-                    font-size: .55rem;
+                h5 {
+                    font-size: .5rem;
                 }
             }
 

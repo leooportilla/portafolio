@@ -39,12 +39,6 @@ figure {
   max-width: 100%;
   width: 100%;
   display: block;
-  /* (Opcional) */
-  -o-object-fit: cover;
-     object-fit: cover;
-  /* (Opcional) */
-  -o-object-position: center center;
-     object-position: center center;
 }
 
 /* Reseteamos los enlaces para funcionar como cajas... */
@@ -309,47 +303,6 @@ main {
   top: 0;
 }
 .header__enlace .headline {
-  width: 100%;
-}
-.header__enlace .headline__greetings {
-  font-size: 2.2rem;
-}
-.header__enlace .headline__name {
-  font-size: 3.2rem;
-}
-.header__enlace .headline__summary {
-  max-width: 100%;
-  font-size: 0.9rem;
-}
-.header__enlace .headline__container {
-  gap: 1rem;
-}
-.header__enlace .headline__container-link {
-  margin: 0;
-  padding: 0;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-  overflow: hidden;
-  justify-content: center;
-}
-.header__enlace .headline__container-link:hover {
-  justify-content: center;
-}
-.header__enlace .headline__container-link .red {
-  width: 1.2rem;
-  height: 1.2rem;
-  margin: 0;
-}
-.header__enlace .headline__container-link img {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin: 0;
-}
-.header__enlace .headline__container-link h6 {
-  display: none;
-}
-.header__enlace .headline__container-link .arrow {
   display: none;
 }
 
@@ -361,9 +314,10 @@ main {
 .principal__biography {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
   gap: 5rem;
-  padding-top: 20vh;
 }
 .principal__biography-profile {
   display: flex;
@@ -409,42 +363,53 @@ main {
 }
 .principal__biography .headline__container {
   display: flex;
-  flex-direction: row;
   justify-content: flex-start;
-  width: 70%;
+  width: 100%;
   margin-top: 1rem;
 }
 .principal__biography .headline__container-link {
-  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding-left: 1rem;
-  margin-right: 2rem;
-  width: 100%;
   height: 2.5rem;
+  width: 100%;
+  max-width: 9rem;
+  padding-left: 1rem;
+  margin-right: 1rem;
+  text-decoration: none;
   background-color: #3066be;
   border-radius: 1rem;
   position: relative;
 }
+.principal__biography .headline__container-link:hover img {
+  opacity: 0;
+  visibility: collapse;
+}
 .principal__biography .headline__container-link:hover .arrow {
   right: 1rem;
   opacity: 1;
+  visibility: visible;
 }
-.principal__biography .headline__container-link:hover {
-  justify-content: flex-start;
+.principal__biography .headline__container-link:hover h6 {
+  position: absolute;
+  left: 1rem;
 }
 .principal__biography .headline__container-link img {
   width: 1.2rem;
   height: 1.2rem;
   margin-right: 0.5rem;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s ease-in-out all;
 }
 .principal__biography .headline__container-link h6 {
+  width: 100%;
   font-family: Secular Uno;
   color: #ffffff;
   font-size: 0.8rem;
   letter-spacing: 2px;
-  margin-top: 0.1rem;
+  left: 3rem;
+  transition: 0.8s ease-in-out all;
 }
 .principal__biography .headline__container-link .arrow {
   width: 0.5em;
@@ -453,7 +418,8 @@ main {
   right: 10rem;
   opacity: 0;
   margin: 0;
-  transition: 0.5s ease-in-out all;
+  visibility: hidden;
+  transition: 0.8s ease-in-out all;
 }
 .principal__slide {
   text-decoration: none;
@@ -480,7 +446,7 @@ main {
   height: 100%;
 }
 .principal__slide:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .principal__container {
   width: 100%;
@@ -619,6 +585,7 @@ main {
 }
 .hability__skills-container h5 {
   text-align: center;
+  font-size: 0.8rem;
   letter-spacing: 0.125rem;
   font-family: Secular Uno;
   color: #ffffff;
@@ -774,9 +741,6 @@ main {
   }
 }
 @media (max-width: 1024px) {
-  .principal__biography {
-    padding-top: 20vh;
-  }
   .principal__biography-profile img {
     width: 12rem;
   }
@@ -883,11 +847,11 @@ main {
     color: #000000;
   }
   .header__enlace .headline {
-    display: flex;
     justify-content: center;
     position: absolute;
-    bottom: 5vh;
+    bottom: 15vh;
     gap: 2rem;
+    width: 100%;
   }
   .header__enlace .headline__container {
     z-index: 980;
@@ -903,24 +867,10 @@ main {
     justify-content: center;
     background-color: #232528;
   }
-  .header__enlace .headline__container-link:hover {
-    justify-content: center;
-  }
-  .header__enlace .headline__container-link .red {
-    width: 2rem;
-    height: 2rem;
-    margin: 0;
-  }
   .header__enlace .headline__container-link img {
     width: 2rem;
     height: 2rem;
     margin: 0;
-  }
-  .header__enlace .headline__container-link h6 {
-    display: none;
-  }
-  .header__enlace .headline__container-link .arrow {
-    display: none;
   }
   .principal {
     width: 100%;
@@ -931,9 +881,8 @@ main {
     width: 75vw;
     display: flex;
     flex-direction: column;
-    gap: 1vh;
     margin: auto;
-    padding-top: 5vh;
+    gap: 1vh;
   }
   .principal__biography .headline {
     width: 100%;
@@ -962,6 +911,10 @@ main {
   }
   .principal__biography .headline__container-link:hover {
     justify-content: center;
+  }
+  .principal__biography .headline__container-link:hover img {
+    opacity: 1;
+    visibility: visible;
   }
   .principal__biography .headline__container-link .red {
     width: 1.2rem;
@@ -1013,8 +966,8 @@ main {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
-  .hability__skills-container-title {
-    font-size: 0.6rem;
+  .hability__skills-container h5 {
+    font-size: 0.8rem;
   }
   .hability__skills-hover {
     width: 96%;
@@ -1113,6 +1066,9 @@ main {
     grid-template-columns: repeat(3, 6rem);
     justify-content: center;
   }
+  .hability__skills-container h5 {
+    font-size: 0.7rem;
+  }
   .hability__skills-hover {
     width: 96%;
     height: 97%;
@@ -1207,7 +1163,7 @@ main {
     row-gap: 2rem;
   }
   .hability__skills-container h5 {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
   }
   .hability__skills .name {
     padding: 1rem;
@@ -1254,9 +1210,6 @@ main {
   .header__enlace a {
     font-size: 1.2rem;
   }
-  .principal__biography {
-    padding-top: 8vh;
-  }
   .principal__biography .headline__greetings {
     font-size: 1.2rem;
   }
@@ -1291,7 +1244,7 @@ main {
     grid-template-columns: repeat(3, 3.5rem);
   }
   .hability__skills-container h5 {
-    font-size: 0.55rem;
+    font-size: 0.5rem;
   }
   .hability__skills .name {
     padding: 0.8rem;
