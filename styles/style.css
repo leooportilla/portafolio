@@ -162,6 +162,16 @@ body {
   font-family: Titan One;
   src: url(../media/fonts/titan_one.ttf);
 }
+@keyframes Loader {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
 @keyframes SwipeUp {
   0% {
     bottom: 0;
@@ -198,8 +208,45 @@ body::-webkit-scrollbar-thumb {
   border-radius: 5px;
 }
 
-main {
-  overflow: hidden;
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c82d2d;
+  z-index: 999;
+  -webkit-clip-path: circle(200% at 100% 0%);
+          clip-path: circle(200% at 100% 0%);
+  transition: -webkit-clip-path 1s ease-in-out;
+  transition: clip-path 1s ease-in-out;
+  transition: clip-path 1s ease-in-out, -webkit-clip-path 1s ease-in-out;
+}
+.container__loader {
+  width: 3rem;
+  height: 3rem;
+  display: inline-block;
+  position: relative;
+}
+.container__loader::after, .container__loader::before {
+  content: "";
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background: #232528;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: Loader 1s infinite;
+}
+.container__loader::before {
+  animation-delay: 0.4s;
+}
+
+.containeractive {
+  -webkit-clip-path: circle(0% at 100% 0%);
+          clip-path: circle(0% at 100% 0%);
 }
 
 .header {
@@ -502,7 +549,7 @@ main {
   padding: 7vh 12.5vw 5vh 12.5vw;
   background-image: url(../media/images/wave_about.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 .hability__about {
   width: 65%;

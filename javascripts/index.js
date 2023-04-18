@@ -1,4 +1,5 @@
 import { Button } from "./button.js";
+import { Load } from "./load.js";
 import { Menu } from "./menu.js";
 import { Shortcouts } from "./shortcout.js";
 import { Skills } from "./skills.js";
@@ -10,4 +11,5 @@ document.addEventListener(`DOMContentLoaded`, evento => {
     Shortcouts()
 })
 
+Load()
 Button()
