@@ -43,14 +43,15 @@ $Resolution: ("MovilSmall": 375px,
 //* Animacion para carga de la pagina
 @keyframes Loader {
     0% {
-      transform: scale(0);
-      opacity: 1;
+        transform: scale(0);
+        opacity: 1;
     }
+
     100% {
-      transform: scale(1);
-      opacity: 0;
+        transform: scale(1);
+        opacity: 0;
     }
-  }
+}
 
 //* Animacion para enlace con texto "Desliza"
 @keyframes SwipeUp {
@@ -109,36 +110,33 @@ body {
     align-items: center;
     background-color: map-get($map: $Colors, $key: "Red");
     z-index: 999;
-    clip-path: circle( 200% at 100% 0%);
+    clip-path: circle(200% at 100% 0%);
     transition: clip-path 1s ease-in-out;
 
     &__loader {
-        width: 3rem;
-        height: 3rem;
-        display: inline-block;
         position: relative;
-      }
 
-      &__loader::after,
-      &__loader::before {
-        content: '';  
-        width: 6rem;
-        height: 6rem;
-        border-radius: 50%;
-        background: map-get($map: $Colors, $key: "Raisin Black");
-        position: absolute;
-        left: 0;
-        top: 0;
-        animation: Loader 1s infinite;
-      }
-
-    &__loader::before {
-        animation-delay: .4s;
-      }  
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: -3rem;
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            background: map-get($map: $Colors, $key: "Raisin Black");
+            animation: Loader 1.5s infinite;
+        }
+    
+        &::before {
+            animation-delay: .4s;
+        }
+    }
 }
 
 .containeractive {
-    clip-path: circle( 0% at 100% 0%);
+    clip-path: circle(0% at 100% 0%);
 }
 
 //* Contenido del header
