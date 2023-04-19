@@ -858,19 +858,23 @@ body::-webkit-scrollbar-thumb {
   .header .open {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: 925;
+    -webkit-clip-path: circle(200% at 100% 0%);
+            clip-path: circle(200% at 100% 0%);
   }
   .header__enlace {
     display: block;
     position: absolute;
     right: 0;
     top: 0;
-    width: 0;
-    height: 250vh;
+    width: 100%;
+    height: 100vh;
     padding-top: 20vh;
     z-index: 925;
     background-color: #c82d2d;
+    -webkit-clip-path: circle(0% at 100% 0%);
+            clip-path: circle(0% at 100% 0%);
     transition: all 1s ease-in-out;
   }
   .header__enlace a {
@@ -891,6 +895,7 @@ body::-webkit-scrollbar-thumb {
     color: #000000;
   }
   .header__enlace .headline {
+    display: flex;
     justify-content: center;
     position: absolute;
     bottom: 15vh;
@@ -915,6 +920,9 @@ body::-webkit-scrollbar-thumb {
     width: 2rem;
     height: 2rem;
     margin: 0;
+  }
+  .header__enlace .headline__container-link::after {
+    content: none;
   }
   .principal {
     width: 100%;
@@ -1014,6 +1022,7 @@ body::-webkit-scrollbar-thumb {
     font-size: 0.8rem;
   }
   .hability__skills-hover {
+    padding: 1rem;
     width: 96%;
     height: 97%;
     transform: translateY(-102%);
@@ -1209,6 +1218,9 @@ body::-webkit-scrollbar-thumb {
   .hability__skills-container h5 {
     font-size: 0.55rem;
   }
+  .hability__skills-hover {
+    padding: 1rem;
+  }
   .hability__skills .name {
     padding: 1rem;
   }
@@ -1289,6 +1301,9 @@ body::-webkit-scrollbar-thumb {
   }
   .hability__skills-container h5 {
     font-size: 0.5rem;
+  }
+  .hability__skills-hover {
+    padding: 0.8rem;
   }
   .hability__skills .name {
     padding: 0.8rem;

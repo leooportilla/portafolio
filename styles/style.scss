@@ -906,8 +906,9 @@ body {
         .open {
             position: absolute;
             width: 100%;
-            height: 100%;
+            height: 100vh;
             z-index: 925;
+            clip-path: circle(200% at 100% 0%);
         }
 
         &__enlace {
@@ -915,11 +916,12 @@ body {
             position: absolute;
             right: 0;
             top: 0;
-            width: 0;
-            height: 250vh;
+            width: 100%;
+            height: 100vh;
             padding-top: 20vh;
             z-index: 925;
             background-color: map-get($map: $Colors, $key: "Red");
+            clip-path: circle(0% at 100% 0%);
             transition: all 1s ease-in-out;
 
             & a {
@@ -944,6 +946,7 @@ body {
             }
 
             .headline {
+                display: flex;
                 justify-content: center;
                 position: absolute;
                 bottom: 15vh;
@@ -968,6 +971,10 @@ body {
                             width: 2rem;
                             height: 2rem;
                             margin: 0;
+                        }
+                        
+                        &::after {
+                            content: none;
                         }
                     }
                 }
@@ -1100,7 +1107,8 @@ body {
                 }
             }
 
-            &-hover {
+            &-hover { 
+                padding: 1rem;
                 width: 96%;
                 height: 97%;
                 transform: translateY(-102%);
@@ -1405,7 +1413,9 @@ body {
                 }
 
             }
-
+            &-hover {
+                padding: 1rem;
+            }
             .name {
                 padding: 1rem;
 
@@ -1538,6 +1548,10 @@ body {
                 h5 {
                     font-size: .5rem;
                 }
+            }
+
+            &-hover {
+                padding: .8rem;
             }
 
             .name {
