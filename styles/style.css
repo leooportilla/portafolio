@@ -428,6 +428,7 @@ main {
   background-color: #3066be;
   border-radius: 1rem;
   position: relative;
+  cursor: pointer;
 }
 .principal__biography .headline__container-link:hover img {
   opacity: 0;
@@ -745,6 +746,162 @@ main {
   width: 40%;
   height: 100%;
   background-color: #c82d2d;
+}
+
+.project {
+  width: 100%;
+  height: 100vh;
+  padding: 0 12.5vw;
+}
+.project__profile {
+  display: flex;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+}
+.project__profile img {
+  display: inline-block;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 20%;
+}
+.project__profile .information {
+  display: grid;
+  grid-template-areas: "Busqueda" "Description" "Follow" "Link";
+  align-content: flex-start;
+  width: 100%;
+  position: relative;
+}
+.project__profile .information__error {
+  position: absolute;
+  width: 0;
+  height: 3.4rem;
+  padding: 0;
+  font-size: 1rem;
+  background-color: #c82d2d;
+  font-family: Secular Uno;
+  color: #232528;
+  border-radius: 1rem;
+  z-index: 400;
+  text-align: center;
+  transition: all 0.5s;
+}
+.project__profile .information__text {
+  position: absolute;
+  width: 0rem;
+  padding: 0rem;
+  height: 3.4rem;
+  background-color: #ffffff;
+  font-family: Secular Uno;
+  color: #232528;
+  border-radius: 1rem;
+  z-index: 450;
+  transition: all 0.5s;
+}
+.project__profile .information__name {
+  grid-area: Busqueda;
+  z-index: 400;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-family: Titan One;
+  color: #F5B82E;
+  font-size: 3rem;
+}
+.project__profile .information__link {
+  grid-area: Busqueda;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-family: Secular Uno;
+  color: #ffffff;
+  font-size: 1.3rem;
+  align-self: center;
+  margin-top: 0.5rem;
+}
+.project__profile .information__submit {
+  grid-area: Busqueda;
+  align-self: center;
+  justify-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 2.5rem;
+  width: 100%;
+  max-width: 9rem;
+  padding-left: 1rem;
+  margin-right: 1rem;
+  text-decoration: none;
+  background-color: #3066be;
+  border-radius: 1rem;
+  position: relative;
+  cursor: pointer;
+}
+.project__profile .information__submit:hover img {
+  opacity: 0;
+  visibility: collapse;
+}
+.project__profile .information__submit:hover .arrow {
+  right: 1rem;
+  opacity: 1;
+  visibility: visible;
+}
+.project__profile .information__submit:hover h6 {
+  position: absolute;
+  left: 1rem;
+}
+.project__profile .information__submit img {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 0.5rem;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s ease-in-out all;
+}
+.project__profile .information__submit h6 {
+  width: 100%;
+  font-family: Secular Uno;
+  color: #ffffff;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  left: 3rem;
+  transition: 0.8s ease-in-out all;
+}
+.project__profile .information__submit .arrow {
+  width: 0.5em;
+  height: 1rem;
+  position: absolute;
+  right: 10rem;
+  opacity: 0;
+  margin: 0;
+  visibility: hidden;
+  transition: 0.8s ease-in-out all;
+}
+.project__profile .information__description {
+  grid-area: Description;
+  width: 85%;
+  padding-right: 1rem;
+  text-align: justify;
+  font-family: Secular Uno;
+  color: #bebebe;
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+.project__profile .information__follow {
+  display: flex;
+  flex-direction: row;
+}
+.project__profile .information__follow li {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin-right: 1.5rem;
+}
+.project__profile .information__follow li img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.project__profile .information__follow li h6 {
+  font-family: Secular Uno;
+  color: #bebebe;
+  font-size: 1rem;
 }
 
 #dark {

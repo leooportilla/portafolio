@@ -38,6 +38,67 @@ $Resolution: ("MovilSmall": 375px,
 );
 
 //TODO: Los Mixin
+@mixin Botones {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 2.5rem;
+    width: 100%;
+    max-width: 9rem;
+    padding-left: 1rem;
+    margin-right: 1rem;
+    text-decoration: none;
+    background-color: map-get($map: $Colors, $key: "Blue");
+    border-radius: 1rem;
+    position: relative;
+    cursor: pointer;
+
+    &:hover img {
+        opacity: 0;
+        visibility: collapse;
+    }
+
+    &:hover .arrow {
+        right: 1rem;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:hover h6 {
+        position: absolute;
+        left: 1rem;
+    }
+
+    & img {
+        width: 1.2rem;
+        height: 1.2rem;
+        margin-right: .5rem;
+        visibility: visible;
+        opacity: 1;
+        transition: .5s ease-in-out all;
+    }
+
+    & h6 {
+        width: 100%;
+        font-family: map-get($map: $Fonts, $key: "Secular Uno");
+        color: map-get($map: $Colors, $key: "White");
+        font-size: .8rem;
+        letter-spacing: 2px;
+        left: 3rem;
+        transition: .8s ease-in-out all;
+    }
+
+    .arrow {
+        width: .5em;
+        height: 1rem;
+        position: absolute;
+        right: 10rem;
+        opacity: 0;
+        margin: 0;
+        visibility: hidden;
+        transition: .8s ease-in-out all;
+    }
+}
 
 //TODO: Key Frames
 //* Animacion para carga de la pagina
@@ -132,7 +193,7 @@ main {
             background: map-get($map: $Colors, $key: "Raisin Black");
             animation: Loader 1.5s infinite;
         }
-    
+
         &::before {
             animation-delay: .4s;
         }
@@ -340,64 +401,7 @@ main {
                 margin-top: 1rem;
 
                 &-link {
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-start;
-                    height: 2.5rem;
-                    width: 100%;
-                    max-width: 9rem;
-                    padding-left: 1rem;
-                    margin-right: 1rem;
-                    text-decoration: none;
-                    background-color: map-get($map: $Colors, $key: "Blue");
-                    border-radius: 1rem;
-                    position: relative;
-
-                    &:hover img {
-                        opacity: 0;
-                        visibility: collapse;
-                    }
-
-                    &:hover .arrow {
-                        right: 1rem;
-                        opacity: 1;
-                        visibility: visible;
-                    }
-
-                    &:hover h6 {
-                        position: absolute;
-                        left: 1rem;
-                    }
-
-                    & img {
-                        width: 1.2rem;
-                        height: 1.2rem;
-                        margin-right: .5rem;
-                        visibility: visible;
-                        opacity: 1;
-                        transition: .5s ease-in-out all;
-                    }
-
-                    & h6 {
-                        width: 100%;
-                        font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                        color: map-get($map: $Colors, $key: "White");
-                        font-size: .8rem;
-                        letter-spacing: 2px;
-                        left: 3rem;
-                        transition: .8s ease-in-out all;
-                    }
-
-                    .arrow {
-                        width: .5em;
-                        height: 1rem;
-                        position: absolute;
-                        right: 10rem;
-                        opacity: 0;
-                        margin: 0;
-                        visibility: hidden;
-                        transition: .8s ease-in-out all;
-                    }
+                    @include Botones();
                 }
             }
         }
@@ -719,6 +723,124 @@ main {
     }
 }
 
+.project {
+    width: 100%;
+    height: 100vh;
+    padding: 0 12.5vw;
+
+    &__profile {
+        display: flex;
+        column-gap: 2rem;
+
+        img {
+            display: inline-block;
+            width: 15rem;
+            height: 15rem;
+            border-radius: 20%;
+        }
+
+        .information {
+            display: grid;
+            grid-template-areas:
+                "Busqueda"
+                "Description"
+                "Follow"
+                "Link";
+            align-content: flex-start;
+            width: 100%;
+            position: relative;
+
+            &__error {
+                position: absolute;
+                width: 0;
+                height: 3.4rem;
+                padding: 0;
+                font-size: 1rem;
+                background-color: map-get($map: $Colors, $key: "Red");
+                font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                color: map-get($map: $Colors, $key: "Raisin Black");
+                border-radius: 1rem;  
+                z-index: 400;
+                text-align: center;
+                transition: all .5s;
+            }
+
+            &__text {
+                position: absolute;
+                width: 0rem;
+                padding: 0rem;
+                height: 3.4rem;
+                background-color: map-get($map: $Colors, $key: "White");
+                font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                color: map-get($map: $Colors, $key: "Raisin Black");
+                border-radius: 1rem; 
+                z-index: 450;
+                transition: all .5s;
+            }
+
+            &__name {
+                grid-area: Busqueda;
+                z-index: 400;
+                width: fit-content;
+                font-family: map-get($map: $Fonts, $key: "Titan One");
+                color: map-get($map: $Colors, $key: "Yellow");
+                font-size: 3rem;
+            }
+
+            &__link {
+                grid-area: Busqueda;
+                width: fit-content;
+                font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                color: map-get($map: $Colors, $key: "White");
+                font-size: 1.3rem;
+                align-self: center;
+                margin-top: .5rem;
+            }
+
+            &__submit {
+                grid-area: Busqueda;
+                align-self: center;
+                justify-self: flex-end;
+                @include Botones();
+            }
+
+            &__description {
+                grid-area: Description;
+                width: 85%;
+                padding-right: 1rem;
+                text-align: justify;
+                font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                color: map-get($map: $Colors, $key: "Grey");
+                font-size: 1rem;
+                margin: 1rem 0;
+            }
+
+            &__follow {
+                display: flex;
+                flex-direction: row;
+
+                li {
+                    display: flex;
+                    flex-direction: row;
+                    gap: .5rem;
+                    margin-right: 1.5rem;
+
+                    img {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                    }
+
+                    h6 {
+                        font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                        color: map-get($map: $Colors, $key: "Grey");
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
 //* Clase para cambiar modo oscuro
 #dark {
     color: map-get($map: $Colors, $key: "Raisin Black");
@@ -976,7 +1098,7 @@ main {
                             height: 2rem;
                             margin: 0;
                         }
-                        
+
                         &::after {
                             content: none;
                         }
@@ -1111,7 +1233,7 @@ main {
                 }
             }
 
-            &-hover { 
+            &-hover {
                 padding: 1rem;
                 width: 96%;
                 height: 97%;
@@ -1417,9 +1539,11 @@ main {
                 }
 
             }
+
             &-hover {
                 padding: 1rem;
             }
+
             .name {
                 padding: 1rem;
 
