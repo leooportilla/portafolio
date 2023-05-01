@@ -100,6 +100,45 @@ $Resolution: ("MovilSmall": 375px,
     }
 }
 
+@mixin ButtonSmall {
+    margin: 0;
+    padding: 0;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    overflow: hidden;
+    justify-content: center;
+
+    &:hover {
+        justify-content: center;
+    }
+
+    &:hover img {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .red {
+        width: 1.2rem;
+        height: 1.2rem;
+        margin: 0;
+    }
+
+    & img {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 0;
+    }
+
+    & h6 {
+        display: none;
+    }
+
+    .arrow {
+        display: none;
+    }
+}
+
 //TODO: Key Frames
 //* Animacion para carga de la pagina
 @keyframes Loader {
@@ -495,7 +534,7 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 7vh 12.5vw 5vh 12.5vw;
+    padding: 7vh 12.5vw 0 12.5vw;
     background-color: map-get($map: $Colors, $key: "Blue Green");
     background-image: url(../media/images/wave_about.png);
     background-repeat: no-repeat;
@@ -553,7 +592,7 @@ main {
             height: 100%;
             cursor: pointer;
             border-radius: 1.1rem;
-            box-shadow: rgba(0, 0, 0, .2) 0px 5px 15px;
+            box-shadow: 0 0 10px 1px map-get($map: $Colors, $key: "Black");
 
             & div {
                 width: 100%;
@@ -618,7 +657,7 @@ main {
             height: 96.5%;
             background: #232528;
             border-radius: 10px;
-            box-shadow: 0 0 10px 2px black;
+            box-shadow: 0 0 10px 2px map-get($map: $Colors, $key: "Black");
             padding: 2rem;
             letter-spacing: 0.125rem;
             transform: translateX(2%);
@@ -729,115 +768,121 @@ main {
     padding: 0 12.5vw;
 
     &__profile {
-        display: flex;
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        grid-template-rows: max-content;
+        grid-template-areas:
+            "Image Name"
+            "Image Description"
+            "Image Statistics";
+        width: 100%;
+        max-width: 70rem;
+        position: relative;
         column-gap: 2rem;
 
-        img {
+        &-img {
+            grid-area: Image;
             display: inline-block;
-            width: 15rem;
-            height: 15rem;
+            width: 10rem;
+            height: 10rem;
             border-radius: 20%;
+            box-shadow: 0 0 10px 1px map-get($map: $Colors, $key: "Black");
         }
 
-        .information {
-            display: grid;
-            grid-template-areas:
-                "Busqueda"
-                "Description"
-                "Follow"
-                "Link";
-            align-content: flex-start;
-            width: 100%;
-            position: relative;
+        &-error {
+            grid-area: Name;
+            position: absolute;
+            width: 0;
+            height: 3.4rem;
+            padding: 0;
+            font-size: 1rem;
+            background-color: map-get($map: $Colors, $key: "Red");
+            font-family: map-get($map: $Fonts, $key: "Secular Uno");
+            color: map-get($map: $Colors, $key: "Raisin Black");
+            border-radius: 1rem;
+            z-index: 400;
+            align-self: center;
+            transition: all .5s;
+        }
 
-            &__error {
-                position: absolute;
-                width: 0;
-                height: 3.4rem;
-                padding: 0;
-                font-size: 1rem;
-                background-color: map-get($map: $Colors, $key: "Red");
-                font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                color: map-get($map: $Colors, $key: "Raisin Black");
-                border-radius: 1rem;  
-                z-index: 400;
-                text-align: center;
-                transition: all .5s;
-            }
+        &-text {
+            grid-area: Name;
+            position: absolute;
+            width: 0rem;
+            padding: 0rem;
+            height: 3.4rem;
+            background-color: map-get($map: $Colors, $key: "White");
+            font-family: map-get($map: $Fonts, $key: "Secular Uno");
+            color: map-get($map: $Colors, $key: "Raisin Black");
+            border-radius: 1rem;
+            z-index: 450;
+            outline: none;
+            align-self: center;
+            transition: all .5s;
+        }
 
-            &__text {
-                position: absolute;
-                width: 0rem;
-                padding: 0rem;
-                height: 3.4rem;
-                background-color: map-get($map: $Colors, $key: "White");
-                font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                color: map-get($map: $Colors, $key: "Raisin Black");
-                border-radius: 1rem; 
-                z-index: 450;
-                transition: all .5s;
-            }
+        &-name {
+            grid-area: Name;
+            z-index: 400;
+            width: max-content;
+            font-family: map-get($map: $Fonts, $key: "Titan One");
+            color: map-get($map: $Colors, $key: "Yellow");
+            font-size: 3rem;
+            align-self: center;
+        }
 
-            &__name {
-                grid-area: Busqueda;
-                z-index: 400;
-                width: fit-content;
-                font-family: map-get($map: $Fonts, $key: "Titan One");
-                color: map-get($map: $Colors, $key: "Yellow");
-                font-size: 3rem;
-            }
+        &-link {
+            grid-area: Name;
+            width: fit-content;
+            font-family: map-get($map: $Fonts, $key: "Secular Uno");
+            color: map-get($map: $Colors, $key: "White");
+            font-size: .8rem;
+            align-self: center;
+        }
 
-            &__link {
-                grid-area: Busqueda;
-                width: fit-content;
-                font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                color: map-get($map: $Colors, $key: "White");
-                font-size: 1.3rem;
-                align-self: center;
-                margin-top: .5rem;
-            }
+        .submit {
+            grid-area: Name;
+            align-self: center;
+            justify-self: flex-end;
+            @include Botones();
+        }
 
-            &__submit {
-                grid-area: Busqueda;
-                align-self: center;
-                justify-self: flex-end;
-                @include Botones();
-            }
+        &-description {
+            grid-area: Description;
+            width: 83%;
+            text-align: justify;
+            font-family: map-get($map: $Fonts, $key: "Secular Uno");
+            color: map-get($map: $Colors, $key: "White");
+            font-size: 1rem;
+            margin: .5rem 0;
+        }
 
-            &__description {
-                grid-area: Description;
-                width: 85%;
-                padding-right: 1rem;
-                text-align: justify;
-                font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                color: map-get($map: $Colors, $key: "Grey");
-                font-size: 1rem;
-                margin: 1rem 0;
-            }
+        &-follow {
+            grid-area: Statistics;
+            display: flex;
+            flex-direction: row;
+            align-self: center;
 
-            &__follow {
+            li {
                 display: flex;
                 flex-direction: row;
+                gap: .5rem;
+                margin-right: 1.5rem;
 
-                li {
-                    display: flex;
-                    flex-direction: row;
-                    gap: .5rem;
-                    margin-right: 1.5rem;
+                img {
+                    align-self: center;
+                    width: 1rem;
+                    height: 1rem;
+                }
 
-                    img {
-                        width: 1.5rem;
-                        height: 1.5rem;
-                    }
-
-                    h6 {
-                        font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                        color: map-get($map: $Colors, $key: "Grey");
-                        font-size: 1rem;
-                    }
+                h6 {
+                    font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                    color: map-get($map: $Colors, $key: "White");
+                    font-size: 1rem;
                 }
             }
         }
+
     }
 }
 
@@ -918,6 +963,54 @@ main {
         }
     }
 
+    .project {
+
+        &__profile {
+
+            &-img {
+                width: 8rem;
+                height: 8rem;
+            }
+
+            &-error {
+                height: 2.5rem;
+                ;
+            }
+
+            &-text {
+                height: 2.5rem;
+            }
+
+            &-name {
+                font-size: 2rem;
+            }
+
+            &-link {
+                font-size: .8rem;
+                margin-top: 0;
+            }
+
+            &-description {
+                width: 75%;
+                font-size: .8rem;
+            }
+
+            &-follow {
+
+                li {
+
+                    img {
+                        width: 1rem;
+                        height: 1rem;
+                    }
+
+                    h6 {
+                        font-size: .8rem;
+                    }
+                }
+            }
+        }
+    }
 }
 
 //* 1024px
@@ -982,6 +1075,16 @@ main {
                 &__summary {
                     font-size: 0.7rem;
                 }
+            }
+        }
+    }
+
+    .project {
+
+        &__profile {
+
+            &-description {
+                width: 72%;
             }
         }
     }
@@ -1140,43 +1243,7 @@ main {
                     gap: 1rem;
 
                     &-link {
-                        margin: 0;
-                        padding: 0;
-                        width: 4rem;
-                        height: 4rem;
-                        border-radius: 50%;
-                        overflow: hidden;
-                        justify-content: center;
-
-                        &:hover {
-                            justify-content: center;
-                        }
-
-                        &:hover img {
-                            opacity: 1;
-                            visibility: visible;
-                        }
-
-                        .red {
-                            width: 1.2rem;
-                            height: 1.2rem;
-                            margin: 0;
-                        }
-
-                        & img {
-                            width: 1.5rem;
-                            height: 1.5rem;
-                            margin: 0;
-                        }
-
-                        & h6 {
-                            display: none;
-                        }
-
-                        .arrow {
-                            display: none;
-                        }
-
+                        @include ButtonSmall()
                     }
                 }
             }
@@ -1218,6 +1285,7 @@ main {
 
         &__skills {
             width: 100%;
+            height: 100%;
             padding: 0;
             justify-items: center;
             grid-template-rows: repeat(2, 8rem);
@@ -1263,6 +1331,76 @@ main {
                     margin-top: .5rem;
                 }
             }
+        }
+    }
+
+    .project {
+
+        &__profile {
+            grid-template-areas:
+                "Name Name"
+                "Image Description"
+                "Image Statistics"
+                "Image Vacia";
+            column-gap: 1rem;
+            padding-top: 3rem;
+
+            &-img {
+                margin-top: 0.5rem;
+                width: 8rem;
+                height: 8rem;
+            }
+
+            &-error {
+                text-align: center;
+                height: 2.5rem;
+            }
+
+            &-text {
+                height: 2.5rem;
+            }
+
+            &-name {
+                grid-area: Name;
+                font-size: 2.5rem;
+            }
+
+            .submit {
+                @include ButtonSmall();
+                width: 2.5rem;
+                height: 2.5rem;
+
+                & img {
+                    width: 1rem;
+                    height: 1rem;
+                }
+            }
+
+            &-link {
+                font-size: 1rem;
+                margin-top: 0;
+            }
+
+            &-description {
+                width: 100%;
+                font-size: .8rem;
+            }
+
+            &-follow {
+
+                li {
+
+                    img {
+                        width: 1rem;
+                        height: 1rem;
+                    }
+
+                    h6 {
+                        font-size: .8rem;
+                    }
+                }
+            }
+
         }
     }
 
@@ -1418,6 +1556,66 @@ main {
             }
         }
     }
+
+    .project {
+
+        &__profile {
+            column-gap: .5rem;
+
+            &-img {
+                width: 5rem;
+                height: 5rem;
+            }
+
+            &-error {
+                height: 2.5rem;
+            }
+
+            &-text {
+                height: 2.5rem;
+            }
+
+            &-name {
+                font-size: 1.6rem;
+            }
+
+            &-submit {
+                @include ButtonSmall();
+                width: 2.5rem;
+                height: 2.5rem;
+
+                & img {
+                    width: 1rem;
+                    height: 1rem;
+                }
+            }
+
+            &-link {
+                font-size: .7rem;
+            }
+
+            &-description {
+                width: 100%;
+                font-size: .6rem;
+            }
+
+            &-follow {
+
+                li {
+                    gap: .25rem;
+
+                    img {
+                        width: .8rem;
+                        height: .8rem;
+                    }
+
+                    h6 {
+                        font-size: .6rem;
+                    }
+                }
+            }
+        }
+    }
 }
 
 //* 480px
@@ -1564,6 +1762,72 @@ main {
                     height: 0.3rem;
                 }
             }
+        }
+    }
+
+    .project {
+
+        &__profile {
+
+            &-img {
+                width: 4.5rem;
+                height: 4.5rem;
+            }
+
+            &-error {
+                font-size: .6rem;
+                height: 1.5rem;
+            }
+
+            &-text {
+                font-size: .6rem;
+                height: 1.5rem;
+            }
+
+            &-name {
+                font-size: 1.2rem;
+                margin: 0;
+            }
+
+            .submit {
+                @include ButtonSmall();
+                width: 1.8rem;
+                height: 1.8rem;
+
+                & img {
+                    width: .7rem;
+                    height: .7rem;
+                }
+            }
+
+            &-link {
+                font-size: .55rem;
+            }
+
+            &-description {
+                font-size: .55rem;
+            }
+
+            &-follow {
+
+                li {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 0.1rem;
+                    margin-right: .5rem;
+
+
+                    img {
+                        width: .5rem;
+                        height: .5rem;
+                    }
+
+                    h6 {
+                        font-size: .4rem;
+                    }
+                }
+            }
+
         }
     }
 }

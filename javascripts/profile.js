@@ -1,12 +1,12 @@
-const Name = document.querySelector(`.information__name`)
+const Name = document.querySelector(`.project__profile-name`)
 const ImageUser = document.querySelector(`.project__profile-img`)
-const Description = document.querySelector(`.information__description`)
+const Description = document.querySelector(`.project__profile-description`)
 const Following = document.querySelector(`.following`)
 const Followers = document.querySelector(`.followers`)
 const Respository = document.querySelector(`.repository`)
-const Text = document.querySelector(`.information__text`)
-const Link = document.querySelector(`.information__link`)
-const Errores = document.querySelector(`.information__error`)
+const Text = document.querySelector(`.project__profile-text`)
+const Link = document.querySelector(`.project__profile-link`)
+const Errores = document.querySelector(`.project__profile-error`)
 
 export async function Profile(User = `leooportilla`) {
 
@@ -29,7 +29,7 @@ export async function Profile(User = `leooportilla`) {
 
     } catch (error) {
         ImageUser.setAttribute(`src`, `./media/images/users.png`)
-        Name.innerHTML = `Usuario no registrado`
+        Name.innerHTML = `No registrado`
         Link.style.paddingLeft = `calc(${Name.getBoundingClientRect().width}px + 1rem)`
         Description.innerHTML = error.message
         Respository.innerHTML = `0`
@@ -42,19 +42,18 @@ export function Search() {
 
     document.addEventListener(`click`, evento => {
 
-        if (evento.target.matches(`.information__submit`) || evento.target.matches(`.information__submit-icon`) || evento.target.matches(`.information__submit-title`)) {
+        if (evento.target.matches(`.submit`) || evento.target.matches(`.submit__icon`) || evento.target.matches(`.submit__title`)) {
             let Pattern = new RegExp(Text.pattern)
 
             if (!Text.classList.contains(`inputText`)) {
                 Errores.style.width = `calc(${Link.getBoundingClientRect().width}px)`
-                Errores.style.padding = `0 2rem`
+                Errores.style.padding = `0 1rem`
                 Text.style.width = `calc(${Link.getBoundingClientRect().width}px)`
-                Text.style.padding = `0 2rem`
+                Text.style.padding = `0 1rem`
                 Text.classList.toggle(`inputText`)
                 Text.focus()
 
             } else {
-                console.log(`fsd`)
                 if (Pattern.test(Text.value) || Text.value == ``) {
                     Errores.style.transform = `translateY(0)`
 

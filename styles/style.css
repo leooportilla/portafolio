@@ -548,7 +548,7 @@ main {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 7vh 12.5vw 5vh 12.5vw;
+  padding: 7vh 12.5vw 0 12.5vw;
   background-image: url(../media/images/wave_about.png);
   background-repeat: no-repeat;
   background-size: contain;
@@ -600,7 +600,7 @@ main {
   height: 100%;
   cursor: pointer;
   border-radius: 1.1rem;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  box-shadow: 0 0 10px 1px #000000;
 }
 .hability__skills-container div {
   width: 100%;
@@ -657,7 +657,7 @@ main {
   height: 96.5%;
   background: #232528;
   border-radius: 10px;
-  box-shadow: 0 0 10px 2px black;
+  box-shadow: 0 0 10px 2px #000000;
   padding: 2rem;
   letter-spacing: 0.125rem;
   transform: translateX(2%);
@@ -754,24 +754,26 @@ main {
   padding: 0 12.5vw;
 }
 .project__profile {
-  display: flex;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: max-content;
+  grid-template-areas: "Image Name" "Image Description" "Image Statistics";
+  width: 100%;
+  max-width: 70rem;
+  position: relative;
   -moz-column-gap: 2rem;
        column-gap: 2rem;
 }
-.project__profile img {
+.project__profile-img {
+  grid-area: Image;
   display: inline-block;
-  width: 15rem;
-  height: 15rem;
+  width: 10rem;
+  height: 10rem;
   border-radius: 20%;
+  box-shadow: 0 0 10px 1px #000000;
 }
-.project__profile .information {
-  display: grid;
-  grid-template-areas: "Busqueda" "Description" "Follow" "Link";
-  align-content: flex-start;
-  width: 100%;
-  position: relative;
-}
-.project__profile .information__error {
+.project__profile-error {
+  grid-area: Name;
   position: absolute;
   width: 0;
   height: 3.4rem;
@@ -782,10 +784,11 @@ main {
   color: #232528;
   border-radius: 1rem;
   z-index: 400;
-  text-align: center;
+  align-self: center;
   transition: all 0.5s;
 }
-.project__profile .information__text {
+.project__profile-text {
+  grid-area: Name;
   position: absolute;
   width: 0rem;
   padding: 0rem;
@@ -795,29 +798,31 @@ main {
   color: #232528;
   border-radius: 1rem;
   z-index: 450;
+  outline: none;
+  align-self: center;
   transition: all 0.5s;
 }
-.project__profile .information__name {
-  grid-area: Busqueda;
+.project__profile-name {
+  grid-area: Name;
   z-index: 400;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: -moz-max-content;
+  width: max-content;
   font-family: Titan One;
   color: #F5B82E;
   font-size: 3rem;
+  align-self: center;
 }
-.project__profile .information__link {
-  grid-area: Busqueda;
+.project__profile-link {
+  grid-area: Name;
   width: -moz-fit-content;
   width: fit-content;
   font-family: Secular Uno;
   color: #ffffff;
-  font-size: 1.3rem;
+  font-size: 0.8rem;
   align-self: center;
-  margin-top: 0.5rem;
 }
-.project__profile .information__submit {
-  grid-area: Busqueda;
+.project__profile .submit {
+  grid-area: Name;
   align-self: center;
   justify-self: flex-end;
   display: flex;
@@ -834,20 +839,20 @@ main {
   position: relative;
   cursor: pointer;
 }
-.project__profile .information__submit:hover img {
+.project__profile .submit:hover img {
   opacity: 0;
   visibility: collapse;
 }
-.project__profile .information__submit:hover .arrow {
+.project__profile .submit:hover .arrow {
   right: 1rem;
   opacity: 1;
   visibility: visible;
 }
-.project__profile .information__submit:hover h6 {
+.project__profile .submit:hover h6 {
   position: absolute;
   left: 1rem;
 }
-.project__profile .information__submit img {
+.project__profile .submit img {
   width: 1.2rem;
   height: 1.2rem;
   margin-right: 0.5rem;
@@ -855,7 +860,7 @@ main {
   opacity: 1;
   transition: 0.5s ease-in-out all;
 }
-.project__profile .information__submit h6 {
+.project__profile .submit h6 {
   width: 100%;
   font-family: Secular Uno;
   color: #ffffff;
@@ -864,7 +869,7 @@ main {
   left: 3rem;
   transition: 0.8s ease-in-out all;
 }
-.project__profile .information__submit .arrow {
+.project__profile .submit .arrow {
   width: 0.5em;
   height: 1rem;
   position: absolute;
@@ -874,33 +879,35 @@ main {
   visibility: hidden;
   transition: 0.8s ease-in-out all;
 }
-.project__profile .information__description {
+.project__profile-description {
   grid-area: Description;
-  width: 85%;
-  padding-right: 1rem;
+  width: 83%;
   text-align: justify;
   font-family: Secular Uno;
-  color: #bebebe;
+  color: #ffffff;
   font-size: 1rem;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
-.project__profile .information__follow {
+.project__profile-follow {
+  grid-area: Statistics;
   display: flex;
   flex-direction: row;
+  align-self: center;
 }
-.project__profile .information__follow li {
+.project__profile-follow li {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
   margin-right: 1.5rem;
 }
-.project__profile .information__follow li img {
-  width: 1.5rem;
-  height: 1.5rem;
+.project__profile-follow li img {
+  align-self: center;
+  width: 1rem;
+  height: 1rem;
 }
-.project__profile .information__follow li h6 {
+.project__profile-follow li h6 {
   font-family: Secular Uno;
-  color: #bebebe;
+  color: #ffffff;
   font-size: 1rem;
 }
 
@@ -944,6 +951,34 @@ main {
   .hability__skills .name__summary {
     font-size: 0.75rem;
   }
+  .project__profile-img {
+    width: 8rem;
+    height: 8rem;
+  }
+  .project__profile-error {
+    height: 2.5rem;
+  }
+  .project__profile-text {
+    height: 2.5rem;
+  }
+  .project__profile-name {
+    font-size: 2rem;
+  }
+  .project__profile-link {
+    font-size: 0.8rem;
+    margin-top: 0;
+  }
+  .project__profile-description {
+    width: 75%;
+    font-size: 0.8rem;
+  }
+  .project__profile-follow li img {
+    width: 1rem;
+    height: 1rem;
+  }
+  .project__profile-follow li h6 {
+    font-size: 0.8rem;
+  }
 }
 @media (max-width: 1024px) {
   .principal__biography-profile img {
@@ -982,6 +1017,9 @@ main {
   }
   .hability__skills .name__summary {
     font-size: 0.7rem;
+  }
+  .project__profile-description {
+    width: 72%;
   }
 }
 @media (max-width: 960px) {
@@ -1171,6 +1209,7 @@ main {
   }
   .hability__skills {
     width: 100%;
+    height: 100%;
     padding: 0;
     justify-items: center;
     grid-template-rows: repeat(2, 8rem);
@@ -1206,6 +1245,81 @@ main {
   }
   .hability__skills .name__process {
     margin-top: 0.5rem;
+  }
+  .project__profile {
+    grid-template-areas: "Name Name" "Image Description" "Image Statistics" "Image Vacia";
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
+    padding-top: 3rem;
+  }
+  .project__profile-img {
+    margin-top: 0.5rem;
+    width: 8rem;
+    height: 8rem;
+  }
+  .project__profile-error {
+    text-align: center;
+    height: 2.5rem;
+  }
+  .project__profile-text {
+    height: 2.5rem;
+  }
+  .project__profile-name {
+    grid-area: Name;
+    font-size: 2.5rem;
+  }
+  .project__profile .submit {
+    margin: 0;
+    padding: 0;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    overflow: hidden;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .project__profile .submit:hover {
+    justify-content: center;
+  }
+  .project__profile .submit:hover img {
+    opacity: 1;
+    visibility: visible;
+  }
+  .project__profile .submit .red {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0;
+  }
+  .project__profile .submit img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0;
+  }
+  .project__profile .submit h6 {
+    display: none;
+  }
+  .project__profile .submit .arrow {
+    display: none;
+  }
+  .project__profile .submit img {
+    width: 1rem;
+    height: 1rem;
+  }
+  .project__profile-link {
+    font-size: 1rem;
+    margin-top: 0;
+  }
+  .project__profile-description {
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .project__profile-follow li img {
+    width: 1rem;
+    height: 1rem;
+  }
+  .project__profile-follow li h6 {
+    font-size: 0.8rem;
   }
 }
 @media (max-width: 768px) {
@@ -1307,6 +1421,78 @@ main {
   .hability__skills .name__process {
     font-size: 0.6rem;
   }
+  .project__profile {
+    -moz-column-gap: 0.5rem;
+         column-gap: 0.5rem;
+  }
+  .project__profile-img {
+    width: 5rem;
+    height: 5rem;
+  }
+  .project__profile-error {
+    height: 2.5rem;
+  }
+  .project__profile-text {
+    height: 2.5rem;
+  }
+  .project__profile-name {
+    font-size: 1.6rem;
+  }
+  .project__profile-submit {
+    margin: 0;
+    padding: 0;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    overflow: hidden;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .project__profile-submit:hover {
+    justify-content: center;
+  }
+  .project__profile-submit:hover img {
+    opacity: 1;
+    visibility: visible;
+  }
+  .project__profile-submit .red {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0;
+  }
+  .project__profile-submit img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0;
+  }
+  .project__profile-submit h6 {
+    display: none;
+  }
+  .project__profile-submit .arrow {
+    display: none;
+  }
+  .project__profile-submit img {
+    width: 1rem;
+    height: 1rem;
+  }
+  .project__profile-link {
+    font-size: 0.7rem;
+  }
+  .project__profile-description {
+    width: 100%;
+    font-size: 0.6rem;
+  }
+  .project__profile-follow li {
+    gap: 0.25rem;
+  }
+  .project__profile-follow li img {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+  .project__profile-follow li h6 {
+    font-size: 0.6rem;
+  }
 }
 @media (max-width: 480px) {
   .header__switchbutton-sun {
@@ -1397,6 +1583,79 @@ main {
   }
   .hability__skills .name__quantity {
     height: 0.3rem;
+  }
+  .project__profile-img {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  .project__profile-error {
+    font-size: 0.6rem;
+    height: 1.5rem;
+  }
+  .project__profile-text {
+    font-size: 0.6rem;
+    height: 1.5rem;
+  }
+  .project__profile-name {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  .project__profile .submit {
+    margin: 0;
+    padding: 0;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    overflow: hidden;
+    justify-content: center;
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  .project__profile .submit:hover {
+    justify-content: center;
+  }
+  .project__profile .submit:hover img {
+    opacity: 1;
+    visibility: visible;
+  }
+  .project__profile .submit .red {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0;
+  }
+  .project__profile .submit img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0;
+  }
+  .project__profile .submit h6 {
+    display: none;
+  }
+  .project__profile .submit .arrow {
+    display: none;
+  }
+  .project__profile .submit img {
+    width: 0.7rem;
+    height: 0.7rem;
+  }
+  .project__profile-link {
+    font-size: 0.55rem;
+  }
+  .project__profile-description {
+    font-size: 0.55rem;
+  }
+  .project__profile-follow li {
+    display: flex;
+    flex-direction: row;
+    gap: 0.1rem;
+    margin-right: 0.5rem;
+  }
+  .project__profile-follow li img {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+  .project__profile-follow li h6 {
+    font-size: 0.4rem;
   }
 }
 @media (max-width: 375px) {
