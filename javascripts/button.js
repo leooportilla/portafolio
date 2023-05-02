@@ -12,6 +12,11 @@ const Instagram = document.querySelector(`.instagram`)
 const Linkedin = document.querySelector(`.linkedin`)
 const GitHud = document.querySelector(`.githud`)
 const Arrow = document.querySelectorAll(`.arrow`)
+const Followers = document.querySelector(`.followers__img`)
+const Following = document.querySelector(`.following__img`)
+const Repository = document.querySelector(`.repository__img`)
+const Search = document.querySelector(`.submit__icon`)
+const InputText = document.querySelector(`.project__profile-text`)
 let SubIcon
 let Process
 let Description
@@ -26,9 +31,15 @@ export function Button() {
         Instagram.setAttribute("src", `./media/images/instagram_dark.png`)
         Linkedin.setAttribute("src", `./media/images/linkedin_dark.png`)
         GitHud.setAttribute("src", `./media/images/githud_dark.png`)
+        Search.setAttribute("src", `./media/images/search_dark.png`)
+        Followers.setAttribute("src", `./media/images/followers_dark.png`)
+        Following.setAttribute("src", `./media/images/following_dark.png`)
+        Repository.setAttribute("src", `./media/images/repository_dark.png`)
 
         Body.style.backgroundColor = `#ffffff`
         SubBody.style.backgroundColor = `#ffffff`
+        InputText.style.backgroundColor = `#232528`
+        InputText.style.color = `#ffffff`
         Summary.style.color = `#232528`
 
         //! Todos las etiquetas que contengan el atributo data-dark cambian el color con el id
@@ -66,9 +77,15 @@ export function Button() {
         Instagram.setAttribute("src", `./media/images/instagram_light.png`)
         Linkedin.setAttribute("src", `./media/images/linkedin_light.png`)
         GitHud.setAttribute("src", `./media/images/githud_light.png`)
+        Search.setAttribute("src", `./media/images/search_light.png`)
+        Followers.setAttribute("src", `./media/images/followers_light.png`)
+        Following.setAttribute("src", `./media/images/following_light.png`)
+        Repository.setAttribute("src", `./media/images/repository_light.png`)
 
         Body.style.backgroundColor = `#232528`
         SubBody.style.backgroundColor = `#232528`
+        InputText.style.backgroundColor = `#ffffff`
+        InputText.style.color = `#232528`
         Summary.style.color = `#bebebe`
 
         //! Todos las etiquetas que contengan el atributo data-dark cambian el color con el id
