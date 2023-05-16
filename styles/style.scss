@@ -42,6 +42,7 @@ $Resolution: ("MovilSmall": 375px,
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    gap: .5rem;
     height: 2.5rem;
     width: 100%;
     max-width: 9rem;
@@ -53,7 +54,7 @@ $Resolution: ("MovilSmall": 375px,
     position: relative;
     cursor: pointer;
 
-    &:hover img {
+    &:hover svg {
         opacity: 0;
         visibility: collapse;
     }
@@ -69,13 +70,15 @@ $Resolution: ("MovilSmall": 375px,
         left: 1rem;
     }
 
-    & img {
-        width: 1.2rem;
-        height: 1.2rem;
-        margin-right: .5rem;
+    & svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        max-width: 1.2rem;
+        max-height: 1.2rem;
         visibility: visible;
         opacity: 1;
         transition: .5s ease-in-out all;
+        color: map-get($map: $Colors, $key: "White");
     }
 
     & h6 {
@@ -113,7 +116,7 @@ $Resolution: ("MovilSmall": 375px,
         justify-content: center;
     }
 
-    &:hover img {
+    &:hover svg {
         opacity: 1;
         visibility: visible;
     }
@@ -124,7 +127,7 @@ $Resolution: ("MovilSmall": 375px,
         margin: 0;
     }
 
-    & img {
+    & svg {
         width: 1.5rem;
         height: 1.5rem;
         margin: 0;
@@ -260,11 +263,13 @@ main {
         justify-content: center;
 
         &-sun {
+            color: map-get($map: $Colors, $key: "White");
             width: 1.2rem;
             height: 1.2rem;
         }
 
         &-moon {
+            color: map-get($map: $Colors, $key: "White");
             width: 1rem;
             height: 1rem;
         }
@@ -468,9 +473,9 @@ main {
         }
 
         &-image {
+            color: map-get($map: $Colors, $key: "White");
             width: 1.5rem;
             height: 100%;
-
         }
 
         &:hover {
@@ -620,11 +625,12 @@ main {
                     top: 0;
                 }
 
-                & img {
+                & svg {
                     width: 100%;
                     height: 100%;
                     position: relative;
                     z-index: 750;
+                    color: map-get($map: $Colors, $key: "Yellow");
                 }
             }
 
@@ -869,10 +875,11 @@ main {
                 gap: .5rem;
                 margin-right: 1.5rem;
 
-                img {
+                svg {
                     align-self: center;
                     width: 1rem;
                     height: 1rem;
+                    color: map-get($map: $Colors, $key: "White");
                 }
 
                 h6 {
@@ -883,6 +890,14 @@ main {
             }
         }
 
+    }
+
+    &__container {
+        width: 100%;
+/*         background-image: url(../media/images/wave_project.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain; */
     }
 }
 
@@ -999,7 +1014,7 @@ main {
 
                 li {
 
-                    img {
+                    svg {
                         width: 1rem;
                         height: 1rem;
                     }
@@ -1125,8 +1140,10 @@ main {
         &__icon {
             display: block;
             z-index: 950;
+            color: map-get($map: $Colors, $key: "White");
 
             &-image {
+                color: inherit;
                 width: 2rem;
                 height: 2rem;
             }
@@ -1196,7 +1213,7 @@ main {
                         justify-content: center;
                         background-color: map-get($map: $Colors, $key: "Raisin Black");
 
-                        & img {
+                        & svg {
                             width: 2rem;
                             height: 2rem;
                             margin: 0;
@@ -1250,7 +1267,7 @@ main {
 
             &-profile {
 
-                &-wave {
+                & img {
                     width: 13rem;
                 }
             }
@@ -1370,7 +1387,7 @@ main {
                 width: 2.5rem;
                 height: 2.5rem;
 
-                & img {
+                & svg {
                     width: 1rem;
                     height: 1rem;
                 }
@@ -1390,7 +1407,7 @@ main {
 
                 li {
 
-                    img {
+                    svg {
                         width: 1rem;
                         height: 1rem;
                     }
@@ -1471,7 +1488,7 @@ main {
                             justify-content: center;
                         }
 
-                        & img {
+                        & svg {
                             width: 1.2rem;
                             height: 1.2rem;
                         }
@@ -1481,7 +1498,7 @@ main {
 
             &-profile {
 
-                &-wave {
+                & img {
                     width: 10rem;
                 }
             }
@@ -1584,7 +1601,7 @@ main {
                 width: 2.5rem;
                 height: 2.5rem;
 
-                & img {
+                & svg {
                     width: 1rem;
                     height: 1rem;
                 }
@@ -1604,7 +1621,7 @@ main {
                 li {
                     gap: .25rem;
 
-                    img {
+                    svg {
                         width: .8rem;
                         height: .8rem;
                     }
@@ -1644,7 +1661,7 @@ main {
         }
 
         &__icon {
-            & img {
+            & svg {
                 width: 1.5rem;
                 height: 1.5rem;
             }
@@ -1692,7 +1709,7 @@ main {
                             justify-content: center;
                         }
 
-                        & img {
+                        & svg {
                             width: 1rem;
                             height: 1rem;
                         }
@@ -1794,7 +1811,7 @@ main {
                 width: 1.8rem;
                 height: 1.8rem;
 
-                & img {
+                & svg {
                     width: .7rem;
                     height: .7rem;
                 }
@@ -1817,7 +1834,7 @@ main {
                     margin-right: .5rem;
 
 
-                    img {
+                    svg {
                         width: .5rem;
                         height: .5rem;
                     }
@@ -1897,7 +1914,7 @@ main {
                         width: 2.8rem;
                         height: 2.8rem;
 
-                        & img {
+                        & svg {
                             width: 1rem;
                             height: 1rem;
                         }

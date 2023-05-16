@@ -80,7 +80,7 @@ export function Search() {
 }
 
 export function SearchKey() {
-    document.addEventListener(`keydown`, evento => {
+    document.addEventListener(`keyup`, evento => {
         if (Text.classList.contains(`inputText`)) {
             let Pattern = new RegExp(Text.pattern)
 
@@ -118,7 +118,7 @@ export function SearchKey() {
                     Errores.style.width = `0`
                     Errores.style.padding = `0`
                     Errores.innerHTML = ``
-                }, 800)
+                }, 300)
             }
         }
     })
