@@ -1,0 +1,165 @@
+// TODOS: Colores, fuentes y tamanios
+@use "./variables.scss" as *;
+
+// TODOS: Los Mixin - Funciones
+@use "./mixin.scss" as *;
+
+// TODOS: Key Frames - Animaciones
+@use "./keyframe.scss" as *;
+
+.principal {
+    width: 75%;
+    height: 90vh;
+    margin: auto;
+
+    &__biography {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+        gap: 5rem;
+
+        &-profile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            & img {
+                width: 15rem;
+            }
+        }
+
+        .headline {
+            width: 100%;
+            max-width: 50rem;
+
+            &__greetings {
+                font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                color: map-get($map: $Colors, $key: "White");
+                letter-spacing: 2px;
+                font-size: 2rem;
+            }
+
+            &__name {
+                font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                color: map-get($map: $Colors, $key: "White");
+                letter-spacing: 2px;
+                font-size: 4rem;
+                line-height: 1;
+                margin-bottom: 2rem;
+
+                & span {
+                    font-family: map-get($map: $Fonts, $key: "Titan One");
+                    color: map-get($map: $Colors, $key: "Yellow");
+                    text-transform: uppercase;
+                }
+            }
+
+            &__summary {
+                font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                color: map-get($map: $Colors, $key: "Grey");
+                max-width: 45rem;
+                letter-spacing: 2px;
+                font-size: 1rem;
+                text-align: justify;
+            }
+
+            .red {
+                color: map-get($map: $Colors, $key: "Red");
+            }
+
+            &__container {
+                display: flex;
+                justify-content: flex-start;
+                width: 100%;
+                margin-top: 1rem;
+
+                &-link {
+                    @include Botones();
+                }
+            }
+        }
+    }
+
+    &__slide {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        padding-bottom: 5vh;
+        left: 50%;
+        bottom: 0;
+        z-index: 800;
+        cursor: pointer;
+        animation: SwipeUp 2s infinite;
+
+        &-title {
+            font-family: map-get($map: $Fonts, $key: "Secular Uno");
+            color: map-get($map: $Colors, $key: "White");
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        &-image {
+            color: map-get($map: $Colors, $key: "White");
+            width: 1.5rem;
+            height: 100%;
+        }
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+    }
+
+    &__container {
+        width: 100%;
+        height: 25%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 750;
+
+        &-one {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-image: url(../media/images/wave_one.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position-x: 0%;
+            animation: Move 300s infinite;
+            position: absolute;
+            bottom: 0;
+        }
+
+        &-two {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-image: url(../media/images/wave_two.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position-x: 0%;
+            animation: Move 200s reverse infinite;
+            position: absolute;
+            bottom: 0;
+        }
+
+        &-three {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-image: url(../media/images/wave_three.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position-x: 0%;
+            animation: Move 50s reverse infinite;
+            position: absolute;
+            bottom: 0;
+        }
+    }
+}

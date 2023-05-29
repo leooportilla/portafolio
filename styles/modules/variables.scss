@@ -1,0 +1,36 @@
+//TODO: Fuentes
+@font-face {
+    font-display: swap;
+    font-family: Secular Uno;
+    src: url(../media/fonts/secular_uno.ttf);
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Titan One;
+    src: url(../media/fonts/titan_one.ttf);
+}
+
+// TODO: Variables
+//* Colores
+$Colors: ("White": #ffffff,
+    "Grey": #bebebe,
+    "Black": #000000,
+    "Raisin Black": #232528,
+    "Red": #c82d2d,
+    "Dark Red": #AD1A20,
+    "Yellow": #F5B82E,
+    "Blue": #3066be,
+);
+//* Fuentes
+$Fonts: ("Secular Uno": Secular Uno,
+    "Titan One": Titan One,
+);
+//* Resolucion
+$Resolution: ("MovilSmall": 375px,
+    "MovilStandard": 480px,
+    "TabletSmall": 768px,
+    "TabletStandard": 960px,
+    "Laptop": 1024px,
+    "Desktop": 1328px,
+);

@@ -97,10 +97,6 @@ q:after {
 }
 
 /* (Opcional) Configuramos el texto que seleccionamos */
-::-moz-selection {
-  background-color: var(--negro);
-  color: var(--blanco);
-}
 ::selection {
   background-color: var(--negro);
   color: var(--blanco);
@@ -115,15 +111,12 @@ button,
 label {
   font-family: inherit;
   font-size: inherit;
-  -webkit-hyphens: auto;
-          hyphens: auto;
+  hyphens: auto;
   background-color: transparent;
   color: inherit;
   display: block;
   /* (Opcional) */
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
 }
 
 /* Reseteamos las tablas */
@@ -221,11 +214,8 @@ main {
   align-items: center;
   background-color: #c82d2d;
   z-index: 999;
-  -webkit-clip-path: circle(200% at 100% 0%);
-          clip-path: circle(200% at 100% 0%);
-  transition: -webkit-clip-path 1s ease-in-out;
+  clip-path: circle(200% at 100% 0%);
   transition: clip-path 1s ease-in-out;
-  transition: clip-path 1s ease-in-out, -webkit-clip-path 1s ease-in-out;
 }
 .container__loader {
   position: relative;
@@ -246,8 +236,7 @@ main {
 }
 
 .containeractive {
-  -webkit-clip-path: circle(0% at 100% 0%);
-          clip-path: circle(0% at 100% 0%);
+  clip-path: circle(0% at 100% 0%);
 }
 
 .header {
@@ -768,8 +757,7 @@ main {
   width: 100%;
   max-width: 70rem;
   position: relative;
-  -moz-column-gap: 2rem;
-       column-gap: 2rem;
+  column-gap: 2rem;
 }
 .project__profile-img {
   grid-area: Image;
@@ -812,7 +800,6 @@ main {
 .project__profile-name {
   grid-area: Name;
   z-index: 400;
-  width: -moz-max-content;
   width: max-content;
   font-family: Titan One;
   color: #F5B82E;
@@ -821,7 +808,6 @@ main {
 }
 .project__profile-link {
   grid-area: Name;
-  width: -moz-fit-content;
   width: fit-content;
   font-family: Secular Uno;
   color: #ffffff;
@@ -927,10 +913,6 @@ main {
           background-repeat: no-repeat;
           background-position: center;
           background-size: contain; */
-}
-
-#dark {
-  color: #232528;
 }
 
 @media (max-width: 1328px) {
@@ -1079,8 +1061,7 @@ main {
     width: 100%;
     height: 100vh;
     z-index: 925;
-    -webkit-clip-path: circle(200% at 100% 0%);
-            clip-path: circle(200% at 100% 0%);
+    clip-path: circle(200% at 100% 0%);
   }
   .header__enlace {
     display: block;
@@ -1092,8 +1073,7 @@ main {
     padding-top: 20vh;
     z-index: 925;
     background-color: #c82d2d;
-    -webkit-clip-path: circle(0% at 100% 0%);
-            clip-path: circle(0% at 100% 0%);
+    clip-path: circle(0% at 100% 0%);
     transition: all 1s ease-in-out;
   }
   .header__enlace a {
@@ -1268,8 +1248,7 @@ main {
   }
   .project__profile {
     grid-template-areas: "Name Name" "Image Description" "Image Statistics" "Image Vacia";
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
+    column-gap: 1rem;
     padding-top: 3rem;
   }
   .project__profile-img {
@@ -1442,8 +1421,7 @@ main {
     font-size: 0.6rem;
   }
   .project__profile {
-    -moz-column-gap: 0.5rem;
-         column-gap: 0.5rem;
+    column-gap: 0.5rem;
   }
   .project__profile-img {
     width: 5rem;
@@ -1761,3 +1739,8 @@ main {
     height: 0.3rem;
   }
 }
+#dark {
+  color: #232528;
+}
+
+/*# sourceMappingURL=style.css.map */

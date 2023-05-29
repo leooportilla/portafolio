@@ -1,0 +1,67 @@
+// TODOS: Colores, fuentes y tamanios
+@use "./variables.scss" as *;
+
+// TODOS: Los Mixin - Funciones
+@use "./mixin.scss" as *;
+
+// TODOS: Key Frames - Animaciones
+@use "./keyframe.scss" as *;
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: map-get($map: $Colors, $key: "Raisin Black");
+
+    //* Disenio para barra de scroll
+    &::-webkit-scrollbar {
+        width: 5px;
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: map-get($map: $Colors, $key: "Red");
+        border-radius: 5px;
+    }
+}
+
+main {
+    overflow: hidden;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: map-get($map: $Colors, $key: "Red");
+    z-index: 999;
+    clip-path: circle(200% at 100% 0%);
+    transition: clip-path 1s ease-in-out;
+
+    &__loader {
+        position: relative;
+
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: -3rem;
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            background: map-get($map: $Colors, $key: "Raisin Black");
+            animation: Loader 1.5s infinite;
+        }
+
+        &::before {
+            animation-delay: .4s;
+        }
+    }
+}
+
+.containeractive {
+    clip-path: circle(0% at 100% 0%);
+}
