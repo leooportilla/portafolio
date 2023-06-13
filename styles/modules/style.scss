@@ -1,36 +1,36 @@
 @forward "./normalize.scss";
 
-// TODOS: Colores, fuentes y tamanios
+// ! Colores, fuentes y tamanios
 @use "./variables.scss" as *;
 
-// TODOS: Los Mixin - Funciones
+// ! Los Mixin - Funciones
 @use "./mixin.scss" as *;
 
-// TODOS: Key Frames - Animaciones
+// ! Key Frames - Animaciones
 @use "./keyframe.scss" as *;
 
 
-//TODO: Principal
+//! Principal
 
-//* Body y Scroll
+//! Body y Scroll
 @forward "./body.scss";
 
-//* Contenido del header
+//! Contenido del header
 @forward "./header.scss";
 
-//* Seccion de presentacion
+//! Seccion de presentacion
 @forward "./home.scss";
 
-//* Seccion de acerca de mi
+//! Seccion de acerca de mi
 @forward "./hability.scss";
 
-//* Seccion de los proyecto y del perfil en Git Hud
+//! Seccion de los proyecto y del perfil en Git Hud
 @forward "./project.scss";
 
-//* Media Query 
+//! Media Query 
 @forward "./media_query.scss";
 
-//? Clase para cambiar modo oscuro
+//! Clase para cambiar modo oscuro
 #dark {
     color: map-get($map: $Colors, $key: "Raisin Black");
 }

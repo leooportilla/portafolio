@@ -1,4 +1,4 @@
-import { profile } from "./profile"
+import { profile, project } from "./profile"
 
 // TODO: Declaracion de variable para la funcion de cerrar el input
 const errores       = document.querySelector(`.project__profile-error`)
@@ -30,6 +30,7 @@ export const closeProfile = () => {
                 
                 //? Buscamo el perfil con la funcion de la API
                 profile(searchProfile.value)
+                project(searchProfile.value)
                 
                 searchProfile.value = ``
             } else {

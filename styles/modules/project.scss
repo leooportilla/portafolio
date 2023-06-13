@@ -1,16 +1,15 @@
-// TODOS: Colores, fuentes y tamanios
-@use "./variables.scss" as *;
+// ! Colores, fuentes y tamanios
+@use "./variables.scss"as *;
 
-// TODOS: Los Mixin - Funciones
-@use "./mixin.scss" as *;
+// ! Los Mixin - Funciones
+@use "./mixin.scss"as *;
 
-// TODOS: Key Frames - Animaciones
-@use "./keyframe.scss" as *;
+// ! Key Frames - Animaciones
+@use "./keyframe.scss"as *;
 
 .project {
     width: 100%;
     height: 100vh;
-    padding: 0 12.5vw;
 
     &__profile {
         display: grid;
@@ -24,6 +23,7 @@
         max-width: 70rem;
         position: relative;
         column-gap: 2rem;
+        margin-left: 12.5vw;
 
         &-img {
             grid-area: Image;
@@ -132,10 +132,113 @@
     }
 
     &__container {
-        width: 100%;
-/*         background-image: url(../media/images/wave_project.png);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain; */
+        width: 80%;
+        height: 75vh;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 3.5rem;
+        overflow: hidden;
+        position: relative;
+        margin-top: 3rem;
+        margin-left: 10vw;
+
+        &-left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            z-index: 10;
+
+            .svg__arrow {
+                cursor: pointer;
+                position: absolute;
+                left: 1.5rem;
+                top: 45%;
+                height: fit-content;
+                width: 2rem;
+                z-index: 12;
+                color: map-get($map: $Colors, $key: "White");
+                transform: rotate(90deg);
+            }
+        }
+
+        &-right {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            z-index: 10;
+
+            .svg__arrow {
+                cursor: pointer;
+                position: absolute;
+                right: 1.5rem;
+                top: 45%;
+                height: fit-content;
+                width: 2rem;
+                z-index: 12;
+                color: map-get($map: $Colors, $key: "White");
+                transform: rotate(270deg);
+                transition: all 1s;
+
+                &-disable {
+                    cursor: pointer;
+                    position: absolute;
+                    right: .2rem;
+                    top: 45%;
+                    height: fit-content;
+                    width: 2rem;
+                    z-index: 12;
+                    color: map-get($map: $Colors, $key: "White");
+                    visibility: hidden;
+                    opacity: 0;
+                    transform: rotate(270deg);
+                    transition: all 1s;
+                }
+            }
+
+            .arrow-active {
+                visibility: visible;
+                opacity: 1;
+                transform: rotate(90deg);
+            }
+
+        }
+
+
+        &-cards {
+            display: flex;
+            flex-direction: row;
+            align-self: center;
+            transition: all 2s;
+
+            .card {
+                min-width: 25%;
+                height: 35rem;
+                border-radius: 1rem;
+                overflow: hidden;
+                background-color: white;
+                position: relative;
+                margin-left: 4%;
+                content: "4";
+                transition: all 1s;
+
+                &-active {
+                    transform: scale(1.1);
+                }
+
+                &__image {
+                    width: 100%;
+                    height: 14rem;
+                }
+
+                &__title {
+                    color: map-get($map: $Colors, $key: "Raisin Black");
+                }
+
+            }
+
+        }
     }
 }

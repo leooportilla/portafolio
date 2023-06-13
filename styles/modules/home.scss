@@ -1,10 +1,10 @@
-// TODOS: Colores, fuentes y tamanios
+//! Colores, fuentes y tamanios
 @use "./variables.scss" as *;
 
-// TODOS: Los Mixin - Funciones
+//! Los Mixin - Funciones
 @use "./mixin.scss" as *;
 
-// TODOS: Key Frames - Animaciones
+//! Key Frames - Animaciones
 @use "./keyframe.scss" as *;
 
 .principal {

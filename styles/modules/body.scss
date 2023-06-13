@@ -1,10 +1,10 @@
-// TODOS: Colores, fuentes y tamanios
+// ! Colores, fuentes y tamanios
 @use "./variables.scss" as *;
 
-// TODOS: Los Mixin - Funciones
+// ! Los Mixin - Funciones
 @use "./mixin.scss" as *;
 
-// TODOS: Key Frames - Animaciones
+// ! Key Frames - Animaciones
 @use "./keyframe.scss" as *;
 
 body {
@@ -12,7 +12,7 @@ body {
     height: 100%;
     background-color: map-get($map: $Colors, $key: "Raisin Black");
 
-    //* Disenio para barra de scroll
+    //! Disenio para barra de scroll
     &::-webkit-scrollbar {
         width: 5px;
         background: transparent;

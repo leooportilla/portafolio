@@ -1,21 +1,21 @@
-/* Definimos las Custom properties */
+//! Definimos las Custom properties
 :root {
-  /* Colores */
+  //! Colores
   --negro: #393939;
 
-  /* Tipografía */
+  //! Tipografía
   --tipo-principal: Helvetica, Arial, sans-serif;
   --tipo-secundaria: Verdana;
 }
 
-/* (Opcional) Las adaptamos al modo oscuro */
+//! (Opcional) Las adaptamos al modo oscuro
 @media (prefers-color-scheme: dark) {
   :root {
-      --negro: #ececec;
+    --negro: #ececec;
   }
 }
 
-/* Reseteamos los margin y paddings de todas las etiquetas */
+//! Reseteamos los margin y paddings de todas las etiquetas
 *,
 *::before,
 *::after {
@@ -24,6 +24,7 @@
   border: 0;
   box-sizing: border-box;
   vertical-align: baseline;
+  user-select: none;
 }
 
 *::before,
@@ -31,7 +32,7 @@
   display: block;
 }
 
-/* Evitamos problemas con las imagenes */
+//! Evitamos problemas con las imagenes
 img,
 picture,
 video,
@@ -42,7 +43,7 @@ figure {
   display: block;
 }
 
-/* Reseteamos los enlaces para funcionar como cajas... */
+//! Reseteamos los enlaces para funcionar como cajas...
 a {
   display: block;
   text-decoration: none;
@@ -50,22 +51,22 @@ a {
   font-size: inherit;
 }
 
-/* ... excepto los que se encuentran en párrafos */
+//! ... excepto los que se encuentran en párrafos
 p a {
   display: inline;
 }
 
-/* Quitamos los puntos de los <li> */
+//! Quitamos los puntos de los <li>
 li {
   list-style-type: none;
 }
 
-/* (Opcional) Configuramos anclas suaves */
+//! (Opcional) Configuramos anclas suaves
 html {
   scroll-behavior: smooth;
 }
 
-/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+//! Desactivamos estilos por defecto de las principales etiquetas de texto
 h1,
 h2,
 h3,
@@ -88,7 +89,7 @@ em {
   color: inherit;
 }
 
-/* Evitamos problemas con los pseudoelementos de quotes */
+//! Evitamos problemas con los pseudoelementos de quotes
 blockquote:before,
 blockquote:after,
 q:before,
@@ -97,13 +98,13 @@ q:after {
   content: none;
 }
 
-/* (Opcional) Configuramos el texto que seleccionamos */
+//! (Opcional) Configuramos el texto que seleccionamos
 ::selection {
   background-color: var(--negro);
   color: var(--blanco);
 }
 
-/* Nivelamos problemas de tipografías y colocación de formularios */
+//! Nivelamos problemas de tipografías y colocación de formularios
 form,
 input,
 textarea,
@@ -116,11 +117,11 @@ label {
   background-color: transparent;
   color: inherit;
   display: block;
-  /* (Opcional) */
+  //! (Opcional)
   appearance: none;
 }
 
-/* Reseteamos las tablas */
+//! Reseteamos las tablas
 table,
 tr,
 td {
@@ -128,14 +129,15 @@ td {
   border-spacing: 0;
 }
 
-/* Evitamos problemas con los SVG */
+//! Evitamos problemas con los SVG
 svg {
+  height: 100%;
   width: 100%;
   display: block;
   fill: currentColor;
 }
 
-/* Configuramos la tipografía para toda la web */
+//! Configuramos la tipografía para toda la web
 body {
   min-height: 100vh;
   font-size: 100%;

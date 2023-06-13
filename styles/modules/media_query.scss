@@ -1,13 +1,13 @@
-// TODOS: Colores, fuentes y tamanios
-@use "./variables.scss" as *;
+// ! Colores, fuentes y tamanios
+@use "./variables.scss"as *;
 
-// TODOS: Los Mixin - Funciones
-@use "./mixin.scss" as *;
+// ! Los Mixin - Funciones
+@use "./mixin.scss"as *;
 
-// TODOS: Key Frames - Animaciones
-@use "./keyframe.scss" as *;
+// ! Key Frames - Animaciones
+@use "./keyframe.scss"as *;
 
-//* 1328px
+//! 1328px
 @media (max-width: map-get($Resolution, "Desktop")) {
     .principal {
 
@@ -127,7 +127,7 @@
     }
 }
 
-//* 1024px
+//! 1024px
 @media (max-width: map-get($Resolution, "Laptop")) {
     .principal {
         &__biography {
@@ -204,7 +204,7 @@
     }
 }
 
-//* 960px
+//! 960px
 @media (max-width: map-get($Resolution, "TabletStandard")) {
     body {
         position: relative;
@@ -518,11 +518,92 @@
             }
 
         }
+
+        &__container {
+            width: 80%;
+            height: 75vh;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 3.5rem;
+            overflow: hidden;
+            position: relative;
+            margin-top: 3rem;
+            margin-left: 10vw;
+
+            &-left {
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                z-index: 10;
+
+                .svg__arrow {
+                    cursor: pointer;
+                    position: absolute;
+                    left: 1.5rem;
+                    top: 0;
+                    bottom: 0;
+                    width: 2rem;
+                    z-index: 12;
+                    color: map-get($map: $Colors, $key: "White");
+                    transform: rotate(90deg);
+                }
+            }
+
+            &-right {
+                position: absolute;
+                right: 0;
+                top: 0;
+                height: 100%;
+                z-index: 10;
+
+                .svg__arrow {
+                    cursor: pointer;
+                    position: absolute;
+                    right: 1.5rem;
+                    top: 0;
+                    bottom: 0;
+                    width: 2rem;
+                    z-index: 12;
+                    color: map-get($map: $Colors, $key: "White");
+                    transform: rotate(270deg);
+                }
+            }
+
+            &-cards {
+                display: flex;
+                flex-direction: row;
+                align-self: center;
+
+                .card {
+                    min-width: 70%;
+                    height: 35rem;
+                    border-radius: 1rem;
+                    overflow: hidden;
+                    background-color: white;
+                    position: relative;
+                    margin-left: 15%;
+                    content: "15";
+
+                    &__image {
+                        width: 100%;
+                        height: 14rem;
+                    }
+
+                    &__title {
+                        color: map-get($map: $Colors, $key: "Raisin Black");
+                    }
+
+                }
+
+            }
+        }
     }
 
 }
 
-//* 768px
+//! 768px
 @media (max-width: map-get($Resolution, "TabletSmall")) {
     .header {
         &__switchbutton {
@@ -734,7 +815,7 @@
     }
 }
 
-//* 480px
+//! 480px
 @media (max-width: map-get($Resolution, "MovilStandard")) {
     .header {
         &__switchbutton {
@@ -948,7 +1029,7 @@
     }
 }
 
-//* 375px
+//! 375px
 @media (max-width: map-get($Resolution, "MovilSmall")) {
     .header {
         width: 85vw;

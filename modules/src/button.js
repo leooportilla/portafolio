@@ -14,6 +14,9 @@ const setImage = (Modo, OneColor, TwoColor, ThreeColor) => {
     inputText.style.color = `${OneColor}`
     summary.style.color = `${ThreeColor}`
 
+     //* Todos las etiquetas que contengan el id cambian el color directaemnte de los estilos
+    document.querySelectorAll(`#svg`).forEach(elemento => elemento.style.color = `${OneColor}`)
+
     //* Todos las etiquetas que contengan el atributo data-dark cambian el color con el id
     document.querySelectorAll(`[data-dark]`).forEach(elemento => elemento.setAttribute(`id`, `${Modo}`))
 

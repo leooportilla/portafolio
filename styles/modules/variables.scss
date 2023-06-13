@@ -1,4 +1,4 @@
-//TODO: Fuentes
+//! Fuentes
 @font-face {
     font-display: swap;
     font-family: Secular Uno;
@@ -11,8 +11,8 @@
     src: url(../media/fonts/titan_one.ttf);
 }
 
-// TODO: Variables
-//* Colores
+// ! Variables
+//! Colores
 $Colors: ("White": #ffffff,
     "Grey": #bebebe,
     "Black": #000000,
@@ -22,11 +22,11 @@ $Colors: ("White": #ffffff,
     "Yellow": #F5B82E,
     "Blue": #3066be,
 );
-//* Fuentes
+//! Fuentes
 $Fonts: ("Secular Uno": Secular Uno,
     "Titan One": Titan One,
 );
-//* Resolucion
+//! Resolucion
 $Resolution: ("MovilSmall": 375px,
     "MovilStandard": 480px,
     "TabletSmall": 768px,

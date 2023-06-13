@@ -169,16 +169,22 @@ const skills = () => {
 };
 
 // TODO: Declaracion de varibale para las funciones de la carga del perfil y las busqueda de los perfiles
-const text        = document.querySelector(`.project__profile-text`);
-const name        = document.querySelector(`.project__profile-name`);
-const error       = document.querySelector(`.project__profile-error`);
-const followers   = document.querySelector(`.followers`);
-const following   = document.querySelector(`.following`);
-const imageUser   = document.querySelector(`.project__profile-img`);
+const text = document.querySelector(`.project__profile-text`);
+const name = document.querySelector(`.project__profile-name`);
+const error = document.querySelector(`.project__profile-error`);
+const followers = document.querySelector(`.followers`);
+const following = document.querySelector(`.following`);
+const imageUser = document.querySelector(`.project__profile-img`);
 const eventButton = document.querySelector(`.submit`);
 const linksGitHud = document.querySelector(`.project__profile-link`);
 const respository = document.querySelector(`.repository`);
 const description = document.querySelector(`.project__profile-description`);
+
+const containerCards = document.querySelector(`.project__container-cards`);
+const leftButton = document.querySelector(`.left`);
+const rightButton = document.querySelectorAll(`.right`);
+
+const simulacion = [`1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`];
 
 //! Carga de los perfiles, por defecto al carga la pagina tendra los datos de Leonardo Portilla
 const profile = async (user = `leooportilla`) => {
@@ -224,6 +230,47 @@ const profile = async (user = `leooportilla`) => {
     }
 };
 
+//! Carga de los perfiles, por defecto al carga la pagina tendra los datos de Leonardo Portilla
+const project = async (user = `leooportilla`) => {
+
+    try {
+
+        //* Solicitud de datos
+        const answer = await fetch(`https://api.github.com/users/${user}/repos`);
+        const data = await answer.json();
+
+        //* Si la peticion da error 404 mandamos un mensaje
+        if (answer.status == 404) throw new Error(`Lo siento, pero el usuario que ha ingresado no está registrado en Git Hud`)
+
+        //* Si la peticion es correcta mandamos la informacion a la pagina
+        if (answer.status == 200) {
+
+            containerCards.innerHTML = ``;
+
+            simulacion.forEach(respository => {
+                containerCards.insertAdjacentHTML(`afterbegin`, `<div class="card" id="${respository.id}">
+                                                                    <div class="card__active"></div>
+                                                                    <img class="card__image" src="./media/images/project_portafolio.png" alt="">
+                                                                    <h5 class="card__title">Titulo</h5>
+                                                                </div>`);
+
+            });
+
+            let widthCard = window.getComputedStyle(document.querySelector('.card')).minWidth.split(`%`)[0];
+            let marginCard = window.getComputedStyle(document.querySelector('.card')).content;
+            let widthTotal = (data.length * widthCard) + (data.length * marginCard);
+
+            console.log(widthTotal, marginCard);
+            containerCards.style.width = `${widthTotal}px`;
+
+        }
+
+        //* Si capturamos algun error, toda la informacion la mandamos por defecto
+    } catch (error) {
+        console.warn(error);
+    }
+};
+
 //! Busqueda del perfil deseado del usuario
 const search = () => {
 
@@ -257,17 +304,133 @@ const search = () => {
                 error.innerHTML = ``;
 
                 profile(text.value);
+                project(text.value);
 
                 //? Para que el input cuando se vuelva abrir no tenga valor, lo dejamos vacio al cerrar
                 text.value = ``;
 
-            //* Si el valor es incorrecto le mostramos un mensaje al usuario
+                //* Si el valor es incorrecto le mostramos un mensaje al usuario
             } else {
                 error.innerHTML = `Usuario es incorrecto`;
                 error.style.transform = `translateY(-1.5rem)`;
             }
         }
 
+    });
+};
+
+
+const procesando = () => {
+
+    //* InnetHTML para cuando vuelva a cargar un perfil vacie los projectos viejos
+    containerCards.innerHTML = ``;
+
+    //* 
+    simulacion.forEach(respository => {
+        containerCards.insertAdjacentHTML(`afterbegin`, `<div class="card" id="${respository.id}">
+                                                            <div class="card__active"></div>
+                                                            <img class="card__image" src="./media/images/project_portafolio.png" alt="">
+                                                            <h5 class="card__title">Titulo</h5>
+                                                        </div>`);
+
+    });
+
+    let widthCard = parseInt(window.getComputedStyle(document.querySelector('.card')).minWidth.split(`%`)[0]);
+    let marginCard = parseInt(window.getComputedStyle(document.querySelector('.card')).content.split(`"`)[1]);
+    let widthTotal = (simulacion.length * widthCard) + (simulacion.length * marginCard);
+
+    containerCards.style.width = `${widthTotal}%`;
+
+    const moveRight = (evento) => {
+
+        if (evento[0].isIntersecting) {
+            evento[0].target.classList.add(`card-active`);
+            cards[counter - 1].classList.remove(`card-active`);
+            observerRight.disconnect();
+        } else {
+            containerCards.style.transform = `translateX(${translate -= widthCard + marginCard}%)`;
+            evento[0].target.classList.add(`card-active`);
+            cards[counter - 1].classList.remove(`card-active`);
+            observerRight.disconnect();
+        }
+    };
+
+    const moveLeft = (evento) => {
+        if (evento[0].isIntersecting) {
+            evento[0].target.classList.add(`card-active`);
+            cards[counter + 1].classList.remove(`card-active`);
+            observerLeft.disconnect();
+        } else {
+            containerCards.style.transform = `translateX(${translate += widthCard + marginCard}%)`;
+            evento[0].target.classList.add(`card-active`);
+            cards[counter + 1].classList.remove(`card-active`);
+            observerLeft.disconnect();
+        }
+    };
+
+    const options = {
+        root: null,
+        rootMargin: `0px`,
+        threshold: 1.0,
+    };
+    const observerRight = new IntersectionObserver(moveRight, options);
+    const observerLeft = new IntersectionObserver(moveLeft, options);
+    let cards = containerCards.querySelectorAll(`.card`);
+    let counter = 0;
+    let translate = 0;
+    cards[0].classList.add(`card-active`);
+
+    rightButton[0].addEventListener(`click`, () => {
+
+        if (counter < (cards.length - 1)) {
+            counter++;
+            observerRight.observe(cards[counter]);
+
+            if (counter >= (cards.length - 1)) {
+
+                rightButton.forEach(right => {
+                    right.classList.add(`arrow-active`);
+                });
+
+                rightButton[1].addEventListener(`click`, () => {
+                    counter = 0;
+                    translate = 0;
+                    containerCards.style.transform = `translateX(0%)`;
+                    containerCards.firstChild.classList.add(`card-active`);
+                    containerCards.lastChild.classList.remove(`card-active`);
+
+                    rightButton.forEach(right => {
+                        right.classList.remove(`arrow-active`);
+                    });
+                });
+            }
+
+        } else {     
+            counter = 0;
+            translate = 0;
+            containerCards.style.transform = `translateX(0%)`;
+            containerCards.firstChild.classList.add(`card-active`);
+            containerCards.lastChild.classList.remove(`card-active`);
+
+            rightButton.forEach(right => {
+                right.classList.remove(`arrow-active`);
+            });
+        }
+    });
+
+    leftButton.addEventListener(`click`, () => {
+
+        if (counter > 0) {
+            counter--;
+            observerLeft.observe(cards[counter]);
+
+            if (rightButton[0].classList.contains(`arrow-active`)) {
+
+                rightButton.forEach(right => {
+                    right.classList.remove(`arrow-active`);
+                });
+            }
+        }
     });
 };
 
@@ -301,6 +464,7 @@ const closeProfile = () => {
                 
                 //? Buscamo el perfil con la funcion de la API
                 profile(searchProfile.value);
+                project(searchProfile.value);
                 
                 searchProfile.value = ``;
             } else {
@@ -341,6 +505,9 @@ const setImage = (Modo, OneColor, TwoColor, ThreeColor) => {
     inputText.style.backgroundColor = `${TwoColor}`;
     inputText.style.color = `${OneColor}`;
     summary.style.color = `${ThreeColor}`;
+
+     //* Todos las etiquetas que contengan el id cambian el color directaemnte de los estilos
+    document.querySelectorAll(`#svg`).forEach(elemento => elemento.style.color = `${OneColor}`);
 
     //* Todos las etiquetas que contengan el atributo data-dark cambian el color con el id
     document.querySelectorAll(`[data-dark]`).forEach(elemento => elemento.setAttribute(`id`, `${Modo}`));
@@ -395,7 +562,9 @@ const save = () => {
 };
 
 document.addEventListener(`DOMContentLoaded`, evento => {
-    profile();
+    /* profile() */
+    /* project() */
+    procesando();
 });
 
 load();
