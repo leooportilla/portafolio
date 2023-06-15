@@ -7,9 +7,8 @@ import { buttonActive, save } from "./button.js";
 
 
 document.addEventListener(`DOMContentLoaded`, evento => {
-    /* profile() */
-    /* project() */
-    procesando()
+    profile() 
+    project()
 })
 
 load()

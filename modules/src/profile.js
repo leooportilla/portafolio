@@ -13,7 +13,7 @@ const respository = document.querySelector(`.repository`)
 const description = document.querySelector(`.project__profile-description`)
 const containerCards = document.querySelector(`.project__container-cards`)
 
-const simulacion = [`1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`]
+const simulacion = [`1`, `2`, `3`, `4`, `5`, `6`]
 
 //! Carga de los perfiles, por defecto al carga la pagina tendra los datos de Leonardo Portilla
 export const profile = async (user = `leooportilla`) => {
@@ -133,7 +133,7 @@ export const project = async (user = `leooportilla`) => {
             const options = {
                 root: null,
                 rootMargin: `0px`,
-                threshold: 1.0,
+                threshold: 0.9,
             }
 
             //! Cada uno de los observadores, porque realizo dos? Cada uno evalua cada lado
@@ -143,10 +143,11 @@ export const project = async (user = `leooportilla`) => {
             //! Luego que cada tarjeta sea agregada estas seran variables necesarias para el funcionamiento del slide
             let cards = containerCards.querySelectorAll(`.card`)
             let counter = 0
-            let translate = 0
+            let translate = -marginCard
 
             //! Activamos la primera tarjeta con la clase
             cards[0].classList.add(`card-active`)
+            containerCards.style.transform = `translateX(${translate}%)`
 
             //! Pendiente al evento de la flecha derecha
             rightButton[0].addEventListener(`click`, () => {
@@ -166,8 +167,8 @@ export const project = async (user = `leooportilla`) => {
                         //! Si se llega hacer click en la segunda flecha, restablecemos todo como al inicio (contador, translate, clases)
                         rightButton[1].addEventListener(`click`, () => {
                             counter = 0
-                            translate = 0
-                            containerCards.style.transform = `translateX(0%)`
+                            translate = -marginCard
+                            containerCards.style.transform = `translateX(-${marginCard}%)`
                             containerCards.firstChild.classList.add(`card-active`)
                             containerCards.lastChild.classList.remove(`card-active`)
 
@@ -178,8 +179,8 @@ export const project = async (user = `leooportilla`) => {
                 } else {
                     //! Si se llega hacer click en la primera flecha, restablecemos todo como al inicio (contador, translate, clases)
                     counter = 0
-                    translate = 0
-                    containerCards.style.transform = `translateX(0%)`
+                    translate = -marginCard
+                    containerCards.style.transform = `translateX(-${marginCard}%)`
                     containerCards.firstChild.classList.add(`card-active`)
                     containerCards.lastChild.classList.remove(`card-active`)
 
@@ -222,8 +223,8 @@ export const search = () => {
             text.style.padding = `0 1rem`
             error.style.padding = `0 1rem`
             text.classList.toggle(`inputText`)
-            error.style.width = `calc(${linksGitHud.getBoundingClientRect().width}px)`
-            text.style.width = `calc(${linksGitHud.getBoundingClientRect().width}px)`
+            error.style.width = `calc(${name.getBoundingClientRect().width}px)`
+            text.style.width = `calc(${name.getBoundingClientRect().width}px)`
             text.focus()
 
             //! Al darle click nuevamente busca con la api de Git Hud lo que esta dentro del input
@@ -267,7 +268,7 @@ export const procesando = () => {
     simulacion.forEach(respository => {
         containerCards.insertAdjacentHTML(`afterbegin`, `<div class="card" id="${respository.id}">
                                                             <div class="card__active"></div>
-                                                            <img class="card__image" src="./media/images/project_portafolio.png" alt="">
+                                                            <img class="card__image" src="./media/images/project_portafo.png" alt="">
                                                             <h5 class="card__title">Titulo</h5>
                                                         </div>`)
 

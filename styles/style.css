@@ -1,20 +1,14 @@
-@charset "UTF-8";
-/* Definimos las Custom properties */
 :root {
-  /* Colores */
   --negro: #393939;
-  /* Tipografía */
   --tipo-principal: Helvetica, Arial, sans-serif;
   --tipo-secundaria: Verdana;
 }
 
-/* (Opcional) Las adaptamos al modo oscuro */
 @media (prefers-color-scheme: dark) {
   :root {
     --negro: #ececec;
   }
 }
-/* Reseteamos los margin y paddings de todas las etiquetas */
 *,
 *::before,
 *::after {
@@ -31,7 +25,6 @@
   display: block;
 }
 
-/* Evitamos problemas con las imagenes */
 img,
 picture,
 video,
@@ -42,7 +35,6 @@ figure {
   display: block;
 }
 
-/* Reseteamos los enlaces para funcionar como cajas... */
 a {
   display: block;
   text-decoration: none;
@@ -50,22 +42,18 @@ a {
   font-size: inherit;
 }
 
-/* ... excepto los que se encuentran en párrafos */
 p a {
   display: inline;
 }
 
-/* Quitamos los puntos de los <li> */
 li {
   list-style-type: none;
 }
 
-/* (Opcional) Configuramos anclas suaves */
 html {
   scroll-behavior: smooth;
 }
 
-/* Desactivamos estilos por defecto de las principales etiquetas de texto */
 h1,
 h2,
 h3,
@@ -88,7 +76,6 @@ em {
   color: inherit;
 }
 
-/* Evitamos problemas con los pseudoelementos de quotes */
 blockquote:before,
 blockquote:after,
 q:before,
@@ -97,13 +84,11 @@ q:after {
   content: none;
 }
 
-/* (Opcional) Configuramos el texto que seleccionamos */
 ::selection {
   background-color: var(--negro);
   color: var(--blanco);
 }
 
-/* Nivelamos problemas de tipografías y colocación de formularios */
 form,
 input,
 textarea,
@@ -116,11 +101,9 @@ label {
   background-color: transparent;
   color: inherit;
   display: block;
-  /* (Opcional) */
   appearance: none;
 }
 
-/* Reseteamos las tablas */
 table,
 tr,
 td {
@@ -128,15 +111,13 @@ td {
   border-spacing: 0;
 }
 
-/* Evitamos problemas con los SVG */
 svg {
-  height: 100%;
+  height: fit-content;
   width: 100%;
   display: block;
   fill: currentColor;
 }
 
-/* Configuramos la tipografía para toda la web */
 body {
   min-height: 100vh;
   font-size: 100%;
@@ -348,9 +329,9 @@ main {
 }
 
 .principal {
-  width: 75%;
+  width: 100%;
   height: 90vh;
-  margin: auto;
+  position: relative;
 }
 .principal__biography {
   display: flex;
@@ -499,7 +480,7 @@ main {
   height: 25%;
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -1vh;
   z-index: 750;
 }
 .principal__container-one {
@@ -748,18 +729,18 @@ main {
 
 .project {
   width: 100%;
-  height: 100vh;
+  padding: 0 12.5vw;
+  position: relative;
 }
 .project__profile {
   display: grid;
   grid-template-columns: max-content 1fr;
   grid-template-rows: max-content;
   grid-template-areas: "Image Name" "Image Description" "Image Statistics";
-  width: 100%;
-  max-width: 70rem;
-  position: relative;
+  height: fit-content;
+  width: 65%;
   column-gap: 2rem;
-  margin-left: 12.5vw;
+  margin-bottom: 2rem;
 }
 .project__profile-img {
   grid-area: Image;
@@ -771,7 +752,6 @@ main {
 }
 .project__profile-error {
   grid-area: Name;
-  position: absolute;
   width: 0;
   height: 3.4rem;
   padding: 0;
@@ -786,7 +766,6 @@ main {
 }
 .project__profile-text {
   grid-area: Name;
-  position: absolute;
   width: 0rem;
   padding: 0rem;
   height: 3.4rem;
@@ -834,6 +813,7 @@ main {
   border-radius: 1rem;
   position: relative;
   cursor: pointer;
+  margin: 0;
 }
 .project__profile .submit:hover svg {
   opacity: 0;
@@ -879,7 +859,7 @@ main {
 }
 .project__profile-description {
   grid-area: Description;
-  width: 83%;
+  width: 100%;
   text-align: justify;
   font-family: Secular Uno;
   color: #ffffff;
@@ -910,30 +890,25 @@ main {
   font-size: 1rem;
 }
 .project__container {
-  width: 80%;
-  height: 75vh;
+  width: 100%;
+  height: fit-content;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 0 3.5rem;
   overflow: hidden;
-  position: relative;
-  margin-top: 3rem;
-  margin-left: 10vw;
 }
 .project__container-left {
+  height: fit-content;
   position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
+  left: 9vw;
   z-index: 10;
 }
-.project__container-left .svg__arrow {
+.project__container-left .arrow {
   cursor: pointer;
   position: absolute;
   left: 1.5rem;
-  top: 45%;
-  height: fit-content;
+  top: 50%;
+  height: 2rem;
   width: 2rem;
   z-index: 12;
   color: #ffffff;
@@ -941,29 +916,28 @@ main {
 }
 .project__container-right {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 9vw;
   height: 100%;
   z-index: 10;
 }
-.project__container-right .svg__arrow {
+.project__container-right .arrow {
   cursor: pointer;
   position: absolute;
   right: 1.5rem;
-  top: 45%;
-  height: fit-content;
+  top: 50%;
+  height: 2rem;
   width: 2rem;
   z-index: 12;
   color: #ffffff;
   transform: rotate(270deg);
   transition: all 1s;
 }
-.project__container-right .svg__arrow-disable {
+.project__container-right .arrow-disable {
   cursor: pointer;
   position: absolute;
   right: 0.2rem;
-  top: 45%;
-  height: fit-content;
+  top: 50%;
+  height: 2rem;
   width: 2rem;
   z-index: 12;
   color: #ffffff;
@@ -982,6 +956,8 @@ main {
   flex-direction: row;
   align-self: center;
   transition: all 2s;
+  padding: 2rem 0;
+  margin-left: 0.7rem;
 }
 .project__container-cards .card {
   min-width: 25%;
@@ -996,6 +972,8 @@ main {
 }
 .project__container-cards .card-active {
   transform: scale(1.1);
+  margin-left: 4rem;
+  margin-right: 1rem;
 }
 .project__container-cards .card__image {
   width: 100%;
@@ -1041,6 +1019,9 @@ main {
   .hability__skills .name__summary {
     font-size: 0.75rem;
   }
+  .project__profile {
+    width: 100%;
+  }
   .project__profile-img {
     width: 8rem;
     height: 8rem;
@@ -1068,6 +1049,19 @@ main {
   }
   .project__profile-follow li h6 {
     font-size: 0.8rem;
+  }
+  .project__container-left {
+    left: 6vw;
+  }
+  .project__container-right {
+    right: 7vw;
+  }
+  .project__container-cards .card {
+    min-width: 37%;
+  }
+  .project__container-cards .card-active {
+    margin-left: 3rem;
+    margin-right: 1rem;
   }
 }
 @media (max-width: 1024px) {
@@ -1110,6 +1104,15 @@ main {
   }
   .project__profile-description {
     width: 72%;
+  }
+  .project__container-left {
+    left: 5vw;
+  }
+  .project__container-right {
+    right: 6vw;
+  }
+  .project__container-cards .card {
+    min-width: 50%;
   }
 }
 @media (max-width: 960px) {
@@ -1339,7 +1342,8 @@ main {
   .project__profile {
     grid-template-areas: "Name Name" "Image Description" "Image Statistics" "Image Vacia";
     column-gap: 1rem;
-    padding-top: 3rem;
+    padding-top: 2rem;
+    height: 25%;
   }
   .project__profile-img {
     margin-top: 0.5rem;
@@ -1410,75 +1414,11 @@ main {
   .project__profile-follow li h6 {
     font-size: 0.8rem;
   }
-  .project__container {
-    width: 80%;
-    height: 75vh;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0 3.5rem;
-    overflow: hidden;
-    position: relative;
-    margin-top: 3rem;
-    margin-left: 10vw;
-  }
   .project__container-left {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    z-index: 10;
-  }
-  .project__container-left .svg__arrow {
-    cursor: pointer;
-    position: absolute;
-    left: 1.5rem;
-    top: 0;
-    bottom: 0;
-    width: 2rem;
-    z-index: 12;
-    color: #ffffff;
-    transform: rotate(90deg);
+    left: 5vw;
   }
   .project__container-right {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    z-index: 10;
-  }
-  .project__container-right .svg__arrow {
-    cursor: pointer;
-    position: absolute;
-    right: 1.5rem;
-    top: 0;
-    bottom: 0;
-    width: 2rem;
-    z-index: 12;
-    color: #ffffff;
-    transform: rotate(270deg);
-  }
-  .project__container-cards {
-    display: flex;
-    flex-direction: row;
-    align-self: center;
-  }
-  .project__container-cards .card {
-    min-width: 70%;
-    height: 35rem;
-    border-radius: 1rem;
-    overflow: hidden;
-    background-color: white;
-    position: relative;
-    margin-left: 15%;
-    content: "15";
-  }
-  .project__container-cards .card__image {
-    width: 100%;
-    height: 14rem;
-  }
-  .project__container-cards .card__title {
-    color: #232528;
+    right: 5vw;
   }
 }
 @media (max-width: 768px) {
@@ -1594,7 +1534,8 @@ main {
     height: 2.5rem;
   }
   .project__profile-name {
-    font-size: 1.6rem;
+    max-width: 80%;
+    font-size: 2.5rem;
   }
   .project__profile-submit {
     margin: 0;
@@ -1639,7 +1580,7 @@ main {
   }
   .project__profile-description {
     width: 100%;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
   .project__profile-follow li {
     gap: 0.25rem;
@@ -1649,7 +1590,50 @@ main {
     height: 0.8rem;
   }
   .project__profile-follow li h6 {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
+  }
+  .project__container-left {
+    left: 3vw;
+  }
+  .project__container-right {
+    right: 3vw;
+  }
+}
+@media (max-width: 550px) {
+  .project__profile {
+    margin-bottom: 0;
+    grid-template-areas: "Name Name" "Image Description" "Image Statistics" "Image Vacia" "Especial Especial";
+    column-gap: 0.5rem;
+  }
+  .project__profile-link {
+    grid-area: Especial;
+    display: contents;
+  }
+  .project__profile-name {
+    max-width: 85%;
+    font-size: 2rem;
+  }
+  .project__profile-follow li {
+    margin-right: 1vw;
+  }
+  .project__profile-follow li svg {
+    display: none;
+  }
+  .project__profile-follow li h6 {
+    font-size: 0.7rem;
+  }
+  .project__container-left {
+    left: 0;
+  }
+  .project__container-right {
+    right: 0;
+  }
+  .project__container .card {
+    min-width: 53%;
+  }
+  .project__container .card-active {
+    margin-left: 2rem;
+    transform: none;
   }
 }
 @media (max-width: 480px) {
@@ -1742,20 +1726,23 @@ main {
   .hability__skills .name__quantity {
     height: 0.3rem;
   }
+  .project {
+    padding: 0 9vw;
+  }
   .project__profile-img {
     width: 4.5rem;
     height: 4.5rem;
   }
   .project__profile-error {
-    font-size: 0.6rem;
-    height: 1.5rem;
+    font-size: 0.7rem;
+    height: 2rem;
   }
   .project__profile-text {
-    font-size: 0.6rem;
-    height: 1.5rem;
+    font-size: 0.7rem;
+    height: 2rem;
   }
   .project__profile-name {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin: 0;
   }
   .project__profile .submit {
@@ -1766,8 +1753,8 @@ main {
     border-radius: 50%;
     overflow: hidden;
     justify-content: center;
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 2rem;
+    height: 2rem;
   }
   .project__profile .submit:hover {
     justify-content: center;
@@ -1800,7 +1787,7 @@ main {
     font-size: 0.55rem;
   }
   .project__profile-description {
-    font-size: 0.55rem;
+    font-size: 0.7rem;
   }
   .project__profile-follow li {
     display: flex;
@@ -1808,12 +1795,20 @@ main {
     gap: 0.1rem;
     margin-right: 0.5rem;
   }
-  .project__profile-follow li svg {
-    width: 0.5rem;
-    height: 0.5rem;
-  }
   .project__profile-follow li h6 {
-    font-size: 0.4rem;
+    font-size: 0.7rem;
+  }
+  .project__container-left {
+    left: -5vw;
+  }
+  .project__container-right {
+    right: -5vw;
+  }
+  .project__container-cards .card {
+    min-width: 45%;
+  }
+  .project__container-cards .card-active {
+    margin-left: 2rem;
   }
 }
 @media (max-width: 375px) {
@@ -1897,6 +1892,21 @@ main {
   }
   .hability__skills .name__quantity {
     height: 0.3rem;
+  }
+  .project {
+    padding: 0 8vw;
+  }
+  .project__container-left {
+    left: -6vw;
+  }
+  .project__container-right {
+    right: -6vw;
+  }
+  .project__container-cards .card {
+    min-width: 46%;
+    margin-left: 7%;
+    content: "7";
+    height: 30rem;
   }
 }
 #dark {

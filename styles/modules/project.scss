@@ -9,7 +9,8 @@
 
 .project {
     width: 100%;
-    height: 100vh;
+    padding: 0 12.5vw;
+    position: relative;
 
     &__profile {
         display: grid;
@@ -19,11 +20,10 @@
             "Image Name"
             "Image Description"
             "Image Statistics";
-        width: 100%;
-        max-width: 70rem;
-        position: relative;
+        height: fit-content;
+        width: 65%;
         column-gap: 2rem;
-        margin-left: 12.5vw;
+        margin-bottom: 2rem;
 
         &-img {
             grid-area: Image;
@@ -36,7 +36,6 @@
 
         &-error {
             grid-area: Name;
-            position: absolute;
             width: 0;
             height: 3.4rem;
             padding: 0;
@@ -52,7 +51,6 @@
 
         &-text {
             grid-area: Name;
-            position: absolute;
             width: 0rem;
             padding: 0rem;
             height: 3.4rem;
@@ -90,11 +88,12 @@
             align-self: center;
             justify-self: flex-end;
             @include Botones();
+            margin: 0;
         }
 
         &-description {
             grid-area: Description;
-            width: 83%;
+            width: 100%;
             text-align: justify;
             font-family: map-get($map: $Fonts, $key: "Secular Uno");
             color: map-get($map: $Colors, $key: "White");
@@ -132,30 +131,25 @@
     }
 
     &__container {
-        width: 80%;
-        height: 75vh;
+        width: 100%;
+        height: fit-content;
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        padding: 0 3.5rem;
         overflow: hidden;
-        position: relative;
-        margin-top: 3rem;
-        margin-left: 10vw;
 
         &-left {
+            height: fit-content;
             position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
+            left: 9vw;
             z-index: 10;
 
-            .svg__arrow {
+            .arrow {
                 cursor: pointer;
                 position: absolute;
                 left: 1.5rem;
-                top: 45%;
-                height: fit-content;
+                top: 50%;
+                height: 2rem;
                 width: 2rem;
                 z-index: 12;
                 color: map-get($map: $Colors, $key: "White");
@@ -165,17 +159,16 @@
 
         &-right {
             position: absolute;
-            right: 0;
-            top: 0;
+            right: 9vw;
             height: 100%;
             z-index: 10;
 
-            .svg__arrow {
+            .arrow {
                 cursor: pointer;
                 position: absolute;
                 right: 1.5rem;
-                top: 45%;
-                height: fit-content;
+                top: 50%;
+                height: 2rem;
                 width: 2rem;
                 z-index: 12;
                 color: map-get($map: $Colors, $key: "White");
@@ -186,8 +179,8 @@
                     cursor: pointer;
                     position: absolute;
                     right: .2rem;
-                    top: 45%;
-                    height: fit-content;
+                    top: 50%;
+                    height: 2rem;
                     width: 2rem;
                     z-index: 12;
                     color: map-get($map: $Colors, $key: "White");
@@ -196,22 +189,22 @@
                     transform: rotate(270deg);
                     transition: all 1s;
                 }
-            }
 
-            .arrow-active {
-                visibility: visible;
-                opacity: 1;
-                transform: rotate(90deg);
+                &-active {
+                    visibility: visible;
+                    opacity: 1;
+                    transform: rotate(90deg);
+                }
             }
-
         }
-
 
         &-cards {
             display: flex;
             flex-direction: row;
             align-self: center;
             transition: all 2s;
+            padding: 2rem 0;
+            margin-left: .7rem;
 
             .card {
                 min-width: 25%;
@@ -226,6 +219,8 @@
 
                 &-active {
                     transform: scale(1.1);
+                    margin-left: 4rem;
+                    margin-right: 1rem;
                 }
 
                 &__image {

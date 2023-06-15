@@ -8,9 +8,9 @@
 @use "./keyframe.scss" as *;
 
 .principal {
-    width: 75%;
+    width: 100%;
     height: 90vh;
-    margin: auto;
+    position: relative;
 
     &__biography {
         display: flex;
@@ -120,7 +120,7 @@
         height: 25%;
         position: absolute;
         left: 0;
-        bottom: 0;
+        bottom: -1vh;
         z-index: 750;
 
         &-one {
