@@ -8,13 +8,6 @@
   --tipo-secundaria: Verdana;
 }
 
-//! (Opcional) Las adaptamos al modo oscuro
-@media (prefers-color-scheme: dark) {
-  :root {
-    --negro: #ececec;
-  }
-}
-
 //! Reseteamos los margin y paddings de todas las etiquetas
 *,
 *::before,

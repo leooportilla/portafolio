@@ -257,13 +257,14 @@ const project = async (user = `leooportilla`) => {
             });
 
             //! Busca en el documento CSS cuanto debe medir las tarjetas
-            let widthCard = parseInt(window.getComputedStyle(document.querySelector('.card')).minWidth.split(`%`)[0]);
+            let widthCard = parseInt(window.getComputedStyle(document.querySelector('.card')).content.split(`"`)[1].split(` `)[0]);
+
             //! Busca en el documento CSS cuanto debe medir el margen izquierdo de las tarjetas
-            let marginCard = parseInt(window.getComputedStyle(document.querySelector('.card')).content.split(`"`)[1]);
+            let marginCard = parseInt(window.getComputedStyle(document.querySelector('.card')).content.split(`"`)[1].split(` `)[1]);
 
             //! Calculo cuanto debe medir todo el contenedor de las tarjetas
-            let widthTotal = (data.length * widthCard) + (data.length * marginCard);
-            containerCards.style.width = `${widthTotal}%`;
+            let widthTotal = data.length * (widthCard + marginCard);
+            containerCards.style.width = `${widthTotal}vw`;
 
             //! Una funcion para mover el slide hacia la derecha
             const moveRight = (evento) => {
@@ -276,7 +277,7 @@ const project = async (user = `leooportilla`) => {
 
                     //! Condicion si la tarjeta se encuentra visible, si no lo esta debemos correr el slide segun el tamanio y el margen de las tarjeta, todo esto sumando el translate que ya lleva para que se continuo
                 } else {
-                    containerCards.style.transform = `translateX(${translate -= widthCard + marginCard}%)`;
+                    containerCards.style.transform = `translateX(${translate -= widthCard + marginCard}vw)`;
                     evento[0].target.classList.add(`card-active`);
                     cards[counter - 1].classList.remove(`card-active`);
                     observerRight.disconnect();
@@ -290,7 +291,7 @@ const project = async (user = `leooportilla`) => {
                     cards[counter + 1].classList.remove(`card-active`);
                     observerLeft.disconnect();
                 } else {
-                    containerCards.style.transform = `translateX(${translate += widthCard + marginCard}%)`;
+                    containerCards.style.transform = `translateX(${translate += widthCard + marginCard}vw)`;
                     evento[0].target.classList.add(`card-active`);
                     cards[counter + 1].classList.remove(`card-active`);
                     observerLeft.disconnect();
@@ -301,7 +302,7 @@ const project = async (user = `leooportilla`) => {
             const options = {
                 root: null,
                 rootMargin: `0px`,
-                threshold: 0.9,
+                threshold: 1,
             };
 
             //! Cada uno de los observadores, porque realizo dos? Cada uno evalua cada lado
@@ -315,7 +316,7 @@ const project = async (user = `leooportilla`) => {
 
             //! Activamos la primera tarjeta con la clase
             cards[0].classList.add(`card-active`);
-            containerCards.style.transform = `translateX(${translate}%)`;
+            containerCards.style.transform = `translateX(${translate}vw)`;
 
             //! Pendiente al evento de la flecha derecha
             rightButton[0].addEventListener(`click`, () => {
@@ -336,7 +337,7 @@ const project = async (user = `leooportilla`) => {
                         rightButton[1].addEventListener(`click`, () => {
                             counter = 0;
                             translate = -marginCard;
-                            containerCards.style.transform = `translateX(-${marginCard}%)`;
+                            containerCards.style.transform = `translateX(-${marginCard}vw)`;
                             containerCards.firstChild.classList.add(`card-active`);
                             containerCards.lastChild.classList.remove(`card-active`);
 
@@ -348,7 +349,7 @@ const project = async (user = `leooportilla`) => {
                     //! Si se llega hacer click en la primera flecha, restablecemos todo como al inicio (contador, translate, clases)
                     counter = 0;
                     translate = -marginCard;
-                    containerCards.style.transform = `translateX(-${marginCard}%)`;
+                    containerCards.style.transform = `translateX(-${marginCard}vw)`;
                     containerCards.firstChild.classList.add(`card-active`);
                     containerCards.lastChild.classList.remove(`card-active`);
 
@@ -502,7 +503,7 @@ const setImage = (Modo, OneColor, TwoColor, ThreeColor) => {
     document.querySelectorAll(`#svg`).forEach(elemento => elemento.style.color = `${OneColor}`);
 
     //* Todos las etiquetas que contengan el atributo data-dark cambian el color con el id
-    document.querySelectorAll(`[data-dark]`).forEach(elemento => elemento.setAttribute(`id`, `${Modo}`));
+    Modo === `dark` ? document.querySelectorAll(`[data-dark]`).forEach(elemento => elemento.classList.toggle(`${Modo}`)) : document.querySelectorAll(`[data-dark]`).forEach(elemento => elemento.classList.remove(`dark`));
 
     //* Evalua si el panel de informacion del lenguaje esta abierto para poder cambiar al modo
     if (subBody.classList.contains(`name`)) {

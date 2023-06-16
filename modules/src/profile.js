@@ -13,7 +13,7 @@ const respository = document.querySelector(`.repository`)
 const description = document.querySelector(`.project__profile-description`)
 const containerCards = document.querySelector(`.project__container-cards`)
 
-const simulacion = [`1`, `2`, `3`, `4`, `5`, `6`]
+const data = [`1`, `2`, `3`, `4`, `5`, `6`]
 
 //! Carga de los perfiles, por defecto al carga la pagina tendra los datos de Leonardo Portilla
 export const profile = async (user = `leooportilla`) => {
@@ -89,13 +89,14 @@ export const project = async (user = `leooportilla`) => {
             });
 
             //! Busca en el documento CSS cuanto debe medir las tarjetas
-            let widthCard = parseInt(window.getComputedStyle(document.querySelector('.card')).minWidth.split(`%`)[0])
+            let widthCard = parseInt(window.getComputedStyle(document.querySelector('.card')).content.split(`"`)[1].split(` `)[0])
+
             //! Busca en el documento CSS cuanto debe medir el margen izquierdo de las tarjetas
-            let marginCard = parseInt(window.getComputedStyle(document.querySelector('.card')).content.split(`"`)[1])
+            let marginCard = parseInt(window.getComputedStyle(document.querySelector('.card')).content.split(`"`)[1].split(` `)[1])
 
             //! Calculo cuanto debe medir todo el contenedor de las tarjetas
-            let widthTotal = (data.length * widthCard) + (data.length * marginCard)
-            containerCards.style.width = `${widthTotal}%`
+            let widthTotal = data.length * (widthCard + marginCard)
+            containerCards.style.width = `${widthTotal}vw`
 
             //! Una funcion para mover el slide hacia la derecha
             const moveRight = (evento) => {
@@ -108,7 +109,7 @@ export const project = async (user = `leooportilla`) => {
 
                     //! Condicion si la tarjeta se encuentra visible, si no lo esta debemos correr el slide segun el tamanio y el margen de las tarjeta, todo esto sumando el translate que ya lleva para que se continuo
                 } else {
-                    containerCards.style.transform = `translateX(${translate -= widthCard + marginCard}%)`
+                    containerCards.style.transform = `translateX(${translate -= widthCard + marginCard}vw)`
                     evento[0].target.classList.add(`card-active`)
                     cards[counter - 1].classList.remove(`card-active`)
                     observerRight.disconnect()
@@ -122,7 +123,7 @@ export const project = async (user = `leooportilla`) => {
                     cards[counter + 1].classList.remove(`card-active`)
                     observerLeft.disconnect()
                 } else {
-                    containerCards.style.transform = `translateX(${translate += widthCard + marginCard}%)`
+                    containerCards.style.transform = `translateX(${translate += widthCard + marginCard}vw)`
                     evento[0].target.classList.add(`card-active`)
                     cards[counter + 1].classList.remove(`card-active`)
                     observerLeft.disconnect()
@@ -133,7 +134,7 @@ export const project = async (user = `leooportilla`) => {
             const options = {
                 root: null,
                 rootMargin: `0px`,
-                threshold: 0.9,
+                threshold: 1,
             }
 
             //! Cada uno de los observadores, porque realizo dos? Cada uno evalua cada lado
@@ -147,7 +148,7 @@ export const project = async (user = `leooportilla`) => {
 
             //! Activamos la primera tarjeta con la clase
             cards[0].classList.add(`card-active`)
-            containerCards.style.transform = `translateX(${translate}%)`
+            containerCards.style.transform = `translateX(${translate}vw)`
 
             //! Pendiente al evento de la flecha derecha
             rightButton[0].addEventListener(`click`, () => {
@@ -168,7 +169,7 @@ export const project = async (user = `leooportilla`) => {
                         rightButton[1].addEventListener(`click`, () => {
                             counter = 0
                             translate = -marginCard
-                            containerCards.style.transform = `translateX(-${marginCard}%)`
+                            containerCards.style.transform = `translateX(-${marginCard}vw)`
                             containerCards.firstChild.classList.add(`card-active`)
                             containerCards.lastChild.classList.remove(`card-active`)
 
@@ -180,7 +181,7 @@ export const project = async (user = `leooportilla`) => {
                     //! Si se llega hacer click en la primera flecha, restablecemos todo como al inicio (contador, translate, clases)
                     counter = 0
                     translate = -marginCard
-                    containerCards.style.transform = `translateX(-${marginCard}%)`
+                    containerCards.style.transform = `translateX(-${marginCard}vw)`
                     containerCards.firstChild.classList.add(`card-active`)
                     containerCards.lastChild.classList.remove(`card-active`)
 
@@ -265,7 +266,7 @@ export const procesando = () => {
     containerCards.innerHTML = ``
 
     //! Por cada elemento del array agregar una cards al container 
-    simulacion.forEach(respository => {
+    data.forEach(respository => {
         containerCards.insertAdjacentHTML(`afterbegin`, `<div class="card" id="${respository.id}">
                                                             <div class="card__active"></div>
                                                             <img class="card__image" src="./media/images/project_portafo.png" alt="">
@@ -281,7 +282,7 @@ export const procesando = () => {
     let marginCard = parseInt(window.getComputedStyle(document.querySelector('.card')).content.split(`"`)[1])
 
     //! Calculo cuanto debe medir todo el contenedor de las tarjetas
-    let widthTotal = (simulacion.length * widthCard) + (simulacion.length * marginCard)
+    let widthTotal = (data.length * widthCard) + (data.length * marginCard)
     containerCards.style.width = `${widthTotal}%`
 
     //! Una funcion para mover el slide hacia la derecha

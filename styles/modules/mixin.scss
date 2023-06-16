@@ -1,5 +1,5 @@
 //! Colores, Letras y tamanio
-@use "./variables.scss" as *;
+@use "./variables.scss"as *;
 
 @mixin Botones {
     display: flex;
@@ -103,4 +103,12 @@
     .arrow {
         display: none;
     }
+}
+
+@mixin Arrow {
+    cursor: pointer;
+    height: 2rem;
+    width: 2rem;
+    z-index: 12;
+    color: map-get($map: $Colors, $key: "White");
 }

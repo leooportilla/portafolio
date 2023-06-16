@@ -31,6 +31,6 @@
 @forward "./media_query.scss";
 
 //! Clase para cambiar modo oscuro
-#dark {
-    color: map-get($map: $Colors, $key: "Raisin Black");
+.dark {
+    color: map-get($map: $Colors, $key: "Raisin Black") !important;
 }

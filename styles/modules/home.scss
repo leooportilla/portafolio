@@ -94,7 +94,6 @@
         bottom: 0;
         z-index: 800;
         cursor: pointer;
-        animation: SwipeUp 2s infinite;
 
         &-title {
             font-family: map-get($map: $Fonts, $key: "Secular Uno");

@@ -11,21 +11,6 @@
     }
 }
 
-//! Animacion para enlace con texto "Desliza"
-@keyframes SwipeUp {
-    0% {
-        bottom: 0;
-    }
-
-    50% {
-        bottom: 1%;
-    }
-
-    100% {
-        bottom: 0;
-    }
-}
-
 //! Animacion para el fondo de la section principal
 @keyframes Move {
     0% {

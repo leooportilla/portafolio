@@ -18,7 +18,7 @@ const setImage = (Modo, OneColor, TwoColor, ThreeColor) => {
     document.querySelectorAll(`#svg`).forEach(elemento => elemento.style.color = `${OneColor}`)
 
     //* Todos las etiquetas que contengan el atributo data-dark cambian el color con el id
-    document.querySelectorAll(`[data-dark]`).forEach(elemento => elemento.setAttribute(`id`, `${Modo}`))
+    Modo === `dark` ? document.querySelectorAll(`[data-dark]`).forEach(elemento => elemento.classList.toggle(`${Modo}`)) : document.querySelectorAll(`[data-dark]`).forEach(elemento => elemento.classList.remove(`dark`))
 
     //* Evalua si el panel de informacion del lenguaje esta abierto para poder cambiar al modo
     if (subBody.classList.contains(`name`)) {

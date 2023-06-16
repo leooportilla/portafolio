@@ -21,7 +21,7 @@
             "Image Description"
             "Image Statistics";
         height: fit-content;
-        width: 65%;
+        width: 100%;
         column-gap: 2rem;
         margin-bottom: 2rem;
 
@@ -139,51 +139,31 @@
         overflow: hidden;
 
         &-left {
-            height: fit-content;
             position: absolute;
-            left: 9vw;
+            left: 8vw;
             z-index: 10;
 
             .arrow {
-                cursor: pointer;
-                position: absolute;
-                left: 1.5rem;
-                top: 50%;
-                height: 2rem;
-                width: 2rem;
-                z-index: 12;
-                color: map-get($map: $Colors, $key: "White");
+                @include Arrow;
                 transform: rotate(90deg);
             }
         }
 
         &-right {
             position: absolute;
-            right: 9vw;
-            height: 100%;
+            right: 8vw;
+            display: flex;
+            flex-direction: row;
+            transform: translateX(3vw);
             z-index: 10;
 
             .arrow {
-                cursor: pointer;
-                position: absolute;
-                right: 1.5rem;
-                top: 50%;
-                height: 2rem;
-                width: 2rem;
-                z-index: 12;
-                color: map-get($map: $Colors, $key: "White");
+                @include Arrow;
                 transform: rotate(270deg);
                 transition: all 1s;
 
                 &-disable {
-                    cursor: pointer;
-                    position: absolute;
-                    right: .2rem;
-                    top: 50%;
-                    height: 2rem;
-                    width: 2rem;
-                    z-index: 12;
-                    color: map-get($map: $Colors, $key: "White");
+                    @include Arrow;
                     visibility: hidden;
                     opacity: 0;
                     transform: rotate(270deg);
@@ -204,23 +184,21 @@
             align-self: center;
             transition: all 2s;
             padding: 2rem 0;
-            margin-left: .7rem;
 
             .card {
-                min-width: 25%;
+                min-width: 20vw;
                 height: 35rem;
                 border-radius: 1rem;
                 overflow: hidden;
                 background-color: white;
                 position: relative;
-                margin-left: 4%;
-                content: "4";
+                margin-left: 2vw;
+                content: "20 2";
                 transition: all 1s;
+                box-shadow: 0 0 10px 1px map-get($map: $Colors, $key: "Black");
 
                 &-active {
-                    transform: scale(1.1);
-                    margin-left: 4rem;
-                    margin-right: 1rem;
+                    transform: translateY(-1rem);
                 }
 
                 &__image {
