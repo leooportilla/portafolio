@@ -35,38 +35,38 @@
             max-width: 50rem;
 
             &__greetings {
-                font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                color: map-get($map: $Colors, $key: "White");
+                font-family: map-get($map: $Fonts, $key: "First");
+                color: map-get($map: $Colors, $key: "Clear");
                 letter-spacing: 2px;
                 font-size: 2rem;
             }
 
             &__name {
-                font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                color: map-get($map: $Colors, $key: "White");
+                font-family: map-get($map: $Fonts, $key: "First");
+                color: map-get($map: $Colors, $key: "Clear");
                 letter-spacing: 2px;
                 font-size: 4rem;
                 line-height: 1;
                 margin-bottom: 2rem;
 
                 & span {
-                    font-family: map-get($map: $Fonts, $key: "Titan One");
-                    color: map-get($map: $Colors, $key: "Yellow");
+                    font-family: map-get($map: $Fonts, $key: "Second");
+                    color: map-get($map: $Colors, $key: "Main Two");
                     text-transform: uppercase;
                 }
             }
 
             &__summary {
-                font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                color: map-get($map: $Colors, $key: "Grey");
+                font-family: map-get($map: $Fonts, $key: "First");
+                color: map-get($map: $Colors, $key: "Second");
                 max-width: 45rem;
                 letter-spacing: 2px;
                 font-size: 1rem;
                 text-align: justify;
             }
 
-            .red {
-                color: map-get($map: $Colors, $key: "Red");
+            .Main One {
+                color: map-get($map: $Colors, $key: "Main One");
             }
 
             &__container {
@@ -96,14 +96,14 @@
         cursor: pointer;
 
         &-title {
-            font-family: map-get($map: $Fonts, $key: "Secular Uno");
-            color: map-get($map: $Colors, $key: "White");
+            font-family: map-get($map: $Fonts, $key: "First");
+            color: map-get($map: $Colors, $key: "Clear");
             font-size: 1rem;
             margin-bottom: 0.5rem;
         }
 
         &-image {
-            color: map-get($map: $Colors, $key: "White");
+            color: map-get($map: $Colors, $key: "Clear");
             width: 1.5rem;
             height: 100%;
         }

@@ -7,7 +7,6 @@
 // !k Key Frames - Animaciones
 @use "./keyframe.scss" as *;
 
-
 .hability {
     width: 100%;
     height: 100vh;
@@ -15,7 +14,6 @@
     flex-direction: row;
     align-items: center;
     padding: 7vh 12.5vw 0 12.5vw;
-    background-color: map-get($map: $Colors, $key: "Blue Green");
     background-image: url(../media/images/wave_about.png);
     background-repeat: no-repeat;
     background-size: contain;
@@ -28,14 +26,14 @@
 
         &-title {
             text-align: end;
-            font-family: map-get($map: $Fonts, $key: "Titan One");
-            color: map-get($map: $Colors, $key: "Yellow");
+            font-family: map-get($map: $Fonts, $key: "Second");
+            color: map-get($map: $Colors, $key: "Main Two");
             letter-spacing: 0.125rem;
             font-size: 3rem;
             margin-bottom: 2rem;
 
             & span {
-                color: map-get($map: $Colors, $key: "Red");
+                color: map-get($map: $Colors, $key: "Main One");
             }
         }
 
@@ -43,12 +41,12 @@
             font-size: 1rem;
             text-align: justify;
             letter-spacing: 0.125rem;
-            font-family: map-get($map: $Fonts, $key: "Secular Uno");
-            color: map-get($map: $Colors, $key: "White");
+            font-family: map-get($map: $Fonts, $key: "Second");
+            color: map-get($map: $Colors, $key: "Clear");
             margin-bottom: 1rem;
 
             & span {
-                color: map-get($map: $Colors, $key: "Yellow");
+                color: map-get($map: $Colors, $key: "Main Two");
             }
         }
     }
@@ -91,7 +89,7 @@
                     left: 0;
                     width: 100%;
                     height: 150%;
-                    background-color: map-get($map: $Colors, $key: "White");
+                    background-color: map-get($map: $Colors, $key: "Clear");
                     z-index: 725;
                     transition: 2s ease all;
                 }
@@ -105,7 +103,7 @@
                     height: 100%;
                     position: relative;
                     z-index: 750;
-                    color: map-get($map: $Colors, $key: "Yellow");
+                    color: map-get($map: $Colors, $key: "Main Two");
                 }
             }
 
@@ -113,8 +111,8 @@
                 text-align: center;
                 font-size: .8rem;
                 letter-spacing: 0.125rem;
-                font-family: map-get($map: $Fonts, $key: "Secular Uno");
-                color: map-get($map: $Colors, $key: "White");
+                font-family: map-get($map: $Fonts, $key: "Second");
+                color: map-get($map: $Colors, $key: "Clear");
 
             }
         }
@@ -154,25 +152,25 @@
             }
 
             &__title {
-                font-family: map-get($map: $Fonts, $key: "Titan One");
-                color: map-get($map: $Colors, $key: "Yellow");
+                font-family: map-get($map: $Fonts, $key: "Second");
+                color: map-get($map: $Colors, $key: "Main Two");
                 font-size: 1.3rem;
                 margin-bottom: 2rem;
 
                 & span {
-                    color: map-get($map: $Colors, $key: "Red");
+                    color: map-get($map: $Colors, $key: "Main One");
                 }
             }
 
             &__summary {
-                font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                font-family: map-get($map: $Fonts, $key: "Second");
                 font-size: 0.85rem;
                 letter-spacing: 0.1rem;
                 text-align: justify;
             }
 
             &__process {
-                font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                font-family: map-get($map: $Fonts, $key: "Second");
                 font-size: 0.7rem;
                 letter-spacing: 0.125rem;
                 margin-top: 2rem;
@@ -181,7 +179,7 @@
             &__quantity {
                 width: 100%;
                 height: 0.5rem;
-                background: map-get($map: $Colors, $key: "White");
+                background: map-get($map: $Colors, $key: "Clear");
                 border-radius: 4px;
                 position: relative;
 
@@ -191,7 +189,7 @@
                     border-radius: 4px;
                     width: 90%;
                     height: 100%;
-                    background-color: map-get($map: $Colors, $key: "Red");
+                    background-color: map-get($map: $Colors, $key: "Main One");
                 }
 
                 &-css {
@@ -200,7 +198,7 @@
                     border-radius: 4px;
                     width: 95%;
                     height: 100%;
-                    background-color: map-get($map: $Colors, $key: "Red");
+                    background-color: map-get($map: $Colors, $key: "Main One");
                 }
 
                 &-javascript {
@@ -209,7 +207,7 @@
                     border-radius: 4px;
                     width: 60%;
                     height: 100%;
-                    background-color: map-get($map: $Colors, $key: "Red");
+                    background-color: map-get($map: $Colors, $key: "Main One");
                 }
 
                 &-sass {
@@ -218,7 +216,7 @@
                     border-radius: 4px;
                     width: 95%;
                     height: 100%;
-                    background-color: map-get($map: $Colors, $key: "Red");
+                    background-color: map-get($map: $Colors, $key: "Main One");
                 }
 
                 &-githud {
@@ -227,7 +225,7 @@
                     border-radius: 4px;
                     width: 80%;
                     height: 100%;
-                    background-color: map-get($map: $Colors, $key: "Red");
+                    background-color: map-get($map: $Colors, $key: "Main One");
                 }
 
                 &-photoshop {
@@ -236,7 +234,7 @@
                     border-radius: 4px;
                     width: 40%;
                     height: 100%;
-                    background-color: map-get($map: $Colors, $key: "Red");
+                    background-color: map-get($map: $Colors, $key: "Main One");
                 }
             }
         }

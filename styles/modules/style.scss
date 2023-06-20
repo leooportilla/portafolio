@@ -32,5 +32,5 @@
 
 //! Clase para cambiar modo oscuro
 .dark {
-    color: map-get($map: $Colors, $key: "Raisin Black") !important;
+    color: map-get($map: $Colors, $key: "Dark") !important;
 }

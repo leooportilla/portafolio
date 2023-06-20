@@ -23,13 +23,13 @@
         justify-content: center;
 
         &-sun {
-            color: map-get($map: $Colors, $key: "White");
+            color: map-get($map: $Colors, $key: "Clear");
             width: 1.2rem;
             height: 1.2rem;
         }
 
         &-moon {
-            color: map-get($map: $Colors, $key: "White");
+            color: map-get($map: $Colors, $key: "Clear");
             width: 1rem;
             height: 1rem;
         }
@@ -43,7 +43,7 @@
             width: 2.7rem;
             height: 1.5rem;
             border-radius: 1rem;
-            background-color: map-get($map: $Colors, $key: "Red");
+            background-color: map-get($map: $Colors, $key: "Main One");
             position: relative;
             cursor: pointer;
 
@@ -54,7 +54,7 @@
                 width: 1rem;
                 height: 1rem;
                 border-radius: 50%;
-                background-color: map-get($map: $Colors, $key: "White");
+                background-color: map-get($map: $Colors, $key: "Clear");
                 position: absolute;
                 top: .25rem;
                 left: .3rem;
@@ -89,8 +89,8 @@
             justify-content: center;
             letter-spacing: 1.5px;
             width: 9rem;
-            font-family: map-get($map: $Fonts, $key: "Secular Uno");
-            color: map-get($map: $Colors, $key: "White");
+            font-family: map-get($map: $Fonts, $key: "First");
+            color: map-get($map: $Colors, $key: "Clear");
             background: transparent;
             font-size: 1rem;
             padding: 0.3rem 1rem;
@@ -110,7 +110,7 @@
                 content: "";
                 width: 100%;
                 height: 320%;
-                background: map-get($map: $Colors, $key: "Red");
+                background: map-get($map: $Colors, $key: "Main One");
                 position: absolute;
                 z-index: 975;
                 top: -320%;
@@ -121,7 +121,7 @@
             }
 
             &:hover {
-                color: map-get($map: $Colors, $key: "Raisin Black");
+                color: map-get($map: $Colors, $key: "Dark");
             }
 
             &:hover::after {

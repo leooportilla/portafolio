@@ -13,22 +13,25 @@
 
 // ! Variables
 //! Colores
-$Colors: ("White": #ffffff,
-    "Grey": #bebebe,
+$Colors: (
+    "Clear": #ffffff,
+    "Dark": #232528,
     "Black": #000000,
-    "Raisin Black": #232528,
-    "Red": #c82d2d,
-    "Dark Red": #AD1A20,
-    "Yellow": #F5B82E,
-    "Blue": #3066be,
-    "Dark Blue": #295397,
+    "Main One": #c82d2d,
+    "Dark Main One": #AD1A20,
+    "Main Two": #F5B82E,
+    "Main Three": #3066be,
+    "Dark Main Three": #295397,
+    "Second": #bebebe,
 );
 //! Fuentes
-$Fonts: ("Secular Uno": Secular Uno,
-    "Titan One": Titan One,
+$Fonts: (
+    "First": Secular Uno,
+    "Second": Titan One,
 );
 //! Resolucion
-$Resolution: ("MovilSmall": 375px,
+$Resolution: (
+    "MovilSmall": 375px,
     "MovilStandard": 480px,
     "TabletMini": 600px,
     "TabletSmall": 768px,

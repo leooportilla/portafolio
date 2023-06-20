@@ -264,7 +264,7 @@
         &__icon {
             display: block;
             z-index: 950;
-            color: map-get($map: $Colors, $key: "White");
+            color: map-get($map: $Colors, $key: "Clear");
 
             &-image {
                 color: inherit;
@@ -290,7 +290,7 @@
             height: 100vh;
             padding-top: 20vh;
             z-index: 925;
-            background-color: map-get($map: $Colors, $key: "Red");
+            background-color: map-get($map: $Colors, $key: "Main One");
             clip-path: circle(0% at 100% 0%);
             transition: all 1s ease-in-out;
 
@@ -303,11 +303,11 @@
                 transition: .3s ease all;
 
                 span {
-                    color: map-get($map: $Colors, $key: "White");
+                    color: map-get($map: $Colors, $key: "Clear");
                 }
 
                 &::after {
-                    background-color: map-get($map: $Colors, $key: "Raisin Black");
+                    background-color: map-get($map: $Colors, $key: "Dark");
                 }
 
                 &:hover {
@@ -335,7 +335,7 @@
                         border-radius: 50%;
                         overflow: hidden;
                         justify-content: center;
-                        background-color: map-get($map: $Colors, $key: "Raisin Black");
+                        background-color: map-get($map: $Colors, $key: "Dark");
 
                         & svg {
                             width: 2rem;

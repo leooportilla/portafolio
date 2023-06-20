@@ -1,6 +1,6 @@
 //! Colores, Letras y tamanio
 @use "./variables.scss"as *;
-
+   
 @mixin Botones {
     display: flex;
     align-items: center;
@@ -12,7 +12,7 @@
     padding-left: 1rem;
     margin-right: 1rem;
     text-decoration: none;
-    background-color: map-get($map: $Colors, $key: "Blue");
+    background-color: map-get($map: $Colors, $key: "Main Three");
     border-radius: 1rem;
     position: relative;
     cursor: pointer;
@@ -41,13 +41,13 @@
         visibility: visible;
         opacity: 1;
         transition: .5s ease-in-out all;
-        color: map-get($map: $Colors, $key: "White");
+        color: map-get($map: $Colors, $key: "Clear");
     }
 
     & h6 {
         width: 100%;
-        font-family: map-get($map: $Fonts, $key: "Secular Uno");
-        color: map-get($map: $Colors, $key: "White");
+        font-family: map-get($map: $Fonts, $key: "First");
+        color: map-get($map: $Colors, $key: "Clear");
         font-size: .8rem;
         letter-spacing: 2px;
         left: 3rem;
@@ -84,7 +84,7 @@
         visibility: visible;
     }
 
-    .red {
+    .Main One {
         width: 1.2rem;
         height: 1.2rem;
         margin: 0;
@@ -110,5 +110,5 @@
     height: 2rem;
     width: 2rem;
     z-index: 12;
-    color: map-get($map: $Colors, $key: "White");
+    color: map-get($map: $Colors, $key: "Clear");
 }
