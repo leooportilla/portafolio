@@ -152,9 +152,6 @@
         &-right {
             position: absolute;
             right: 8vw;
-            display: flex;
-            flex-direction: row;
-            transform: translateX(3vw);
             z-index: 10;
 
             .arrow {
@@ -162,17 +159,7 @@
                 transform: rotate(270deg);
                 transition: all 1s;
 
-                &-disable {
-                    @include Arrow;
-                    visibility: hidden;
-                    opacity: 0;
-                    transform: rotate(270deg);
-                    transition: all 1s;
-                }
-
                 &-active {
-                    visibility: visible;
-                    opacity: 1;
                     transform: rotate(90deg);
                 }
             }
@@ -185,16 +172,38 @@
             transition: all 2s;
             padding: 2rem 0;
 
+            .limited {
+                width: 100%;
+                height: 35rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                &__svg {
+                    width: 10rem;
+                    height: 10rem;
+                    color: map-get($map: $Colors, $key: "Yellow");
+                    margin-bottom: 1rem;
+                }
+
+                &__title {
+                    font-family: map-get($map: $Fonts, $key: "Titan One");
+                    color: map-get($map: $Colors, $key: "White");
+                    font-size: 2rem;
+                }
+            }
+
             .card {
-                min-width: 20vw;
+                width: 20vw;
                 height: 35rem;
                 border-radius: 1rem;
                 overflow: hidden;
-                background-color: white;
                 position: relative;
                 margin-left: 2vw;
                 content: "20 2";
                 transition: all 1s;
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, map-get($map: $Colors, $key: "Yellow") -100%);
                 box-shadow: 0 0 10px 1px map-get($map: $Colors, $key: "Black");
 
                 &-active {
@@ -202,12 +211,146 @@
                 }
 
                 &__image {
-                    width: 100%;
-                    height: 14rem;
+                    position: relative;
+
+                    &-web {
+                        width: 100%;
+                        height: 14rem;
+
+                        &:hover ~ .card__image-active {
+                            display: flex;
+                        }
+                    }
+
+                    &-active {
+                        display: none;
+                        position: absolute;
+                        background: rgb(0, 0, 0, 0.5);
+                        top: 0;
+                        z-index: 4;
+                        width: 100%;
+                        height: 14rem;
+                        justify-content: center;
+                        align-items: center;
+                        cursor: pointer;
+                        font-family: map-get($map: $Fonts, $key: "Titan One");
+                        color: map-get($map: $Colors, $key: "White");
+
+                        &:hover {
+                            display: flex;
+                        }
+                    }
+
+                    &-wave {
+                        position: absolute;
+                        z-index: 10;
+                        bottom: -1px;
+                        color: map-get($map: $Colors, $key: "Yellow");
+                    }
                 }
 
-                &__title {
-                    color: map-get($map: $Colors, $key: "Raisin Black");
+                &__container {
+                    margin: 0 1rem;
+                    overflow: hidden;
+
+                    &-title {
+                        margin-top: 1rem;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        column-gap: 1rem;
+
+                        &-name {
+                            font-size: 1.5rem;
+                            font-family: map-get($map: $Fonts, $key: "Titan One");
+                            color: map-get($map: $Colors, $key: "Raisin Black");
+                        }
+
+                        &-statistics {
+                            display: flex;
+                            flex-direction: row;
+
+                            svg {
+                                width: 1rem;
+                                height: 1rem;
+                                color: map-get($map: $Colors, $key: "Raisin Black");
+                                margin-right: .2rem;
+                            }
+
+                            h6 {
+                                font-size: .8rem;
+                                font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                                color: map-get($map: $Colors, $key: "Raisin Black");
+                            }
+                        }
+                    }
+
+                    &-paragraph {
+                        margin-top: 1rem;
+                        font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                        color: map-get($map: $Colors, $key: "Raisin Black");
+                        font-size: .8rem;
+                        line-height: 1.5rem;
+                        text-align: justify;
+                        margin-bottom: 1rem;
+                    }
+
+                    &-language {
+                        display: flex;
+                        flex-direction: row;
+                        margin-bottom: 2rem;
+                        column-gap: 1rem;
+
+                        & a {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 50%;
+                            width: 3rem;
+                            height: 3rem;
+                            background-color: map-get($map: $Colors, $key: "Blue");
+
+                            & svg {
+                                width: 1.5rem;
+                                height: 1.5rem;
+                                color: map-get($map: $Colors, $key: "White");
+                            }
+
+                            &:hover {
+                                background-color: map-get($map: $Colors, $key: "Dark Blue");
+                            }
+                        }
+
+                    }
+
+                    &-link {
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: center;
+                        position: absolute;
+                        bottom: 2rem;
+                        right: 1.5rem;
+
+                        .link__githud {
+                            @include Botones();
+                            margin: 0;
+                            width: 9rem;
+                        }
+
+                        .link__container {
+
+                            &-statistics {
+                                align-self: center;
+                                font-size: .7rem;
+                                font-family: map-get($map: $Fonts, $key: "Secular Uno");
+                                color: map-get($map: $Colors, $key: "Raisin Black");
+                                margin-top: .5rem;
+                                margin-right: .5rem;
+                                text-align: right;
+                                line-height: .625rem;
+                            }
+                        }
+                    }
                 }
 
             }

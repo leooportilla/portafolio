@@ -1,4 +1,5 @@
-import { profile, project } from "./profile"
+import { profile } from "./profile"
+import { project } from "./project"
 
 // TODO: Declaracion de variable para la funcion de cerrar el input
 const errores       = document.querySelector(`.project__profile-error`)

@@ -1,177 +1,7 @@
-'use strict';
-
-//! Al ingresar a la pagina saldra una pantalla de carga, luego la escondo quitandole la clase
-const load = () => {
-    addEventListener("load", () => {
-     document.querySelector(`.container`).classList.toggle(`containeractive`);
-    });
-};
-
-// TODOS: Declaracion de variable para funcion menu
-const icono            = document.querySelector(`.header__icon`);
-const opciones         = document.querySelector(`.header__enlace`);
-const linksMenu        = document.querySelectorAll(`.links`);
-const iconoClose       = `<svg class="header__icon-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 217.95 217.95"><title>Close</title><path class="header__icon-image" d="M-773-1916.66a18.6,18.6,0,0,0-5.47-13.25l-10.62-10.62a18.76,18.76,0,0,0-26.5,0L-882-1874.15l-66.38-66.38a18.6,18.6,0,0,0-13.25-5.47,18.6,18.6,0,0,0-13.25,5.47l-10.62,10.63a18.6,18.6,0,0,0-5.47,13.25,18.6,18.6,0,0,0,5.47,13.25l66.38,66.38-66.38,66.38a18.76,18.76,0,0,0,0,26.5l10.63,10.62a18.6,18.6,0,0,0,13.25,5.47,18.6,18.6,0,0,0,13.25-5.47l66.38-66.38,66.38,66.38a18.6,18.6,0,0,0,13.25,5.47,18.6,18.6,0,0,0,13.25-5.47l10.62-10.62A18.6,18.6,0,0,0-773-1757.4a18.6,18.6,0,0,0-5.47-13.25L-844.88-1837l66.38-66.38A18.6,18.6,0,0,0-773-1916.66Z" transform="translate(990.98 1946.01)"/></svg>`;
-const mainDocument     = document.querySelector(`main`);
-const iconoHamburguesa = `<svg data-dark class="header__icon-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276.41 195"><title>Icono de Menu</title><rect x="69.54" width="206.87" height="28" rx="14" ry="14"/><rect y="83.5" width="276.41" height="28" rx="14" ry="14"/><rect x="125.78" y="167" width="150.63" height="28" rx="14" ry="14"/></svg>`;
-
-//! Abrir y cerrar el menu en modo mobile
-const menu = () => {
-
-    //* Evento al preciosar el icono del menu
-    icono.addEventListener(`click`, evento => {
-
-        //? Si el menu esta cerrado, agregarle la clase Open asi poder desplegarlo
-        if (!opciones.classList.contains(`open`)) {
-            opciones.classList.add(`open`);
-            icono.innerHTML = iconoClose;
-
-            // El usuario no podrar scrolear al momento que se abra el menu despue de 0.5s al preciosar el icono del menu
-            setTimeout(() => {
-                mainDocument.style.height = `90vh`;
-            }, 500);
-
-        //? Si el menu esta abierto le quitamos la clase 
-        } else {
-            opciones.classList.remove(`open`);
-            icono.innerHTML = iconoHamburguesa;
-            mainDocument.style.height = ``;
-        }
-    });
-    
-    //* Evento si al preciosar en cualqueir links se cierra el menu
-    linksMenu.forEach( links => {
-        links.addEventListener(`click`, () => {           
-            opciones.classList.remove(`open`);
-            icono.innerHTML = iconoHamburguesa;
-            mainDocument.style.height = ``;
-        });
-    });
-};
-
-// TODO: Declaracion de variables para las funcion de las skills
-const informationTegno = {
-    html: {
-        title: `Que es HTML<span>?</span>`,
-        summary: `HTML (HyperText Markup Language) es un lenguaje de marcado utilizado para crear páginas web. Es la columna vertebral de cualquier sitio web y se utiliza para estructurar el contenido de la página web y darle formato. HTML utiliza etiquetas para definir diferentes tipos de contenido, como encabezados, párrafos, imágenes, enlaces y formularios. Los navegadores web utilizan el código HTML para renderizar el contenido de una página web y mostrarlo al usuario final. Es una parte fundamental del desarrollo web y es esencial para cualquier desarrollador frontend.`,
-        process: `Proceso: 90%`
-    },
-
-    css: {
-        title: `Que es CSS<span>?</span>`,
-        summary: `CSS (Cascading Style Sheets) es un lenguaje de diseño utilizado para dar estilo y presentación a páginas web escritas en HTML. CSS se utiliza para definir la apariencia visual de los elementos HTML en una página, como el color, el tamaño, la posición y la tipografía. Permite a los desarrolladores frontend separar la estructura y el contenido de una página web de su diseño visual, lo que hace que el código sea más fácil de mantener y actualizar. CSS se puede aplicar a elementos individuales en una página o a la página completa a través de un archivo externo. Es una herramienta esencial para cualquier desarrollador frontend que busque crear sitios web atractivos y visualmente atractivos.`,
-        process: `Proceso: 95%`
-    },
-
-    sass: {
-        title: `Que es Sass<span>?</span>`,
-        summary: `Sass es un preprocesador de CSS que permite a los desarrolladores escribir hojas de estilo de manera más eficiente y con menos repetición de código. Ofrece características como anidamiento de estilos, mixins y variables, y puede generar hojas de estilo automáticamente cuando se realizan cambios. Aunque tiene una sintaxis más compleja que CSS, Sass tiene muchas herramientas y una gran comunidad de usuarios.`,
-        process: `Proceso: 95%`
-    },
-
-    javascript: {
-        title: `Que es JavaScript<span>?</span>`,
-        summary: `JavaScript es un lenguaje de programación utilizado para crear aplicaciones web interactivas y dinámicas. Es un lenguaje de programación de alto nivel, interpretado y orientado a objetos que se ejecuta en el lado del cliente (en el navegador web) o en el lado del servidor (utilizando Node.js). JavaScript se utiliza para agregar interactividad a páginas web, como animaciones, validación de formularios, efectos de desplazamiento y mucho más. También se utiliza para crear aplicaciones web completas, incluidos juegos, aplicaciones de chat y aplicaciones empresariales. Es una herramienta esencial para cualquier desarrollador web y es una de las tecnologías más populares en la actualidad.`,
-        process: `Proceso: 60%`,
-    },
-
-    githud: {
-        title: `Que es GitHud<span>?</span>`,
-        summary: `GitHub es una plataforma de alojamiento de proyectos y código abierto que utiliza Git como sistema de control de versiones. Fue comprada por Microsoft en 2018 y permite a los desarrolladores crear repositorios para sus aplicaciones de forma gratuita, siempre y cuando sean de código abierto. Los usuarios pueden colaborar en proyectos dejando comentarios, informando errores y realizando mejoras. Además, ofrece herramientas adicionales como un wiki para cada proyecto, un sistema de seguimiento de problemas, herramientas de revisión de código y gráficos para ver actualizaciones y cambios. Es una herramienta esencial para muchos desarrolladores y cuenta con una interfaz fácil de usar.`,
-        process: `Proceso: 80%`,
-    },
-
-    photoshop: {
-        title: `Que es Photoshop<span>?</span>`,
-        summary: `Photoshop es una herramienta de diseño gráfico y edición de imágenes que se utiliza para crear y manipular gráficos para aplicaciones web o de escritorio. Es una de las herramientas más populares en la industria y permite a los desarrolladores crear imágenes de alta calidad para utilizar en aplicaciones, sitios web y otros proyectos. Photoshop es compatible con muchos formatos de archivo diferentes, lo que permite a los desarrolladores integrar fácilmente sus diseños en sus proyectos. También cuenta con una gran cantidad de características avanzadas, como capas, filtros y herramientas de edición de texto.`,
-        process: `Proceso: 40%`,
-    }
-};
-let colors;
-const containerSkills  = document.querySelector(`.hability__skills`);
-const informationSkill = document.querySelector(`.hability__skills-hover`);
-
-//! Plantilla para la informacion dentro de el contener de las skills
-const template = (title, summary, process) => {
-
-    //! Primero vemos en que modo esta la web para dar cierto cambios de estilo
-    localStorage.getItem(`Theme`) === `Dark` ? colors = `#bebebe` : colors = `#232528`;
-
-    return `<svg class="name__icon" data-dark xmlns="http://www.w3.org/2000/svg" viewBox="0 0 217.95 217.95"><title>Close</title><path d="M-773-1916.66a18.6,18.6,0,0,0-5.47-13.25l-10.62-10.62a18.76,18.76,0,0,0-26.5,0L-882-1874.15l-66.38-66.38a18.6,18.6,0,0,0-13.25-5.47,18.6,18.6,0,0,0-13.25,5.47l-10.62,10.63a18.6,18.6,0,0,0-5.47,13.25,18.6,18.6,0,0,0,5.47,13.25l66.38,66.38-66.38,66.38a18.76,18.76,0,0,0,0,26.5l10.63,10.62a18.6,18.6,0,0,0,13.25,5.47,18.6,18.6,0,0,0,13.25-5.47l66.38-66.38,66.38,66.38a18.6,18.6,0,0,0,13.25,5.47,18.6,18.6,0,0,0,13.25-5.47l10.62-10.62A18.6,18.6,0,0,0-773-1757.4a18.6,18.6,0,0,0-5.47-13.25L-844.88-1837l66.38-66.38A18.6,18.6,0,0,0-773-1916.66Z" transform="translate(990.98 1946.01)"/></svg>
-            <h5 class="name__title">${title}</h5>
-            <p class="name__summary" style="color: ${colors}">${summary}</p>
-            <h5 class="name__process" style="color: ${colors}">${process}</h5>
-            <div class="name__quantity">
-                <div class="name__quantity-html">
-                </div>
-            </div>`
-};
-
-//! Abrir y cerrar la skills
-const skills = () => {
-
-    //* Al seleccionar algunos de las opciones de las habilidades
-    containerSkills.addEventListener(`click`, evento => {
-
-        // Busca dento el evento cual es la etiqueta con la clase mas cercana
-        const search = evento.target.closest(`.hability__skills-container`);
-
-        // Ademas si la etiqueta buscada contiene una de estas clases, abre la ventana y agregarle la informacion 
-        if (search?.classList.contains(`html`)) {
-
-            informationSkill.classList.toggle(`name`);
-            informationSkill.innerHTML = template(informationTegno.html.title, informationTegno.html.summary, informationTegno.html.process);
-        }
-
-        if (search?.classList.contains(`css`)) {
-
-            informationSkill.classList.toggle(`name`);
-            informationSkill.innerHTML = template(informationTegno.css.title, informationTegno.css.summary, informationTegno.css.process);
-        }
-
-        if (search?.classList.contains(`sass`)) {
-            informationSkill.classList.toggle(`name`);
-            informationSkill.innerHTML = template(informationTegno.sass.title, informationTegno.sass.summary, informationTegno.sass.process);
-        }
-
-        if (search?.classList.contains(`javascript`)) {
-
-            informationSkill.classList.toggle(`name`);
-            informationSkill.innerHTML = template(informationTegno.javascript.title, informationTegno.javascript.summary, informationTegno.javascript.process);
-        }
-
-        if (search?.classList.contains(`githud`)) {
-
-            informationSkill.classList.toggle(`name`);
-            informationSkill.innerHTML = template(informationTegno.githud.title, informationTegno.githud.summary, informationTegno.githud.process);
-        }
-
-        if (search?.classList.contains(`photoshop`)) {
-
-            informationSkill.classList.toggle(`name`);
-            informationSkill.innerHTML = template(informationTegno.photoshop.title, informationTegno.photoshop.summary, informationTegno.photoshop.process);
-        }
-
-        //! Evento para cerrar la ventana de las skills
-        informationSkill.addEventListener(`click`, evento => {
-
-            //* Al dar click en el boton de cerrar, quitamos la clase como tambien el contenido de lla
-            if (evento.target.closest(`.name__icon`)) {
-                informationSkill.classList.toggle(`name`);
-        
-                //? Un Timeout para que se borre el contenido sin que el usuario se pueda dar cuenta
-                setTimeout(() => {
-                    informationSkill.innerHTML = ``;
-                }, 700);
-            }
-        });
-    });
-};
-
 //! Declaracion de varibale para las funciones de la carga del perfil y las busqueda de los perfiles
-const leftButton = document.querySelector(`.left`);
-const rightButton = document.querySelector(`.right`);
-const containerCards = document.querySelector(`.project__container-cards`);
+const leftButton = document.querySelector(`.left`)
+const rightButton = document.querySelector(`.right`)
+const containerCards = document.querySelector(`.project__container-cards`)
 const language = {
     javascript: {
         svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 387.05 386.14"><path d="m0,0v386.14h387.05V0H0Zm211.22,307.23c.04,4.43-.46,15.17-7.34,26.25-1.69,2.74-7.68,11.77-19.37,17.77-11.98,6.15-22.99,5.56-30.39,5.16-5.71-.31-15.23-.91-25.68-6.19-15.87-8.01-23.52-21.57-26.37-27.4l29.93-17.43c.57,1.93,3.4,10.63,12.27,15.48,1.39.76,6.97,3.64,14.33,2.98,2.51-.22,6.14-.55,9.51-2.98,6.62-4.77,6.77-13.67,6.77-15.02v-128.41h36.34v129.79Zm130.7,34.51c-14.92,14.5-33.92,14.75-45.51,14.9-8.12.11-24.77.1-41.62-10.78-13.84-8.93-20.91-20.72-23.96-26.71l29.35-17.54c1.73,3.23,9.53,16.95,25.56,21.21,2.54.67,20.01,5.02,29.58-5.05.85-.88,5.97-6.27,5.39-13.64-.44-5.61-3.95-9.44-5.39-11.01-2.11-2.3-4.24-3.65-9.51-6.3-8.63-4.34-14.79-6.67-22.47-9.98-6.29-2.7-9.46-4-11.7-5.27-5.8-3.3-17.05-9.69-24.19-23.04-2.43-4.56-8.8-18.16-4.93-35.09,1.09-4.75,4.54-16.59,15.48-26.02,9.12-7.86,18.63-9.91,24.3-11.12,2.83-.61,15.73-3.17,31.3,1.26,3.86,1.1,9.28,2.68,15.37,6.65,10.08,6.57,15.28,15.3,17.65,20.06l-28.32,18.12c-.83-2.19-3.56-8.47-10.32-12.27-7.19-4.05-18.45-5.34-25.1,1.14-3.9,3.8-4.69,9.07-4.82,9.98-.07.53-.65,4.93,1.03,9.06,2.28,5.59,7.68,8.17,8.6,8.59,0,0,3.79,2.64,26.37,12.27,22.59,9.63,30.15,19.03,30.15,19.03,2.7,2.99,13.46,15.61,13.42,34.74-.01,2.24-.36,21.88-15.71,36.81Z" /></svg>`,
@@ -208,17 +38,17 @@ const language = {
         svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495.28 495.29"><path d="m0,0v495.29h495.28V0H0Zm283.52,274.52h-62.14v177.7h-49.87v-177.7h-62.02v-40.13h174.03v40.13Zm168.54,117.63c-.16,5.61-.76,20.37-10.89,34.39-10.01,13.85-23.52,18.98-33.02,22.59-12.68,4.81-22.99,5.43-35.66,6.19-8.05.48-21.58,1.2-38.86-2.18-13.15-2.57-23.73-6.59-31.19-9.97l.46-49.3c7.85,6.62,20.29,15.14,37.15,19.72,3.47.94,15.03,3.87,29.69,2.75,7.22-.55,13.75-1.97,19.95-5.73,5.78-3.51,7.62-6.84,8.25-8.14,2.24-4.6,1.7-9.02,1.5-10.55-.59-4.3-2.45-7.24-3.56-8.94-2.1-3.23-4.83-5.88-10.43-9.52-6.13-3.98-11.22-6.24-15.82-8.25-17.7-7.75-16.96-6.99-22.59-9.75-6.21-3.04-12.9-6.37-20.52-12.38-3.81-3.01-7.9-6.27-12.16-11.7-5.77-7.36-8.6-14.53-9.97-18.8-1.02-3.17-3.6-12.14-2.64-23.85.43-5.24,1.76-19.15,11.81-31.98,7.96-10.17,17.35-14.49,25.23-18.12,15.3-7.05,28.36-7.86,44.02-8.83,9.13-.56,22.43-1.29,39.33,2.3,8.08,1.71,14.68,3.93,19.37,5.73l.12,45.86c-10.18-6.37-19.5-9.79-26.14-11.7-13.39-3.84-23.75-3.82-26.6-3.78-7.37.12-15.49.34-23.85,5.16-3.15,1.81-7.71,4.53-10.09,10.09-.64,1.51-2.25,5.85-1.03,11.01.92,3.88,3.04,6.57,4.93,8.59,6.75,7.26,15.09,11.04,27.97,16.74,15.9,7.04,15.67,6.81,19.26,8.6,9.42,4.7,15.37,7.67,22.02,13.07,4.35,3.54,10.99,9.03,16.28,18.23,8.02,13.95,7.82,27.5,7.68,32.45Z"/></svg>`,
         url: `https://www.typescriptlang.org/`,
     },
-};
+}
 
 const templateLanguage = (url, svg) => {
     return `<a href="${url}" target="_blank">
         ${svg}
     </a>`
-};
+}
 const commitRepository = async (repository) => {
     try {
-        const commit = await fetch(`https://api.github.com/repos/leooportilla/${repository}/commits`);
-        const dataCommit = await commit.json();
+        const commit = await fetch(`https://api.github.com/repos/leooportilla/${repository}/commits`)
+        const dataCommit = await commit.json()
 
         //! Si la peticion da error 404 mandamos un mensaje
         if (commit.status == 404) throw new Error(404)
@@ -228,11 +58,11 @@ const commitRepository = async (repository) => {
     } catch (error) {
         return error.message
     }
-};
+}
 const languageRepository = async (repository) => {
     try {
-        const language = await fetch(`https://api.github.com/repos/leooportilla/${repository}/languages`);
-        const dataLanguage = await language.json();
+        const language = await fetch(`https://api.github.com/repos/leooportilla/${repository}/languages`)
+        const dataLanguage = await language.json()
 
         //! Si la peticion da error 404 mandamos un mensaje
         if (language.status == 404) throw new Error(404)
@@ -242,15 +72,15 @@ const languageRepository = async (repository) => {
     } catch (error) {
         return error.message
     }
-};
+}
 
 //! Carga de los perfiles, por defecto al carga la pagina tendra los datos de Leonardo Portilla
-const project = async (user = `leooportilla`) => {
+export const project = async (user = `leooportilla`) => {
 
     try {
         //! Solicitud de datos
-        const answer = await fetch(`https://api.github.com/users/${user}/repos`);
-        const data = await answer.json();
+        const answer = await fetch(`https://api.github.com/users/${user}/repos`)
+        const data = await answer.json()
 
         //! Si la peticion da error 404 mandamos un mensaje
         if (answer.status == 404) throw new Error(404)
@@ -261,168 +91,168 @@ const project = async (user = `leooportilla`) => {
         if (answer.status == 200) {
 
             //! InnetHTML para cuando vuelva a cargar un perfil vacie los projectos viejos
-            containerCards.innerHTML = ``;
+            containerCards.innerHTML = ``
 
             //! Ordenar los projectos segun los favoritos de cada cuenta
-            data.sort((a, b) => a.stargazers_count - b.stargazers_count);
+            data.sort((a, b) => a.stargazers_count - b.stargazers_count)
 
             //! Con este arreglo guardare en el mismo orden del array principal cada cantidad de los commit de cada repositorio
-            const repositoryCommit = [];
+            const repositoryCommit = []
             //! Iterar el arreglo principal para conseguir cada cantidad de confirmacion de cada repositorio
             for (let index = 0; index < data.length; index++) {
 
                 //!Llamamos la funcion fetch 
-                let commitCount = await commitRepository(data[index].name);
+                let commitCount = await commitRepository(data[index].name)
 
                 //! Cuando se consiga la cantidad de la confirmacion, la agregamos al arreglo
-                if (commitCount !== `404`) repositoryCommit.push(commitCount);
+                if (commitCount !== `404`) repositoryCommit.push(commitCount)
             }
 
             //! Con este arreglo guardare en el mismo orden del array principal cada lenguaje utilizado segun Git Hud
-            const repositoryLanguage = [];
+            const repositoryLanguage = []
             for (let index = 0; index < data.length; index++) {
 
                 //! Llamamos la funcion fecth
-                let languageCount = await languageRepository(data[index].name);
+                let languageCount = await languageRepository(data[index].name)
 
                 //! Cuando se consiga los lenguaje, la agregamos al arreglo (recordemos que esta guardando un arreglo dentro de otro arreglo, la API de los repositorios manda un arreglo con todos los lenguaje)
-                if (languageCount !== `404`) repositoryLanguage.push(languageCount);
+                if (languageCount !== `404`) repositoryLanguage.push(languageCount)
             }
 
             //! Con esta variable vamos a recorrer los arreglos de las confirmaciones y los lenguaje de la misma manera que se recorre cada repositorio, asi mantener el orden
-            let count = 0;
+            let count = 0
 
             //! Por cada elemento del array agregar una cards al container 
             data.forEach(repository => {
 
                 //! Con estas variables guardaremos el nombre y la imagen que le corresponde, como lo sabremos? En el Switch
-                let imageRepository, nameRepository;
+                let imageRepository, nameRepository
                 //! El Switch evalua el nombre del repositorio si es alguno que tengo guardado en mi repositorio, le agregamos un nombre mas presentable y el nombre que esta guardada la imagen que le corresponda
                 switch (repository.name) {
 
                     case `portafolio`:
-                        imageRepository = `portafolio`;
-                        nameRepository = `Portafolio`;
+                        imageRepository = `portafolio`
+                        nameRepository = `Portafolio`
                         break;
 
                     case `pagina-inicio`:
-                        imageRepository = `page-home`;
-                        nameRepository = `Pagina de Inicio`;
+                        imageRepository = `page-home`
+                        nameRepository = `Pagina de Inicio`
                         break;
 
                     case `pagina-huddle`:
-                        imageRepository = `page-huddle`;
-                        nameRepository = `Pagina de Huddle`;
+                        imageRepository = `page-huddle`
+                        nameRepository = `Pagina de Huddle`
                         break;
 
                     case `precio-unico`:
-                        imageRepository = `single-price`;
-                        nameRepository = `Precio Unico`;
+                        imageRepository = `single-price`
+                        nameRepository = `Precio Unico`
                         break;
 
                     case `caracteristicas`:
-                        imageRepository = `characteristic`;
-                        nameRepository = `Pagina de Caracteristicas`;
+                        imageRepository = `characteristic`
+                        nameRepository = `Pagina de Caracteristicas`
                         break;
 
                     case `comentarios`:
-                        imageRepository = `comments`;
-                        nameRepository = `Pagina de Comentario`;
+                        imageRepository = `comments`
+                        nameRepository = `Pagina de Comentario`
                         break;
 
                     case `perfil-tarjeta`:
-                        imageRepository = `profile-card`;
-                        nameRepository = `Tarjeta de Perfil`;
+                        imageRepository = `profile-card`
+                        nameRepository = `Tarjeta de Perfil`
                         break;
 
                     case `vista-previa`:
-                        imageRepository = `preview`;
-                        nameRepository = `Vista Previa`;
+                        imageRepository = `preview`
+                        nameRepository = `Vista Previa`
                         break;
 
                     case `suscripcion-tarjeta`:
-                        imageRepository = `subscription-card`;
-                        nameRepository = `Tarjeta de Suscripcion`;
+                        imageRepository = `subscription-card`
+                        nameRepository = `Tarjeta de Suscripcion`
                         break;
 
                     case `vista-previa-estadistica`:
-                        imageRepository = `preview-statistics`;
-                        nameRepository = `Vista Previa de Estadisticas`;
+                        imageRepository = `preview-statistics`
+                        nameRepository = `Vista Previa de Estadisticas`
                         break;
 
                     case `NFT-tarjeta`:
-                        imageRepository = `nft-card`;
-                        nameRepository = `Tarjeta de NFT`;
+                        imageRepository = `nft-card`
+                        nameRepository = `Tarjeta de NFT`
                         break;
 
                     case `producto-tarjeta`:
-                        imageRepository = `product-card`;
-                        nameRepository = `Tarjeta de Productos`;
+                        imageRepository = `product-card`
+                        nameRepository = `Tarjeta de Productos`
                         break;
 
                     case `QR-tarjeta`:
-                        imageRepository = `qr-card`;
-                        nameRepository = `Tarjeta de QR`;
+                        imageRepository = `qr-card`
+                        nameRepository = `Tarjeta de QR`
                         break;
 
                     //! Muchas veces las personas tienen nombre extenso para su repositorios
                     default:
-                        imageRepository = `notimage`;
+                        imageRepository = `notimage`
 
                         if (repository.name.lenght === 24) {
-                            nameRepository = repository.name;
+                            nameRepository = repository.name
 
                         } else {
-                            nameRepository = repository.name.split(` `)[0];
+                            nameRepository = repository.name.split(` `)[0]
                         }
                         break;
                 }
 
-                let template = ``;
+                let template = ``
                 repository.topics.forEach(language => {
-                    repositoryLanguage[count].push(language);
-                }); 
+                    repositoryLanguage[count].push(language)
+                }) 
 
-                let verify = [];
+                let verify = []
                 repositoryLanguage[count].forEach(element => {
                     if (!verify.includes(element.toUpperCase())) {
 
                         switch (element.toUpperCase()) {
                             case `HTML`:
-                                template += templateLanguage(language.html.url, language.html.svg);
-                                verify.push(`HTML`);
+                                template += templateLanguage(language.html.url, language.html.svg)
+                                verify.push(`HTML`)
                                 break;
 
                             case `CSS`:
-                                template += templateLanguage(language.css.url, language.css.svg);
-                                verify.push(`CSS`);
+                                template += templateLanguage(language.css.url, language.css.svg)
+                                verify.push(`CSS`)
                                 break;
 
                             case `SCSS`:
-                                template += templateLanguage(language.scss.url, language.scss.svg);
-                                verify.push(`SCSS`);
+                                template += templateLanguage(language.scss.url, language.scss.svg)
+                                verify.push(`SCSS`)
                                 break;
 
                             case `JAVASCRIPT`:
-                                template += templateLanguage(language.javascript.url, language.javascript.svg);
-                                verify.push(`JAVASCRIPT`);
+                                template += templateLanguage(language.javascript.url, language.javascript.svg)
+                                verify.push(`JAVASCRIPT`)
                                 break;
 
                             case `REACTJS`:
-                                template += templateLanguage(language.reatjs.url, language.reatjs.svg);
-                                verify.push(`REACTJS`);
+                                template += templateLanguage(language.reatjs.url, language.reatjs.svg)
+                                verify.push(`REACTJS`)
                                 break;
 
                             case `TYPESCRIPT`:
-                                template += templateLanguage(language.typescript.url, language.typescript.svg);
-                                verify.push(`TYPESCRIPT`);
+                                template += templateLanguage(language.typescript.url, language.typescript.svg)
+                                verify.push(`TYPESCRIPT`)
                                 break;
                         }
                     }
-                });
+                })
 
-                const dateCreate = new Date(repository.created_at);
-                const dateUpdated = new Date(repository.updated_at);
+                const dateCreate = new Date(repository.created_at)
+                const dateUpdated = new Date(repository.updated_at)
 
                 containerCards.insertAdjacentHTML(`afterbegin`, `<div class="card">
 
@@ -483,72 +313,72 @@ const project = async (user = `leooportilla`) => {
                             </a>
                         </div>
                     </div>
-                </div>`);
+                </div>`)
 
-                count++;
+                count++
             });
 
             //! Busca en el documento CSS cuanto debe medir las tarjetas
-            let widthCard = parseInt(window.getComputedStyle(document.querySelector('.card')).content.split(`"`)[1].split(` `)[0]);
+            let widthCard = parseInt(window.getComputedStyle(document.querySelector('.card')).content.split(`"`)[1].split(` `)[0])
 
             //! Busca en el documento CSS cuanto debe medir el margen izquierdo de las tarjetas
-            let marginCard = parseInt(window.getComputedStyle(document.querySelector('.card')).content.split(`"`)[1].split(` `)[1]);
+            let marginCard = parseInt(window.getComputedStyle(document.querySelector('.card')).content.split(`"`)[1].split(` `)[1])
 
             //! Calculo cuanto debe medir todo el contenedor de las tarjetas
-            let widthTotal = data.length * (widthCard + marginCard);
-            containerCards.style.width = `${widthTotal}vw`;
+            let widthTotal = data.length * (widthCard + marginCard)
+            containerCards.style.width = `${widthTotal}vw`
 
             //! Una funcion para mover el slide hacia la derecha
             const moveRight = (evento) => {
 
                 //! Condicion si la tarjeta se encuentra visible, si lo esta solamente agregamos la clase, eliminamos la clase de la anterior tarjeta y tambien detenemos el observador
                 if (evento[0].isIntersecting) {
-                    evento[0].target.classList.add(`card-active`);
-                    cards[counter - 1].classList.remove(`card-active`);
-                    observerRight.disconnect();
+                    evento[0].target.classList.add(`card-active`)
+                    cards[counter - 1].classList.remove(`card-active`)
+                    observerRight.disconnect()
 
                     //! Condicion si la tarjeta se encuentra visible, si no lo esta debemos correr el slide segun el tamanio y el margen de las tarjeta, todo esto sumando el translate que ya lleva para que se continuo
                 } else {
-                    containerCards.style.transform = `translateX(${translate -= widthCard + marginCard}vw)`;
-                    evento[0].target.classList.add(`card-active`);
-                    cards[counter - 1].classList.remove(`card-active`);
-                    observerRight.disconnect();
+                    containerCards.style.transform = `translateX(${translate -= widthCard + marginCard}vw)`
+                    evento[0].target.classList.add(`card-active`)
+                    cards[counter - 1].classList.remove(`card-active`)
+                    observerRight.disconnect()
                 }
-            };
+            }
 
             //! Una funcion para mover el slide hacia la izquierda, mas de lo mismo que la funcion anterior solamente que esta se suma el translate y trabajamos con la tarjeta anterior, no la que sigue 
             const moveLeft = (evento) => {
                 if (evento[0].isIntersecting) {
-                    evento[0].target.classList.add(`card-active`);
-                    cards[counter + 1].classList.remove(`card-active`);
-                    observerLeft.disconnect();
+                    evento[0].target.classList.add(`card-active`)
+                    cards[counter + 1].classList.remove(`card-active`)
+                    observerLeft.disconnect()
                 } else {
-                    containerCards.style.transform = `translateX(${translate += widthCard + marginCard}vw)`;
-                    evento[0].target.classList.add(`card-active`);
-                    cards[counter + 1].classList.remove(`card-active`);
-                    observerLeft.disconnect();
+                    containerCards.style.transform = `translateX(${translate += widthCard + marginCard}vw)`
+                    evento[0].target.classList.add(`card-active`)
+                    cards[counter + 1].classList.remove(`card-active`)
+                    observerLeft.disconnect()
                 }
-            };
+            }
 
             //! Opciones necesarias para los observadores
             const options = {
                 root: null,
                 rootMargin: `0px`,
                 threshold: 0.95,
-            };
+            }
 
             //! Cada uno de los observadores, porque realizo dos? Cada uno evalua cada lado
-            const observerRight = new IntersectionObserver(moveRight, options);
-            const observerLeft = new IntersectionObserver(moveLeft, options);
+            const observerRight = new IntersectionObserver(moveRight, options)
+            const observerLeft = new IntersectionObserver(moveLeft, options)
 
             //! Luego que cada tarjeta sea agregada estas seran variables necesarias para el funcionamiento del slide
-            let cards = containerCards.querySelectorAll(`.card`);
-            let counter = 0;
-            let translate = -marginCard;
+            let cards = containerCards.querySelectorAll(`.card`)
+            let counter = 0
+            let translate = -marginCard
 
             //! Activamos la primera tarjeta con la clase
-            cards[0].classList.add(`card-active`);
-            containerCards.style.transform = `translateX(${translate}vw)`;
+            cards[0].classList.add(`card-active`)
+            containerCards.style.transform = `translateX(${translate}vw)`
 
             //! Pendiente al evento de la flecha derecha
             rightButton.addEventListener(`click`, () => {
@@ -556,27 +386,27 @@ const project = async (user = `leooportilla`) => {
                 //! Condicion para que el movimiento del slide no sea mayor que el arreglo de las tarjetas
                 if (counter < (cards.length - 1)) {
                     //! Sumamos el contador para que el metodo del observador trabaje con el siguiente hermano de la tarjeta
-                    counter++;
-                    observerRight.observe(cards[counter]);
+                    counter++
+                    observerRight.observe(cards[counter])
 
                     //! Condicion donde si se cumple agregamos la clase a las flecha para dar la sensacion que al clickear volver al comienzo
                     if (counter >= (cards.length - 1)) {
 
                         //! Cada fleda de la derecha agregamos la clase 
-                        rightButton.classList.add(`arrow-active`);
+                        rightButton.classList.add(`arrow-active`)
                     }
 
                 } else {
                     //! Si se llega hacer click en la primera flecha, restablecemos todo como al inicio (contador, translate, clases)
-                    counter = 0;
-                    translate = -marginCard;
-                    containerCards.style.transform = `translateX(-${marginCard}vw)`;
-                    containerCards.firstChild.classList.add(`card-active`);
-                    containerCards.lastChild.classList.remove(`card-active`);
+                    counter = 0
+                    translate = -marginCard
+                    containerCards.style.transform = `translateX(-${marginCard}vw)`
+                    containerCards.firstChild.classList.add(`card-active`)
+                    containerCards.lastChild.classList.remove(`card-active`)
 
-                    rightButton.classList.remove(`arrow-active`);
+                    rightButton.classList.remove(`arrow-active`)
                 }
-            });
+            })
 
             //!  //! Pendiente al evento de la flecha izquierda, para mover el slide hacia ese lado
             leftButton.addEventListener(`click`, () => {
@@ -584,292 +414,38 @@ const project = async (user = `leooportilla`) => {
                 //! Condicion para que tenga un limite al comienzo de las tarjetas
                 if (counter > 0) {
                     //! Aqui en vez de sumar, tenemos que restar el contador para que el metodo del observador trabaje con el hermano anterior
-                    counter--;
-                    observerLeft.observe(cards[counter]);
+                    counter--
+                    observerLeft.observe(cards[counter])
 
                     //! Si en dado caso el usuario llega al final y luego se devulve al hermano anterior, hacemos que las flechas de las izquierda se elimen las clases
-                    if (rightButton.classList.contains(`arrow-active`)) rightButton.classList.remove(`arrow-active`);
+                    if (rightButton.classList.contains(`arrow-active`)) rightButton.classList.remove(`arrow-active`)
                 }
-            });
+            })
 
         }
 
     //! Si capturamos algun error, toda la informacion la mandamos por defecto
     } catch (error) {
-        containerCards.innerHTML = ``;
+        containerCards.innerHTML = ``
 
         if (error.message === `403`) {
-            containerCards.style.width = `100%`;
+            containerCards.style.width = `100%`
             containerCards.insertAdjacentHTML(`afterbegin`, `<div class="limited">
                                                                 <svg class="limited__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 634.73 597.81">
                                                                     <path d="m634.37,497.32c-.25-2.76-1.08-10.84-4.28-20.94-3.44-10.85-8.08-19.23-11.77-24.92L398.65,48.2c-1.31-2.55-3.2-5.91-5.81-9.63-1.1-1.57-6.3-8.85-15.59-16.66-3.7-3.11-10.94-9.11-22.01-14.07-3.29-1.47-15.25-6.58-31.8-7.64-11.32-.73-20.14.74-24.15,1.53-4.01.79-12.01,2.65-21.4,7.03-10.15,4.74-17.15,10.2-20.49,13-3.03,2.53-9.14,7.99-15.29,16.35-5.01,6.83-8.34,13.28-10.54,18.35L25.35,435.11c-2.66,4.45-6.41,10.93-10.55,18.95-.95,1.85-6.66,12.95-9.32,19.57-8.83,21.92-4.54,45.13-3.67,49.53,5.01,25.23,19.19,41.34,25.68,47.84,16.77,16.79,35.08,22.32,39.44,23.54,10.81,3.05,20.26,3.43,26.75,3.22l446.52-.31c4.01.24,9.36.26,15.6-.61,6.28-.88,10.89-2.32,13.75-3.21,3.72-1.16,11.12-3.72,18.96-8.26,2.93-1.69,16.97-10.04,29.05-27.05,3.52-4.97,10.6-15.14,14.52-30.42.81-3.18,3.66-15.06,2.29-30.58Zm-316.89,26.14c-20.52,0-37.15-16.63-37.15-37.14s16.63-37.15,37.15-37.15,37.14,16.63,37.14,37.15-16.63,37.14-37.14,37.14Zm37.14-149.04c0,20.51-16.63,37.14-37.14,37.14s-37.15-16.63-37.15-37.14v-185.73c0-20.52,16.63-37.15,37.15-37.15s37.14,16.63,37.14,37.15v185.73Z"/>
                                                                 </svg>
                                                                 <h1 class="limited__title">Limite de Acceso</h1>
-                                                             </div>`);
+                                                             </div>`)
         }
 
         if (error.message === `404`) {
-            containerCards.style.width = `100%`;
+            containerCards.style.width = `100%`
             containerCards.insertAdjacentHTML(`afterbegin`, `<div class="limited">
                                                                 <svg class="limited__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 634.73 597.81">
                                                                     <path d="m634.37,497.32c-.25-2.76-1.08-10.84-4.28-20.94-3.44-10.85-8.08-19.23-11.77-24.92L398.65,48.2c-1.31-2.55-3.2-5.91-5.81-9.63-1.1-1.57-6.3-8.85-15.59-16.66-3.7-3.11-10.94-9.11-22.01-14.07-3.29-1.47-15.25-6.58-31.8-7.64-11.32-.73-20.14.74-24.15,1.53-4.01.79-12.01,2.65-21.4,7.03-10.15,4.74-17.15,10.2-20.49,13-3.03,2.53-9.14,7.99-15.29,16.35-5.01,6.83-8.34,13.28-10.54,18.35L25.35,435.11c-2.66,4.45-6.41,10.93-10.55,18.95-.95,1.85-6.66,12.95-9.32,19.57-8.83,21.92-4.54,45.13-3.67,49.53,5.01,25.23,19.19,41.34,25.68,47.84,16.77,16.79,35.08,22.32,39.44,23.54,10.81,3.05,20.26,3.43,26.75,3.22l446.52-.31c4.01.24,9.36.26,15.6-.61,6.28-.88,10.89-2.32,13.75-3.21,3.72-1.16,11.12-3.72,18.96-8.26,2.93-1.69,16.97-10.04,29.05-27.05,3.52-4.97,10.6-15.14,14.52-30.42.81-3.18,3.66-15.06,2.29-30.58Zm-316.89,26.14c-20.52,0-37.15-16.63-37.15-37.14s16.63-37.15,37.15-37.15,37.14,16.63,37.14,37.15-16.63,37.14-37.14,37.14Zm37.14-149.04c0,20.51-16.63,37.14-37.14,37.14s-37.15-16.63-37.15-37.14v-185.73c0-20.52,16.63-37.15,37.15-37.15s37.14,16.63,37.14,37.15v185.73Z"/>
                                                                 </svg>
                                                                 <h1 class="limited__title">Usuario no registrado</h1>
-                                                             </div>`);
+                                                             </div>`)
         }
     }
-};
-
-//! Declaracion de varibale para las funciones de la carga del perfil y las busqueda de los perfiles
-const text = document.querySelector(`.project__profile-text`);
-const name = document.querySelector(`.project__profile-name`);
-const error = document.querySelector(`.project__profile-error`);
-const followers = document.querySelector(`.followers`);
-const following = document.querySelector(`.following`);
-const imageUser = document.querySelector(`.project__profile-img`);
-const eventButton = document.querySelector(`.submit`);
-const linksGitHud = document.querySelector(`.project__profile-link`);
-const respository = document.querySelector(`.repository`);
-const description = document.querySelector(`.project__profile-description`);
-
-//! Carga de los perfiles, por defecto al carga la pagina tendra los datos de Leonardo Portilla
-const profile = async (user = `leooportilla`) => {
-
-    try {
-
-        //! Solicitud de datos
-        const answer = await fetch(`https://api.github.com/users/${user}`);
-        const data = await answer.json();
-
-        //! Si la peticion da error 404 mandamos un mensaje
-        if (answer.status == 404) throw new Error(404)
-
-        if (answer.status == 403) throw new Error(403)
-
-        //! Si la peticion es correcta mandamos la informacion a la pagina
-        if (answer.status == 200) {
-            imageUser.setAttribute(`src`, `${data.avatar_url}`);
-
-            //! Cuando los usuarios no tengan su nombre configurado colocamos el login
-            data.name == null ? name.innerHTML = data.login : name.innerHTML = data.name;
-
-            //! Cuando los usuarios no tengan su nombre configurado colocamos una descripcion por defecto
-            data.bio == null ? description.innerHTML = `En tu cuenta de Git Hud no se encuentra una descripción detallada acerca de ti, te recomendaría que incluyeras una descripción de tus habilidades, experienciaros profesionales, esto puede ayudarte a llamar la atención de reclutadores` : description.innerHTML = data.bio;
-            respository.innerHTML = data.public_repos;
-            followers.innerHTML = data.followers;
-            following.innerHTML = data.following;
-            linksGitHud.setAttribute(`href`, `${data.html_url}`);
-
-            //! El enlace del Git Hud esta ubicado luego del nombre
-            linksGitHud.style.paddingLeft = `calc(${name.getBoundingClientRect().width}px + 1rem)`;
-        }
-
-        //! Si capturamos algun error, toda la informacion la mandamos por defecto
-    } catch (error) {
-        imageUser.setAttribute(`src`, `./media/images/users.png`);
-
-        if (error.message === `404`) {
-            name.innerHTML = `No registrado`;
-            description.innerHTML = `Lamentablemente, el usuario que intentó realizar la búsqueda en el servidor de Git Hud no se encuentra registrado. Esto puede deberse a varios motivos, como un error al ingresar el nombre de usuario o la falta de una cuenta válida. Por favor, verifica que estás utilizando el nombre de usuario correcto y que tienes una cuenta registrada en Git Hud antes de intentar realizar una nueva búsqueda`;
-        }
-
-        if (error.message === `403`) {
-            name.innerHTML = `Limite de Acceso`;
-            description.innerHTML = `Lo siento mucho, pero en este momento el acceso a la información que estás buscando ha sido limitado. Por favor, inténtalo de nuevo más tarde asi puedes acceder a la información que necesitas`;
-        }
-
-        //! El enlace del Git Hud esta ubicado luego del nombre
-        linksGitHud.style.paddingLeft = `calc(${name.getBoundingClientRect().width}px + 1rem)`;
-        respository.innerHTML = `0`;
-        followers.innerHTML = `0`;
-        following.innerHTML = `0`;
-    }
-};
-
-//! Busqueda del perfil deseado del usuario
-const search = () => {
-
-    eventButton.addEventListener(`click`, () => {
-
-        //! Validamos la entrada con el patron del input
-        let pattern = new RegExp(text.pattern);
-
-        //! Al darle click aparece el input con el focos en el
-        if (!text.classList.contains(`inputText`)) {
-            text.style.padding = `0 1rem`;
-            error.style.padding = `0 1rem`;
-            text.classList.toggle(`inputText`);
-            error.style.width = `calc(${name.getBoundingClientRect().width}px)`;
-            text.style.width = `calc(${name.getBoundingClientRect().width}px)`;
-            text.focus();
-
-            //! Al darle click nuevamente busca con la api de Git Hud lo que esta dentro del input
-        } else {
-
-            //! Validamos si valor del input es corecto con el patron
-            if (pattern.test(text.value) || text.value == ``) {
-
-                //! Si es valido escondemos el input y llamamos la funcion de buscar el perfil
-                error.style.transform = `translateY(0)`;
-                text.classList.remove(`inputText`);
-                text.style.width = `0`;
-                text.style.padding = `0`;
-                error.style.width = `0`;
-                error.style.padding = `0`;
-                error.innerHTML = ``;
-
-                profile(text.value);
-                project(text.value);
-
-                //? Para que el input cuando se vuelva abrir no tenga valor, lo dejamos vacio al cerrar
-                text.value = ``;
-
-                //! Si el valor es incorrecto le mostramos un mensaje al usuario
-            } else {
-                error.innerHTML = `Usuario es incorrecto`;
-                error.style.transform = `translateY(-1.5rem)`;
-            }
-        }
-
-    });
-};
-
-// TODO: Declaracion de variable para la funcion de cerrar el input
-const errores       = document.querySelector(`.project__profile-error`);
-const searchProfile = document.querySelector(`.project__profile-text`);
-
-
-//! Cerrar el input de la busqueda del perfil
-const closeProfile = () => {
-
-    searchProfile.addEventListener(`keyup`, evento => {
-
-        //? Validamos la entrada del usuario
-        let Pattern = new RegExp(searchProfile.pattern);
-
-        //* Si presiona enter, evaluamos si el valor es valido con el patron buscamos el perfil, si no mostramos un mensaje de error
-        if (evento.key === `Enter`) {
-
-            if (Pattern.test(searchProfile.value)) {
-
-                //? Escondemos todo
-                searchProfile.classList.remove(`inputText`);
-                searchProfile.style.width = `0`;
-                searchProfile.style.padding = `0`;
-                
-                errores.style.transform = `translateY(0)`;
-                errores.style.width = `0`;
-                errores.style.padding = `0`;
-                errores.innerHTML = ``;
-                
-                //? Buscamo el perfil con la funcion de la API
-                profile(searchProfile.value);
-                project(searchProfile.value);
-                
-                searchProfile.value = ``;
-            } else {
-                errores.innerHTML = `Usuario es incorrecto`;
-                errores.style.transform = `translateY(-1.5rem)`;
-            }
-        }
-
-        //* Si presiona escape, cerramos el input sin buscar nada
-        if (evento.key === `Escape`) {
-
-            //? Escondemos todo
-            searchProfile.classList.remove(`inputText`);
-            searchProfile.style.width = `0`;
-            searchProfile.style.padding = `0`;
-            searchProfile.value = ``;
-
-            errores.style.transform = `translateY(0)`;
-            errores.style.width = `0`;
-            errores.style.padding = `0`;
-            errores.innerHTML = ``;
-        }
-    });
-};
-
-// TODOS: Declaracion de variables para funciones del Mood dark/light
-const body      = document.querySelector(`body`);
-const button    = document.querySelector(`.header__switchbutton-label`);
-const summary   = document.querySelector(`.headline__summary`);
-const subBody   = document.querySelector(`.hability__skills-hover`);
-const inputText = document.querySelector(`.project__profile-text`);
-let processSkills, descriptionSkills;
-
-//! Cambiar todas las etiquetas de color
-const setImage = (Modo, OneColor, TwoColor, ThreeColor) => {
-    body.style.backgroundColor = `${OneColor}`;
-    subBody.style.backgroundColor = `${OneColor}`;
-    inputText.style.backgroundColor = `${TwoColor}`;
-    inputText.style.color = `${OneColor}`;
-    summary.style.color = `${ThreeColor}`;
-
-     //* Todos las etiquetas que contengan el id cambian el color directaemnte de los estilos
-    document.querySelectorAll(`#svg`).forEach(elemento => elemento.style.color = `${OneColor}`);
-
-    //* Todos las etiquetas que contengan el atributo data-dark cambian el color con el id
-    Modo === `dark` ? document.querySelectorAll(`[data-dark]`).forEach(elemento => elemento.classList.toggle(`${Modo}`)) : document.querySelectorAll(`[data-dark]`).forEach(elemento => elemento.classList.remove(`dark`));
-
-    //* Evalua si el panel de informacion del lenguaje esta abierto para poder cambiar al modo
-    if (subBody.classList.contains(`name`)) {
-        processSkills = document.querySelector(`.name__process`);
-        descriptionSkills = document.querySelector(`.name__summary`);
-
-        descriptionSkills.style.color = `${ThreeColor}`;
-        processSkills.style.color = `${ThreeColor}`;
-    }
-};
-
-//! Cambio al modo light, agregarle la clase active
-const moodLight = () => {
-    button.classList.toggle(`active`);
-    setImage(`dark`, `#ffffff`, `#232528`, `#232528`);
-};
-
-//! Principal para el cambiar al modo nocturno
-const buttonActive = () => {
-
-    // TODOS: Al clickear el boton cambia de posicion con la clase active
-    button.addEventListener(`click`, evento => {
-
-        button.classList.toggle(`active`);
-
-        if (button.classList.contains(`active`)) {
-            setImage(`dark`, `#ffffff`, `#232528`, `#232528`);
-
-            //? LocalStorage para guardar el tema, asi el usuario cuando vuelva tiene el de su prefrerencia 
-            localStorage.setItem(`Theme`, `Light`);
-        } else {
-            setImage(`light`, `#232528`, `#ffffff`, `#bebebe`);
-            //? LocalStorage para guardar el tema, asi el usuario cuando vuelva tiene el de su prefrerencia
-            localStorage.setItem(`Theme`, `Dark`);
-        }
-
-    });
-};
-
-//! Cambio del modo al cargar la pagina
-const save = () => {
-    
-    //? Cuando es primera vez el ingreso a la web, por preferencia esta en modo dark (Mi disenio fue un tema oscuro)
-    //! Forzamos a la web tener el modo oscuro por defecto
-    if (localStorage.getItem(`Theme`) === null) localStorage.setItem(`Theme`, `Dark`);
-
-    //! Cuando abra la web, se adaptara al modo guardado en el Local Storage
-    localStorage.getItem(`Theme`) === `Dark` ? setImage(`light`, `#232528`, `#ffffff`, `#bebebe`) : moodLight();
-};
-
-document.addEventListener(`DOMContentLoaded`, evento => {
-    profile();
-    project();
-});
-
-load();
-save();
-menu();
-search(); 
-skills();
-buttonActive();
-closeProfile();
+}

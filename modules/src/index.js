@@ -2,12 +2,13 @@ import { load } from "./load.js";
 import { menu } from "./menu.js";
 import { skills } from "./skills.js";
 import { closeProfile } from "./keyboard.js";
-import { procesando, profile, project, search } from "./profile.js";
+import { profile, search } from "./profile.js";
 import { buttonActive, save } from "./button.js";
+import { project } from "./project.js";
 
 
 document.addEventListener(`DOMContentLoaded`, evento => {
-    profile() 
+    profile()
     project()
 })
 
