@@ -215,34 +215,6 @@ const templateLanguage = (url, svg) => {
         ${svg}
     </a>`
 };
-const commitRepository = async (repository) => {
-    try {
-        const commit = await fetch(`https://api.github.com/repos/leooportilla/${repository}/commits`);
-        const dataCommit = await commit.json();
-
-        //! Si la peticion da error 404 mandamos un mensaje
-        if (commit.status == 404) throw new Error(404)
-
-        if (commit.status == 200) return dataCommit.length
-
-    } catch (error) {
-        return error.message
-    }
-};
-const languageRepository = async (repository) => {
-    try {
-        const language = await fetch(`https://api.github.com/repos/leooportilla/${repository}/languages`);
-        const dataLanguage = await language.json();
-
-        //! Si la peticion da error 404 mandamos un mensaje
-        if (language.status == 404) throw new Error(404)
-
-        if (language.status == 200) return Object.keys(dataLanguage)
-
-    } catch (error) {
-        return error.message
-    }
-};
 
 //! Carga de los perfiles, por defecto al carga la pagina tendra los datos de Leonardo Portilla
 const project = async (user = `leooportilla`) => {
@@ -265,29 +237,6 @@ const project = async (user = `leooportilla`) => {
 
             //! Ordenar los projectos segun los favoritos de cada cuenta
             data.sort((a, b) => a.stargazers_count - b.stargazers_count);
-
-            //! Con este arreglo guardare en el mismo orden del array principal cada cantidad de los commit de cada repositorio
-            const repositoryCommit = [];
-            //! Iterar el arreglo principal para conseguir cada cantidad de confirmacion de cada repositorio
-            for (let index = 0; index < data.length; index++) {
-
-                //!Llamamos la funcion fetch 
-                let commitCount = await commitRepository(data[index].name);
-
-                //! Cuando se consiga la cantidad de la confirmacion, la agregamos al arreglo
-                if (commitCount !== `404`) repositoryCommit.push(commitCount);
-            }
-
-            //! Con este arreglo guardare en el mismo orden del array principal cada lenguaje utilizado segun Git Hud
-            const repositoryLanguage = [];
-            for (let index = 0; index < data.length; index++) {
-
-                //! Llamamos la funcion fecth
-                let languageCount = await languageRepository(data[index].name);
-
-                //! Cuando se consiga los lenguaje, la agregamos al arreglo (recordemos que esta guardando un arreglo dentro de otro arreglo, la API de los repositorios manda un arreglo con todos los lenguaje)
-                if (languageCount !== `404`) repositoryLanguage.push(languageCount);
-            }
 
             //! Con esta variable vamos a recorrer los arreglos de las confirmaciones y los lenguaje de la misma manera que se recorre cada repositorio, asi mantener el orden
             let count = 0;
@@ -365,29 +314,37 @@ const project = async (user = `leooportilla`) => {
                         nameRepository = `Tarjeta de QR`;
                         break;
 
-                    //! Muchas veces las personas tienen nombre extenso para su repositorios
+                        //! Corregimos el nombre del repositorio
                     default:
                         imageRepository = `notimage`;
 
-                        if (repository.name.lenght === 24) {
-                            nameRepository = repository.name;
+                        //! Cada primera letra de cada palabra sera en Mayuscula
+                        nameRepository = repository.name.split(`-`).map(words => {
+                            if (words !== "") return words[0].toUpperCase() + words.substring(1)
+                        });
 
+                        //! Muchas veces los nombre de los repositorios son extenson
+                        //! Con esta condicion validamos si es corto, si lo es lo mostramos completo
+                        if (repository.name.length <= 24) {
+                            nameRepository = nameRepository.join(` `);
+
+                            //! Si el nombre se hace mucho mas extenso solo mostraremos la primera tres palabras
                         } else {
-                            nameRepository = repository.name.split(` `)[0];
+                            nameRepository = nameRepository.slice(0, 3).join(` `);
                         }
                         break;
                 }
 
-                let template = ``;
-                repository.topics.forEach(language => {
-                    repositoryLanguage[count].push(language);
-                }); 
+                //! Guardaremos la descripcion en la variable si existe, si el repositorio no tiene guardaremos en la variable una recomendacion
+                let descriptionRepository;
+                repository.description !== undefined ? descriptionRepository = repository.description : descriptionRepository = `No hay una descripción detallada disponible para su repositorio. Una descripción detallada y bien escrita es esencial para ayudar a otros a comprender el propósito y la funcionalidad de su repositorio. Le recomendamos que agregue una descripción detallada para mejorar la visibilidad y accesibilidad de su repositorio en la comunidad de GitHub.`;
 
                 let verify = [];
-                repositoryLanguage[count].forEach(element => {
-                    if (!verify.includes(element.toUpperCase())) {
+                let template = ``;
+                repository.topics.forEach(topic => {
+                    if (!verify.includes(topic.toUpperCase())) {
 
-                        switch (element.toUpperCase()) {
+                        switch (topic.toUpperCase()) {
                             case `HTML`:
                                 template += templateLanguage(language.html.url, language.html.svg);
                                 verify.push(`HTML`);
@@ -421,70 +378,62 @@ const project = async (user = `leooportilla`) => {
                     }
                 });
 
+
                 const dateCreate = new Date(repository.created_at);
                 const dateUpdated = new Date(repository.updated_at);
 
                 containerCards.insertAdjacentHTML(`afterbegin`, `<div class="card">
+                                                                    <div class="card__image">
+                                                                        <img class="card__image-web" src="./media/images/project_${imageRepository}.png" alt="Projecto del portafolio pagina web">
+                                                                        <a class="card__image-active" href="${repository.homepage}" target="_blank">GIT HUD</a>
+                                                                        
+                                                                        <svg class="card__image-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 60.44"> 
+                                                                            <path d="m0,25.36s24.33-3.44,58.5,0,52.05,9.17,52.05,9.17c0,0,35.08,11.46,57.32,13.53s52.05-3.9,52.05-3.9c0,0,18.8-1.61,64.2-24.99S353.15.36,353.15.36c0,0,10.32-.69,31.87,9.17s38.06,17.2,55.03,18.11,64.89-3.4,64.89-3.4c0,0,17.89-2.56,48.84,7.07s46.22,17.17,46.22,17.17v11.95H0V25.36Z" />
+                                                                        </svg>
+                                                                    </div>
 
-                    <div class="card__image">
-                        <img class="card__image-web" src="./media/images/project_${imageRepository}.png" alt="Projecto del portafolio pagina web">
-                        <a class="card__image-active" href="${repository.homepage}" target="_blank">GIT HUD</a>
-                        
-                        <svg class="card__image-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 60.44"> 
-                            <path d="m0,25.36s24.33-3.44,58.5,0,52.05,9.17,52.05,9.17c0,0,35.08,11.46,57.32,13.53s52.05-3.9,52.05-3.9c0,0,18.8-1.61,64.2-24.99S353.15.36,353.15.36c0,0,10.32-.69,31.87,9.17s38.06,17.2,55.03,18.11,64.89-3.4,64.89-3.4c0,0,17.89-2.56,48.84,7.07s46.22,17.17,46.22,17.17v11.95H0V25.36Z" />
-                        </svg>
-                    </div>
+                                                                    <div class="card__container">
+                                                                        <div class="card__container-title">
+                                                                            <h5 class="card__container-title-name">${nameRepository}</h5>
 
-                    <div class="card__container">
-                        <div class="card__container-title">
-                            <h5 class="card__container-title-name">${nameRepository}</h5>
+                                                                            <div class="card__container-title-statistics">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                    viewBox="0 0 205.21 199.1">
+                                                                                    <path class="cls-1"
+                                                                                        d="m75.47,13.83c1.89-2.6,6.49-8.75,14.98-11.92,7.09-2.65,13.23-1.86,15.59-1.53,1.57.22,6.63,1.05,12.23,4.28,5.19,2.99,8.22,6.53,11.01,9.78,3.29,3.84,5.45,7.39,7.64,11.01,3.26,5.37,2.98,5.88,5.2,8.87,1.16,1.56,4.3,5.72,9.17,8.87,2.38,1.54,4.1,2.14,14.68,4.89,13.69,3.57,14.8,3.6,18.34,5.2,3.76,1.7,8.15,3.74,12.23,8.25,3.69,4.09,5.27,8.16,6.11,10.39.91,2.41,4.88,12.93.61,23.85-1.23,3.13-2.74,5.3-4.59,7.95-3.67,5.26-6.2,6.86-10.39,11.62-4.04,4.58-6.63,7.52-8.56,11.92-3.23,7.38-2.84,14.84-2.45,22.32.15,2.91.44,5.08.61,10.39.17,5.24.25,7.86,0,10.09-.98,8.66-5.56,14.78-6.42,15.9-5.11,6.64-11.41,9.31-14.06,10.39-2.42.99-9.16,3.66-17.43,2.45-2.63-.38-1.67-.61-17.12-6.73,0,0-.94-.37-12.54-4.89-3.48-.73-8.7-1.34-14.68,0-2.49.56-4.05,1.22-8.56,3.06-10.45,4.27-15.67,6.4-16.82,6.73-4.01,1.15-12.02,3.44-21.1.61-7.67-2.39-12.29-7.26-14.06-9.17-1.33-1.43-6.08-6.8-8.25-15.29-1.46-5.69-1.08-10.31-.31-19.57.89-10.75,2.3-12.1,1.22-17.43-1.05-5.17-3.36-8.81-6.11-13.15-3.5-5.52-5.08-5.69-10.39-12.54-4.51-5.81-6.77-8.72-8.56-13.15-.94-2.34-3.95-10.06-2.14-19.87.54-2.94,1.83-9.44,7.03-15.29,4.01-4.51,8.52-6.56,12.23-8.25,1.3-.59,3.1-1.35,12.84-3.97,13.53-3.65,14.02-3.27,17.12-4.89,5.97-3.11,9.64-7.38,12.23-10.39,3.23-3.76,5.52-7.53,9.48-14.06,3.22-5.31,2.64-4.89,3.97-6.73Z" />
+                                                                                </svg>
+                                                                                <h6>${repository.stargazers_count}</h6>
+                                                                            </div>
+                                                                        </div>
 
-                            <div class="card__container-title-statistics">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 227.62 175">
-                                    <path d="m227.45,27.57c-.22-2.09-1.5-11.98-9.97-19.61-8.16-7.34-19.19-9.33-28.44-7.1-6.12,1.47-10.45,4.53-12.84,6.53l-93.15,93.55-31.59-31.41c-1.14-1.24-2.9-2.93-5.35-4.47-10.78-6.8-22.97-3.3-24.76-2.75-2.28.69-8.93,2.81-14.37,9.17C-3.05,83.19.59,98.13.9,99.34c1.35,5.17,3.81,8.92,5.51,11.12l54.8,55.03c1.36,1.54,3.54,3.66,6.65,5.51,5.66,3.35,10.96,3.73,13.53,3.89,2.93.19,8.7.47,15.02-2.63,4.17-2.05,6.93-4.77,8.48-6.54l116.03-115.57c1.35-1.71,7.85-10.33,6.53-22.58Z" />
-                                </svg>
-                                <h6>${repositoryCommit[count]}</h6>
-                            </div>
+                                                                        <p class="card__container-paragraph">${descriptionRepository}</p>
 
-                            <div class="card__container-title-statistics">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 205.21 199.1">
-                                    <path class="cls-1"
-                                        d="m75.47,13.83c1.89-2.6,6.49-8.75,14.98-11.92,7.09-2.65,13.23-1.86,15.59-1.53,1.57.22,6.63,1.05,12.23,4.28,5.19,2.99,8.22,6.53,11.01,9.78,3.29,3.84,5.45,7.39,7.64,11.01,3.26,5.37,2.98,5.88,5.2,8.87,1.16,1.56,4.3,5.72,9.17,8.87,2.38,1.54,4.1,2.14,14.68,4.89,13.69,3.57,14.8,3.6,18.34,5.2,3.76,1.7,8.15,3.74,12.23,8.25,3.69,4.09,5.27,8.16,6.11,10.39.91,2.41,4.88,12.93.61,23.85-1.23,3.13-2.74,5.3-4.59,7.95-3.67,5.26-6.2,6.86-10.39,11.62-4.04,4.58-6.63,7.52-8.56,11.92-3.23,7.38-2.84,14.84-2.45,22.32.15,2.91.44,5.08.61,10.39.17,5.24.25,7.86,0,10.09-.98,8.66-5.56,14.78-6.42,15.9-5.11,6.64-11.41,9.31-14.06,10.39-2.42.99-9.16,3.66-17.43,2.45-2.63-.38-1.67-.61-17.12-6.73,0,0-.94-.37-12.54-4.89-3.48-.73-8.7-1.34-14.68,0-2.49.56-4.05,1.22-8.56,3.06-10.45,4.27-15.67,6.4-16.82,6.73-4.01,1.15-12.02,3.44-21.1.61-7.67-2.39-12.29-7.26-14.06-9.17-1.33-1.43-6.08-6.8-8.25-15.29-1.46-5.69-1.08-10.31-.31-19.57.89-10.75,2.3-12.1,1.22-17.43-1.05-5.17-3.36-8.81-6.11-13.15-3.5-5.52-5.08-5.69-10.39-12.54-4.51-5.81-6.77-8.72-8.56-13.15-.94-2.34-3.95-10.06-2.14-19.87.54-2.94,1.83-9.44,7.03-15.29,4.01-4.51,8.52-6.56,12.23-8.25,1.3-.59,3.1-1.35,12.84-3.97,13.53-3.65,14.02-3.27,17.12-4.89,5.97-3.11,9.64-7.38,12.23-10.39,3.23-3.76,5.52-7.53,9.48-14.06,3.22-5.31,2.64-4.89,3.97-6.73Z" />
-                                </svg>
-                                <h6>${repository.stargazers_count}</h6>
-                            </div>
-                        </div>
+                                                                        <div class="card__container-language">
+                                                                            ${template}
+                                                                        </div>
 
-                        <p class="card__container-paragraph">${repository.description}</p>
+                                                                        <div class="card__container-link">
+                                                                            <div class="link__container">
+                                                                                <h5 class="link__container-statistics">Creado: ${dateCreate.getFullYear()}-${dateCreate.getDay()}</h5>
+                                                                                <h5 class="link__container-statistics">Actualizado: ${dateUpdated.getFullYear()}-${dateUpdated.getDay()}</h5>
+                                                                            </div>
 
-                        <div class="card__container-language">
-                            ${template}
-                        </div>
-
-                        <div class="card__container-link">
-                            <div class="link__container">
-                                <h5 class="link__container-statistics">Creado: ${dateCreate.getFullYear()}-${dateCreate.getDay()}</h5>
-                                <h5 class="link__container-statistics">Actualizado: ${dateUpdated.getFullYear()}-${dateUpdated.getDay()}</h5>
-                            </div>
-
-                            <a class="link__githud" href="${repository.html_url}" target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59.53 63.8">
-                                    <path
-                                        d="M-1365.68-2146.35V-2158a11,11,0,0,0-2.35-7.41c-0.44-.54.16-0.47,0.36-0.5,1.44-.21,2.88-0.45,4.29-0.8a19.47,19.47,0,0,0,9.09-4.62,17.61,17.61,0,0,0,5.06-10.3,25.4,25.4,0,0,0,.26-7.7,16,16,0,0,0-3.7-8.33,1.49,1.49,0,0,1-.3-1.57,15.45,15.45,0,0,0-.55-9.9,0.9,0.9,0,0,0-.93-0.62,11.69,11.69,0,0,0-4.94,1,30.11,30.11,0,0,0-5.63,3,1.64,1.64,0,0,1-1.42.22,40,40,0,0,0-11.57-1.2,35.56,35.56,0,0,0-8.14,1.13,2.44,2.44,0,0,1-2.14-.36,25.32,25.32,0,0,0-7.92-3.59,10,10,0,0,0-2.35-.21,0.91,0.91,0,0,0-1,.68,15.55,15.55,0,0,0-.44,9.91,1.38,1.38,0,0,1-.3,1.48,16.39,16.39,0,0,0-3.87,11,26,26,0,0,0,1.72,9.74,16.34,16.34,0,0,0,9.93,9.33,36.17,36.17,0,0,0,7.24,1.7c0.49,0.08.6,0.21,0.24,0.61a8.14,8.14,0,0,0-1.92,4.1A1.44,1.44,0,0,1-1388-2160a11.46,11.46,0,0,1-5.78.56,8.4,8.4,0,0,1-5.58-4,10.87,10.87,0,0,0-3.78-3.83,5.92,5.92,0,0,0-4.26-.84c-1,.22-1.19.9-0.48,1.65a16.36,16.36,0,0,0,2.06,1.54,13,13,0,0,1,3.91,5.56,9.8,9.8,0,0,0,7.68,6.06,15.65,15.65,0,0,0,5.91-.06c0.82-.14.94,0,1,0.76q0.06,2.54.11,5.09v0.65a3.79,3.79,0,0,1-.1.83h21.66s0-.08,0-0.13A1.85,1.85,0,0,1-1365.68-2146.35Z"
-                                        transform="translate(1408.33 2209.8)" />
-                                </svg>
-                                <h6 data-dark>GitHud</h6>
-                                <svg data-dark class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141.51 227.42">
-                                    <path
-                                        d="M-1026.43-1847L-1129-1941.09a19.52,19.52,0,0,0-27.55,1.19,19.36,19.36,0,0,0-5.09,14,19.36,19.36,0,0,0,6.28,13.53l87,79.85-87,79.85a19.36,19.36,0,0,0-6.28,13.53,19.36,19.36,0,0,0,5.09,14,19.45,19.45,0,0,0,14.38,6.31,19.43,19.43,0,0,0,13.18-5.12l102.56-94.1a19.43,19.43,0,0,0,6.29-14.48A19.43,19.43,0,0,0-1026.43-1847Z"
-                                        transform="translate(1161.65 1946.21)" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>`);
-
+                                                                            <a class="link__githud" href="${repository.html_url}" target="_blank">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59.53 63.8">
+                                                                                    <path
+                                                                                        d="M-1365.68-2146.35V-2158a11,11,0,0,0-2.35-7.41c-0.44-.54.16-0.47,0.36-0.5,1.44-.21,2.88-0.45,4.29-0.8a19.47,19.47,0,0,0,9.09-4.62,17.61,17.61,0,0,0,5.06-10.3,25.4,25.4,0,0,0,.26-7.7,16,16,0,0,0-3.7-8.33,1.49,1.49,0,0,1-.3-1.57,15.45,15.45,0,0,0-.55-9.9,0.9,0.9,0,0,0-.93-0.62,11.69,11.69,0,0,0-4.94,1,30.11,30.11,0,0,0-5.63,3,1.64,1.64,0,0,1-1.42.22,40,40,0,0,0-11.57-1.2,35.56,35.56,0,0,0-8.14,1.13,2.44,2.44,0,0,1-2.14-.36,25.32,25.32,0,0,0-7.92-3.59,10,10,0,0,0-2.35-.21,0.91,0.91,0,0,0-1,.68,15.55,15.55,0,0,0-.44,9.91,1.38,1.38,0,0,1-.3,1.48,16.39,16.39,0,0,0-3.87,11,26,26,0,0,0,1.72,9.74,16.34,16.34,0,0,0,9.93,9.33,36.17,36.17,0,0,0,7.24,1.7c0.49,0.08.6,0.21,0.24,0.61a8.14,8.14,0,0,0-1.92,4.1A1.44,1.44,0,0,1-1388-2160a11.46,11.46,0,0,1-5.78.56,8.4,8.4,0,0,1-5.58-4,10.87,10.87,0,0,0-3.78-3.83,5.92,5.92,0,0,0-4.26-.84c-1,.22-1.19.9-0.48,1.65a16.36,16.36,0,0,0,2.06,1.54,13,13,0,0,1,3.91,5.56,9.8,9.8,0,0,0,7.68,6.06,15.65,15.65,0,0,0,5.91-.06c0.82-.14.94,0,1,0.76q0.06,2.54.11,5.09v0.65a3.79,3.79,0,0,1-.1.83h21.66s0-.08,0-0.13A1.85,1.85,0,0,1-1365.68-2146.35Z"
+                                                                                        transform="translate(1408.33 2209.8)" />
+                                                                                </svg>
+                                                                                <h6>GitHud</h6>
+                                                                                <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141.51 227.42">
+                                                                                    <path
+                                                                                        d="M-1026.43-1847L-1129-1941.09a19.52,19.52,0,0,0-27.55,1.19,19.36,19.36,0,0,0-5.09,14,19.36,19.36,0,0,0,6.28,13.53l87,79.85-87,79.85a19.36,19.36,0,0,0-6.28,13.53,19.36,19.36,0,0,0,5.09,14,19.45,19.45,0,0,0,14.38,6.31,19.43,19.43,0,0,0,13.18-5.12l102.56-94.1a19.43,19.43,0,0,0,6.29-14.48A19.43,19.43,0,0,0-1026.43-1847Z"
+                                                                                        transform="translate(1161.65 1946.21)" />
+                                                                                </svg>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>`);
                 count++;
             });
 
@@ -504,14 +453,14 @@ const project = async (user = `leooportilla`) => {
                 //! Condicion si la tarjeta se encuentra visible, si lo esta solamente agregamos la clase, eliminamos la clase de la anterior tarjeta y tambien detenemos el observador
                 if (evento[0].isIntersecting) {
                     evento[0].target.classList.add(`card-active`);
-                    cards[counter - 1].classList.remove(`card-active`);
+                    cards[counteMove - 1].classList.remove(`card-active`);
                     observerRight.disconnect();
 
                     //! Condicion si la tarjeta se encuentra visible, si no lo esta debemos correr el slide segun el tamanio y el margen de las tarjeta, todo esto sumando el translate que ya lleva para que se continuo
                 } else {
                     containerCards.style.transform = `translateX(${translate -= widthCard + marginCard}vw)`;
                     evento[0].target.classList.add(`card-active`);
-                    cards[counter - 1].classList.remove(`card-active`);
+                    cards[counteMove - 1].classList.remove(`card-active`);
                     observerRight.disconnect();
                 }
             };
@@ -520,12 +469,12 @@ const project = async (user = `leooportilla`) => {
             const moveLeft = (evento) => {
                 if (evento[0].isIntersecting) {
                     evento[0].target.classList.add(`card-active`);
-                    cards[counter + 1].classList.remove(`card-active`);
+                    cards[counteMove + 1].classList.remove(`card-active`);
                     observerLeft.disconnect();
                 } else {
                     containerCards.style.transform = `translateX(${translate += widthCard + marginCard}vw)`;
                     evento[0].target.classList.add(`card-active`);
-                    cards[counter + 1].classList.remove(`card-active`);
+                    cards[counteMove + 1].classList.remove(`card-active`);
                     observerLeft.disconnect();
                 }
             };
@@ -543,7 +492,7 @@ const project = async (user = `leooportilla`) => {
 
             //! Luego que cada tarjeta sea agregada estas seran variables necesarias para el funcionamiento del slide
             let cards = containerCards.querySelectorAll(`.card`);
-            let counter = 0;
+            let counteMove = 0;
             let translate = -marginCard;
 
             //! Activamos la primera tarjeta con la clase
@@ -554,13 +503,13 @@ const project = async (user = `leooportilla`) => {
             rightButton.addEventListener(`click`, () => {
 
                 //! Condicion para que el movimiento del slide no sea mayor que el arreglo de las tarjetas
-                if (counter < (cards.length - 1)) {
+                if (counteMove < (cards.length - 1)) {
                     //! Sumamos el contador para que el metodo del observador trabaje con el siguiente hermano de la tarjeta
-                    counter++;
-                    observerRight.observe(cards[counter]);
+                    counteMove++;
+                    observerRight.observe(cards[counteMove]);
 
                     //! Condicion donde si se cumple agregamos la clase a las flecha para dar la sensacion que al clickear volver al comienzo
-                    if (counter >= (cards.length - 1)) {
+                    if (counteMove >= (cards.lenght - 1)) {
 
                         //! Cada fleda de la derecha agregamos la clase 
                         rightButton.classList.add(`arrow-active`);
@@ -568,7 +517,7 @@ const project = async (user = `leooportilla`) => {
 
                 } else {
                     //! Si se llega hacer click en la primera flecha, restablecemos todo como al inicio (contador, translate, clases)
-                    counter = 0;
+                    counteMove = 0;
                     translate = -marginCard;
                     containerCards.style.transform = `translateX(-${marginCard}vw)`;
                     containerCards.firstChild.classList.add(`card-active`);
@@ -582,10 +531,10 @@ const project = async (user = `leooportilla`) => {
             leftButton.addEventListener(`click`, () => {
 
                 //! Condicion para que tenga un limite al comienzo de las tarjetas
-                if (counter > 0) {
+                if (counteMove > 0) {
                     //! Aqui en vez de sumar, tenemos que restar el contador para que el metodo del observador trabaje con el hermano anterior
-                    counter--;
-                    observerLeft.observe(cards[counter]);
+                    counteMove--;
+                    observerLeft.observe(cards[counteMove]);
 
                     //! Si en dado caso el usuario llega al final y luego se devulve al hermano anterior, hacemos que las flechas de las izquierda se elimen las clases
                     if (rightButton.classList.contains(`arrow-active`)) rightButton.classList.remove(`arrow-active`);
@@ -594,7 +543,7 @@ const project = async (user = `leooportilla`) => {
 
         }
 
-    //! Si capturamos algun error, toda la informacion la mandamos por defecto
+        //! Si capturamos algun error, toda la informacion la mandamos por defecto
     } catch (error) {
         containerCards.innerHTML = ``;
 

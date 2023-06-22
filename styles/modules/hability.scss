@@ -41,7 +41,7 @@
             font-size: 1rem;
             text-align: justify;
             letter-spacing: 0.125rem;
-            font-family: map-get($map: $Fonts, $key: "Second");
+            font-family: map-get($map: $Fonts, $key: "First");
             color: map-get($map: $Colors, $key: "Clear");
             margin-bottom: 1rem;
 
@@ -111,7 +111,7 @@
                 text-align: center;
                 font-size: .8rem;
                 letter-spacing: 0.125rem;
-                font-family: map-get($map: $Fonts, $key: "Second");
+                font-family: map-get($map: $Fonts, $key: "First");
                 color: map-get($map: $Colors, $key: "Clear");
 
             }
@@ -163,14 +163,14 @@
             }
 
             &__summary {
-                font-family: map-get($map: $Fonts, $key: "Second");
+                font-family: map-get($map: $Fonts, $key: "First");
                 font-size: 0.85rem;
                 letter-spacing: 0.1rem;
                 text-align: justify;
             }
 
             &__process {
-                font-family: map-get($map: $Fonts, $key: "Second");
+                font-family: map-get($map: $Fonts, $key: "First");
                 font-size: 0.7rem;
                 letter-spacing: 0.125rem;
                 margin-top: 2rem;

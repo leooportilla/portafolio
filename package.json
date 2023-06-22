@@ -7,7 +7,7 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"procesar": "rollup --watch --config",
-		"sass": "sass --watch ./modules/style.scss style.css"
+		"sass": "sass --watch ./styles/modules/style.scss ./styles/style.css"
 	},
 	"keywords": [],
 	"author": "",

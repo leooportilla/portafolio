@@ -24,6 +24,7 @@
         width: 100%;
         column-gap: 2rem;
         margin-bottom: 2rem;
+        padding-left: .5rem;
 
         &-img {
             grid-area: Image;
@@ -131,12 +132,14 @@
     }
 
     &__container {
-        width: 100%;
         height: fit-content;
         display: flex;
         justify-content: flex-start;
         align-items: center;
         overflow: hidden;
+        height: 37rem;
+        padding-top: 1rem;
+        padding-left: .5rem;
 
         &-left {
             position: absolute;
@@ -203,7 +206,7 @@
                 margin-left: 2vw;
                 content: "20 2";
                 transition: all 1s;
-                background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, map-get($map: $Colors, $key: "Main Two") -100%);
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, map-get($map: $Colors, $key: "Dark Main One") -100%);
                 box-shadow: 0 0 10px 1px map-get($map: $Colors, $key: "Black");
 
                 &-active {
@@ -217,13 +220,16 @@
                         width: 100%;
                         height: 14rem;
 
-                        &:hover ~ .card__image-active {
+                        &:hover~.card__image-active {
                             display: flex;
                         }
                     }
 
                     &-active {
-                        display: none;
+                        transition: .5s all;
+                        visibility: visible;
+                        opacity: 0;
+                        display: flex;
                         position: absolute;
                         background: rgb(0, 0, 0, 0.5);
                         top: 0;
@@ -237,7 +243,8 @@
                         color: map-get($map: $Colors, $key: "Clear");
 
                         &:hover {
-                            display: flex;
+                            visibility: visible;
+                            opacity: 1;
                         }
                     }
 
@@ -245,7 +252,7 @@
                         position: absolute;
                         z-index: 10;
                         bottom: -1px;
-                        color: map-get($map: $Colors, $key: "Main Two");
+                        color: map-get($map: $Colors, $key: "Dark Main One");
                     }
                 }
 
@@ -258,27 +265,29 @@
                         display: flex;
                         flex-direction: row;
                         align-items: center;
-                        column-gap: 1rem;
+                        justify-content: space-between;
 
                         &-name {
                             font-size: 1.5rem;
                             font-family: map-get($map: $Fonts, $key: "Second");
-                            color: map-get($map: $Colors, $key: "Dark");
+                            color: map-get($map: $Colors, $key: "Clear");
                         }
 
                         &-statistics {
                             display: flex;
                             flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
 
                             svg {
-                                width: 1rem;
-                                height: 1rem;
+                                width: 1.2rem;
+                                height: 1.2rem;
                                 color: map-get($map: $Colors, $key: "Dark");
                                 margin-right: .2rem;
                             }
 
                             h6 {
-                                font-size: .8rem;
+                                font-size: 1rem;
                                 font-family: map-get($map: $Fonts, $key: "First");
                                 color: map-get($map: $Colors, $key: "Dark");
                             }
@@ -288,7 +297,7 @@
                     &-paragraph {
                         margin-top: 1rem;
                         font-family: map-get($map: $Fonts, $key: "First");
-                        color: map-get($map: $Colors, $key: "Dark");
+                        color: map-get($map: $Colors, $key: "Clear");
                         font-size: .8rem;
                         line-height: 1.5rem;
                         text-align: justify;
@@ -308,7 +317,7 @@
                             border-radius: 50%;
                             width: 3rem;
                             height: 3rem;
-                            background-color: map-get($map: $Colors, $key: "Main Three");
+                            background-color: map-get($map: $Colors, $key: "Dark");
 
                             & svg {
                                 width: 1.5rem;
@@ -317,7 +326,7 @@
                             }
 
                             &:hover {
-                                background-color: map-get($map: $Colors, $key: "Dark Main Three");
+                                background-color: map-get($map: $Colors, $key: "Black");
                             }
                         }
 
@@ -333,21 +342,21 @@
 
                         .link__githud {
                             @include Botones();
+                            background-color: map-get($map: $Colors, $key: "Dark");
                             margin: 0;
                             width: 9rem;
                         }
 
                         .link__container {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-end;
+                            margin-right: .5rem;
 
                             &-statistics {
-                                align-self: center;
                                 font-size: .7rem;
                                 font-family: map-get($map: $Fonts, $key: "First");
-                                color: map-get($map: $Colors, $key: "Dark");
-                                margin-top: .5rem;
-                                margin-right: .5rem;
-                                text-align: right;
-                                line-height: .625rem;
+                                color: map-get($map: $Colors, $key: "Clear");
                             }
                         }
                     }

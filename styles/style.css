@@ -531,7 +531,7 @@ main {
   font-size: 1rem;
   text-align: justify;
   letter-spacing: 0.125rem;
-  font-family: Titan One;
+  font-family: Secular Uno;
   color: #ffffff;
   margin-bottom: 1rem;
 }
@@ -594,7 +594,7 @@ main {
   text-align: center;
   font-size: 0.8rem;
   letter-spacing: 0.125rem;
-  font-family: Titan One;
+  font-family: Secular Uno;
   color: #ffffff;
 }
 .hability__skills-hover {
@@ -639,13 +639,13 @@ main {
   color: #c82d2d;
 }
 .hability__skills .name__summary {
-  font-family: Titan One;
+  font-family: Secular Uno;
   font-size: 0.85rem;
   letter-spacing: 0.1rem;
   text-align: justify;
 }
 .hability__skills .name__process {
-  font-family: Titan One;
+  font-family: Secular Uno;
   font-size: 0.7rem;
   letter-spacing: 0.125rem;
   margin-top: 2rem;
@@ -720,6 +720,7 @@ main {
   width: 100%;
   column-gap: 2rem;
   margin-bottom: 2rem;
+  padding-left: 0.5rem;
 }
 .project__profile-img {
   grid-area: Image;
@@ -869,12 +870,14 @@ main {
   font-size: 1rem;
 }
 .project__container {
-  width: 100%;
   height: fit-content;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
+  height: 37rem;
+  padding-top: 1rem;
+  padding-left: 0.5rem;
 }
 .project__container-left {
   position: absolute;
@@ -941,7 +944,7 @@ main {
   margin-left: 2vw;
   content: "20 2";
   transition: all 1s;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, #F5B82E -100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, #AD1A20 -100%);
   box-shadow: 0 0 10px 1px #000000;
 }
 .project__container-cards .card-active {
@@ -958,7 +961,10 @@ main {
   display: flex;
 }
 .project__container-cards .card__image-active {
-  display: none;
+  transition: 0.5s all;
+  visibility: visible;
+  opacity: 0;
+  display: flex;
   position: absolute;
   background: rgba(0, 0, 0, 0.5);
   top: 0;
@@ -972,13 +978,14 @@ main {
   color: #ffffff;
 }
 .project__container-cards .card__image-active:hover {
-  display: flex;
+  visibility: visible;
+  opacity: 1;
 }
 .project__container-cards .card__image-wave {
   position: absolute;
   z-index: 10;
   bottom: -1px;
-  color: #F5B82E;
+  color: #AD1A20;
 }
 .project__container-cards .card__container {
   margin: 0 1rem;
@@ -989,32 +996,34 @@ main {
   display: flex;
   flex-direction: row;
   align-items: center;
-  column-gap: 1rem;
+  justify-content: space-between;
 }
 .project__container-cards .card__container-title-name {
   font-size: 1.5rem;
   font-family: Titan One;
-  color: #232528;
+  color: #ffffff;
 }
 .project__container-cards .card__container-title-statistics {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .project__container-cards .card__container-title-statistics svg {
-  width: 1rem;
-  height: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
   color: #232528;
   margin-right: 0.2rem;
 }
 .project__container-cards .card__container-title-statistics h6 {
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-family: Secular Uno;
   color: #232528;
 }
 .project__container-cards .card__container-paragraph {
   margin-top: 1rem;
   font-family: Secular Uno;
-  color: #232528;
+  color: #ffffff;
   font-size: 0.8rem;
   line-height: 1.5rem;
   text-align: justify;
@@ -1033,7 +1042,7 @@ main {
   border-radius: 50%;
   width: 3rem;
   height: 3rem;
-  background-color: #3066be;
+  background-color: #232528;
 }
 .project__container-cards .card__container-language a svg {
   width: 1.5rem;
@@ -1041,7 +1050,7 @@ main {
   color: #ffffff;
 }
 .project__container-cards .card__container-language a:hover {
-  background-color: #295397;
+  background-color: #000000;
 }
 .project__container-cards .card__container-link {
   display: flex;
@@ -1066,6 +1075,7 @@ main {
   border-radius: 1rem;
   position: relative;
   cursor: pointer;
+  background-color: #232528;
   margin: 0;
   width: 9rem;
 }
@@ -1111,15 +1121,16 @@ main {
   visibility: hidden;
   transition: 0.8s ease-in-out all;
 }
+.project__container-cards .card__container-link .link__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 0.5rem;
+}
 .project__container-cards .card__container-link .link__container-statistics {
-  align-self: center;
   font-size: 0.7rem;
   font-family: Secular Uno;
-  color: #232528;
-  margin-top: 0.5rem;
-  margin-right: 0.5rem;
-  text-align: right;
-  line-height: 0.625rem;
+  color: #ffffff;
 }
 
 @media (max-width: 1328px) {
