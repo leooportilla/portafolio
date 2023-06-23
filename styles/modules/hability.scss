@@ -17,6 +17,7 @@
     background-image: url(../media/images/wave_about.png);
     background-repeat: no-repeat;
     background-size: contain;
+    color: map-get($map: $Colors, $key: "Clear");
 
     &__about {
         width: 65%;
@@ -42,7 +43,6 @@
             text-align: justify;
             letter-spacing: 0.125rem;
             font-family: map-get($map: $Fonts, $key: "First");
-            color: map-get($map: $Colors, $key: "Clear");
             margin-bottom: 1rem;
 
             & span {
@@ -112,8 +112,6 @@
                 font-size: 1rem;
                 letter-spacing: 0.125rem;
                 font-family: map-get($map: $Fonts, $key: "First");
-                color: map-get($map: $Colors, $key: "Clear");
-
             }
         }
 
@@ -136,6 +134,7 @@
             height: 96.5%;
             background: #232528;
             border-radius: 10px;
+            color: map-get($map: $Colors, $key: "Clear");
             box-shadow: 0 0 10px 2px map-get($map: $Colors, $key: "Black");
             padding: 2rem;
             letter-spacing: 0.125rem;
@@ -148,6 +147,7 @@
                 position: absolute;
                 right: 0;
                 margin-right: 2rem;
+                color: inherit;
                 cursor: pointer;
             }
 
@@ -167,9 +167,11 @@
                 font-size: 0.85rem;
                 letter-spacing: 0.1rem;
                 text-align: justify;
+                color: inherit;
             }
 
             &__process {
+                color: inherit;
                 font-family: map-get($map: $Fonts, $key: "First");
                 font-size: 0.7rem;
                 letter-spacing: 0.125rem;

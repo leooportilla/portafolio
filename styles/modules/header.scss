@@ -21,15 +21,14 @@
         gap: 0.4rem;
         align-items: center;
         justify-content: center;
+        color: map-get($map: $Colors, $key: "Clear");
 
         &-sun {
-            color: map-get($map: $Colors, $key: "Clear");
             width: 1.2rem;
             height: 1.2rem;
         }
 
         &-moon {
-            color: map-get($map: $Colors, $key: "Clear");
             width: 1rem;
             height: 1rem;
         }

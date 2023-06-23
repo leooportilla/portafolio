@@ -87,20 +87,16 @@ const informationTegno = {
         process: `Proceso: 40%`,
     }
 };
-let colors;
 const containerSkills  = document.querySelector(`.hability__skills`);
 const informationSkill = document.querySelector(`.hability__skills-hover`);
 
 //! Plantilla para la informacion dentro de el contener de las skills
 const template = (title, summary, process) => {
 
-    //! Primero vemos en que modo esta la web para dar cierto cambios de estilo
-    localStorage.getItem(`Theme`) === `Dark` ? colors = `#bebebe` : colors = `#232528`;
-
-    return `<svg class="name__icon" data-dark xmlns="http://www.w3.org/2000/svg" viewBox="0 0 217.95 217.95"><title>Close</title><path d="M-773-1916.66a18.6,18.6,0,0,0-5.47-13.25l-10.62-10.62a18.76,18.76,0,0,0-26.5,0L-882-1874.15l-66.38-66.38a18.6,18.6,0,0,0-13.25-5.47,18.6,18.6,0,0,0-13.25,5.47l-10.62,10.63a18.6,18.6,0,0,0-5.47,13.25,18.6,18.6,0,0,0,5.47,13.25l66.38,66.38-66.38,66.38a18.76,18.76,0,0,0,0,26.5l10.63,10.62a18.6,18.6,0,0,0,13.25,5.47,18.6,18.6,0,0,0,13.25-5.47l66.38-66.38,66.38,66.38a18.6,18.6,0,0,0,13.25,5.47,18.6,18.6,0,0,0,13.25-5.47l10.62-10.62A18.6,18.6,0,0,0-773-1757.4a18.6,18.6,0,0,0-5.47-13.25L-844.88-1837l66.38-66.38A18.6,18.6,0,0,0-773-1916.66Z" transform="translate(990.98 1946.01)"/></svg>
+    return `<svg class="name__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 217.95 217.95"><title>Close</title><path d="M-773-1916.66a18.6,18.6,0,0,0-5.47-13.25l-10.62-10.62a18.76,18.76,0,0,0-26.5,0L-882-1874.15l-66.38-66.38a18.6,18.6,0,0,0-13.25-5.47,18.6,18.6,0,0,0-13.25,5.47l-10.62,10.63a18.6,18.6,0,0,0-5.47,13.25,18.6,18.6,0,0,0,5.47,13.25l66.38,66.38-66.38,66.38a18.76,18.76,0,0,0,0,26.5l10.63,10.62a18.6,18.6,0,0,0,13.25,5.47,18.6,18.6,0,0,0,13.25-5.47l66.38-66.38,66.38,66.38a18.6,18.6,0,0,0,13.25,5.47,18.6,18.6,0,0,0,13.25-5.47l10.62-10.62A18.6,18.6,0,0,0-773-1757.4a18.6,18.6,0,0,0-5.47-13.25L-844.88-1837l66.38-66.38A18.6,18.6,0,0,0-773-1916.66Z" transform="translate(990.98 1946.01)"/></svg>
             <h3 class="name__title">${title}</h3>
-            <p class="name__summary" style="color: ${colors}">${summary}</p>
-            <h4 class="name__process" style="color: ${colors}">${process}</h4>
+            <p class="name__summary">${summary}</p>
+            <h4 class="name__process">${process}</h4>
             <div class="name__quantity">
                 <div class="name__quantity-html">
                 </div>
@@ -157,7 +153,7 @@ const skills = () => {
 
             //* Al dar click en el boton de cerrar, quitamos la clase como tambien el contenido de lla
             if (evento.target.closest(`.name__icon`)) {
-                informationSkill.classList.toggle(`name`);
+                informationSkill.classList.remove(`name`);
         
                 //? Un Timeout para que se borre el contenido sin que el usuario se pueda dar cuenta
                 setTimeout(() => {
@@ -742,59 +738,44 @@ const closeProfile = () => {
     });
 };
 
-// TODOS: Declaracion de variables para funciones del Mood dark/light
+//! Declaracion de variables para funciones del Mood dark/light
 const body      = document.querySelector(`body`);
 const button    = document.querySelector(`.header__switchbutton-label`);
-const summary   = document.querySelector(`.headline__summary`);
 const subBody   = document.querySelector(`.hability__skills-hover`);
 const inputText = document.querySelector(`.project__profile-text`);
-let processSkills, descriptionSkills;
 
 //! Cambiar todas las etiquetas de color
-const setImage = (Modo, OneColor, TwoColor, ThreeColor) => {
+const setImage = (Modo, OneColor, TwoColor) => {
     body.style.backgroundColor = `${OneColor}`;
     subBody.style.backgroundColor = `${OneColor}`;
     inputText.style.backgroundColor = `${TwoColor}`;
     inputText.style.color = `${OneColor}`;
-    summary.style.color = `${ThreeColor}`;
 
-     //* Todos las etiquetas que contengan el id cambian el color directaemnte de los estilos
-    document.querySelectorAll(`#svg`).forEach(elemento => elemento.style.color = `${OneColor}`);
-
-    //* Todos las etiquetas que contengan el atributo data-dark cambian el color con el id
-    Modo === `dark` ? document.querySelectorAll(`[data-dark]`).forEach(elemento => elemento.classList.toggle(`${Modo}`)) : document.querySelectorAll(`[data-dark]`).forEach(elemento => elemento.classList.remove(`dark`));
-
-    //* Evalua si el panel de informacion del lenguaje esta abierto para poder cambiar al modo
-    if (subBody.classList.contains(`name`)) {
-        processSkills = document.querySelector(`.name__process`);
-        descriptionSkills = document.querySelector(`.name__summary`);
-
-        descriptionSkills.style.color = `${ThreeColor}`;
-        processSkills.style.color = `${ThreeColor}`;
-    }
+    //! Todos las etiquetas que contengan el atributo data-dark cambian el color con el id
+    Modo === `dark` ? document.querySelectorAll(`[data-dark]`).forEach(elemento => elemento.classList.toggle(`dark`)) : document.querySelectorAll(`[data-dark]`).forEach(elemento => elemento.classList.remove(`dark`));
 };
 
 //! Cambio al modo light, agregarle la clase active
 const moodLight = () => {
     button.classList.toggle(`active`);
-    setImage(`dark`, `#ffffff`, `#232528`, `#232528`);
+    setImage(`dark`, `#ffffff`, `#232528`);
 };
 
 //! Principal para el cambiar al modo nocturno
 const buttonActive = () => {
 
     // TODOS: Al clickear el boton cambia de posicion con la clase active
-    button.addEventListener(`click`, evento => {
+    button.addEventListener(`click`, () => {
 
         button.classList.toggle(`active`);
 
         if (button.classList.contains(`active`)) {
-            setImage(`dark`, `#ffffff`, `#232528`, `#232528`);
+            setImage(`dark`, `#ffffff`, `#232528`);
 
             //? LocalStorage para guardar el tema, asi el usuario cuando vuelva tiene el de su prefrerencia 
             localStorage.setItem(`Theme`, `Light`);
         } else {
-            setImage(`light`, `#232528`, `#ffffff`, `#bebebe`);
+            setImage(`light`, `#232528`, `#ffffff`);
             //? LocalStorage para guardar el tema, asi el usuario cuando vuelva tiene el de su prefrerencia
             localStorage.setItem(`Theme`, `Dark`);
         }
@@ -810,7 +791,7 @@ const save = () => {
     if (localStorage.getItem(`Theme`) === null) localStorage.setItem(`Theme`, `Dark`);
 
     //! Cuando abra la web, se adaptara al modo guardado en el Local Storage
-    localStorage.getItem(`Theme`) === `Dark` ? setImage(`light`, `#232528`, `#ffffff`, `#bebebe`) : moodLight();
+    localStorage.getItem(`Theme`) === `Dark` ? setImage(`light`, `#232528`, `#ffffff`) : moodLight();
 };
 
 document.addEventListener(`DOMContentLoaded`, evento => {

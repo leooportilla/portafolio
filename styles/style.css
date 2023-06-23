@@ -217,14 +217,13 @@ main {
   gap: 0.4rem;
   align-items: center;
   justify-content: center;
+  color: #ffffff;
 }
 .header__switchbutton-sun {
-  color: #ffffff;
   width: 1.2rem;
   height: 1.2rem;
 }
 .header__switchbutton-moon {
-  color: #ffffff;
   width: 1rem;
   height: 1rem;
 }
@@ -335,16 +334,15 @@ main {
 .principal__biography .headline {
   width: 100%;
   max-width: 50rem;
+  color: #ffffff;
 }
 .principal__biography .headline__greetings {
   font-family: Secular Uno;
-  color: #ffffff;
   letter-spacing: 2px;
   font-size: 2rem;
 }
 .principal__biography .headline__name {
   font-family: Secular Uno;
-  color: #ffffff;
   letter-spacing: 2px;
   font-size: 4rem;
   line-height: 1;
@@ -387,6 +385,7 @@ main {
   border-radius: 1rem;
   position: relative;
   cursor: pointer;
+  color: #ffffff;
 }
 .principal__biography .headline__container-link:hover svg {
   opacity: 0;
@@ -407,12 +406,10 @@ main {
   visibility: visible;
   opacity: 1;
   transition: 0.5s ease-in-out all;
-  color: #ffffff;
 }
 .principal__biography .headline__container-link h3, .principal__biography .headline__container-link h4 {
   width: 100%;
   font-family: Secular Uno;
-  color: #ffffff;
   font-size: 0.8rem;
   letter-spacing: 2px;
   left: 3rem;
@@ -440,15 +437,14 @@ main {
   bottom: 0;
   z-index: 800;
   cursor: pointer;
+  color: #ffffff;
 }
 .principal__slide-title {
   font-family: Secular Uno;
-  color: #ffffff;
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
 .principal__slide-image {
-  color: #ffffff;
   width: 1.5rem;
   height: 100%;
 }
@@ -510,6 +506,7 @@ main {
   background-image: url(../media/images/wave_about.png);
   background-repeat: no-repeat;
   background-size: contain;
+  color: #ffffff;
 }
 .hability__about {
   width: 65%;
@@ -533,7 +530,6 @@ main {
   text-align: justify;
   letter-spacing: 0.125rem;
   font-family: Secular Uno;
-  color: #ffffff;
   margin-bottom: 1rem;
 }
 .hability__about-summary span {
@@ -596,7 +592,6 @@ main {
   font-size: 1rem;
   letter-spacing: 0.125rem;
   font-family: Secular Uno;
-  color: #ffffff;
 }
 .hability__skills-hover {
   position: absolute;
@@ -616,6 +611,7 @@ main {
   height: 96.5%;
   background: #232528;
   border-radius: 10px;
+  color: #ffffff;
   box-shadow: 0 0 10px 2px #000000;
   padding: 2rem;
   letter-spacing: 0.125rem;
@@ -628,6 +624,7 @@ main {
   position: absolute;
   right: 0;
   margin-right: 2rem;
+  color: inherit;
   cursor: pointer;
 }
 .hability__skills .name__title {
@@ -644,8 +641,10 @@ main {
   font-size: 0.85rem;
   letter-spacing: 0.1rem;
   text-align: justify;
+  color: inherit;
 }
 .hability__skills .name__process {
+  color: inherit;
   font-family: Secular Uno;
   font-size: 0.7rem;
   letter-spacing: 0.125rem;
@@ -721,6 +720,7 @@ main {
   column-gap: 2rem;
   margin-bottom: 2rem;
   padding-left: 0.5rem;
+  color: #ffffff;
 }
 .project__profile-img {
   grid-area: Image;
@@ -770,7 +770,7 @@ main {
 .project__profile-link {
   grid-area: Name;
   font-family: Secular Uno;
-  color: #ffffff;
+  color: inherit;
   font-size: 0.8rem;
   align-self: center;
 }
@@ -792,6 +792,7 @@ main {
   border-radius: 1rem;
   position: relative;
   cursor: pointer;
+  color: #ffffff;
   margin: 0;
 }
 .project__profile .submit:hover svg {
@@ -813,12 +814,10 @@ main {
   visibility: visible;
   opacity: 1;
   transition: 0.5s ease-in-out all;
-  color: #ffffff;
 }
 .project__profile .submit h3, .project__profile .submit h4 {
   width: 100%;
   font-family: Secular Uno;
-  color: #ffffff;
   font-size: 0.8rem;
   letter-spacing: 2px;
   left: 3rem;
@@ -839,7 +838,6 @@ main {
   width: 100%;
   text-align: justify;
   font-family: Secular Uno;
-  color: #ffffff;
   font-size: 1rem;
   margin: 0.5rem 0;
 }
@@ -859,16 +857,13 @@ main {
   align-self: center;
   width: 1rem;
   height: 1rem;
-  color: #ffffff;
 }
 .project__profile-follow li h3 {
   font-family: Secular Uno;
-  color: #ffffff;
   font-size: 1rem;
 }
 .project__profile-follow li h4 {
   font-family: Secular Uno;
-  color: #ffffff;
   font-size: 1rem;
 }
 .project__container {
@@ -1073,6 +1068,7 @@ main {
   border-radius: 1rem;
   position: relative;
   cursor: pointer;
+  color: #ffffff;
   background-color: #232528;
   margin: 0;
   width: 9rem;
@@ -1097,12 +1093,10 @@ main {
   visibility: visible;
   opacity: 1;
   transition: 0.5s ease-in-out all;
-  color: #ffffff;
 }
 .project__container-cards .card__container-link .link__githud h3, .project__container-cards .card__container-link .link__githud h4 {
   width: 100%;
   font-family: Secular Uno;
-  color: #ffffff;
   font-size: 0.8rem;
   letter-spacing: 2px;
   left: 3rem;

@@ -29,8 +29,8 @@
     <header class="header">
 
         <!-- ! Boton para modo oscuro -->
-        <div class="header__switchbutton">
-            <svg class="header__switchbutton-moon" data-dark xmlns="http://www.w3.org/2000/svg"
+        <div class="header__switchbutton" data-dark>
+            <svg class="header__switchbutton-moon" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 210.36 211.06">
                 <title>Monn</title>
                 <path
@@ -41,7 +41,7 @@
             <input class="header__switchbutton-checkbox" title="switch" id="switch" type="checkbox">
             <label class="header__switchbutton-label" for="switch"></label>
 
-            <svg class="header__switchbutton-sun" data-dark xmlns="http://www.w3.org/2000/svg"
+            <svg class="header__switchbutton-sun" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 173.1 173.06">
                 <title>Icono del sol</title>
                 <path
@@ -54,9 +54,8 @@
         </div>
 
         <!-- ! Iconos para identificar en que modo esta actualmente -->
-        <div data-dark="" class="header__icon">
+        <div data-dark class="header__icon">
             <svg class="header__icon-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276.41 195">
-                <title>Icono de Menu</title>
                 <rect x="69.54" width="206.87" height="28" rx="14" ry="14" />
                 <rect y="83.5" width="276.41" height="28" rx="14" ry="14" />
                 <rect x="125.78" y="167" width="150.63" height="28" rx="14" ry="14" />
@@ -119,13 +118,13 @@
 
                 <!-- ! Contanido de la informacion  -->
                 <!-- ! Agregre nueva bloque de clase -->
-                <div class="principal__biography-headline headline">
-                    <h2 class="headline__greetings" data-dark>Saludo<span class="red">!</span></h2>
-                    <h1 class="headline__name" data-dark>Soy <span>Leonardo Portilla</span><span class="red">,</span> un
+                <div class="principal__biography-headline headline" data-dark>
+                    <h2 class="headline__greetings">Saludo<span class="red">!</span></h2>
+                    <h1 class="headline__name">Soy <span>Leonardo Portilla</span><span class="red">,</span> un
                         gusto</h1>
-                    <p class="headline__summary">Frontend Developer❗<br> Apasionado por el mundo del desarrollo web.</p>
+                    <p class="headline__summary" data-dark>Frontend Developer❗<br> Apasionado por el mundo del desarrollo web.</p>
 
-                    <div class="headline__container">
+                    <div class="headline__container" data-dark>
                         <a class="headline__container-link" href="https://www.instagram.com/leooportilla/"
                             target="_blank">
                             <svg class="instagram" xmlns="http://www.w3.org/2000/svg"
@@ -181,9 +180,9 @@
             </div>
 
             <!-- ! KEnlace para desplazar hacia la primera section de la web -->
-            <a class="principal__slide" href="#about">
-                <h3 class="principal__slide-title" data-dark>Desliza</h3>
-                <svg class="principal__slide-image" data-dark xmlns="http://www.w3.org/2000/svg"
+            <a class="principal__slide" href="#about"  data-dark>
+                <h3 class="principal__slide-title">Desliza</h3>
+                <svg class="principal__slide-image" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 204.4 128.14">
                     <path
                         d="M-507-1876.68a18.19,18.19,0,0,0-25.68,1.1L-603-1798.94l-71-77.35a18,18,0,0,0-12.61-5.85,18,18,0,0,0-13.07,4.74,18.19,18.19,0,0,0-1.1,25.68l84.25,91.83a18,18,0,0,0,11.58,5.75l0.72,0.07,0.31,0h0.61l0.38,0a18.13,18.13,0,0,0,13.4-5.88l83.6-91.11A18.19,18.19,0,0,0-507-1876.68Z"
@@ -201,13 +200,13 @@
         </section>
 
         <!-- ! Section donde estan informacion acerca de mi, tanto de mis habilidades como mi experiencia -->
-        <section id="about" class="hability">
+        <section id="about" class="hability" data-dark>
 
             <!-- ! Contenido de texto sobre mi experiencia de aprendizaje -->
             <div class="hability__about">
                 <h2 class="hability__about-title">Acerca de Mi <span>!</span></h2>
 
-                <p class="hability__about-summary" data-dark><span>!</span>Hola<span>!</span> Soy un desarrollador
+                <p class="hability__about-summary"><span>!</span>Hola<span>!</span> Soy un desarrollador
                     frontend apasionado y altamente motivadovcon una formación en <span>HTML</span>, <span>CSS</span> y
                     <span>Javascripts</span>, tengo tambien conocimiento con preprocesadores como
                     <span>Sass</span>. Mi formacion es gracias a la academia<span>CadiF1</span> donde adquiri
@@ -216,20 +215,20 @@
                     el campo, he trabajado en varios proyectos personales que me han permitido desarrollar habilidades
                     en diseño de interfaces de usuario y resolución de problemas.</p>
 
-                <p class="hability__about-summary" data-dark>Asi bien, gracias a esa experiencia segui mis estudios
+                <p class="hability__about-summary">Asi bien, gracias a esa experiencia segui mis estudios
                     durante un tiempo como <span>autodidacta</span>, dondevreforce y adquirir nuevos conocimientos
                     dentro de la industria, usar control de versiones como
                     <span>GitHud</span>, extender las bases de la logica en la programacion, preprocesadores como Sass.
                 </p>
 
-                <p class="hability__about-summary" data-dark>Estoy comprometido a aprender y crecer en el campo del
+                <p class="hability__about-summary">Estoy comprometido a aprender y crecer en el campo del
                     desarrollo
                     frontend y estoy dispuesto a
                     trabajar duro para alcanzar mis objetivos profesionales. Me encantaria trabajar en equipo y estoy
                     emocionado de colaborar con otros desarrolladores, diseñadores y miembros del equipo para crear
                     experiencias de usuario de alta calidad.</p>
 
-                <p class="hability__about-summary" data-dark>En resumen, soy un desarrollador creativo con
+                <p class="hability__about-summary">En resumen, soy un desarrollador creativo con
                     habilidades técnicas, de diseño y de
                     comunicación efectivas. Estoy emocionado de <span>trabajar contigo</span> para crear la mejor
                     experiencia de
@@ -252,7 +251,7 @@
                         </svg>
                     </div>
 
-                    <h3 data-dark>HTML</h3>
+                    <h3>HTML</h3>
                 </div>
 
                 <!-- ! Tarjeta de CSS -->
@@ -266,7 +265,7 @@
                                 points="126.26 47.54 124.96 61.38 123.51 76.88 122.17 91.21 121.46 98.71 120.79 105.92 119.31 121.65 104.77 126.29 89.51 131.15 74.98 126.52 59.59 121.62 58.12 105.89 57.45 98.71 72.32 98.71 73.48 110.78 89.51 115.89 106.27 110.55 107.41 98.71 108.12 91.21 56.75 91.21 55.41 76.88 109.49 76.88 110.97 61.38 53.95 61.38 52.66 47.54 126.26 47.54" />
                         </svg>
                     </div>
-                    <h3 data-dark>CSS</h3>
+                    <h3>CSS</h3>
                 </div>
 
                 <!-- ! Tarjeta de Sass -->
@@ -281,7 +280,7 @@
                                 transform="translate(-1005.7 1945.14)" />
                         </svg>
                     </div>
-                    <h3 data-dark>Sass</h3>
+                    <h3>Sass</h3>
                 </div>
 
                 <!-- ! Tarjeta de JavaScripts -->
@@ -299,7 +298,7 @@
                                 transform="translate(2394.66 3163.73)" />
                         </svg>
                     </div>
-                    <h3 data-dark>JavaScript</h3>
+                    <h3>JavaScript</h3>
                 </div>
 
                 <!-- ! Tarjeta de Git Hud -->
@@ -311,7 +310,7 @@
                                 transform="translate(2516.16 3163.73)" />
                         </svg>
                     </div>
-                    <h3 data-dark>Git Hud</h3>
+                    <h3>Git Hud</h3>
                 </div>
 
                 <!-- ! Tarjeta de Photoshop -->
@@ -329,11 +328,11 @@
                                 transform="translate(2274.55 3163.73)" />
                         </svg>
                     </div>
-                    <h3 data-dark>Photoshop</h3>
+                    <h3>Photoshop</h3>
                 </div>
 
                 <!-- ! Panel de informacion de cada lenguaje o preprocesadores -->
-                <div class="hability__skills-hover"></div>
+                <div class="hability__skills-hover" data-dark></div>
             </div>
 
         </section>
@@ -342,7 +341,7 @@
         <section id="project" class="project">
 
             <!-- ! Informacion del Git Hud del usuario por defecto esta el Git Hud de Leonardo Portilla -->
-            <div class="project__profile">
+            <div class="project__profile" data-dark>
 
                 <!-- ! Foto de Perfil de Git Hud, no se agrega el atributo SRC por que dinamicamente lo hago con Js al cargar el fecth -->
                 <img class="project__profile-img" loading="lazy" alt="Foto de perfil">
@@ -378,13 +377,13 @@
                 </div>
 
                 <!-- ! Descripcion el usuario en su cuenta Git Hud -->
-                <p class="project__profile-description" data-dark=""></p>
+                <p class="project__profile-description"></p>
 
                 <!-- ! Datos de cantidad de repositorios, seguidores y a quien sigue -->
                 <ul class="project__profile-follow">
 
                     <li>
-                        <svg class="repository__img" loading="lazy" data-dark xmlns="http://www.w3.org/2000/svg"
+                        <svg class="repository__img" loading="lazy" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 181 235.5">
                             <title>Repository</title>
                             <path
@@ -394,12 +393,12 @@
                                 d="M-333.25-1764.53H-383a5,5,0,0,0-5,5v46.5a5,5,0,0,0,3,4.57,5,5,0,0,0,5.38-.86l21.52-19.47,21.52,19.47a5,5,0,0,0,3.35,1.29,5,5,0,0,0,2-.43,5,5,0,0,0,3-4.57v-46.5A5,5,0,0,0-333.25-1764.53Z"
                                 transform="translate(432.25 1943.53)" />
                         </svg>
-                        <h3 class="title" data-dark="">Repositorio:</h3>
-                        <h4 class="repository" data-dark></h4>
+                        <h3 class="title">Repositorio:</h3>
+                        <h4 class="repository"></h4>
                     </li>
 
                     <li>
-                        <svg class="followers__img" data-dark xmlns="http://www.w3.org/2000/svg"
+                        <svg class="followers__img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 232.26 232.71">
                             <title>Icono Followers</title>
                             <path
@@ -410,12 +409,12 @@
                                 d="M-19.17-1875.19H-33.5v-14.33a12,12,0,0,0-12-12h-4.33a12,12,0,0,0-12,12v14.33H-76.17a12,12,0,0,0-12,12v4.33a12,12,0,0,0,12,12h14.33v14.33a12,12,0,0,0,12,12h4.33a12,12,0,0,0,12-12v-14.33h14.33a12,12,0,0,0,12-12v-4.33A12,12,0,0,0-19.17-1875.19Z"
                                 transform="translate(239.43 1943.73)" />
                         </svg>
-                        <h3 class="title" data-dark="">Followers:</h3>
-                        <h4 class="followers" data-dark></h4>
+                        <h3 class="title">Followers:</h3>
+                        <h4 class="followers"></h4>
                     </li>
 
                     <li>
-                        <svg class="following__img" data-dark loading="lazy" xmlns="http://www.w3.org/2000/svg"
+                        <svg class="following__img" loading="lazy" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 102.3 102.73">
                             <title>Following</title>
                             <path
@@ -426,8 +425,8 @@
                                 d="M-2539.82-3135.67l-13.64,21-2.1,3.24a3.87,3.87,0,0,1-3.25,1.76,3.82,3.82,0,0,1-2.07-.6h0l0,0-12.36-8a3.87,3.87,0,0,1-1.76-3.25,3.84,3.84,0,0,1,.62-2.09,3.87,3.87,0,0,1,5.34-1.14l9.15,5.94,13.64-21A3.88,3.88,0,0,1-2541-3141,3.88,3.88,0,0,1-2539.82-3135.67Z"
                                 transform="translate(2641.51 3165.36)" />
                         </svg>
-                        <h3 class="title" data-dark="">Following:</h3>
-                        <h4 class="following" data-dark=""></h4>
+                        <h3 class="title">Following:</h3>
+                        <h4 class="following"></h4>
                     </li>
                 </ul>
             </div>

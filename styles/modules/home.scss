@@ -34,17 +34,16 @@
         .headline {
             width: 100%;
             max-width: 50rem;
+            color: map-get($map: $Colors, $key: "Clear");
 
             &__greetings {
                 font-family: map-get($map: $Fonts, $key: "First");
-                color: map-get($map: $Colors, $key: "Clear");
                 letter-spacing: 2px;
                 font-size: 2rem;
             }
 
             &__name {
                 font-family: map-get($map: $Fonts, $key: "First");
-                color: map-get($map: $Colors, $key: "Clear");
                 letter-spacing: 2px;
                 font-size: 4rem;
                 line-height: 1;
@@ -95,16 +94,15 @@
         bottom: 0;
         z-index: 800;
         cursor: pointer;
+        color: map-get($map: $Colors, $key: "Clear");
 
         &-title {
             font-family: map-get($map: $Fonts, $key: "First");
-            color: map-get($map: $Colors, $key: "Clear");
             font-size: 1rem;
             margin-bottom: 0.5rem;
         }
 
         &-image {
-            color: map-get($map: $Colors, $key: "Clear");
             width: 1.5rem;
             height: 100%;
         }

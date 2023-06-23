@@ -36,20 +36,16 @@ const informationTegno = {
         process: `Proceso: 40%`,
     }
 }
-let colors
 const containerSkills  = document.querySelector(`.hability__skills`)
 const informationSkill = document.querySelector(`.hability__skills-hover`)
 
 //! Plantilla para la informacion dentro de el contener de las skills
 const template = (title, summary, process) => {
 
-    //! Primero vemos en que modo esta la web para dar cierto cambios de estilo
-    localStorage.getItem(`Theme`) === `Dark` ? colors = `#bebebe` : colors = `#232528`
-
-    return `<svg class="name__icon" data-dark xmlns="http://www.w3.org/2000/svg" viewBox="0 0 217.95 217.95"><title>Close</title><path d="M-773-1916.66a18.6,18.6,0,0,0-5.47-13.25l-10.62-10.62a18.76,18.76,0,0,0-26.5,0L-882-1874.15l-66.38-66.38a18.6,18.6,0,0,0-13.25-5.47,18.6,18.6,0,0,0-13.25,5.47l-10.62,10.63a18.6,18.6,0,0,0-5.47,13.25,18.6,18.6,0,0,0,5.47,13.25l66.38,66.38-66.38,66.38a18.76,18.76,0,0,0,0,26.5l10.63,10.62a18.6,18.6,0,0,0,13.25,5.47,18.6,18.6,0,0,0,13.25-5.47l66.38-66.38,66.38,66.38a18.6,18.6,0,0,0,13.25,5.47,18.6,18.6,0,0,0,13.25-5.47l10.62-10.62A18.6,18.6,0,0,0-773-1757.4a18.6,18.6,0,0,0-5.47-13.25L-844.88-1837l66.38-66.38A18.6,18.6,0,0,0-773-1916.66Z" transform="translate(990.98 1946.01)"/></svg>
+    return `<svg class="name__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 217.95 217.95"><title>Close</title><path d="M-773-1916.66a18.6,18.6,0,0,0-5.47-13.25l-10.62-10.62a18.76,18.76,0,0,0-26.5,0L-882-1874.15l-66.38-66.38a18.6,18.6,0,0,0-13.25-5.47,18.6,18.6,0,0,0-13.25,5.47l-10.62,10.63a18.6,18.6,0,0,0-5.47,13.25,18.6,18.6,0,0,0,5.47,13.25l66.38,66.38-66.38,66.38a18.76,18.76,0,0,0,0,26.5l10.63,10.62a18.6,18.6,0,0,0,13.25,5.47,18.6,18.6,0,0,0,13.25-5.47l66.38-66.38,66.38,66.38a18.6,18.6,0,0,0,13.25,5.47,18.6,18.6,0,0,0,13.25-5.47l10.62-10.62A18.6,18.6,0,0,0-773-1757.4a18.6,18.6,0,0,0-5.47-13.25L-844.88-1837l66.38-66.38A18.6,18.6,0,0,0-773-1916.66Z" transform="translate(990.98 1946.01)"/></svg>
             <h3 class="name__title">${title}</h3>
-            <p class="name__summary" style="color: ${colors}">${summary}</p>
-            <h4 class="name__process" style="color: ${colors}">${process}</h4>
+            <p class="name__summary">${summary}</p>
+            <h4 class="name__process">${process}</h4>
             <div class="name__quantity">
                 <div class="name__quantity-html">
                 </div>
@@ -106,7 +102,7 @@ export const skills = () => {
 
             //* Al dar click en el boton de cerrar, quitamos la clase como tambien el contenido de lla
             if (evento.target.closest(`.name__icon`)) {
-                informationSkill.classList.toggle(`name`)
+                informationSkill.classList.remove(`name`)
         
                 //? Un Timeout para que se borre el contenido sin que el usuario se pueda dar cuenta
                 setTimeout(() => {
