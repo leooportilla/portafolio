@@ -9,6 +9,7 @@
 
 .project {
     width: 100%;
+    height: 100%;
     padding: 0 12.5vw;
     position: relative;
 
@@ -363,4 +364,46 @@
 
         }
     }
+
+    //! Barra de porcetaje de todas las tarjetas
+/*     &__percentage {
+        width: 100%;
+        height: .3rem;
+        position: relative;
+
+        &-tower {
+            appearance: none;
+            -webkit-appearance: none;
+            outline: none;
+            margin-top: 2rem;
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+            background-color: map-get($map: $Colors, $key: "Clear");
+
+            &::-webkit-slider-thumb {
+                appearance: none;
+                -webkit-appearance: none;
+                width: 1.5rem;
+                height: 1.5rem;
+                cursor: pointer;
+                position: relative;
+                border-radius: 50%;
+                z-index: 20;
+                background-color: map-get($map: $Colors, $key: "Dark Main One");
+            }
+        }
+
+        &-process {
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            border-radius: 1rem;
+            background-color: map-get($map: $Colors, $key: "Dark Main One");
+        }
+
+    } */
 }

@@ -5,6 +5,7 @@ import { closeProfile } from "./keyboard.js";
 import { profile, search } from "./profile.js";
 import { buttonActive, save } from "./button.js";
 import { project } from "./project.js";
+import { buttonTop } from "./buttonTop.js";
 
 
 document.addEventListener(`DOMContentLoaded`, evento => {
@@ -12,6 +13,7 @@ document.addEventListener(`DOMContentLoaded`, evento => {
     project()
 })
 
+buttonTop()
 load()
 save()
 menu()

@@ -47,7 +47,7 @@
 
             &-container {
 
-                & h5 {
+                & h3 {
                     font-size: .8rem;
                 }
             }
@@ -175,6 +175,10 @@
 @media (max-width: map-get($Resolution, "TabletStandard")) {
     body {
         position: relative;
+
+        .button {
+            @include ButtonSmall();
+        }
     }
 
     .header {
@@ -521,7 +525,7 @@
 
             &-container {
 
-                h5 {
+                h3 {
                     font-size: .7rem;
                 }
             }
@@ -737,7 +741,7 @@
     }
 
     .project {
-        
+
         &__profile {
             margin-bottom: .5rem;
 
@@ -828,10 +832,10 @@
                             }
 
                             &-statistics {
-                                
+
                                 h6 {
                                     font-size: .7rem;
-                                } 
+                                }
 
                                 svg {
                                     width: 1rem;
@@ -860,6 +864,15 @@
 
 //! 375px
 @media (max-width: map-get($Resolution, "MovilSmall")) {
+
+    body {
+
+        .button {
+            width: 2.8rem;
+            height: 2.8rem;
+        }
+    }
+
     .header {
 
         &__switchbutton {
@@ -961,7 +974,7 @@
 
             &-container {
 
-                h5 {
+                h3 {
                     font-size: .5rem;
                 }
             }
@@ -993,7 +1006,7 @@
     }
 
     .project {
-        
+
         &__container {
             height: 35rem;
             padding: 0;

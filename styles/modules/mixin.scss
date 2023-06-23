@@ -29,7 +29,7 @@
         visibility: visible;
     }
 
-    &:hover h3, h4 {
+    &:hover h4, &:hover h3 {
         position: absolute;
         left: 1rem;
     }
@@ -42,7 +42,8 @@
         transition: .5s ease-in-out all;
     }
 
-    & h3, h4 {
+    & h4, h3 {
+        text-align: initial;
         width: 100%;
         font-family: map-get($map: $Fonts, $key: "First");
         font-size: .8rem;

@@ -65,3 +65,18 @@ main {
 .containeractive {
     clip-path: circle(0% at 100% 0%);
 }
+
+.button {
+    @include Botones();
+    position: fixed;
+    bottom: 1rem;
+    right: 1vw;
+    z-index: 780;
+    transform: translateX(150%);
+    transition: .5s all;
+    max-width: 6.5rem;
+
+    &-active {
+        transform: translateX(0);
+    }
+}
