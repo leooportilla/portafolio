@@ -83,16 +83,17 @@
         display: flex;
 
         & a {
-            text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            letter-spacing: 1.5px;
             width: 9rem;
+            height: 2.5rem;
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 1.5px;
             font-family: map-get($map: $Fonts, $key: "First");
             color: map-get($map: $Colors, $key: "Clear");
             background: transparent;
-            font-size: 1rem;
             padding: 0.3rem 1rem;
             border-radius: .9rem;
             position: relative;

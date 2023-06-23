@@ -13,18 +13,7 @@
 
         &__biography {
 
-            &-profile {
-
-                & img {
-                    width: 13rem;
-                }
-            }
-
             .headline {
-
-                &__greetings {
-                    font-size: 1.7rem;
-                }
 
                 &__name {
                     font-size: 2.8rem;
@@ -32,14 +21,6 @@
 
                 &__summary {
                     font-size: .8rem;
-                }
-
-
-                &__container {
-
-                    &-link {
-                        margin-right: 1rem;
-                    }
                 }
             }
         }
@@ -64,6 +45,13 @@
             grid-template-columns: repeat(2, 7rem);
             grid-template-rows: repeat(3, 7rem);
 
+            &-container {
+
+                & h5 {
+                    font-size: .8rem;
+                }
+            }
+
             .name {
 
                 &__title {
@@ -80,7 +68,6 @@
     .project {
 
         &__profile {
-            width: 100%;
 
             &-img {
                 width: 8rem;
@@ -89,7 +76,6 @@
 
             &-error {
                 height: 2.5rem;
-                ;
             }
 
             &-text {
@@ -102,11 +88,9 @@
 
             &-link {
                 font-size: .8rem;
-                margin-top: 0;
             }
 
             &-description {
-                width: 75%;
                 font-size: .8rem;
             }
 
@@ -127,60 +111,25 @@
         }
 
         &__container {
-    
+
             &-cards {
-    
+
                 .card {
-                    min-width: 25vw;
-                    content: "25 2";
+                    min-width: 32vw;
+                    content: "32 2";
                 }
-    
+
             }
+
         }
     }
 }
 
 //! 1024px
 @media (max-width: map-get($Resolution, "Laptop")) {
-    .principal {
-        &__biography {
-
-            &-profile {
-                & img {
-                    width: 12rem;
-                }
-            }
-
-            .headline {
-
-                &__greetings {
-                    font-size: 2rem;
-                }
-
-                &__name {
-                    font-size: 2.5rem;
-                }
-
-                &__summary {
-                    font-size: .7rem;
-                }
-            }
-        }
-    }
 
     .hability {
 
-        &__about {
-            width: 60%;
-
-            &-title {
-                font-size: 2rem;
-            }
-
-            &-summary {
-                font-size: 0.8rem;
-            }
-        }
 
         &__skills {
             height: 75%;
@@ -190,13 +139,8 @@
 
             .name {
 
-                &__icon {
-                    width: 1.1rem;
-                }
-
                 &__title {
                     font-size: 1.1rem;
-                    margin-bottom: 1rem;
                 }
 
                 &__summary {
@@ -208,22 +152,16 @@
 
     .project {
 
-        &__profile {
-
-            &-description {
-                width: 72%;
-            }
-        }
-
         &__container {
-    
+
             &-cards {
-    
+
                 .card {
-                    min-width: 37vw;
-                    content: "37 2";
+                    min-width: 42vw;
+                    content: "42 4";
+                    margin-left: 4vw;
                 }
-    
+
             }
         }
     }
@@ -353,19 +291,13 @@
     }
 
     .principal {
-        width: 100%;
         height: 95vh;
-        position: relative;
 
         &__biography {
-            width: 75vw;
-            display: flex;
             flex-direction: column;
-            margin: auto;
             gap: 1vh;
 
             .headline {
-                width: 100%;
 
                 &__greetings {
                     font-size: 2.2rem;
@@ -373,11 +305,6 @@
 
                 &__name {
                     font-size: 3.2rem;
-                }
-
-                &__summary {
-                    max-width: 100%;
-                    font-size: .9rem;
                 }
 
                 &__container {
@@ -399,18 +326,12 @@
 
         &__slide {
             left: 45%;
-
-            &-title {
-                font-size: 1rem;
-            }
         }
     }
 
     .hability {
         height: 100%;
         flex-direction: column;
-        background-size: contain;
-
 
         &__about {
             width: 100%;
@@ -435,13 +356,6 @@
             padding-top: 2rem;
             padding-bottom: 2rem;
 
-            &-container {
-
-                h5 {
-                    font-size: .8rem;
-                }
-            }
-
             &-hover {
                 padding: 1rem;
                 width: 96%;
@@ -455,9 +369,6 @@
                 height: 97%;
                 transform: translateY(0);
 
-                &__icon {
-                    width: 1.5rem;
-                }
 
                 &__title {
                     font-size: 1.5rem;
@@ -485,64 +396,26 @@
                 "Image Vacia";
             column-gap: 1rem;
             padding-top: 2rem;
-            height: 25%;
 
             &-img {
                 margin-top: 0.5rem;
-                width: 8rem;
-                height: 8rem;
             }
 
             &-error {
                 text-align: center;
-                height: 2.5rem;
-            }
-
-            &-text {
-                height: 2.5rem;
             }
 
             &-name {
-                grid-area: Name;
                 font-size: 2.5rem;
             }
 
             .submit {
                 @include ButtonSmall();
-                width: 2.5rem;
-                height: 2.5rem;
-
-                & svg {
-                    width: 1rem;
-                    height: 1rem;
-                }
             }
 
             &-link {
                 font-size: 1rem;
-                margin-top: 0;
             }
-
-            &-description {
-                width: 100%;
-                font-size: .8rem;
-            }
-
-            &-follow {
-
-                li {
-
-                    svg {
-                        width: 1rem;
-                        height: 1rem;
-                    }
-
-                    h6 {
-                        font-size: .8rem;
-                    }
-                }
-            }
-
         }
 
         &__container {
@@ -550,18 +423,18 @@
             &-left {
                 left: 7vw;
             }
-            
+
             &-right {
-                right: 7vw;
+                right: 6vw;
             }
 
             &-cards {
-    
+
                 .card {
-                    min-width: 40vw;
-                    content: "40 2";
+                    min-width: 47vw;
+                    content: "47 4";
                 }
-    
+
             }
         }
     }
@@ -571,16 +444,8 @@
 //! 768px
 @media (max-width: map-get($Resolution, "TabletSmall")) {
     .header {
-        &__switchbutton {
-            &-sun {
-                width: 1.5rem;
-                height: 1.5rem;
-            }
 
-            &-moon {
-                width: 1.5rem;
-                height: 1.5rem;
-            }
+        &__switchbutton {
 
             &-label {
                 width: 3rem;
@@ -593,16 +458,9 @@
             }
         }
 
-        &__icon {
-            &-image {
-                width: 2rem;
-                height: 2rem;
-            }
-        }
-
         &__enlace {
             & a {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
         }
     }
@@ -619,25 +477,7 @@
                 }
 
                 &__summary {
-                    max-width: 100%;
-                    font-size: .8rem;
-                }
-
-                &__container {
-
-                    &-link {
-                        width: 3.2rem;
-                        height: 3.2rem;
-
-                        &:hover {
-                            justify-content: center;
-                        }
-
-                        & svg {
-                            width: 1.2rem;
-                            height: 1.2rem;
-                        }
-                    }
+                    font-size: .7rem;
                 }
             }
 
@@ -657,15 +497,11 @@
     .hability {
 
         &__about {
-            width: 100%;
-            padding: 0;
-            margin-bottom: 0;
 
             &-title {
-                text-align: start;
                 margin-top: 0rem;
                 margin-bottom: 1rem;
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
             &-summary {
@@ -674,11 +510,8 @@
         }
 
         &__skills {
-            width: 100%;
-            justify-items: center;
             grid-template-rows: repeat(2, 6rem);
             grid-template-columns: repeat(3, 6rem);
-            justify-content: center;
 
             &-container {
 
@@ -687,26 +520,7 @@
                 }
             }
 
-            &-hover {
-                width: 96%;
-                height: 97%;
-                transform: translateY(-102%);
-            }
-
             .name {
-                width: 96%;
-                height: 97%;
-                transform: translateY(0);
-
-                &__icon {
-                    width: 1rem;
-                    margin-right: 1rem;
-                }
-
-                &__title {
-                    font-size: 1rem;
-                    margin-bottom: .5rem;
-                }
 
                 &__summary {
                     font-size: 0.55rem;
@@ -725,32 +539,12 @@
             column-gap: .5rem;
 
             &-img {
-                width: 5rem;
-                height: 5rem;
-            }
-
-            &-error {
-                height: 2.5rem;
-            }
-
-            &-text {
-                height: 2.5rem;
+                width: 7rem;
+                height: 7rem;
             }
 
             &-name {
-                max-width: 80%;
-                font-size: 2.5rem;
-            }
-
-            &-submit {
-                @include ButtonSmall();
-                width: 2.5rem;
-                height: 2.5rem;
-
-                & svg {
-                    width: 1rem;
-                    height: 1rem;
-                }
+                font-size: 2rem;
             }
 
             &-link {
@@ -758,7 +552,6 @@
             }
 
             &-description {
-                width: 100%;
                 font-size: .7rem;
             }
 
@@ -768,8 +561,8 @@
                     gap: .25rem;
 
                     svg {
-                        width: .8rem;
-                        height: .8rem;
+                        width: .6rem;
+                        height: .6rem;
                     }
 
                     h6 {
@@ -782,20 +575,20 @@
         &__container {
 
             &-left {
-                left: 5vw;
+                left: 6vw;
             }
-            
+
             &-right {
                 right: 5vw;
             }
-            
+
             &-cards {
-    
+
                 .card {
-                    min-width: 46vw;
-                    content: "46 2";
+                    min-width: 52vw;
+                    content: "52 4";
                 }
-    
+
             }
         }
     }
@@ -806,14 +599,12 @@
     .project {
 
         &__profile {
-            margin-bottom: 0;
             grid-template-areas:
                 "Name Name"
                 "Image Description"
                 "Image Statistics"
                 "Image Vacia"
                 "Especial Especial";
-            column-gap: .5rem;
 
             &-link {
                 grid-area: Especial;
@@ -822,14 +613,18 @@
 
             &-name {
                 max-width: 85%;
-                font-size: 2rem;
             }
 
             &-follow {
-                column-gap: 1rem;
-                
+                margin-bottom: .5rem;
+                column-gap: 2rem;
+
                 li {
-                    margin-right: 1vw;
+
+                    svg {
+                        width: 1rem;
+                        height: 1rem;
+                    }
 
                     .title {
                         display: none;
@@ -845,21 +640,20 @@
         &__container {
 
             &-left {
-                left: 2vw;
+                left: 4vw;
             }
-            
+
             &-right {
-                right: 2vw;
+                right: 3vw;
             }
-            
+
             &-cards {
-    
+
                 .card {
-                    margin-left: 4vw;
-                    min-width: 60vw;
-                    content: "60 4";
+                    min-width: 62vw;
+                    content: "62 4";
                 }
-    
+
             }
         }
     }
@@ -867,53 +661,10 @@
 
 //! 480px
 @media (max-width: map-get($Resolution, "MovilStandard")) {
-    .header {
-        &__switchbutton {
-            &-sun {
-                width: 1rem;
-                height: 1rem;
-            }
-
-            &-moon {
-                width: 1rem;
-                height: 1rem;
-            }
-
-            &-label {
-                width: 2.5rem;
-                height: 1.5rem;
-
-                &::after {
-                    width: 1rem;
-                    height: 1rem;
-                }
-            }
-        }
-
-        &__icon {
-            & svg {
-                width: 1.5rem;
-                height: 1.5rem;
-            }
-        }
-
-        &__enlace {
-            & a {
-                font-size: 1.5rem;
-            }
-        }
-    }
 
     .principal {
+
         &__biography {
-            gap: 7vh;
-
-            &-profile {
-
-                & img {
-                    width: 10rem;
-                }
-            }
 
             .headline {
                 &__greetings {
@@ -926,24 +677,6 @@
 
                 &__summary {
                     text-align: start;
-                    font-size: .7rem;
-                }
-
-                &__container {
-
-                    &-link {
-                        width: 3rem;
-                        height: 3rem;
-
-                        &:hover {
-                            justify-content: center;
-                        }
-
-                        & svg {
-                            width: 1rem;
-                            height: 1rem;
-                        }
-                    }
                 }
             }
         }
@@ -951,7 +684,7 @@
         &__slide {
 
             &-title {
-                font-size: .8rem;
+                font-size: .7rem;
             }
 
             &-image {
@@ -971,34 +704,27 @@
 
         &__skills {
             height: 22rem;
-            align-content: flex-start;
             grid-template-rows: repeat(2, 4.5rem);
             grid-template-columns: repeat(3, 4.5rem);
             gap: 1rem;
             row-gap: 2rem;
 
-            &-container {
-
-                h5 {
-                    font-size: .55rem;
-                }
-
-            }
-
             &-hover {
-                padding: 1rem;
+                padding: .5rem;
             }
 
             .name {
-                padding: 1rem;
+                padding: .5rem;
+
+                &__icon {
+                    width: 1rem;
+                    height: 1rem;
+                    margin-right: .5rem;
+                }
 
                 &__title {
                     font-size: 1rem;
                     margin-bottom: .5rem;
-                }
-
-                &__summary {
-                    font-size: 0.55rem;
                 }
 
                 &__process {
@@ -1013,13 +739,13 @@
     }
 
     .project {
-        padding: 0 9vw;
-
+        
         &__profile {
+            margin-bottom: .5rem;
 
             &-img {
-                width: 4.5rem;
-                height: 4.5rem;
+                width: 4rem;
+                height: 4rem;
             }
 
             &-error {
@@ -1033,7 +759,7 @@
             }
 
             &-name {
-                font-size: 1.5rem;
+                font-size: 1.7rem;
                 margin: 0;
             }
 
@@ -1049,20 +775,19 @@
             }
 
             &-link {
-                font-size: .55rem;
-            }
-
-            &-description {
                 font-size: .7rem;
             }
 
             &-follow {
+                column-gap: 1rem;
 
                 li {
-                    display: flex;
-                    flex-direction: row;
-                    gap: 0.1rem;
                     margin-right: .5rem;
+
+                    svg {
+                        width: .7rem;
+                        height: .7rem;
+                    }
 
                     h6 {
                         font-size: .7rem;
@@ -1073,27 +798,59 @@
         }
 
         &__container {
+            padding: 0;
 
             &-left {
-                left: -1vw;
+                left: 0vw;
             }
-            
-            &-right {
-                right: -6vw;
 
-                &-active {
-                    display: none;
-                }
+            &-right {
+                right: 0vw;
             }
-            
+
             &-cards {
-    
+
                 .card {
                     margin-left: 4vw;
-                    min-width: 80vw;
-                    content: "80 4";
+                    min-width: 75vw;
+                    content: "75 4";
+                    box-shadow: none;
+                    height: 35rem;
+
+                    &__container {
+
+                        &-title {
+
+                            &-name {
+                                font-size: 1.7rem;
+                            }
+
+                            &-statistics {
+                                
+                                h6 {
+                                    font-size: .7rem;
+                                } 
+
+                                svg {
+                                    width: 1rem;
+                                    height: 1rem;
+                                }
+                            }
+                        }
+
+                        &-paragraph {
+                            font-size: .7rem;
+                        }
+
+                        &-link {
+
+                            .link__githud {
+                                @include ButtonSmall();
+                            }
+                        }
+                    }
                 }
-    
+
             }
         }
     }
@@ -1102,18 +859,16 @@
 //! 375px
 @media (max-width: map-get($Resolution, "MovilSmall")) {
     .header {
-        width: 85vw;
-        padding-top: 3vh;
 
         &__switchbutton {
             &-sun {
-                width: 1rem;
-                height: 1rem;
+                width: 1.2rem;
+                height: 1.2rem;
             }
 
             &-moon {
-                width: 1rem;
-                height: 1rem;
+                width: 1.2rem;
+                height: 1.2rem;
             }
 
             &-label {
@@ -1129,8 +884,8 @@
 
         &__icon {
             &-image {
-                width: 1rem;
-                height: 1rem;
+                width: 1.5rem;
+                height: 1.5rem;
             }
         }
 
@@ -1230,6 +985,21 @@
 
                 &__quantity {
                     height: 0.3rem;
+                }
+            }
+        }
+    }
+
+    .project {
+        
+        &__container {
+            height: 35rem;
+            padding: 0;
+
+            &-cards {
+
+                .card {
+                    height: 33rem;
                 }
             }
         }

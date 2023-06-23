@@ -296,7 +296,7 @@ const project = async (user = `leooportilla`) => {
 
                     case `vista-previa-estadistica`:
                         imageRepository = `preview-statistics`;
-                        nameRepository = `Vista Previa de Estadisticas`;
+                        nameRepository = `Previa Estadisticas`;
                         break;
 
                     case `NFT-tarjeta`:
@@ -337,14 +337,17 @@ const project = async (user = `leooportilla`) => {
 
                 //! Guardaremos la descripcion en la variable si existe, si el repositorio no tiene guardaremos en la variable una recomendacion
                 let descriptionRepository;
-                repository.description !== undefined ? descriptionRepository = repository.description : descriptionRepository = `No hay una descripción detallada disponible para su repositorio. Una descripción detallada y bien escrita es esencial para ayudar a otros a comprender el propósito y la funcionalidad de su repositorio. Le recomendamos que agregue una descripción detallada para mejorar la visibilidad y accesibilidad de su repositorio en la comunidad de GitHub.`;
+                repository.description !== undefined && repository.description !== null? descriptionRepository = repository.description : descriptionRepository = `No hay una descripción detallada disponible para su repositorio. Una descripción detallada es esencial para ayudar a otros a comprender el propósito y la funcionalidad de su repositorio.`;
 
+                //! Con este arreglo verificamos que no agregemos un lenguaje dos veces
                 let verify = [];
+                //! Vamos guardandi cada plantilla
                 let template = ``;
                 repository.topics.forEach(topic => {
                     if (!verify.includes(topic.toUpperCase())) {
 
                         switch (topic.toUpperCase()) {
+                            //! A medida que pasa el tiempo ire agregando nuevo lenguajes
                             case `HTML`:
                                 template += templateLanguage(language.html.url, language.html.svg);
                                 verify.push(`HTML`);
@@ -378,7 +381,7 @@ const project = async (user = `leooportilla`) => {
                     }
                 });
 
-
+                //! Fechas del repositorio
                 const dateCreate = new Date(repository.created_at);
                 const dateUpdated = new Date(repository.updated_at);
 
@@ -414,8 +417,8 @@ const project = async (user = `leooportilla`) => {
 
                                                                         <div class="card__container-link">
                                                                             <div class="link__container">
-                                                                                <h5 class="link__container-statistics">Creado: ${dateCreate.getFullYear()}-${dateCreate.getDay()}</h5>
-                                                                                <h5 class="link__container-statistics">Actualizado: ${dateUpdated.getFullYear()}-${dateUpdated.getDay()}</h5>
+                                                                                <h5 class="link__container-statistics">${dateCreate.getFullYear()}-${dateCreate.getDay()}</h5>
+                                                                                <h5 class="link__container-statistics">${dateUpdated.getFullYear()}-${dateUpdated.getDay()}</h5>
                                                                             </div>
 
                                                                             <a class="link__githud" href="${repository.html_url}" target="_blank">

@@ -137,7 +137,7 @@
         justify-content: flex-start;
         align-items: center;
         overflow: hidden;
-        height: 37rem;
+        height: 42rem;
         padding-top: 1rem;
         padding-left: .5rem;
 
@@ -199,14 +199,14 @@
 
             .card {
                 width: 20vw;
-                height: 35rem;
+                height: 40rem;
                 border-radius: 1rem;
                 overflow: hidden;
                 position: relative;
                 margin-left: 2vw;
                 content: "20 2";
                 transition: all 1s;
-                background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, map-get($map: $Colors, $key: "Dark Main One") -100%);
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 25%, map-get($map: $Colors, $key: "Dark Main One") -100%);
                 box-shadow: 0 0 10px 1px map-get($map: $Colors, $key: "Black");
 
                 &-active {
@@ -214,20 +214,16 @@
                 }
 
                 &__image {
+                    height: 25vh;
                     position: relative;
 
                     &-web {
                         width: 100%;
-                        height: 14rem;
-
-                        &:hover~.card__image-active {
-                            display: flex;
-                        }
+                        height: 100%;
                     }
 
                     &-active {
                         transition: .5s all;
-                        visibility: visible;
                         opacity: 0;
                         display: flex;
                         position: absolute;
@@ -235,7 +231,7 @@
                         top: 0;
                         z-index: 4;
                         width: 100%;
-                        height: 14rem;
+                        height: 100%;
                         justify-content: center;
                         align-items: center;
                         cursor: pointer;
@@ -243,7 +239,6 @@
                         color: map-get($map: $Colors, $key: "Clear");
 
                         &:hover {
-                            visibility: visible;
                             opacity: 1;
                         }
                     }
@@ -261,14 +256,16 @@
                     overflow: hidden;
 
                     &-title {
-                        margin-top: 1rem;
+                        margin-top: .5rem;
+                        margin-bottom: 1rem;
                         display: flex;
                         flex-direction: row;
                         align-items: center;
                         justify-content: space-between;
 
                         &-name {
-                            font-size: 1.5rem;
+                            max-width: 85%;
+                            font-size: 2rem;
                             font-family: map-get($map: $Fonts, $key: "Second");
                             color: map-get($map: $Colors, $key: "Clear");
                         }
@@ -295,11 +292,10 @@
                     }
 
                     &-paragraph {
-                        margin-top: 1rem;
                         font-family: map-get($map: $Fonts, $key: "First");
                         color: map-get($map: $Colors, $key: "Clear");
-                        font-size: .8rem;
-                        line-height: 1.5rem;
+                        font-size: .9rem;
+                        line-height: 1.2rem;
                         text-align: justify;
                         margin-bottom: 1rem;
                     }
@@ -307,7 +303,7 @@
                     &-language {
                         display: flex;
                         flex-direction: row;
-                        margin-bottom: 2rem;
+                        margin-bottom: .5rem;
                         column-gap: 1rem;
 
                         & a {
@@ -345,6 +341,7 @@
                             background-color: map-get($map: $Colors, $key: "Dark");
                             margin: 0;
                             width: 9rem;
+                            height: 2.5rem;
                         }
 
                         .link__container {
@@ -354,7 +351,7 @@
                             margin-right: .5rem;
 
                             &-statistics {
-                                font-size: .7rem;
+                                font-size: .8rem;
                                 font-family: map-get($map: $Fonts, $key: "First");
                                 color: map-get($map: $Colors, $key: "Clear");
                             }
