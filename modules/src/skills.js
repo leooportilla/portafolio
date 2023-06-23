@@ -47,9 +47,9 @@ const template = (title, summary, process) => {
     localStorage.getItem(`Theme`) === `Dark` ? colors = `#bebebe` : colors = `#232528`
 
     return `<svg class="name__icon" data-dark xmlns="http://www.w3.org/2000/svg" viewBox="0 0 217.95 217.95"><title>Close</title><path d="M-773-1916.66a18.6,18.6,0,0,0-5.47-13.25l-10.62-10.62a18.76,18.76,0,0,0-26.5,0L-882-1874.15l-66.38-66.38a18.6,18.6,0,0,0-13.25-5.47,18.6,18.6,0,0,0-13.25,5.47l-10.62,10.63a18.6,18.6,0,0,0-5.47,13.25,18.6,18.6,0,0,0,5.47,13.25l66.38,66.38-66.38,66.38a18.76,18.76,0,0,0,0,26.5l10.63,10.62a18.6,18.6,0,0,0,13.25,5.47,18.6,18.6,0,0,0,13.25-5.47l66.38-66.38,66.38,66.38a18.6,18.6,0,0,0,13.25,5.47,18.6,18.6,0,0,0,13.25-5.47l10.62-10.62A18.6,18.6,0,0,0-773-1757.4a18.6,18.6,0,0,0-5.47-13.25L-844.88-1837l66.38-66.38A18.6,18.6,0,0,0-773-1916.66Z" transform="translate(990.98 1946.01)"/></svg>
-            <h5 class="name__title">${title}</h5>
+            <h3 class="name__title">${title}</h3>
             <p class="name__summary" style="color: ${colors}">${summary}</p>
-            <h5 class="name__process" style="color: ${colors}">${process}</h5>
+            <h4 class="name__process" style="color: ${colors}">${process}</h4>
             <div class="name__quantity">
                 <div class="name__quantity-html">
                 </div>

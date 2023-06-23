@@ -13,6 +13,7 @@
   box-sizing: border-box;
   vertical-align: baseline;
   user-select: none;
+  -webkit-user-select: none;
 }
 
 *::before,
@@ -93,6 +94,7 @@ label {
   font-family: inherit;
   font-size: inherit;
   hyphens: auto;
+  -webkit-hyphens: auto;
   background-color: transparent;
   color: inherit;
   display: block;
@@ -107,7 +109,6 @@ td {
 }
 
 svg {
-  height: fit-content;
   width: 100%;
   display: block;
   fill: currentColor;
@@ -118,7 +119,7 @@ body {
   font-size: 100%;
   font-family: var(--tipo-principal);
   color: var(--negro);
-  font-smooth: always;
+  -webkit-font-smoothing: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -362,7 +363,7 @@ main {
   font-size: 1rem;
   text-align: justify;
 }
-.principal__biography .headline .Main One {
+.principal__biography .headline .red {
   color: #c82d2d;
 }
 .principal__biography .headline__container {
@@ -396,13 +397,11 @@ main {
   opacity: 1;
   visibility: visible;
 }
-.principal__biography .headline__container-link:hover h6 {
+.principal__biography .headline__container-link:hover h3, .principal__biography .headline__container-link h4 {
   position: absolute;
   left: 1rem;
 }
 .principal__biography .headline__container-link svg {
-  width: 1.5rem;
-  height: 1.5rem;
   max-width: 1.2rem;
   max-height: 1.2rem;
   visibility: visible;
@@ -410,7 +409,7 @@ main {
   transition: 0.5s ease-in-out all;
   color: #ffffff;
 }
-.principal__biography .headline__container-link h6 {
+.principal__biography .headline__container-link h3, .principal__biography .headline__container-link h4 {
   width: 100%;
   font-family: Secular Uno;
   color: #ffffff;
@@ -592,7 +591,7 @@ main {
   z-index: 750;
   color: #F5B82E;
 }
-.hability__skills-container h5 {
+.hability__skills-container h3 {
   text-align: center;
   font-size: 1rem;
   letter-spacing: 0.125rem;
@@ -718,7 +717,6 @@ main {
   grid-template-columns: max-content 1fr;
   grid-template-rows: max-content;
   grid-template-areas: "Image Name" "Image Description" "Image Statistics";
-  height: fit-content;
   width: 100%;
   column-gap: 2rem;
   margin-bottom: 2rem;
@@ -771,7 +769,6 @@ main {
 }
 .project__profile-link {
   grid-area: Name;
-  width: fit-content;
   font-family: Secular Uno;
   color: #ffffff;
   font-size: 0.8rem;
@@ -806,13 +803,11 @@ main {
   opacity: 1;
   visibility: visible;
 }
-.project__profile .submit:hover h6 {
+.project__profile .submit:hover h3, .project__profile .submit h4 {
   position: absolute;
   left: 1rem;
 }
 .project__profile .submit svg {
-  width: 1.5rem;
-  height: 1.5rem;
   max-width: 1.2rem;
   max-height: 1.2rem;
   visibility: visible;
@@ -820,7 +815,7 @@ main {
   transition: 0.5s ease-in-out all;
   color: #ffffff;
 }
-.project__profile .submit h6 {
+.project__profile .submit h3, .project__profile .submit h4 {
   width: 100%;
   font-family: Secular Uno;
   color: #ffffff;
@@ -866,13 +861,17 @@ main {
   height: 1rem;
   color: #ffffff;
 }
-.project__profile-follow li h6 {
+.project__profile-follow li h3 {
+  font-family: Secular Uno;
+  color: #ffffff;
+  font-size: 1rem;
+}
+.project__profile-follow li h4 {
   font-family: Secular Uno;
   color: #ffffff;
   font-size: 1rem;
 }
 .project__container {
-  height: fit-content;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -1015,7 +1014,7 @@ main {
   color: #232528;
   margin-right: 0.2rem;
 }
-.project__container-cards .card__container-title-statistics h6 {
+.project__container-cards .card__container-title-statistics h4 {
   font-size: 1rem;
   font-family: Secular Uno;
   color: #232528;
@@ -1088,13 +1087,11 @@ main {
   opacity: 1;
   visibility: visible;
 }
-.project__container-cards .card__container-link .link__githud:hover h6 {
+.project__container-cards .card__container-link .link__githud:hover h3, .project__container-cards .card__container-link .link__githud h4 {
   position: absolute;
   left: 1rem;
 }
 .project__container-cards .card__container-link .link__githud svg {
-  width: 1.5rem;
-  height: 1.5rem;
   max-width: 1.2rem;
   max-height: 1.2rem;
   visibility: visible;
@@ -1102,7 +1099,7 @@ main {
   transition: 0.5s ease-in-out all;
   color: #ffffff;
 }
-.project__container-cards .card__container-link .link__githud h6 {
+.project__container-cards .card__container-link .link__githud h3, .project__container-cards .card__container-link .link__githud h4 {
   width: 100%;
   font-family: Secular Uno;
   color: #ffffff;
@@ -1186,7 +1183,10 @@ main {
     width: 1rem;
     height: 1rem;
   }
-  .project__profile-follow li h6 {
+  .project__profile-follow li h3 {
+    font-size: 0.8rem;
+  }
+  .project__profile-follow li h4 {
     font-size: 0.8rem;
   }
   .project__container-cards .card {
@@ -1346,7 +1346,7 @@ main {
     opacity: 1;
     visibility: visible;
   }
-  .principal__biography .headline__container-link .Main One {
+  .principal__biography .headline__container-link .red {
     width: 1.2rem;
     height: 1.2rem;
     margin: 0;
@@ -1356,7 +1356,7 @@ main {
     height: 1.5rem;
     margin: 0;
   }
-  .principal__biography .headline__container-link h6 {
+  .principal__biography .headline__container-link h3, .principal__biography .headline__container-link h4 {
     display: none;
   }
   .principal__biography .headline__container-link .arrow {
@@ -1445,7 +1445,7 @@ main {
     opacity: 1;
     visibility: visible;
   }
-  .project__profile .submit .Main One {
+  .project__profile .submit .red {
     width: 1.2rem;
     height: 1.2rem;
     margin: 0;
@@ -1455,7 +1455,7 @@ main {
     height: 1.5rem;
     margin: 0;
   }
-  .project__profile .submit h6 {
+  .project__profile .submit h3, .project__profile .submit h4 {
     display: none;
   }
   .project__profile .submit .arrow {
@@ -1546,9 +1546,6 @@ main {
     width: 0.6rem;
     height: 0.6rem;
   }
-  .project__profile-follow li h6 {
-    font-size: 0.7rem;
-  }
   .project__container-left {
     left: 6vw;
   }
@@ -1581,9 +1578,6 @@ main {
   }
   .project__profile-follow li .title {
     display: none;
-  }
-  .project__profile-follow li h6 {
-    font-size: 0.7rem;
   }
   .project__container-left {
     left: 4vw;
@@ -1680,7 +1674,7 @@ main {
     opacity: 1;
     visibility: visible;
   }
-  .project__profile .submit .Main One {
+  .project__profile .submit .red {
     width: 1.2rem;
     height: 1.2rem;
     margin: 0;
@@ -1690,7 +1684,7 @@ main {
     height: 1.5rem;
     margin: 0;
   }
-  .project__profile .submit h6 {
+  .project__profile .submit h3, .project__profile .submit h4 {
     display: none;
   }
   .project__profile .submit .arrow {
@@ -1713,7 +1707,10 @@ main {
     width: 0.7rem;
     height: 0.7rem;
   }
-  .project__profile-follow li h6 {
+  .project__profile-follow li h3 {
+    font-size: 0.7rem;
+  }
+  .project__profile-follow li h4 {
     font-size: 0.7rem;
   }
   .project__container {
@@ -1761,7 +1758,7 @@ main {
     opacity: 1;
     visibility: visible;
   }
-  .project__container-cards .card__container-link .link__githud .Main One {
+  .project__container-cards .card__container-link .link__githud .red {
     width: 1.2rem;
     height: 1.2rem;
     margin: 0;
@@ -1771,7 +1768,7 @@ main {
     height: 1.5rem;
     margin: 0;
   }
-  .project__container-cards .card__container-link .link__githud h6 {
+  .project__container-cards .card__container-link .link__githud h3, .project__container-cards .card__container-link .link__githud h4 {
     display: none;
   }
   .project__container-cards .card__container-link .link__githud .arrow {

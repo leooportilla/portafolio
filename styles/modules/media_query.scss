@@ -103,7 +103,11 @@
                         height: 1rem;
                     }
 
-                    h6 {
+                    h3 {
+                        font-size: .8rem;
+                    }
+
+                    h4 {
                         font-size: .8rem;
                     }
                 }
@@ -466,8 +470,10 @@
     }
 
     .principal {
+
         &__biography {
             .headline {
+
                 &__greetings {
                     font-size: 2rem;
                 }
@@ -564,10 +570,6 @@
                         width: .6rem;
                         height: .6rem;
                     }
-
-                    h6 {
-                        font-size: .7rem;
-                    }
                 }
             }
         }
@@ -628,10 +630,6 @@
 
                     .title {
                         display: none;
-                    }
-
-                    h6 {
-                        font-size: .7rem;
                     }
                 }
             }
@@ -789,7 +787,11 @@
                         height: .7rem;
                     }
 
-                    h6 {
+                    h3 {
+                        font-size: .7rem;
+                    }
+
+                    h4 {
                         font-size: .7rem;
                     }
                 }

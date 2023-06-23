@@ -28,14 +28,12 @@
         visibility: visible;
     }
 
-    &:hover h6 {
+    &:hover h3, h4 {
         position: absolute;
         left: 1rem;
     }
 
     & svg {
-        width: 1.5rem;
-        height: 1.5rem;
         max-width: 1.2rem;
         max-height: 1.2rem;
         visibility: visible;
@@ -44,7 +42,7 @@
         color: map-get($map: $Colors, $key: "Clear");
     }
 
-    & h6 {
+    & h3, h4 {
         width: 100%;
         font-family: map-get($map: $Fonts, $key: "First");
         color: map-get($map: $Colors, $key: "Clear");
@@ -84,7 +82,7 @@
         visibility: visible;
     }
 
-    .Main One {
+    .red {
         width: 1.2rem;
         height: 1.2rem;
         margin: 0;
@@ -96,7 +94,7 @@
         margin: 0;
     }
 
-    & h6 {
+    & h3, h4 {
         display: none;
     }
 
