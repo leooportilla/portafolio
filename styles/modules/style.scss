@@ -1,0 +1,10 @@
+@forward "./normalize.scss";
+
+// ! Colores, fuentes y tamanios
+@use "./variable.scss" as *;
+
+@forward "./body.scss";
+
+@forward "./header.scss";
+
+@forward "./home.scss"

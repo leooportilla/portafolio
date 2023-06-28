@@ -1,0 +1,113 @@
+//! Colores, fuentes y tamanios
+@use "./variable.scss"as *;
+
+//! Mixin funcionales 
+@use "./mixin.scss"as *;
+
+header {
+    width: 100%;
+    position: absolute;
+    top: 1rem;
+    padding: 0 7rem;
+    @include Flex(space-between, center, row);
+    z-index: 500;
+
+    .switch {
+        @include Flex(center, center, row);
+
+        &__button {
+            @include Flex(space-between, center, row);
+            width: 3.5rem;
+            height: 1.5em;
+            padding: 0 .3rem;
+            border-radius: 3rem;
+            background-color: map-get($Colors, 'Three');
+            position: relative;
+            cursor: pointer;
+            box-shadow: map-get($Colors, 'Two') 0px 5px 10px;
+
+            &-moon {
+                width: 1rem;
+                height: 1rem;
+                color: map-get($Colors, 'One');
+            }
+
+            &-label {
+                width: 1.1rem;
+                height: 1.1rem;
+                border-radius: 50%;
+                background-color: map-get($Colors, 'One');
+                position: absolute;
+                left: .3rem;
+                top: .2rem;
+                transition: .5s all;
+            }
+
+            .move {
+                left: 2.2rem;
+            }
+
+            &-sun {
+                width: 1rem;
+                height: 1rem;
+                color: map-get($Colors, 'One');
+            }
+        }
+    }
+
+    .nav {
+        @include Flex(center, center, row);
+        gap: 2rem;
+
+        &__links {
+            @include Flex(center, center, row);
+            border-radius: 1rem;
+            position: relative;
+            overflow: hidden;
+
+            span {
+                @include Flex(center, center, row);
+                height: 2.5rem;
+                margin: 0 1rem;
+                text-align: center;
+                font-family: map-get($Fonts, 'One 700');
+                color: map-get($Colors, 'Two');
+                letter-spacing: .1rem;
+                z-index: 150;
+                transition: .2s all;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 10rem;
+                height: 2.5rem;
+                background-color: map-get($Colors, 'Three');;
+                border-radius: 5rem;
+                transform: translateX(-100%);
+                transition: 1s all;
+                z-index: 100;
+            }
+
+            &:hover span {
+                color: map-get($Colors, 'One');
+            }
+
+            &:hover::after {
+                transform: translateX(0);
+            }
+        }
+
+        .hover {
+
+            span {
+                color: map-get($Colors, 'One');
+            }
+
+            &::after {
+                transform: translateX(0);
+            }
+        }
+    }
+
+}

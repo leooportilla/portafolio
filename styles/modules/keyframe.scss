@@ -1,0 +1,14 @@
+//! Animacion para el fondo de la section principal
+@keyframes Move {
+    0% {
+        background-position-x: 1%;
+    }
+
+    50% {
+        background-position-x: 100%;
+    }
+
+    100% {
+        background-position-x: 1%;
+    }
+}

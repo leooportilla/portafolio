@@ -1,0 +1,58 @@
+//! Colores, fuentes y tamanios
+@use "./variable.scss"as *;
+
+@mixin Flex($justific : center, $align : center, $direction : row) {
+    display: flex;
+    justify-content: $justific;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+@mixin ButtonStandar ($background, $color) {
+    width: 9rem;
+    height: 2.5rem;
+    color: $color;
+    overflow: hidden;
+    position: relative;
+    padding-left: .8rem;
+    border-radius: 1rem;
+    background-color: $background;
+    @include Flex (flex-start, center, row);
+    column-gap: .3rem;
+
+    .svg {
+        width: 1rem;
+        height: 1rem;
+        transition: 1s all;
+    }
+
+    .title {
+        font-family: map-get($Fonts, 'One 700');
+        font-size: .8rem;
+        transition: 1s all;
+    }
+
+    .arrow {
+        width: 1rem;
+        height: 1rem;
+        position: absolute;
+        right: .5rem;
+        opacity: 0;
+        transition: 1s all;
+        transform: translateX(-9rem);
+    }
+
+    &:hover .svg {
+        opacity: 0;
+        transform: translateX(-2rem);
+    }
+
+    &:hover .title {
+        transform: translateX(-1.3rem);
+    }
+
+    &:hover .arrow {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

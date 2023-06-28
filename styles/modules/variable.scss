@@ -1,0 +1,58 @@
+@font-face {
+    font-display: swap;
+    font-family: Montserrat Regular;
+    src: url(../media/fonts/montserrat_regular.ttf);
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Montserrat SemiBold;
+    src: url(../media/fonts/montserrat_semibold.ttf);
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Montserrat Bold;
+    src: url(../media/fonts/montserrat_bold.ttf);
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Montserrat Black;
+    src: url(../media/fonts/montserrat_black.ttf);
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Titan One;
+    src: url(../media/fonts/titan_One.ttf);
+}
+
+
+// ! Variables
+//! Colores
+$Colors: (
+    "One": #D8DBE2,
+    "Two": #232528,
+    "Three": #942025,
+    "For": #F2BB05,
+    "Five": #5a5a5a,
+);
+//! Fuentes
+$Fonts: (
+    "One 400": Montserrat Regular,
+    "One 600": Montserrat SemiBold,
+    "One 700": Montserrat Bold,
+    "One 900": Montserrat Black,
+    "Title": Titan One,
+);
+//! Resolucion
+$Resolution: (
+    "MovilSmall": 375px,
+    "MovilStandard": 480px,
+    "TabletMini": 600px,
+    "TabletSmall": 768px,
+    "TabletStandard": 960px,
+    "Laptop": 1024px,
+    "Desktop": 1328px,
+);
