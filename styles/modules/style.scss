@@ -1,7 +1,7 @@
 @forward "./normalize.scss";
 
 // ! Colores, fuentes y tamanios
-@use "./variable.scss" as *;
+@forward "./variable.scss";
 
 @forward "./body.scss";
 

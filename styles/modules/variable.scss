@@ -16,30 +16,34 @@
     src: url(../media/fonts/titan_One.ttf);
 }
 
-
 // ! Variables
 //! Colores
-$Colors: (
-    "Principal": #D8DBE2,
-    "Alternative": #232528,
-    "First": #C92D2D,
-    "First Dark": #942025,
-    "Second": #F2BB05,
-    "Three": #5a5a5a,
-);
-//! Fuentes
-$Fonts: (
-    "Paragraph": Montserrat Bold,
-    "Paragraph Big": Montserrat Black,
-    "Title": Titan One,
-);
-//! Resolucion
-$Resolution: (
-    "MovilSmall": 375px,
-    "MovilStandard": 480px,
-    "TabletMini": 600px,
-    "TabletSmall": 768px,
-    "TabletStandard": 960px,
-    "Laptop": 1024px,
-    "Desktop": 1328px,
-);
+:root {
+    --principal: #D8DBE2;
+    --alternative: #232528;
+    --mainFixed: #D8DBE2;
+    --alternativeFixed: #232528;
+    --first: #C92D2D;
+    --firstDark: #942025;
+    --second: #F2BB05;
+    --three: #5a5a5a;
+
+    //! Fuentes
+    --paragraph: Montserrat Bold;
+    --paragraphBig: Montserrat Black;
+    --title: Titan One;
+
+    //! Resolucion
+    --movilSmall: 375px;
+    --MovilStandard: 480px;
+    --tabletMini: 600px;
+    --tabletSmall: 768px;
+    --tabletStandard: 960px;
+    --laptop: 1024px;
+    --desktop: 1328px;
+}
+
+:root.dark {
+    --alternative: #D8DBE2;
+    --principal: #232528;
+}

@@ -5,7 +5,8 @@
 @use "./mixin.scss" as *;
 
 body {
-    background-color: map-get($Colors, 'Principal');;
+    color: var(--alternative);
+    background-color: var(--principal);
     position: fixed;
     width: 100vw;
 
@@ -15,7 +16,7 @@ body {
         top: 4rem;
         transform: rotate(180deg);
         cursor: pointer;
-        color: map-get($Colors, 'Alternative');
+        color: inherit;
         @include flex(center, center, column);
         z-index: 500;
 
@@ -35,7 +36,7 @@ body {
         left: 50%;
         bottom: 4rem;
         cursor: pointer;
-        color: map-get($Colors, 'Alternative');
+        color: inherit;
         @include flex(center, center, column);
         z-index: 500;
 

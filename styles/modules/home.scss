@@ -11,7 +11,7 @@
 .home {
     width: 100%;
     height: 100vh;
-    background-color: map-get($Colors, 'Principal');
+    background-color: var(--principal);
     @include flex(center, center, row);
 
     &__biography {
@@ -23,8 +23,8 @@
         }
 
         .headline {
-            font-family: map-get($Fonts, 'Paragraph Big');
-            color: map-get($Colors, 'Alternative');
+            font-family: var(--paragraphBig);
+            color: var(--alternative);
             letter-spacing: 0.1rem;
             
             &__text {
@@ -34,22 +34,22 @@
                 margin-bottom: 2rem;
 
                 .red {
-                    color: map-get($Colors, 'First');
+                    color: var(--first);
                 }
     
                 &-name {
                     font-size: 3rem;
                     
                     span {
-                        color: map-get($Colors, 'First');
-                        font-family: map-get($Fonts, 'Title');
+                        color: var(--first);
+                        font-family: var(--title);
                         font-size: 4rem;
                     }
                 }
     
                 &-summary {
-                    color: map-get($Colors, 'Three');
-                    font-family: map-get($Fonts, 'Paragraph');
+                    color: var(--three);
+                    font-family: var(--paragraph);
                     font-size: 1rem;
                 }
 
@@ -60,7 +60,7 @@
                 column-gap: 2rem;
 
                 &-links {
-                    @include buttonStandar(map-get($Colors, 'Second'), map-get($Colors, 'Alternative'));
+                    @include buttonStandar(var(--second), var(--alternativeFixed));
                 }
             }
         }
