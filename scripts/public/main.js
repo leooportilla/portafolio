@@ -1,63 +1,62 @@
 'use strict';
 
-const buttonSwitch = document.querySelector(`.switch__button`);
-const labelSwitch = document.querySelector(`.switch__button-label`);
+const buttonSwitch = document.querySelector(`.switch`);
+const labelSwitch = document.querySelector(`.switch__label`);
 
 const buttonMode = () => {
 
+    //! Agregamos un evento al Boton de cambiar el modo al momento que ocurrar un click quitamos o agregamos la clase Move
     buttonSwitch.addEventListener(`click`, () => {
         labelSwitch.classList.toggle(`move`);
     });
 };
 
+const swipeUp = document.querySelector(`.swipeup`);
+const swipeDown = document.querySelector(`.swipedown`);
+const main = document.querySelector(`main`);
+const sections = document.querySelectorAll(`section`);
 const links = document.querySelectorAll(`.nav__links`);
-const home = document.querySelector(`.home`);
-const options = {
-    root: null,
-    rootMargin: `0px`,
-    threshold: 1,
-};
+const mediaQuery = window.matchMedia("(min-width: 600px)");
+let translate = 0;
+let count = 1;
+let arrayCount = 0;
 
-const observeLinks = (evento) => {   
+const movePage = () => {
 
-    if (evento[0].isIntersecting) {
-        
-        if (evento[0].target.className === `home`) {
-            links[0].classList.add(`hover`);
-        }
-        if (evento[0].target.className === `acerca`) {
-            links[0].classList.add(`hover`);
-        }
-        if (evento[0].target.className === `project`) {
-            links[0].classList.add(`hover`);
-        }
-        if (evento[0].target.className === `contact`) {
-            links[0].classList.add(`hover`);
-        }
+    if (mediaQuery.matches) {
+        main.style.height = `100vh`;
     } else {
-
-        if (evento[0].target.className === `home`) {
-            links[0].classList.remove(`hover`);
-        }
-        if (evento[0].target.className === `acerca`) {
-            links[0].classList.remove(`hover`);
-        }
-        if (evento[0].target.className === `project`) {
-            links[0].classList.remove(`hover`);
-        }
-        if (evento[0].target.className === `contact`) {
-            links[0].classList.remove(`hover`);
-        }
+        main.style.height = `100%`;
+        return
     }
-};
-const watch = new IntersectionObserver(observeLinks, options);
 
-const searchNav = () => {
-    watch.observe(home);
+    swipeUp.addEventListener(`click`, () => {
+
+        if (!(count < sections.length)) return
+
+        translate += 100;
+        count++;
+        main.style.transform = `translateY(-${translate}vh)`;
+        links[arrayCount].classList.remove(`hover`);
+        arrayCount++;
+        links[arrayCount].classList.add(`hover`);
+    });
+
+    swipeDown.addEventListener(`click`, () => {
+
+        if (!(count > 0)) return
+
+        translate -= 100;
+        count--;
+        main.style.transform = `translateY(-${translate}vh)`;
+        links[arrayCount].classList.remove(`hover`);
+        arrayCount--;
+        links[arrayCount].classList.add(`hover`);
+    });
 };
 
 document.addEventListener(`DOMContentLoaded`, () => {
-    searchNav();
+    movePage();
 });
 
 buttonMode();

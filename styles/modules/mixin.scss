@@ -1,58 +1,107 @@
 //! Colores, fuentes y tamanios
 @use "./variable.scss"as *;
 
-@mixin Flex($justific : center, $align : center, $direction : row) {
+@mixin flex($justific : center, $align : center, $direction : row) {
     display: flex;
     justify-content: $justific;
     align-items: $align;
     flex-direction: $direction;
 }
 
-@mixin ButtonStandar ($background, $color) {
-    width: 9rem;
-    height: 2.5rem;
+@mixin boxShadow() {
+    box-shadow: 0 5px 5px rgb(35, 37, 40, .4);
+}
+
+@mixin buttonStandar ($background, $color) {
     color: $color;
     overflow: hidden;
     position: relative;
-    padding-left: .8rem;
+    padding: .75rem 2rem .75rem 1rem;
     border-radius: 1rem;
     background-color: $background;
-    @include Flex (flex-start, center, row);
-    column-gap: .3rem;
+    @include boxShadow();
+    @include flex (flex-start, center, row);
+    column-gap: .5rem;
 
     .svg {
         width: 1rem;
-        height: 1rem;
         transition: 1s all;
     }
 
     .title {
-        font-family: map-get($Fonts, 'One 700');
+        font-family: map-get($Fonts, 'Paragraph');
         font-size: .8rem;
         transition: 1s all;
     }
 
     .arrow {
-        width: 1rem;
+        width: auto;
         height: 1rem;
         position: absolute;
-        right: .5rem;
+        right: .75rem;
         opacity: 0;
         transition: 1s all;
-        transform: translateX(-9rem);
+        transform: translateX(-10rem);
     }
 
     &:hover .svg {
         opacity: 0;
-        transform: translateX(-2rem);
+        transform: translateX(-1.5rem);
     }
 
     &:hover .title {
-        transform: translateX(-1.3rem);
+        transform: translateX(-1.5rem);
     }
 
     &:hover .arrow {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+@mixin containerWave($direction : 0) {
+    width: 100%;
+    height: 25%;
+    position: absolute;
+    bottom: 0;
+    transform: rotate($direction);
+
+    &-one {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-image: url(../media/images/wave_one.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-x: 0%;
+        position: absolute;
+        bottom: 0;
+        animation: Move 100s infinite;
+    }
+
+    &-two {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-image: url(../media/images/wave_two.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-x: 0%;
+        position: absolute;
+        bottom: 0;
+        animation: Move 110s infinite reverse;
+    }
+
+    &-three {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-image: url(../media/images/wave_three.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-x: 0%;
+        position: absolute;
+        bottom: 0;
+        animation: Move 120s infinite alternate;
     }
 }

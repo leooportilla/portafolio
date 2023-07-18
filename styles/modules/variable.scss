@@ -1,17 +1,5 @@
 @font-face {
     font-display: swap;
-    font-family: Montserrat Regular;
-    src: url(../media/fonts/montserrat_regular.ttf);
-}
-
-@font-face {
-    font-display: swap;
-    font-family: Montserrat SemiBold;
-    src: url(../media/fonts/montserrat_semibold.ttf);
-}
-
-@font-face {
-    font-display: swap;
     font-family: Montserrat Bold;
     src: url(../media/fonts/montserrat_bold.ttf);
 }
@@ -32,18 +20,17 @@
 // ! Variables
 //! Colores
 $Colors: (
-    "One": #D8DBE2,
-    "Two": #232528,
-    "Three": #942025,
-    "For": #F2BB05,
-    "Five": #5a5a5a,
+    "Principal": #D8DBE2,
+    "Alternative": #232528,
+    "First": #C92D2D,
+    "First Dark": #942025,
+    "Second": #F2BB05,
+    "Three": #5a5a5a,
 );
 //! Fuentes
 $Fonts: (
-    "One 400": Montserrat Regular,
-    "One 600": Montserrat SemiBold,
-    "One 700": Montserrat Bold,
-    "One 900": Montserrat Black,
+    "Paragraph": Montserrat Bold,
+    "Paragraph Big": Montserrat Black,
     "Title": Titan One,
 );
 //! Resolucion

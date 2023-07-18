@@ -1,0 +1,14 @@
+//! Colores, fuentes y tamanios
+@use "./variable.scss"as *;
+
+//! Mixin funcionales 
+@use "./mixin.scss"as *;
+
+//! Key Frames - Animaciones
+@use "./keyframe.scss" as *;
+
+.about {
+    width: 100%;
+    height: 100vh;
+    background-color: map-get($Colors, 'First Dark');
+}

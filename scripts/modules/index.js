@@ -1,8 +1,8 @@
-import { buttonMode } from "./buttonMode";
-import { searchNav } from "./search_nav";
+import { buttonMode } from "./button_mode";
+import { movePage } from "./move_page";
 
 document.addEventListener(`DOMContentLoaded`, () => {
-    searchNav()
+    movePage()
 })
 
 buttonMode()
