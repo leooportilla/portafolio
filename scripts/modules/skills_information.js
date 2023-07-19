@@ -1,21 +1,6 @@
-'use strict';
-
-const buttonSwitch = document.querySelector(`.switch`);
-const labelSwitch = document.querySelector(`.switch__label`);
-const documentHtml = document.querySelector(`html`);
-
-const buttonMode = () => {
-
-    //! Agregamos un evento al Boton de cambiar el modo al momento que ocurrar un click quitamos o agregamos la clase Move
-    buttonSwitch.addEventListener(`click`, () => {
-        labelSwitch.classList.toggle(`move`);
-        documentHtml.classList.toggle(`dark`);
-    });
-};
-
 //! Declaracion de variables para las funcion de las skills
-const skills = document.querySelector(`.skills`);
-const containerInformation = document.querySelector(`.skills__information`);
+const skills = document.querySelector(`.skills`)
+const containerInformation = document.querySelector(`.skills__information`)
 const information = {
     html: {
         title: `Que es HTML<span>?</span>`,
@@ -66,7 +51,7 @@ const information = {
     }
 
 
-};
+}
 
 //! Plantilla para la informacion dentro de el contener de las skills
 const template = (title, summary, url) => {
@@ -83,56 +68,56 @@ const template = (title, summary, url) => {
         <p>${summary}</p>
         <a href="${url}">Sitio Web</a>
     </div>`
-};
+}
 
 //! Abrir y cerrar la skills
-const skillsInformation = () => {
+export const skillsInformation = () => {
 
     //! Al seleccionar algunos de las opciones de las habilidades
     skills.addEventListener(`click`, (evento) => {
 
         //! Busca dento el evento cual es la etiqueta con la clase mas cercana
-        const search = evento.target.closest(`.skills__container`);
+        const search = evento.target.closest(`.skills__container`)
 
         //! Ademas si la etiqueta buscada contiene una de estas clases, abre la ventana y agregarle la informacion 
         if (search?.classList.contains(`html`)) {
-            containerInformation.innerHTML = template(information.html.title, information.html.summary, information.html.url);
-            containerInformation.classList.toggle(`active`);
+            containerInformation.innerHTML = template(information.html.title, information.html.summary, information.html.url)
+            containerInformation.classList.toggle(`active`)
         }
 
         if (search?.classList.contains(`css`)) {
-            containerInformation.innerHTML = template(information.css.title, information.css.summary, information.css.url);
-            containerInformation.classList.toggle(`active`);
+            containerInformation.innerHTML = template(information.css.title, information.css.summary, information.css.url)
+            containerInformation.classList.toggle(`active`)
         }
 
         if (search?.classList.contains(`sass`)) {
-            containerInformation.innerHTML = template(information.sass.title, information.sass.summary, information.sass.url);
-            containerInformation.classList.toggle(`active`);
+            containerInformation.innerHTML = template(information.sass.title, information.sass.summary, information.sass.url)
+            containerInformation.classList.toggle(`active`)
         }
 
         if (search?.classList.contains(`javascript`)) {
-            containerInformation.innerHTML = template(information.javascript.title, information.javascript.summary, information.javascript.url);
-            containerInformation.classList.toggle(`active`);
+            containerInformation.innerHTML = template(information.javascript.title, information.javascript.summary, information.javascript.url)
+            containerInformation.classList.toggle(`active`)
         }
 
         if (search?.classList.contains(`githud`)) {
-            containerInformation.innerHTML = template(information.githud.title, information.githud.summary, information.githud.url);
-            containerInformation.classList.toggle(`active`);
+            containerInformation.innerHTML = template(information.githud.title, information.githud.summary, information.githud.url)
+            containerInformation.classList.toggle(`active`)
         }
 
         if (search?.classList.contains(`illustrator`)) {
-            containerInformation.innerHTML = template(information.illustrator.title, information.illustrator.summary, information.illustrator.url);
-            containerInformation.classList.toggle(`active`);
+            containerInformation.innerHTML = template(information.illustrator.title, information.illustrator.summary, information.illustrator.url)
+            containerInformation.classList.toggle(`active`)
         }
 
         if (search?.classList.contains(`photoshop`)) {
-            containerInformation.innerHTML = template(information.photoshop.title, information.photoshop.summary, information.photoshop.url);
-            containerInformation.classList.toggle(`active`);
+            containerInformation.innerHTML = template(information.photoshop.title, information.photoshop.summary, information.photoshop.url)
+            containerInformation.classList.toggle(`active`)
         }
 
         if (search?.classList.contains(`figma`)) {
-            containerInformation.innerHTML = template(information.figma.title, information.figma.summary, information.figma.url);
-            containerInformation.classList.toggle(`active`);
+            containerInformation.innerHTML = template(information.figma.title, information.figma.summary, information.figma.url)
+            containerInformation.classList.toggle(`active`)
         }
 
         //! Evento para cerrar la ventana de las skills
@@ -140,20 +125,13 @@ const skillsInformation = () => {
 
             //! Al dar click en el boton de cerrar, quitamos la clase como tambien el contenido de lla
             if (evento.target.closest(`.close`)) {
-                containerInformation.classList.remove(`active`);
+                containerInformation.classList.remove(`active`)
         
                 //! Un Timeout para que se borre el contenido sin que el usuario se pueda dar cuenta
                 setTimeout(() => {
-                    containerInformation.innerHTML = ``;
+                    containerInformation.innerHTML = ``
                 }, 700);
             }
-        });
-    });
-};
-
-document.addEventListener(`DOMContentLoaded`, () => {
-   
-});
-
-buttonMode();
-skillsInformation();
+        })
+    })
+}

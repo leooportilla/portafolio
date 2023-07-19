@@ -6,55 +6,17 @@
 
 body {
     color: var(--alternative);
-    background-color: var(--principal);
-    position: fixed;
-    width: 100vw;
-
-    .swipeup {
-        position: absolute;
-        left: 50%;
-        top: 4rem;
-        transform: rotate(180deg);
-        cursor: pointer;
-        color: inherit;
-        @include flex(center, center, column);
-        z-index: 500;
-
-        &__arrowone {
-            animation: Swipe 5s infinite;
-            width: 3rem;
-        }
-
-        &__arrowtwo {
-            animation: Swipe 4s infinite;
-            width: 2rem;
-        }
-    }
-
-    .swipedown {
-        position: absolute;
-        left: 50%;
-        bottom: 4rem;
-        cursor: pointer;
-        color: inherit;
-        @include flex(center, center, column);
-        z-index: 500;
-
-        &__arrowone {
-            animation: Swipe 5s infinite;
-            width: 3rem;
-        }
-
-        &__arrowtwo {
-            animation: Swipe 4s infinite;
-            width: 2rem;
-        }
-    }
-}
-
-main {
+    background-color: var(--main);
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    transition: 2s all;
+
+    .buttonhome {
+        position: fixed;
+        bottom: 2rem;
+        right: 7vw;
+        z-index: 500;
+        
+        &__button{
+            @include buttonStandar(var(--alternative), var(--main))
+        }
+    }
 }

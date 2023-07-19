@@ -11,7 +11,8 @@
 .home {
     width: 100%;
     height: 100vh;
-    background-color: var(--principal);
+    position: relative;
+    background-color: var(--main);
     @include flex(center, center, row);
 
     &__biography {

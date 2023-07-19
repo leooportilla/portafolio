@@ -1,8 +1,9 @@
 import { buttonMode } from "./button_mode";
-import { movePage } from "./move_page";
+import { skillsInformation } from "./skills_information";
 
 document.addEventListener(`DOMContentLoaded`, () => {
-    movePage()
+   
 })
 
 buttonMode()
+skillsInformation()

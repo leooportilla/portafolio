@@ -19,12 +19,12 @@
 // ! Variables
 //! Colores
 :root {
-    --principal: #D8DBE2;
+    --main: #D8DBE2;
     --alternative: #232528;
     --mainFixed: #D8DBE2;
     --alternativeFixed: #232528;
     --first: #C92D2D;
-    --firstDark: #942025;
+    --firstDark: #ad1a20;
     --second: #F2BB05;
     --three: #5a5a5a;
 
@@ -45,5 +45,5 @@
 
 :root.dark {
     --alternative: #D8DBE2;
-    --principal: #232528;
+    --main: #232528;
 }

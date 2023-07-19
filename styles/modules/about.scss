@@ -5,10 +5,167 @@
 @use "./mixin.scss"as *;
 
 //! Key Frames - Animaciones
-@use "./keyframe.scss" as *;
+@use "./keyframe.scss"as *;
 
 .about {
     width: 100%;
     height: 100vh;
+    position: relative;
     background-color: var(--firstDark);
+
+    &__hability {
+        padding: 5rem 7vw 0 7vw;
+        width: 100%;
+        height: 75%;
+        @include flex(center, flex-start, row);
+
+        &-information {
+            width: 63%;
+            @include flex(center, center, column);
+            row-gap: 1rem;
+            padding-right: 2rem;
+
+            &-title {
+                width: 100%;
+                text-align: end;
+                font-family: var(--title);
+                font-size: 3rem;
+                letter-spacing: .1rem;
+                color: var(--mainFixed);
+            }
+
+            &-paragraph {
+                text-align: justify;
+                font-family: var(--paragraph);
+                font-size: 1rem;
+                color: var(--mainFixed);
+                letter-spacing: .1rem;
+                line-height: 1.6;
+
+                span {
+                    color: var(--alternativeFixed);
+                    ;
+                }
+            }
+        }
+
+        .skills {
+            height: 100%;
+            width: 37%;
+            display: grid;
+            justify-content: center;
+            align-content: flex-start;
+            grid-template-columns: repeat(auto-fit, minmax(7rem, 9rem));
+            grid-template-rows: repeat(auto-fit, minmax(7rem, 9rem));
+            gap: 2rem;
+            overflow: hidden;
+            position: relative;
+            padding-top: .5rem;
+
+            &__information {
+                width: 95%;
+                height: 95%;
+                background-color: var(--alternativeFixed);
+                @include flex(flex-start, flex-start, column);
+                row-gap: 2rem;
+                padding: 2rem;
+                border-radius: 1.5rem;
+                @include boxShadow();
+                position: absolute;
+                z-index: 10;
+                transform: translateX(-101%);
+                transition: 1s all;
+
+                &-header {
+                    width: 100%;
+                    height: 2rem;
+                    @include flex(space-between, center, row);
+
+                    h3 {
+                        font-family: var(--title);
+                        font-size: 2rem;
+                        letter-spacing: .1rem;
+                        color: var(--mainFixed);
+
+                        span {
+                            color: var(--second);
+                        }
+                    }
+
+                    svg {
+                        color: var(--mainFixed);
+                        height: 2rem;
+                        width: 2rem;
+                        cursor: pointer;
+                    }
+                }
+
+                &-content {
+                    width: 100%;
+                    height: 100%;
+                    @include flex(space-between, flex-end, column);
+
+                    p {
+                        font-family: var(--paragraph);
+                        font-size: .8rem;
+                        letter-spacing: .1rem;
+                        color: var(--mainFixed);
+                        text-align: justify;
+                        line-height: 1.6;
+                    }
+
+                    a {
+                        text-decoration: none;
+                        font-family: var(--paragraph);
+                        font-size: 1rem;
+                        letter-spacing: .1rem;
+                        color: var(--mainFixed);
+                        text-align: end;
+                    }
+                }
+            }
+            
+            .active {
+                transform: translateX(2.5%);
+            }
+
+            &__container {
+                overflow: hidden;
+                border-radius: 1.5rem;
+                position: relative;
+                cursor: pointer;
+                transition: 1s all;
+                @include boxShadow();
+
+                &-svg {
+                    color: var(--mainFixed);
+                    filter: drop-shadow(0 5px 5px rgb(35, 37, 40, .4));
+                }
+
+                &-hover {
+                    position: absolute;
+                    top: -100%;
+                    background-color: var(--alternativeFixed);
+                    width: 100%;
+                    height: 100%;
+                    transition: 1s all;
+                    border-radius: 50%;
+                }
+
+                &:hover .skills__container-hover {
+                    transform: translateY(9rem);
+                }
+
+                &:hover{
+                    transform: scale(1.025);
+                }
+            }
+        }
+    }
+
+    &__container {
+        background-color: var(--main);
+        ;
+        @include containerWave(180deg)
+    }
 }
