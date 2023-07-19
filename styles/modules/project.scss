@@ -1,0 +1,159 @@
+//! Colores, fuentes y tamanios
+@use "./variable.scss"as *;
+
+//! Mixin funcionales 
+@use "./mixin.scss"as *;
+
+//! Key Frames - Animaciones
+@use "./keyframe.scss"as *;
+
+.project {
+
+    &__profile {
+        padding: 0 7vw;
+        @include flex(flex-start, flex-start, column);
+        row-gap: 2rem;
+
+        &-title {
+            font-family: var(--title);
+            font-size: 3rem;
+            letter-spacing: .1rem;
+            color: var(--alternative);
+        }
+
+        .container {
+            display: grid;
+            grid-template-areas:
+                "Image User"
+                "Image Description";
+            grid-template-rows: 3rem 1fr;
+            max-width: 80%;
+            column-gap: 2rem;
+
+
+            &__image {
+                grid-area: Image;
+                border-radius: 1.5rem;
+                width: 12.5rem;
+                height: 12.5rem;
+                @include boxShadow();
+            }
+
+            &__user {
+                grid-area: User;
+                @include flex(space-between, flex-start, row);
+                position: relative;
+
+                &-information {
+                    @include flex(flex-start, center, row);
+                    column-gap: 2rem;
+                    overflow: hidden;
+
+                    &-name {
+                        font-family: var(--title);
+                        font-size: 2rem;
+                        letter-spacing: .1rem;
+                        color: var(--first);
+                    }
+
+                    &-link {
+                        text-decoration: none;
+                        font-family: var(--paragraph);
+                        font-size: .8rem;
+                        letter-spacing: .1rem;
+                        color: var(--alternative);
+                        cursor: pointer;
+                    }
+                }
+
+                &-label {
+                    @include buttonStandar(var(--alternative), var(--main));
+                }
+
+                &-input {
+                    position: absolute;
+                    font-family: var(--paragraph);
+                    font-size: .8rem;
+                    letter-spacing: .1rem;
+                    color: var(--main);
+                    background-color: var(--alternative);
+                    height: 2.5rem;
+                    width: 0;
+                    border-radius: 1rem;
+                    padding: 0;
+                    outline: none;
+                    transition: 1s all;
+                    min-width: 0;
+                    z-index: 10;
+
+                    &::placeholder {
+                        color: inherit;
+                    }
+                }
+
+                .active-input {
+                    padding: 0 2rem;
+                    min-width: 15rem;
+                }
+
+                &-error {
+                    position: absolute;
+                    margin-left: 2rem;
+                    font-family: var(--paragraphBig);
+                    font-size: .8rem;
+                    letter-spacing: .1rem;
+                    color: var(--first);
+                    display: none;
+                    transition: .5s all;
+                    z-index: 5;
+                }
+
+                .active {
+                    display: inline-block;
+                }
+
+                .active-error {
+                    transform: translateY(-1rem);
+                }
+            }
+
+            &__description {
+                grid-area: Description;
+                @include flex(flex-start, flex-start, column);
+                row-gap: 1rem;
+
+                &-paragraph {
+                    font-family: var(--paragraph);
+                    font-size: .8rem;
+                    letter-spacing: .1rem;
+                    text-align: justify;
+                    color: var(--alternative);
+                    line-height: 1.6;
+                }
+
+                &-stadistic {
+                    @include flex(flex-start, flex-start, row);
+                    column-gap: 2rem;
+
+                    &-content {
+                        @include flex(flex-start, flex-start, row);
+                        column-gap: .5rem;
+
+                        svg {
+                            color: var(--alternative);
+                            height: 1rem;
+                            width: 1rem;
+                        }
+
+                        h4 {
+                            color: var(--alternative);
+                            font-family: var(--paragraph);
+                            font-size: .8rem;
+                            letter-spacing: .1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

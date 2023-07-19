@@ -686,4 +686,189 @@ header .nav .hover::after {
   animation: Move 120s infinite alternate;
 }
 
+.project__profile {
+  padding: 0 7vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+.project__profile-title {
+  font-family: var(--title);
+  font-size: 3rem;
+  letter-spacing: 0.1rem;
+  color: var(--alternative);
+}
+.project__profile .container {
+  display: grid;
+  grid-template-areas: "Image User" "Image Description";
+  grid-template-rows: 3rem 1fr;
+  max-width: 80%;
+  column-gap: 2rem;
+}
+.project__profile .container__image {
+  grid-area: Image;
+  border-radius: 1.5rem;
+  width: 12.5rem;
+  height: 12.5rem;
+  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+}
+.project__profile .container__user {
+  grid-area: User;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  position: relative;
+}
+.project__profile .container__user-information {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 2rem;
+  overflow: hidden;
+}
+.project__profile .container__user-information-name {
+  font-family: var(--title);
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  color: var(--first);
+}
+.project__profile .container__user-information-link {
+  text-decoration: none;
+  font-family: var(--paragraph);
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  color: var(--alternative);
+  cursor: pointer;
+}
+.project__profile .container__user-label {
+  color: var(--main);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  padding: 0.75rem 2rem 0.75rem 1rem;
+  border-radius: 1rem;
+  background-color: var(--alternative);
+  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 0.5rem;
+}
+.project__profile .container__user-label .svg {
+  height: 1rem;
+  transition: 1s all;
+}
+.project__profile .container__user-label .title {
+  font-family: var(--paragraph);
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  transition: 1s all;
+}
+.project__profile .container__user-label .arrow {
+  width: auto;
+  height: 1rem;
+  position: absolute;
+  right: 0.75rem;
+  opacity: 0;
+  transition: 1s all;
+  transform: translateX(-10rem);
+}
+.project__profile .container__user-label:hover .svg {
+  opacity: 0;
+  transform: translateX(-1.5rem);
+}
+.project__profile .container__user-label:hover .title {
+  transform: translateX(-1.5rem);
+}
+.project__profile .container__user-label:hover .arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+.project__profile .container__user-input {
+  position: absolute;
+  font-family: var(--paragraph);
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  color: var(--main);
+  background-color: var(--alternative);
+  height: 2.5rem;
+  width: 0;
+  border-radius: 1rem;
+  padding: 0;
+  outline: none;
+  transition: 1s all;
+  min-width: 0;
+  z-index: 10;
+}
+.project__profile .container__user-input::placeholder {
+  color: inherit;
+}
+.project__profile .container__user .active-input {
+  padding: 0 2rem;
+  min-width: 15rem;
+}
+.project__profile .container__user-error {
+  position: absolute;
+  margin-left: 2rem;
+  font-family: var(--paragraphBig);
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  color: var(--first);
+  display: none;
+  transition: 0.5s all;
+  z-index: 5;
+}
+.project__profile .container__user .active {
+  display: inline-block;
+}
+.project__profile .container__user .active-error {
+  transform: translateY(-1rem);
+}
+.project__profile .container__description {
+  grid-area: Description;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+.project__profile .container__description-paragraph {
+  font-family: var(--paragraph);
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  text-align: justify;
+  color: var(--alternative);
+  line-height: 1.6;
+}
+.project__profile .container__description-stadistic {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  column-gap: 2rem;
+}
+.project__profile .container__description-stadistic-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  column-gap: 0.5rem;
+}
+.project__profile .container__description-stadistic-content svg {
+  color: var(--alternative);
+  height: 1rem;
+  width: 1rem;
+}
+.project__profile .container__description-stadistic-content h4 {
+  color: var(--alternative);
+  font-family: var(--paragraph);
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+}
+
 /*# sourceMappingURL=style.css.map */
