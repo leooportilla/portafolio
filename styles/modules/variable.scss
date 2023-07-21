@@ -23,6 +23,7 @@
     --alternative: #232528;
     --mainFixed: #D8DBE2;
     --alternativeFixed: #232528;
+    --Opacity: rgb(35, 37, 40,.9);
     --first: #C92D2D;
     --firstDark: #ad1a20;
     --second: #F2BB05;
@@ -44,6 +45,6 @@
 }
 
 :root.dark {
-    --alternative: #D8DBE2;
     --main: #232528;
+    --alternative: #D8DBE2;
 }
