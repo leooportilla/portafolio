@@ -175,8 +175,10 @@ body {
 body .buttonhome {
   position: fixed;
   bottom: 2rem;
-  right: 7vw;
+  right: 2vw;
   z-index: 500;
+  transform: translateX(12rem);
+  transition: 0.5s all;
 }
 body .buttonhome__button {
   color: var(--main);
@@ -222,6 +224,9 @@ body .buttonhome__button:hover .title {
 }
 body .buttonhome__button:hover .arrow {
   opacity: 1;
+  transform: translateX(0);
+}
+body .active-button {
   transform: translateX(0);
 }
 

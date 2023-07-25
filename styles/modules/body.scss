@@ -12,11 +12,17 @@ body {
     .buttonhome {
         position: fixed;
         bottom: 2rem;
-        right: 7vw;
+        right: 2vw;
         z-index: 500;
+        transform: translateX(12rem);
+        transition: .5s all;
         
         &__button{
             @include buttonStandar(var(--alternative), var(--main))
         }
+    }
+
+    .active-button {
+        transform: translateX(0);
     }
 }
