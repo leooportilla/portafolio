@@ -1,134 +1,15 @@
-'use strict';
-
-const buttonSwitch = document.querySelector(`.switch`);
-const labelSwitch = document.querySelector(`.switch__label`);
-const documentHtml = document.querySelector(`html`);
-
-const buttonMode = () => {
-
-    //! Agregamos un evento al Boton de cambiar el modo al momento que ocurrar un click quitamos o agregamos la clase Move
-    buttonSwitch.addEventListener(`click`, () => {
-        labelSwitch.classList.toggle(`move`);
-        documentHtml.classList.toggle(`dark`);
-    });
-};
-
-const userName        = document.querySelector(`.container__user-information-name`);
-const userImage       = document.querySelector(`.container__image`);
-const userGitHud      = document.querySelector(`.container__user-information-link`);
-const buttonSearch    = document.querySelector(`.container__user-label`);
-const inputProfile    = document.querySelector(`.container__user-input`);
-const errorProfile    = document.querySelector(`.container__user-error`);
-const userFollowing   = document.querySelector(`.following`);
-const userFollowers   = document.querySelector(`.followers`);
-const userRepository  = document.querySelector(`.repository`);
-const userDescription = document.querySelector(`.container__description-paragraph`);
-
-//! Carga de los perfiles, por defecto al carga la pagina tendra los datos de Leonardo Portilla
-const profile = async (user = `leooportilla`) => {
-
-    try {
-
-        //! Solicitud de datos
-        const answer = await fetch(`https://api.github.com/users/${user}`);
-        const data = await answer.json();
-
-        //! Si la peticion da error 404 mandamos un mensaje
-        if (answer.status == 404) throw new Error(404)
-
-        if (answer.status == 403) throw new Error(403)
-
-        //! Si la peticion es correcta mandamos la informacion a la pagina
-        if (answer.status == 200) {
-            userImage.setAttribute(`src`, `${data.avatar_url}`);
-
-            //! Cuando los usuarios no tengan su nombre configurado colocamos el login
-            data.name == null ? userName.innerHTML = data.login : userName.innerHTML = data.name;
-
-            //! Cuando los usuarios no tengan su nombre configurado colocamos una descripcion por defecto
-            data.bio == null ? userDescription.innerHTML = `En tu cuenta de Git Hud no se encuentra una descripción detallada acerca de ti, te recomendaría que incluyeras una descripción de tus habilidades, experienciaros profesionales, esto puede ayudarte a llamar la atención de reclutadores` : userDescription.innerHTML = data.bio;
-            userRepository.innerHTML = `Repositorio: ${data.public_repos}`;
-            userFollowers.innerHTML = `Seguidores: ${data.followers}`;
-            userFollowing.innerHTML = `Siguiendo: ${data.following}`;
-            userGitHud.setAttribute(`href`, `${data.html_url}`);
-        }
-
-        //! Si capturamos algun error, toda la informacion la mandamos por defecto
-    } catch (error) {
-        userImage.setAttribute(`src`, `./media/images/users.png`);
-
-        if (error.message === `404`) {
-            userName.innerHTML = `No registrado`;
-            userDescription.innerHTML = `Lamentablemente, el usuario que intentó realizar la búsqueda en el servidor de Git Hud no se encuentra registrado. Esto puede deberse a varios motivos, como un error al ingresar el nombre de usuario o la falta de una cuenta válida. Por favor, verifica que estás utilizando el nombre de usuario correcto y que tienes una cuenta registrada en Git Hud antes de intentar realizar una nueva búsqueda`;
-        }
-
-        if (error.message === `403`) {
-            userImage.innerHTML = `Limite de Acceso`;
-            userDescription.innerHTML = `Lo siento mucho, pero en este momento el acceso a la información que estás buscando ha sido limitado. Por favor, inténtalo de nuevo más tarde asi puedes acceder a la información que necesitas`;
-        }
-
-        userRepository.innerHTML = `Repositorio: 0`;
-        userFollowers.innerHTML = `Seguidores: 0`;
-        userFollowing.innerHTML = `Siguiendo: 0`;
-    }
-};
-
-//! Busqueda del perfil deseado del usuario
-const search = () => {
-
-    buttonSearch.addEventListener(`click`, () => {
-
-        //! Validamos la entrada con el patron del input
-        let pattern = new RegExp(inputProfile.pattern);
-
-        if (!inputProfile.classList.contains(`active-input`)) {
-            inputProfile.classList.add(`active-input`);
-            inputProfile.style.width = `calc(${userName.getBoundingClientRect().width}px)`;
-
-            setTimeout(() => {
-                errorProfile.classList.add(`active`);
-            }, 1000);
-
-        } else {
-
-            if (pattern.test(inputProfile.value)) {
-
-                errorProfile.classList.remove(`active-error`);
-
-                setTimeout(() => {
-                    inputProfile.classList.remove(`active-input`);
-                    inputProfile.style.width = 0;
-                    errorProfile.classList.remove(`active`);
-                }, 500);
-
-
-                //! Para que el input cuando se vuelva abrir no tenga valor, lo dejamos vacio al cerrar
-                setTimeout(() => {
-                    inputProfile.value = ``;
-                }, 1300);
-
-                profile(inputProfile.value);
-                project(text.value); 
-
-            } else {
-                errorProfile.classList.add(`active-error`);
-            }
-        }
-    });
-};
-
 //! Declaracion de varibale para las funciones de la carga del perfil y las busqueda de los perfiles
-const leftButton = document.querySelector(`.project__projects-arrowleft`);
-const rightButton = document.querySelector(`.project__projects-arrowright`);
-const containerCards = document.querySelector(`.cards`);
+const leftButton = document.querySelector(`.project__projects-arrowleft`)
+const rightButton = document.querySelector(`.project__projects-arrowright`)
+const containerCards = document.querySelector(`.cards`)
 
-const widthMax = window.matchMedia(`(min-width: 1500px)`);
-const width1328px = window.matchMedia(`(min-width: 1328px)`);
-window.matchMedia(`(min-width: 960px)`);
-window.matchMedia(`(min-width: 600px)`);
+const widthMax = window.matchMedia(`(min-width: 1500px)`)
+const width1328px = window.matchMedia(`(min-width: 1328px)`)
+const width960px = window.matchMedia(`(min-width: 960px)`)
+const width600px = window.matchMedia(`(min-width: 600px)`)
 
-const cardsOne = document.createElement(`div`).classList.add(`cards__container`);
-const cardsTwo = document.createElement(`div`).classList.add(`cards__container`);
+const cardsOne = document.createElement(`div`).classList.add(`cards__container`)
+const cardsTwo = document.createElement(`div`).classList.add(`cards__container`)
 
 const language = {
     javascript: {
@@ -166,13 +47,13 @@ const language = {
         svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495.28 495.29"><path d="m0,0v495.29h495.28V0H0Zm283.52,274.52h-62.14v177.7h-49.87v-177.7h-62.02v-40.13h174.03v40.13Zm168.54,117.63c-.16,5.61-.76,20.37-10.89,34.39-10.01,13.85-23.52,18.98-33.02,22.59-12.68,4.81-22.99,5.43-35.66,6.19-8.05.48-21.58,1.2-38.86-2.18-13.15-2.57-23.73-6.59-31.19-9.97l.46-49.3c7.85,6.62,20.29,15.14,37.15,19.72,3.47.94,15.03,3.87,29.69,2.75,7.22-.55,13.75-1.97,19.95-5.73,5.78-3.51,7.62-6.84,8.25-8.14,2.24-4.6,1.7-9.02,1.5-10.55-.59-4.3-2.45-7.24-3.56-8.94-2.1-3.23-4.83-5.88-10.43-9.52-6.13-3.98-11.22-6.24-15.82-8.25-17.7-7.75-16.96-6.99-22.59-9.75-6.21-3.04-12.9-6.37-20.52-12.38-3.81-3.01-7.9-6.27-12.16-11.7-5.77-7.36-8.6-14.53-9.97-18.8-1.02-3.17-3.6-12.14-2.64-23.85.43-5.24,1.76-19.15,11.81-31.98,7.96-10.17,17.35-14.49,25.23-18.12,15.3-7.05,28.36-7.86,44.02-8.83,9.13-.56,22.43-1.29,39.33,2.3,8.08,1.71,14.68,3.93,19.37,5.73l.12,45.86c-10.18-6.37-19.5-9.79-26.14-11.7-13.39-3.84-23.75-3.82-26.6-3.78-7.37.12-15.49.34-23.85,5.16-3.15,1.81-7.71,4.53-10.09,10.09-.64,1.51-2.25,5.85-1.03,11.01.92,3.88,3.04,6.57,4.93,8.59,6.75,7.26,15.09,11.04,27.97,16.74,15.9,7.04,15.67,6.81,19.26,8.6,9.42,4.7,15.37,7.67,22.02,13.07,4.35,3.54,10.99,9.03,16.28,18.23,8.02,13.95,7.82,27.5,7.68,32.45Z"/></svg>`,
         url: `https://www.typescriptlang.org/`,
     },
-};
+}
 
 const templateLanguage = (url, svg) => {
     return `<a href="${url}" target="_blank">
         ${svg}
     </a>`
-};
+}
 
 const config = () => {
     if (widthMax) {
@@ -181,7 +62,7 @@ const config = () => {
     } else if (width1328px) {
         return 85.5
     }
-};
+}
 
 const countCards = () => {
     if (widthMax) {
@@ -189,17 +70,17 @@ const countCards = () => {
     } else if (width1328px) {
         return 3
     }
-};
+}
 
 //! Carga de los perfiles, por defecto al carga la pagina tendra los datos de Leonardo Portilla
-const project$1 = async (user = `leooportilla`) => {
+export const project = async (user = `leooportilla`) => {
 
     try {
         //! Solicitud de datos
-        const answer = await fetch(`https://api.github.com/users/${user}/repos`);
-        const data = await answer.json();
+        const answer = await fetch(`https://api.github.com/users/${user}/repos`)
+        const data = await answer.json()
 
-        console.log(answer);
+        console.log(answer)
         //! Si la peticion da error 404 mandamos un mensaje
         if (answer.status == 404) throw new Error(404)
 
@@ -212,115 +93,115 @@ const project$1 = async (user = `leooportilla`) => {
             if (data.length > 0) {
 
                 //! InnetHTML para cuando vuelva a cargar un perfil vacie los projectos viejos
-                cardsOne.innerHTML = ``;
-                cardsTwo.innerHTML = ``;
+                cardsOne.innerHTML = ``
+                cardsTwo.innerHTML = ``
 
                 //! Ordenar los projectos segun los favoritos de cada cuenta
-                data.sort((a, b) => a.stargazers_count - b.stargazers_count);
+                data.sort((a, b) => a.stargazers_count - b.stargazers_count)
 
                 //! Por cada elemento del array agregar una cards al container 
                 prueba.forEach(repository => {
 
                     //! Con estas variables guardaremos el nombre y la imagen que le corresponde, como lo haremos en el Switch
-                    let imageRepository, nameRepository;
+                    let imageRepository, nameRepository
 
                     //! El Switch evalua el nombre del repositorio si es alguno que tengo guardado en mi repositorio, le agregamos un nombre mas presentable y el nombre que esta guardada la imagen que le corresponda
                     switch (repository.name) {
 
                         case `portafolio`:
-                            imageRepository = `portafolio`;
-                            nameRepository = `Portafolio`;
+                            imageRepository = `portafolio`
+                            nameRepository = `Portafolio`
                             break;
 
                         case `pagina-inicio`:
-                            imageRepository = `page-home`;
-                            nameRepository = `Pagina de Inicio`;
+                            imageRepository = `page-home`
+                            nameRepository = `Pagina de Inicio`
                             break;
 
                         case `pagina-huddle`:
-                            imageRepository = `page-huddle`;
-                            nameRepository = `Pagina de Huddle`;
+                            imageRepository = `page-huddle`
+                            nameRepository = `Pagina de Huddle`
                             break;
 
                         case `precio-unico`:
-                            imageRepository = `single-price`;
-                            nameRepository = `Precio Unico`;
+                            imageRepository = `single-price`
+                            nameRepository = `Precio Unico`
                             break;
 
                         case `caracteristicas`:
-                            imageRepository = `characteristic`;
-                            nameRepository = `Pagina de Caracteristicas`;
+                            imageRepository = `characteristic`
+                            nameRepository = `Pagina de Caracteristicas`
                             break;
 
                         case `comentarios`:
-                            imageRepository = `comments`;
-                            nameRepository = `Pagina de Comentario`;
+                            imageRepository = `comments`
+                            nameRepository = `Pagina de Comentario`
                             break;
 
                         case `perfil-tarjeta`:
-                            imageRepository = `profile-card`;
-                            nameRepository = `Tarjeta de Perfil`;
+                            imageRepository = `profile-card`
+                            nameRepository = `Tarjeta de Perfil`
                             break;
 
                         case `vista-previa`:
-                            imageRepository = `preview`;
-                            nameRepository = `Vista Previa`;
+                            imageRepository = `preview`
+                            nameRepository = `Vista Previa`
                             break;
 
                         case `suscripcion-tarjeta`:
-                            imageRepository = `subscription-card`;
-                            nameRepository = `Tarjeta de Suscripcion`;
+                            imageRepository = `subscription-card`
+                            nameRepository = `Tarjeta de Suscripcion`
                             break;
 
                         case `vista-previa-estadistica`:
-                            imageRepository = `preview-statistics`;
-                            nameRepository = `Previa Estadisticas`;
+                            imageRepository = `preview-statistics`
+                            nameRepository = `Previa Estadisticas`
                             break;
 
                         case `NFT-tarjeta`:
-                            imageRepository = `nft-card`;
-                            nameRepository = `Tarjeta de NFT`;
+                            imageRepository = `nft-card`
+                            nameRepository = `Tarjeta de NFT`
                             break;
 
                         case `producto-tarjeta`:
-                            imageRepository = `product-card`;
-                            nameRepository = `Tarjeta de Productos`;
+                            imageRepository = `product-card`
+                            nameRepository = `Tarjeta de Productos`
                             break;
 
                         case `QR-tarjeta`:
-                            imageRepository = `qr-card`;
-                            nameRepository = `Tarjeta de QR`;
+                            imageRepository = `qr-card`
+                            nameRepository = `Tarjeta de QR`
                             break;
 
                             //! Corregimos el nombre del repositorio
                         default:
-                            imageRepository = `notimage`;
+                            imageRepository = `notimage`
 
                             //! Cada primera letra de cada palabra sera en Mayuscula
                             nameRepository = repository.name.split(`-`).map(words => {
                                 if (words !== "") return words[0].toUpperCase() + words.substring(1)
-                            });
+                            })
 
                             //! Muchas veces los nombre de los repositorios son extenson
                             //! Con esta condicion validamos si es corto, si lo es lo mostramos completo
                             if (repository.name.length <= 24) {
-                                nameRepository = nameRepository.join(` `);
+                                nameRepository = nameRepository.join(` `)
 
                                 //! Si el nombre se hace mucho mas extenso solo mostraremos la primera tres palabras
                             } else {
-                                nameRepository = nameRepository.slice(0, 3).join(` `);
+                                nameRepository = nameRepository.slice(0, 3).join(` `)
                             }
                             break;
                     }
 
                     //! Guardaremos la descripcion en la variable si existe, si el repositorio no tiene guardaremos en la variable una recomendacion
-                    let descriptionRepository;
-                    repository.description !== undefined && repository.description !== null ? descriptionRepository = repository.description : descriptionRepository = `No hay una descripción detallada disponible para su repositorio. Una descripción detallada es esencial para ayudar a otros a comprender el propósito y la funcionalidad de su repositorio.`;
+                    let descriptionRepository
+                    repository.description !== undefined && repository.description !== null ? descriptionRepository = repository.description : descriptionRepository = `No hay una descripción detallada disponible para su repositorio. Una descripción detallada es esencial para ayudar a otros a comprender el propósito y la funcionalidad de su repositorio.`
 
                     //! Con este arreglo verificamos que no agregemos un lenguaje dos veces
-                    let verify = [];
+                    let verify = []
                     //! Vamos guardando cada plantilla
-                    let template = ``;
+                    let template = ``
                     //! Recorremos los lenguajes segun los Topics guardado por el usuario en el topics
                     repository.topics.forEach(topic => {
 
@@ -331,40 +212,40 @@ const project$1 = async (user = `leooportilla`) => {
                             //! Solo se agregaran los topics que estan en esta lista de Switch
                             switch (topic.toUpperCase()) {
                                 case `HTML`:
-                                    template += templateLanguage(language.html.url, language.html.svg);
-                                    verify.push(`HTML`);
+                                    template += templateLanguage(language.html.url, language.html.svg)
+                                    verify.push(`HTML`)
                                     break;
 
                                 case `CSS`:
-                                    template += templateLanguage(language.css.url, language.css.svg);
-                                    verify.push(`CSS`);
+                                    template += templateLanguage(language.css.url, language.css.svg)
+                                    verify.push(`CSS`)
                                     break;
 
                                 case `SCSS`:
-                                    template += templateLanguage(language.scss.url, language.scss.svg);
-                                    verify.push(`SCSS`);
+                                    template += templateLanguage(language.scss.url, language.scss.svg)
+                                    verify.push(`SCSS`)
                                     break;
 
                                 case `JAVASCRIPT`:
-                                    template += templateLanguage(language.javascript.url, language.javascript.svg);
-                                    verify.push(`JAVASCRIPT`);
+                                    template += templateLanguage(language.javascript.url, language.javascript.svg)
+                                    verify.push(`JAVASCRIPT`)
                                     break;
 
                                 case `REACTJS`:
-                                    template += templateLanguage(language.reatjs.url, language.reatjs.svg);
-                                    verify.push(`REACTJS`);
+                                    template += templateLanguage(language.reatjs.url, language.reatjs.svg)
+                                    verify.push(`REACTJS`)
                                     break;
 
                                 case `TYPESCRIPT`:
-                                    template += templateLanguage(language.typescript.url, language.typescript.svg);
-                                    verify.push(`TYPESCRIPT`);
+                                    template += templateLanguage(language.typescript.url, language.typescript.svg)
+                                    verify.push(`TYPESCRIPT`)
                                     break;
                             }
                         }
-                    });
+                    })
 
                     //! Variable para llevar orden de las cards 
-                    let count = 1;
+                    let count = 1
 
                     //! Segun el tamanio de pantalla se ira guardando de manera diferente las cards
                     if (widthMax.matches) {
@@ -426,7 +307,7 @@ const project$1 = async (user = `leooportilla`) => {
                                                 </a>
                                             </div>
                                         </div>
-                                         </div>`);
+                                         </div>`)
                         }
 
                         if (count > 4 && count <= 8) {
@@ -486,11 +367,11 @@ const project$1 = async (user = `leooportilla`) => {
                                                 </a>
                                             </div>
                                         </div>
-                                         </div>`);
+                                         </div>`)
                         }
 
                         if (count === 8) {
-                            count = 0;
+                            count = 0
                         }
 
                     } else if (width1328px.matches) {
@@ -552,7 +433,7 @@ const project$1 = async (user = `leooportilla`) => {
                                                 </a>
                                             </div>
                                         </div>
-                                         </div>`);
+                                         </div>`)
                         }
 
                         if (count > 3 && count <= 6) {
@@ -612,11 +493,11 @@ const project$1 = async (user = `leooportilla`) => {
                                                 </a>
                                             </div>
                                         </div>
-                                         </div>`);
+                                         </div>`)
                         }
 
                         if (count === 6) {
-                            count = 0;
+                            count = 0
                         }
                     }
 
@@ -624,86 +505,86 @@ const project$1 = async (user = `leooportilla`) => {
                 });
 
                 //! Calcula cuantas seccion deben a ver en el container de las cards
-                let lenght = Math.ceil((prueba.length / countCards()) / 2);
+                let lenght = Math.ceil((prueba.length / countCards()) / 2)
 
                 //! Calcula el width para el container
-                let widthTotal = Math.ceil(lenght * config());
-                cardsOne.style.width = `${widthTotal}vw`;
-                cardsTwo.style.width = `${widthTotal}vw`;
+                let widthTotal = Math.ceil(lenght * config())
+                cardsOne.style.width = `${widthTotal}vw`
+                cardsTwo.style.width = `${widthTotal}vw`
 
                 //! Luego de tener todo las configuracion, agregamos las cards al DOM
-                document.querySelector(`.cards`).appendChild(cardsOne);
-                document.querySelector(`.cards`).appendChild(cardsTwo);
+                document.querySelector(`.cards`).appendChild(cardsOne)
+                document.querySelector(`.cards`).appendChild(cardsTwo)
 
                 //! Para esconder las flechas cuando no tenga mas de una seccion el container de las cards
                 if (lenght > 1) {
 
                     //! Variable necesarias para ir guardando el estado del movimiento en el slide
-                    let countMove = 1;
-                    let translate = 0;
+                    let countMove = 1
+                    let translate = 0
 
                     //! Pendiente al evento de la flecha derecha
                     rightButton.addEventListener(`click`, () => {
 
                         //! Si el movimiento es menor a la secciones calculadas puede trasladarse otro seccion mas
                         if (countMove < lenght) {
-                            translate += config();
-                            countMove++;
-                            cardsOne.style.transform = `translateX(-${translate}vw)`;
-                            cardsTwo.style.transform = `translateX(-${translate}vw)`;
+                            translate += config()
+                            countMove++
+                            cardsOne.style.transform = `translateX(-${translate}vw)`
+                            cardsTwo.style.transform = `translateX(-${translate}vw)`
 
                             //! Validad en cada movimiento si llegar al final de todas la secciones para rotar las flechas
                             if (countMove === lenght) {
                                 setTimeout(() => {
-                                    rightButton.classList.add(`final-arrow`);
-                                }, 1500);
+                                    rightButton.classList.add(`final-arrow`)
+                                }, 1500)
                             }
 
                             //! Por si el movimiento es mayor a la seccion, por ende la clase del final de las flecha debe estar activo debemos colocar todo por defecto
                         } else {
-                            translate = 0;
-                            countMove = 1;
-                            cardsOne.style.transform = `translateX(-${translate}vw)`;
-                            cardsTwo.style.transform = `translateX(-${translate}vw)`;
-                            rightButton.classList.remove(`final-arrow`);
+                            translate = 0
+                            countMove = 1
+                            cardsOne.style.transform = `translateX(-${translate}vw)`
+                            cardsTwo.style.transform = `translateX(-${translate}vw)`
+                            rightButton.classList.remove(`final-arrow`)
                         }
-                    });
+                    })
 
                     leftButton.addEventListener(`click`, () => {
 
                         if (countMove > 0) {
-                            translate -= config();
-                            countMove--;
-                            cardsOne.style.transform = `translateX(-${translate}vw)`;
-                            cardsTwo.style.transform = `translateX(-${translate}vw)`;
+                            translate -= config()
+                            countMove--
+                            cardsOne.style.transform = `translateX(-${translate}vw)`
+                            cardsTwo.style.transform = `translateX(-${translate}vw)`
                         }
 
                         //! Si en dado caso el usuario llega al final y luego se devulve a la seccion anterior, hacemos que las flechas de las izquierda se elimen las clases
-                        if (rightButton.classList.contains(`final-arrow`)) rightButton.classList.remove(`final-arrow`);
-                    });
+                        if (rightButton.classList.contains(`final-arrow`)) rightButton.classList.remove(`final-arrow`)
+                    })
 
                     //! Si no las tienes, escondemos las flecha quitandole la clase
                 } else {
-                    leftButton.classList.remove(`active-arrow`);
-                    rightButton.classList.remove(`active-arrow`);
+                    leftButton.classList.remove(`active-arrow`)
+                    rightButton.classList.remove(`active-arrow`)
                 }
 
             } else {
-                containerCards.innerHTML = ``;
+                containerCards.innerHTML = ``
                 containerCards.insertAdjacentHTML(`afterbegin`, `<div class="cards__error">
                                                                     <svg class="cards__error-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 634.73 597.81">
                                                                         <path d="m634.37,497.32c-.25-2.76-1.08-10.84-4.28-20.94-3.44-10.85-8.08-19.23-11.77-24.92L398.65,48.2c-1.31-2.55-3.2-5.91-5.81-9.63-1.1-1.57-6.3-8.85-15.59-16.66-3.7-3.11-10.94-9.11-22.01-14.07-3.29-1.47-15.25-6.58-31.8-7.64-11.32-.73-20.14.74-24.15,1.53-4.01.79-12.01,2.65-21.4,7.03-10.15,4.74-17.15,10.2-20.49,13-3.03,2.53-9.14,7.99-15.29,16.35-5.01,6.83-8.34,13.28-10.54,18.35L25.35,435.11c-2.66,4.45-6.41,10.93-10.55,18.95-.95,1.85-6.66,12.95-9.32,19.57-8.83,21.92-4.54,45.13-3.67,49.53,5.01,25.23,19.19,41.34,25.68,47.84,16.77,16.79,35.08,22.32,39.44,23.54,10.81,3.05,20.26,3.43,26.75,3.22l446.52-.31c4.01.24,9.36.26,15.6-.61,6.28-.88,10.89-2.32,13.75-3.21,3.72-1.16,11.12-3.72,18.96-8.26,2.93-1.69,16.97-10.04,29.05-27.05,3.52-4.97,10.6-15.14,14.52-30.42.81-3.18,3.66-15.06,2.29-30.58Zm-316.89,26.14c-20.52,0-37.15-16.63-37.15-37.14s16.63-37.15,37.15-37.15,37.14,16.63,37.14,37.15-16.63,37.14-37.14,37.14Zm37.14-149.04c0,20.51-16.63,37.14-37.14,37.14s-37.15-16.63-37.15-37.14v-185.73c0-20.52,16.63-37.15,37.15-37.15s37.14,16.63,37.14,37.15v185.73Z"/>
                                                                     </svg>
                                                                     <h1 class="cards__error-title">No contiene ningun repositorio</h1>
-                                                                 </div>`);
-                leftButton.classList.remove(`active-arrow`);
-                rightButton.classList.remove(`active-arrow`);
+                                                                 </div>`)
+                leftButton.classList.remove(`active-arrow`)
+                rightButton.classList.remove(`active-arrow`)
             }
         }
 
         //! Si capturamos algun error, toda la informacion la mandamos por defecto
     } catch (error) {
-        containerCards.innerHTML = ``;
+        containerCards.innerHTML = ``
 
         if (error.message === `403`) {
             containerCards.insertAdjacentHTML(`afterbegin`, `<div class="cards__error">
@@ -711,9 +592,9 @@ const project$1 = async (user = `leooportilla`) => {
                                                                     <path d="m634.37,497.32c-.25-2.76-1.08-10.84-4.28-20.94-3.44-10.85-8.08-19.23-11.77-24.92L398.65,48.2c-1.31-2.55-3.2-5.91-5.81-9.63-1.1-1.57-6.3-8.85-15.59-16.66-3.7-3.11-10.94-9.11-22.01-14.07-3.29-1.47-15.25-6.58-31.8-7.64-11.32-.73-20.14.74-24.15,1.53-4.01.79-12.01,2.65-21.4,7.03-10.15,4.74-17.15,10.2-20.49,13-3.03,2.53-9.14,7.99-15.29,16.35-5.01,6.83-8.34,13.28-10.54,18.35L25.35,435.11c-2.66,4.45-6.41,10.93-10.55,18.95-.95,1.85-6.66,12.95-9.32,19.57-8.83,21.92-4.54,45.13-3.67,49.53,5.01,25.23,19.19,41.34,25.68,47.84,16.77,16.79,35.08,22.32,39.44,23.54,10.81,3.05,20.26,3.43,26.75,3.22l446.52-.31c4.01.24,9.36.26,15.6-.61,6.28-.88,10.89-2.32,13.75-3.21,3.72-1.16,11.12-3.72,18.96-8.26,2.93-1.69,16.97-10.04,29.05-27.05,3.52-4.97,10.6-15.14,14.52-30.42.81-3.18,3.66-15.06,2.29-30.58Zm-316.89,26.14c-20.52,0-37.15-16.63-37.15-37.14s16.63-37.15,37.15-37.15,37.14,16.63,37.14,37.15-16.63,37.14-37.14,37.14Zm37.14-149.04c0,20.51-16.63,37.14-37.14,37.14s-37.15-16.63-37.15-37.14v-185.73c0-20.52,16.63-37.15,37.15-37.15s37.14,16.63,37.14,37.15v185.73Z"/>
                                                                 </svg>
                                                                 <h1 class="cards__error-title">Limite de Acceso</h1>
-                                                             </div>`);
-            leftButton.classList.remove(`active-arrow`);
-            rightButton.classList.remove(`active-arrow`);
+                                                             </div>`)
+            leftButton.classList.remove(`active-arrow`)
+            rightButton.classList.remove(`active-arrow`)
         }
 
         if (error.message === `404`) {
@@ -722,156 +603,9 @@ const project$1 = async (user = `leooportilla`) => {
                                                                     <path d="m634.37,497.32c-.25-2.76-1.08-10.84-4.28-20.94-3.44-10.85-8.08-19.23-11.77-24.92L398.65,48.2c-1.31-2.55-3.2-5.91-5.81-9.63-1.1-1.57-6.3-8.85-15.59-16.66-3.7-3.11-10.94-9.11-22.01-14.07-3.29-1.47-15.25-6.58-31.8-7.64-11.32-.73-20.14.74-24.15,1.53-4.01.79-12.01,2.65-21.4,7.03-10.15,4.74-17.15,10.2-20.49,13-3.03,2.53-9.14,7.99-15.29,16.35-5.01,6.83-8.34,13.28-10.54,18.35L25.35,435.11c-2.66,4.45-6.41,10.93-10.55,18.95-.95,1.85-6.66,12.95-9.32,19.57-8.83,21.92-4.54,45.13-3.67,49.53,5.01,25.23,19.19,41.34,25.68,47.84,16.77,16.79,35.08,22.32,39.44,23.54,10.81,3.05,20.26,3.43,26.75,3.22l446.52-.31c4.01.24,9.36.26,15.6-.61,6.28-.88,10.89-2.32,13.75-3.21,3.72-1.16,11.12-3.72,18.96-8.26,2.93-1.69,16.97-10.04,29.05-27.05,3.52-4.97,10.6-15.14,14.52-30.42.81-3.18,3.66-15.06,2.29-30.58Zm-316.89,26.14c-20.52,0-37.15-16.63-37.15-37.14s16.63-37.15,37.15-37.15,37.14,16.63,37.14,37.15-16.63,37.14-37.14,37.14Zm37.14-149.04c0,20.51-16.63,37.14-37.14,37.14s-37.15-16.63-37.15-37.14v-185.73c0-20.52,16.63-37.15,37.15-37.15s37.14,16.63,37.14,37.15v185.73Z"/>
                                                                 </svg>
                                                                 <h1 class="cards__error-title">Usuario no registrado</h1>
-                                                             </div>`);
-            leftButton.classList.remove(`active-arrow`);
-            rightButton.classList.remove(`active-arrow`);
+                                                             </div>`)
+            leftButton.classList.remove(`active-arrow`)
+            rightButton.classList.remove(`active-arrow`)
         }
     }
-};
-
-//! Declaracion de variables para las funcion de las skills
-const skills = document.querySelector(`.skills`);
-const containerInformation = document.querySelector(`.skills__information`);
-const information = {
-    html: {
-        title: `Que es HTML<span>?</span>`,
-        summary: `HTML (HyperText Markup Language) es un lenguaje de marcado utilizado para crear páginas web. Es la columna vertebral de cualquier sitio web y se utiliza para estructurar el contenido de la página web y darle formato. HTML utiliza etiquetas para definir diferentes tipos de contenido, como encabezados, párrafos, imágenes, enlaces y formularios. Los navegadores web utilizan el código HTML para renderizar el contenido de una página web y mostrarlo al usuario final. Es una parte fundamental del desarrollo web y es esencial para cualquier desarrollador frontend.`,
-        url: `#`,
-    },
-
-    css: {
-        title: `Que es CSS<span>?</span>`,
-        summary: `CSS (Cascading Style Sheets) es un lenguaje de diseño utilizado para dar estilo y presentación a páginas web escritas en HTML. CSS se utiliza para definir la apariencia visual de los elementos HTML en una página, como el color, el tamaño, la posición y la tipografía. Permite a los desarrolladores frontend separar la estructura y el contenido de una página web de su diseño visual, lo que hace que el código sea más fácil de mantener y actualizar. CSS se puede aplicar a elementos individuales en una página o a la página completa a través de un archivo externo. Es una herramienta esencial para cualquier desarrollador frontend que busque crear sitios web atractivos y visualmente atractivos.`,
-        url: `#`,
-    },
-
-    sass: {
-        title: `Que es Sass<span>?</span>`,
-        summary: `Sass es un preprocesador de CSS que permite a los desarrolladores escribir hojas de estilo de manera más eficiente y con menos repetición de código. Ofrece características como anidamiento de estilos, mixins y variables, y puede generar hojas de estilo automáticamente cuando se realizan cambios. Aunque tiene una sintaxis más compleja que CSS, Sass tiene muchas herramientas y una gran comunidad de usuarios.`,
-        url: `#`,
-    },
-
-    javascript: {
-        title: `Que es JavaScript<span>?</span>`,
-        summary: `JavaScript es un lenguaje de programación utilizado para crear aplicaciones web interactivas y dinámicas. Es un lenguaje de programación de alto nivel, interpretado y orientado a objetos que se ejecuta en el lado del cliente (en el navegador web) o en el lado del servidor (utilizando Node.js). JavaScript se utiliza para agregar interactividad a páginas web, como animaciones, validación de formularios, efectos de desplazamiento y mucho más. También se utiliza para crear aplicaciones web completas, incluidos juegos, aplicaciones de chat y aplicaciones empresariales. Es una herramienta esencial para cualquier desarrollador web y es una de las tecnologías más populares en la actualidad.`,
-        url: `#`,
-    },
-
-    githud: {
-        title: `Que es GitHud<span>?</span>`,
-        summary: `GitHub es una plataforma de alojamiento de proyectos y código abierto que utiliza Git como sistema de control de versiones. Fue comprada por Microsoft en 2018 y permite a los desarrolladores crear repositorios para sus aplicaciones de forma gratuita, siempre y cuando sean de código abierto. Los usuarios pueden colaborar en proyectos dejando comentarios, informando errores y realizando mejoras. Además, ofrece herramientas adicionales como un wiki para cada proyecto, un sistema de seguimiento de problemas, herramientas de revisión de código y gráficos para ver actualizaciones y cambios. Es una herramienta esencial para muchos desarrolladores y cuenta con una interfaz fácil de usar.`,
-        url: `#`,
-    },
-
-    illustrator: {
-        title: `Que es Illustrator<span>?</span>`,
-        summary: `Abode Illustrator es una aplicación de edición de gráficos vectoriales que se utiliza para la ilustración, el diseño grafico y la maquetación. Es desarrollado y comercializado por Adobe Systems y es el primer programa oficial de su tipo lanzado por la compañía. Adobe Illustrator contiene opciones creativas, un acceso mas sencillo a las herramientas y una gran versatilidad para producir rápidamente gráficos flexibles cuyos usos se dan en maquetación publicación, impresión, video, publicación en la Web y dispositivos móviles. Illustrator es compatible con otros programas de diseño y edición como Photoshop. El programa es muy conocido entre los diseñadores gráficos por la calidad de los colores en los archivos de salida.`,
-        url: `#`,
-    },
-
-    photoshop: {
-        title: `Que es Photoshop<span>?</span>`,
-        summary: `Photoshop es una herramienta de diseño gráfico y edición de imágenes que se utiliza para crear y manipular gráficos para aplicaciones web o de escritorio. Es una de las herramientas más populares en la industria y permite a los desarrolladores crear imágenes de alta calidad para utilizar en aplicaciones, sitios web y otros proyectos. Photoshop es compatible con muchos formatos de archivo diferentes, lo que permite a los desarrolladores integrar fácilmente sus diseños en sus proyectos. También cuenta con una gran cantidad de características avanzadas, como capas, filtros y herramientas de edición de texto.`,
-        url: `#`,
-    },
-
-    figma: {
-        title: `Que es Figma<span>?</span>`,
-        summary: `Figma es una herramienta de diseño de interfaces colaborativa que te permite crear, prototipar, desarrollar y recopilar comentarios en una sola plataforma. Con Figma puedes diseñar en un espacio compartido y trabajar en tiempo real con tu equipo, crear prototipos realistas que permitan iterar rápidamente sobre flujos y estados, probar la experiencia interactiva completa para obtener mejores comentarios, antes, acercar el diseño y el desarrollo con el modo Dev, un pizarrón en línea donde todos los que construyen productos pueden colaborar. Figma es una herramienta muy utilizada por equipos de diseño, desarrollo y producto que quieren construir productos significativos con facilidad y eficiencia.`,
-        url: `#`,
-    }
-
-
-};
-
-//! Plantilla para la informacion dentro de el contener de las skills
-const template = (title, summary, url) => {
-   
-    return `<div class="skills__information-header">
-        <h3>${title}</h3>
-        <svg class="close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-            <path class="cls-1"
-                d="m31.26,26.69l-.1-.11-.22-.22-.12-.11-10.23-10.24,10.57-10.57c.27-.31.49-.66.63-1.06.14-.35.21-.73.21-1.13,0-1.79-1.46-3.25-3.25-3.25-.4,0-.78.07-1.14.21-.34.12-.65.31-.93.53h0s-.42.43-.42.43l-10.25,10.25L5.75,1.18l-.21-.22-.42-.36-.06-.04c-.22-.15-.46-.27-.72-.36-.34-.13-.71-.2-1.1-.2C1.5,0,.08,1.37,0,3.09v.33c.01.33.08.64.19.94.12.35.31.67.54.96l4.81,4.81,5.87,5.87-5.87,5.86L.95,26.45l-.02.02c-.32.33-.58.72-.74,1.16-.11.3-.18.62-.19.96v.33c.08,1.72,1.51,3.08,3.24,3.08.39,0,.77-.07,1.11-.2.45-.16.86-.42,1.19-.75l10.46-10.46,10.35,10.35.22.22c.3.28.65.49,1.04.63.36.14.74.21,1.14.21,1.79,0,3.25-1.45,3.25-3.25,0-.41-.08-.8-.22-1.16-.13-.33-.3-.63-.52-.9ZM13.82,13.59l-.12.12h0s.08-.09.12-.12Z" />
-        </svg>
-    </div>
-
-    <div class="skills__information-content">
-        <p>${summary}</p>
-        <a href="${url}">Sitio Web</a>
-    </div>`
-};
-
-//! Abrir y cerrar la skills
-const skillsInformation = () => {
-
-    //! Al seleccionar algunos de las opciones de las habilidades
-    skills.addEventListener(`click`, (evento) => {
-
-        //! Busca dento el evento cual es la etiqueta con la clase mas cercana
-        const search = evento.target.closest(`.skills__container`);
-
-        //! Ademas si la etiqueta buscada contiene una de estas clases, abre la ventana y agregarle la informacion 
-        if (search?.classList.contains(`html`)) {
-            containerInformation.innerHTML = template(information.html.title, information.html.summary, information.html.url);
-            containerInformation.classList.toggle(`active`);
-        }
-
-        if (search?.classList.contains(`css`)) {
-            containerInformation.innerHTML = template(information.css.title, information.css.summary, information.css.url);
-            containerInformation.classList.toggle(`active`);
-        }
-
-        if (search?.classList.contains(`sass`)) {
-            containerInformation.innerHTML = template(information.sass.title, information.sass.summary, information.sass.url);
-            containerInformation.classList.toggle(`active`);
-        }
-
-        if (search?.classList.contains(`javascript`)) {
-            containerInformation.innerHTML = template(information.javascript.title, information.javascript.summary, information.javascript.url);
-            containerInformation.classList.toggle(`active`);
-        }
-
-        if (search?.classList.contains(`githud`)) {
-            containerInformation.innerHTML = template(information.githud.title, information.githud.summary, information.githud.url);
-            containerInformation.classList.toggle(`active`);
-        }
-
-        if (search?.classList.contains(`illustrator`)) {
-            containerInformation.innerHTML = template(information.illustrator.title, information.illustrator.summary, information.illustrator.url);
-            containerInformation.classList.toggle(`active`);
-        }
-
-        if (search?.classList.contains(`photoshop`)) {
-            containerInformation.innerHTML = template(information.photoshop.title, information.photoshop.summary, information.photoshop.url);
-            containerInformation.classList.toggle(`active`);
-        }
-
-        if (search?.classList.contains(`figma`)) {
-            containerInformation.innerHTML = template(information.figma.title, information.figma.summary, information.figma.url);
-            containerInformation.classList.toggle(`active`);
-        }
-
-        //! Evento para cerrar la ventana de las skills
-        containerInformation.addEventListener(`click`, evento => {
-
-            //! Al dar click en el boton de cerrar, quitamos la clase como tambien el contenido de lla
-            if (evento.target.closest(`.close`)) {
-                containerInformation.classList.remove(`active`);
-        
-                //! Un Timeout para que se borre el contenido sin que el usuario se pueda dar cuenta
-                setTimeout(() => {
-                    containerInformation.innerHTML = ``;
-                }, 700);
-            }
-        });
-    });
-};
-
-document.addEventListener(`DOMContentLoaded`, () => {
-    profile();
-    project$1();
-});
-
-search();
-buttonMode();
-skillsInformation();
+}

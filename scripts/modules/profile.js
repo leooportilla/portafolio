@@ -1,13 +1,13 @@
-const buttonSearch = document.querySelector(`.container__user-label`)
-const inputProfile = document.querySelector(`.container__user-input`)
-const errorProfile = document.querySelector(`.container__user-error`)
-const userName = document.querySelector(`.container__user-information-name`)
-const userImage = document.querySelector(`.container__image`)
+const userName        = document.querySelector(`.container__user-information-name`)
+const userImage       = document.querySelector(`.container__image`)
+const userGitHud      = document.querySelector(`.container__user-information-link`)
+const buttonSearch    = document.querySelector(`.container__user-label`)
+const inputProfile    = document.querySelector(`.container__user-input`)
+const errorProfile    = document.querySelector(`.container__user-error`)
+const userFollowing   = document.querySelector(`.following`)
+const userFollowers   = document.querySelector(`.followers`)
+const userRepository  = document.querySelector(`.repository`)
 const userDescription = document.querySelector(`.container__description-paragraph`)
-const userRepository = document.querySelector(`.repository`)
-const userFollowers = document.querySelector(`.followers`)
-const userFollowing = document.querySelector(`.following`)
-const userGitHud = document.querySelector(`.container__user-information-link`)
 
 //! Carga de los perfiles, por defecto al carga la pagina tendra los datos de Leonardo Portilla
 export const profile = async (user = `leooportilla`) => {
@@ -93,9 +93,7 @@ export const search = () => {
                 }, 1300)
 
                 profile(inputProfile.value)
-
-                /* profile(text.value)
-                project(text.value) */
+                project(text.value) 
 
             } else {
                 errorProfile.classList.add(`active-error`)

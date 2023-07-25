@@ -1,0 +1,39 @@
+//! Colores, fuentes y tamanios
+@use "./variable.scss"as *;
+
+//! Mixin funcionales 
+@use "./mixin.scss"as *;
+
+//! Key Frames - Animaciones
+@use "./keyframe.scss"as *;
+
+@media (max-width: 1328px) {
+
+    .project__projects .cards__container-card {
+        width: 26vw;
+    }
+}
+
+/* //! 1024px
+@media (max-width: map-get($Resolution, "Laptop")) {
+}
+
+//! 960px
+@media (max-width: map-get($Resolution, "TabletStandard")) {
+}
+
+//! 768px
+@media (max-width: map-get($Resolution, "TabletSmall")) {
+}
+
+//! 600px
+@media (max-width: map-get($Resolution, "TabletMini")) {
+}
+
+//! 480px
+@media (max-width: map-get($Resolution, "MovilStandard")) {
+}
+
+//! 375px
+@media (max-width: map-get($Resolution, "MovilSmall")) {
+} */

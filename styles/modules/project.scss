@@ -160,22 +160,79 @@
         width: 100%;
         height: 60%;
         position: relative;
+        overflow: hidden;
+        
+        &-arrowleft {
+            position: absolute;
+            left: 5vw;
+            top: 45%;
+            cursor: pointer;
+            transition: 2s all;
+            transform: translateX(-6vw);
+
+            &-icon {
+                position: relative;
+                height: 2rem;
+                animation: Swipe 2s infinite;
+            }
+
+            &-iconsmall {
+                height: 1.5rem;
+                position: absolute;
+                top: .25rem;
+                left: -1rem;
+                animation: SwipeSmall 2s infinite;
+            }
+        }
+
+        &-arrowright {
+            position: absolute;
+            right: 5vw;
+            top: 45%;
+            cursor: pointer;
+            transition: 2s all;
+            transform: translateX(6vw);
+            
+
+            &-icon {
+                position: relative;
+                height: 2rem;
+                animation: Swipe 2s infinite;
+            }
+
+            &-iconsmall {
+                height: 1.5rem;
+                position: absolute;
+                top: .25rem;
+                left: 1rem;
+                animation: SwipeSmall 2s infinite;
+            }
+        }
+
+        .active-arrow {
+            transform: translateX(0);
+        }
+
+        .final-arrow {
+            transform: rotate(180deg);
+        }
 
         .cards {
-            width: 100%;
+            width: 86vw;
             height: 100%;
-            @include flex(flex-start, center, column);
-            row-gap: 2rem;
+            @include flex(flex-start, flex-start, column);
+            row-gap: 1.5vw;
+            overflow: hidden;
             position: relative;
 
             &__container {
                 height: 45%;
-                @include flex(center, center, row);
-                column-gap: 2rem;
-                width: 85vw;
+                @include flex(flex-start, flex-start, row);
+                transition: 2s all;
+                column-gap: 1.5vw;
 
                 &-card {
-                    width: 100%;
+                    width: 20vw;
                     height: 100%;
                     border-radius: 1.5rem;
                     overflow: hidden;
@@ -388,26 +445,23 @@
                 }
             }
 
-            &__arrowleft {
-                position: absolute;
-                left: -3rem;
-                top: 45%;
-                cursor: pointer;
-                transform: rotate(180deg);
+            &__error {
+                margin: auto;
+                @include flex(center, center, column);
+                row-gap: 2rem;
 
-                &-icon {
-                    height: 2rem;
+                &-svg {
+                    margin: auto;
+                    width: 15rem;
+                    color: var(--first);
+                    filter: drop-shadow(0 5px 5px rgb(35, 37, 40, .4));
                 }
-            }
 
-            &__arrowright {
-                position: absolute;
-                right: -3rem;
-                top: 45%;
-                cursor: pointer;
-
-                &-icon {
-                    height: 2rem;
+                &-title {
+                    font-family: var(--paragraphBig);
+                    font-size: 1rem;
+                    letter-spacing: .1rem;
+                    color: var(--alternative);
                 }
             }
         }
