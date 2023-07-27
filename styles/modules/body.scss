@@ -9,6 +9,18 @@ body {
     background-color: var(--main);
     width: 100%;
 
+    
+    //! Disenio para barra de scroll
+    &::-webkit-scrollbar {
+        width: .4rem;
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--first);
+        border-radius: .4rem;
+    }
+
     .buttonhome {
         position: fixed;
         bottom: 2rem;
