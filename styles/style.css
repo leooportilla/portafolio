@@ -477,7 +477,7 @@ header .nav .hover::after {
 }
 .home__container {
   width: 100%;
-  height: 25%;
+  height: 25vh;
   position: absolute;
   bottom: 0;
   transform: rotate(0);
@@ -577,7 +577,7 @@ header .nav .hover::after {
 }
 .about__hability .skills__information {
   width: 95%;
-  height: 95%;
+  height: 100%;
   background-color: var(--alternativeFixed);
   display: flex;
   justify-content: flex-start;
@@ -586,7 +586,6 @@ header .nav .hover::after {
   row-gap: 2rem;
   padding: 2rem;
   border-radius: 1.5rem;
-  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
   position: absolute;
   z-index: 10;
   transform: translateX(-101%);
@@ -672,7 +671,7 @@ header .nav .hover::after {
 .about__container {
   background-color: var(--main);
   width: 100%;
-  height: 25%;
+  height: 25vh;
   position: absolute;
   bottom: 0;
   transform: rotate(180deg);
@@ -1416,7 +1415,7 @@ header .nav .hover::after {
 }
 .contact__container {
   width: 100%;
-  height: 25%;
+  height: 25vh;
   position: absolute;
   bottom: 0;
   transform: rotate(0);
@@ -1469,8 +1468,15 @@ header .nav .hover::after {
 }
 
 @media (max-width: 1328px) {
-  .project__projects .cards__container-card {
-    width: 26vw;
+  .about {
+    height: 100%;
+  }
+  .about__hability {
+    padding-top: 0;
+    height: 100%;
+  }
+  .about__container {
+    position: static;
   }
 }
 /* //! 1024px

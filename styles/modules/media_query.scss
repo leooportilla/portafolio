@@ -9,8 +9,17 @@
 
 @media (max-width: 1328px) {
 
-    .project__projects .cards__container-card {
-        width: 26vw;
+    .about {
+        height: 100%;
+
+        &__hability {
+            padding-top: 0;
+            height: 100%;
+        }
+
+        &__container {
+            position: static;
+        }
     }
 }
 

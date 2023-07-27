@@ -64,13 +64,12 @@
 
             &__information {
                 width: 95%;
-                height: 95%;
+                height: 100%;
                 background-color: var(--alternativeFixed);
                 @include flex(flex-start, flex-start, column);
                 row-gap: 2rem;
                 padding: 2rem;
                 border-radius: 1.5rem;
-                @include boxShadow();
                 position: absolute;
                 z-index: 10;
                 transform: translateX(-101%);
@@ -165,7 +164,6 @@
 
     &__container {
         background-color: var(--main);
-        ;
-        @include containerWave(180deg)
+        @include containerWave(180deg);
     }
 }
