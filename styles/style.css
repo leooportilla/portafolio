@@ -1479,28 +1479,175 @@ header .nav .hover::after {
     position: static;
   }
 }
-/* //! 1024px
-@media (max-width: map-get($Resolution, "Laptop")) {
+@media (max-width: 1024px) {
+  .home__biography {
+    column-gap: 3rem;
+  }
+  .home__biography-profile {
+    width: 20rem;
+  }
+  .home__biography .headline__text-name {
+    font-size: 2.5rem;
+  }
+  .home__biography .headline__text-name span {
+    font-size: 3rem;
+  }
+  .home__biography .headline__text-summary {
+    color: var(--three);
+    font-family: var(--paragraph);
+    font-size: 0.8rem;
+  }
+  .home__biography .headline__container {
+    column-gap: 1rem;
+  }
 }
-
-//! 960px
-@media (max-width: map-get($Resolution, "TabletStandard")) {
+@media (max-width: 960px) {
+  .home {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: var(--main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  .home__biography {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    column-gap: 4rem;
+  }
+  .home__biography-profile {
+    width: 25rem;
+  }
+  .home__biography .headline {
+    font-family: var(--paragraphBig);
+    color: var(--alternative);
+    letter-spacing: 0.1rem;
+  }
+  .home__biography .headline__text {
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    column-gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  .home__biography .headline__text .red {
+    color: var(--first);
+  }
+  .home__biography .headline__text-name {
+    font-size: 3rem;
+  }
+  .home__biography .headline__text-name span {
+    color: var(--first);
+    font-family: var(--title);
+    font-size: 4rem;
+  }
+  .home__biography .headline__text-summary {
+    color: var(--three);
+    font-family: var(--paragraph);
+    font-size: 1rem;
+  }
+  .home__biography .headline__container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    column-gap: 2rem;
+  }
+  .home__biography .headline__container-links {
+    color: var(--alternativeFixed);
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    padding: 0.75rem 2rem 0.75rem 1rem;
+    border-radius: 1rem;
+    background-color: var(--second);
+    box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    column-gap: 0.5rem;
+  }
+  .home__biography .headline__container-links .svg {
+    width: fit-content;
+    height: 1rem;
+    transition: 1s all;
+  }
+  .home__biography .headline__container-links .title {
+    font-family: var(--paragraph);
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    transition: 1s all;
+  }
+  .home__biography .headline__container-links .arrow {
+    width: auto;
+    height: 1rem;
+    position: absolute;
+    right: 0.75rem;
+    opacity: 0;
+    transition: 1s all;
+    transform: translateX(-10rem);
+  }
+  .home__biography .headline__container-links:hover .svg {
+    opacity: 0;
+    transform: translateX(-1.5rem);
+  }
+  .home__biography .headline__container-links:hover .title {
+    transform: translateX(-1.5rem);
+  }
+  .home__biography .headline__container-links:hover .arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .home__container {
+    width: 100%;
+    height: 25vh;
+    position: absolute;
+    bottom: 0;
+    transform: rotate(0);
+  }
+  .home__container-one {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url(../media/images/wave_one.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: 0%;
+    position: absolute;
+    bottom: 0;
+    animation: Move 100s infinite;
+  }
+  .home__container-two {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url(../media/images/wave_two.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: 0%;
+    position: absolute;
+    bottom: 0;
+    animation: Move 110s infinite reverse;
+  }
+  .home__container-three {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url(../media/images/wave_three.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: 0%;
+    position: absolute;
+    bottom: 0;
+    animation: Move 120s infinite alternate;
+  }
 }
-
-//! 768px
-@media (max-width: map-get($Resolution, "TabletSmall")) {
-}
-
-//! 600px
-@media (max-width: map-get($Resolution, "TabletMini")) {
-}
-
-//! 480px
-@media (max-width: map-get($Resolution, "MovilStandard")) {
-}
-
-//! 375px
-@media (max-width: map-get($Resolution, "MovilSmall")) {
-} */
 
 /*# sourceMappingURL=style.css.map */
