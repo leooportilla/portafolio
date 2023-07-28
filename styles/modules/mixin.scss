@@ -65,6 +65,33 @@
     }
 } 
 
+//! Estandar del button en la pagina
+@mixin buttonSmall () {
+    padding: 1rem;
+    border-radius: 50%;
+
+    .svg {
+        height: 1.5rem;
+    }
+
+    .title {
+        display: none;
+    }
+
+    .arrow {
+        display: none;
+    }
+
+    &:hover .svg {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    &:active {
+        filter: brightness(0.8);
+    }
+}
+
 //! Formato para todas las wave
 @mixin containerWave($direction : 0) {
     width: 100%;

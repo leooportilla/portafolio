@@ -59,8 +59,12 @@ header {
     .nav {
         @include flex(center, center, row);
         column-gap: 1rem;
+
+        &__close {
+            display: none;
+        }
         
-        &__links {
+        &__section {
             @include flex(center, center, row);
             background-color: var(--main);
             height: 2rem;
@@ -68,6 +72,10 @@ header {
             border-radius: 1rem;
             position: relative;
             overflow: hidden;
+
+            &-svg {
+                display: none
+            }
     
             span {
                 @include flex(center, center, row);
@@ -85,7 +93,7 @@ header {
                 height: 2.5rem;
                 background-color: var(--first);
                 border-radius: 5rem;
-                transform: translateX(-100%);
+                transform: translateX(-150%);
                 transition: 1s all;
                 z-index: 1;
             }
@@ -109,5 +117,13 @@ header {
                 transform: translateX(0);
             }
         }
+
+        &__container {
+            display: none;
+        }
+    }
+
+    .menu {
+        display: none;
     }
 }
