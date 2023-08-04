@@ -237,6 +237,9 @@ body .buttonhome__button:hover .arrow {
 body .active-button {
   transform: translateX(0);
 }
+body main {
+  overflow: hidden;
+}
 
 header {
   width: 100%;

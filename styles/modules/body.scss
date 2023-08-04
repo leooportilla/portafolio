@@ -37,4 +37,8 @@ body {
     .active-button {
         transform: translateX(0);
     }
+
+    main {
+        overflow: hidden;
+    }
 }
