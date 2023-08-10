@@ -91,11 +91,13 @@ export const project = async (user = `leooportilla`) => {
         //! Si la peticion es correcta mandamos la informacion a la pagina
         if (answer.status === 200) {
 
+            //! InnetHTML para cuando vuelva a cargar un perfil vacie los projectos viejos
+            containerCards.innerHTML = ``
+            cardsOne.innerHTML = ``
+            cardsTwo.innerHTML = ``
+
             //! Si la persona no contiene ningun repositorio
             if (data.length > 0) {
-
-                //! InnetHTML para cuando vuelva a cargar un perfil vacie los projectos viejos
-                containerCards.innerHTML = ``
 
                 //! Ordenar los projectos segun los favoritos de cada cuenta
                 data.sort((a, b) => a.stargazers_count - b.stargazers_count)
@@ -507,7 +509,7 @@ export const project = async (user = `leooportilla`) => {
                 });
 
                 //! Calcula cuantas seccion deben a ver en el container de las cards
-                let lenght = Math.ceil((data.length / countCards()) / 2)
+                const lenght = Math.ceil((data.length / countCards()) / 2)
 
                 //! Calcula el width para el container
                 let widthTotal = Math.ceil(lenght * config())
@@ -518,60 +520,15 @@ export const project = async (user = `leooportilla`) => {
                 containerCards.appendChild(cardsOne)
                 containerCards.appendChild(cardsTwo)
 
-
                 //! Para esconder las flechas cuando no tenga mas de una seccion el container de las cards
-                if (lenght > 1) {
-
-                    //! Variable necesarias para ir guardando el estado del movimiento en el slide
-                    let countMove = 1
-                    let translate = 0
-
-                    //! Pendiente al evento de la flecha derecha
-                    rightButton.addEventListener(`click`, () => {
-
-                        //! Si el movimiento es menor a la secciones calculadas puede trasladarse otro seccion mas
-                        if (countMove < lenght) {
-                            translate += config()
-                            countMove++
-                            cardsOne.style.transform = `translateX(-${translate}vw)`
-                            cardsTwo.style.transform = `translateX(-${translate}vw)`
-
-                            //! Validad en cada movimiento si llegar al final de todas la secciones para rotar las flechas
-                            if (countMove === lenght) {
-                                svgRightArrow.forEach(arrow => arrow.classList.add(`active-svg`))
-                            }
-
-                            //! Por si el movimiento es mayor a la seccion, por ende la clase del final de las flecha debe estar activo debemos colocar todo por defecto
-                        } else {
-                            translate = 0
-                            countMove = 1
-                            cardsOne.style.transform = `translateX(-${translate}vw)`
-                            cardsTwo.style.transform = `translateX(-${translate}vw)`
-                            svgRightArrow.forEach(arrow => arrow.classList.remove(`active-svg`))
-                        }
-                    })
-
-                    leftButton.addEventListener(`click`, () => {
-
-                        if (countMove > 0) {
-                            translate -= config()
-                            countMove--
-                            cardsOne.style.transform = `translateX(-${translate}vw)`
-                            cardsTwo.style.transform = `translateX(-${translate}vw)`
-                        }
-
-                        //! Si en dado caso el usuario llega al final y luego se devulve a la seccion anterior, hacemos que las flechas de las izquierda se elimen las clases
-                        if (svgRightArrow[0].classList.contains(`active-svg`)) svgRightArrow.forEach(arrow => arrow.classList.remove(`active-svg`))
-                    })
-
-                    //! Si no las tienes, escondemos las flecha quitandole la clase
-                } else {
+                if (lenght <= 0) {
                     leftButton.classList.remove(`active-arrow`)
                     rightButton.classList.remove(`active-arrow`)
                 }
 
+                localStorage.setItem(`Lenght`, lenght)
+
             } else {
-                containerCards.innerHTML = ``
                 containerCards.insertAdjacentHTML(`afterbegin`, `<div class="cards__error">
                                                                     <svg class="cards__error-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 634.73 597.81">
                                                                         <path d="m634.37,497.32c-.25-2.76-1.08-10.84-4.28-20.94-3.44-10.85-8.08-19.23-11.77-24.92L398.65,48.2c-1.31-2.55-3.2-5.91-5.81-9.63-1.1-1.57-6.3-8.85-15.59-16.66-3.7-3.11-10.94-9.11-22.01-14.07-3.29-1.47-15.25-6.58-31.8-7.64-11.32-.73-20.14.74-24.15,1.53-4.01.79-12.01,2.65-21.4,7.03-10.15,4.74-17.15,10.2-20.49,13-3.03,2.53-9.14,7.99-15.29,16.35-5.01,6.83-8.34,13.28-10.54,18.35L25.35,435.11c-2.66,4.45-6.41,10.93-10.55,18.95-.95,1.85-6.66,12.95-9.32,19.57-8.83,21.92-4.54,45.13-3.67,49.53,5.01,25.23,19.19,41.34,25.68,47.84,16.77,16.79,35.08,22.32,39.44,23.54,10.81,3.05,20.26,3.43,26.75,3.22l446.52-.31c4.01.24,9.36.26,15.6-.61,6.28-.88,10.89-2.32,13.75-3.21,3.72-1.16,11.12-3.72,18.96-8.26,2.93-1.69,16.97-10.04,29.05-27.05,3.52-4.97,10.6-15.14,14.52-30.42.81-3.18,3.66-15.06,2.29-30.58Zm-316.89,26.14c-20.52,0-37.15-16.63-37.15-37.14s16.63-37.15,37.15-37.15,37.14,16.63,37.14,37.15-16.63,37.14-37.14,37.14Zm37.14-149.04c0,20.51-16.63,37.14-37.14,37.14s-37.15-16.63-37.15-37.14v-185.73c0-20.52,16.63-37.15,37.15-37.15s37.14,16.63,37.14,37.15v185.73Z"/>
@@ -609,4 +566,55 @@ export const project = async (user = `leooportilla`) => {
             rightButton.classList.remove(`active-arrow`)
         }
     }
+}
+
+export const arrow = () => {
+
+    //! Variable necesarias para ir guardando el estado del movimiento en el slide
+    let countMove = 1
+    let translate = 0
+
+    //! Pendiente al evento de la flecha derecha
+    rightButton.addEventListener(`click`, () => {
+
+        if (rightButton.classList.contains(`active-arrow`)) {
+
+            //! Si el movimiento es menor a la secciones calculadas puede trasladarse otro seccion mas
+            if (countMove < parseInt(localStorage.getItem(`Lenght`))) {
+                translate += config()
+                countMove++
+                cardsOne.style.transform = `translateX(-${translate}vw)`
+                cardsTwo.style.transform = `translateX(-${translate}vw)`
+
+                //! Validad en cada movimiento si llegar al final de todas la secciones para rotar las flechas
+                if (countMove === parseInt(localStorage.getItem(`Lenght`))) {
+                    svgRightArrow.forEach(arrow => arrow.classList.add(`active-svg`))
+                }
+
+                //! Por si el movimiento es mayor a la seccion, por ende la clase del final de las flecha debe estar activo debemos colocar todo por defecto
+            } else {
+                countMove = 1
+                translate = 0
+                cardsOne.style.transform = `translateX(-${translate}vw)`
+                cardsTwo.style.transform = `translateX(-${translate}vw)`
+                svgRightArrow.forEach(arrow => arrow.classList.remove(`active-svg`))
+            }
+        }
+    })
+
+    leftButton.addEventListener(`click`, () => {
+
+        if (leftButton.classList.contains(`active-arrow`)) {
+            if (countMove > 0) {
+                translate -= config()
+                countMove--
+                cardsOne.style.transform = `translateX(-${translate}vw)`
+                cardsTwo.style.transform = `translateX(-${translate}vw)`
+            }
+    
+            //! Si en dado caso el usuario llega al final y luego se devulve a la seccion anterior, hacemos que las flechas de las izquierda se elimen las clases
+            if (svgRightArrow[0].classList.contains(`active-svg`)) svgRightArrow.forEach(arrow => arrow.classList.remove(`active-svg`))
+        }
+    })
+
 }

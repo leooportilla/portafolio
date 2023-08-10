@@ -487,14 +487,12 @@
                     <form class="form__content" action="">
 
                         <div class="form__content-header">
-                            <input class="form__content-header-name" type="text" name="name" id="name"
-                                pattern="^[a-zA-z0-9]{3,39}$" spellcheck="false" placeholder="Nombre">
-
-                            <input class="form__content-header-email" type="email" name="email" id="email"
-                                pattern="^[a-zA-z0-9]{3,39}$" spellcheck="false" placeholder="Correo electronico">
+                            <input class="form__content-header-name" type="text" name="name" id="name" required spellcheck="false" placeholder="Nombre" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$">
+                            <input class="form__content-header-email" type="email" name="email" id="email" required
+                                pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" spellcheck="false" placeholder="Correo electronico">
                         </div>
 
-                        <textarea class="form__content-messange" name="messange" pattern=""
+                        <textarea class="form__content-messange" name="messange" pattern=" ^.{1,255}$" required
                             placeholder="Mensaje que desea enviar"></textarea>
 
                         <div class="form__content-button">

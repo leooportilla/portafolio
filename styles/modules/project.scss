@@ -186,7 +186,7 @@
 
         &-arrowright {
             position: absolute;
-            right: 5vw;
+            right: 6vw;
             top: 45%;
             cursor: pointer;
             transition: 2s all;
@@ -249,8 +249,7 @@
                         @include flex(space-between, center, column);
                         padding: 1.5rem;
                         transition: 1s all;
-                        opacity: 0;
-                        transform: translateY(-100%);
+                        transform: translateX(-100%);
 
                         &__information {
                             height: fit-content;
@@ -434,8 +433,7 @@
                     }
 
                     &:hover .hover {
-                        opacity: 1;
-                        transform: translateY(0);
+                        transform: translateX(0);
                     }
                 }
             }

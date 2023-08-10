@@ -923,7 +923,7 @@ header .menu {
 }
 .project__projects-arrowright {
   position: absolute;
-  right: 5vw;
+  right: 6vw;
   top: 45%;
   cursor: pointer;
   transition: 2s all;
@@ -990,8 +990,7 @@ header .menu {
   flex-direction: column;
   padding: 1.5rem;
   transition: 1s all;
-  opacity: 0;
-  transform: translateY(-100%);
+  transform: translateX(-100%);
 }
 .project__projects .cards__container-card .hover__information {
   height: fit-content;
@@ -1169,8 +1168,7 @@ header .menu {
   height: 100%;
 }
 .project__projects .cards__container-card:hover .hover {
-  opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 .project__projects .cards__error {
   margin: auto;
