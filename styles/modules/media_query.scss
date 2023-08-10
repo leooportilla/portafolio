@@ -9,6 +9,17 @@
 
 @media (max-width: 1328px) {
 
+    .home {
+
+        &__biography {
+
+            &-profile {
+                width: 20rem;
+            }
+        }
+
+    }
+
     .about {
         height: 100%;
 
@@ -49,6 +60,48 @@
 
         .headline__container {
             column-gap: 1rem;
+        }
+    }
+
+    .about {
+        height: 100%;
+
+        &__hability {
+            padding-top: 0;
+            height: 100%;
+
+            &-information {
+
+                &-paragraph {
+                    font-size: .8rem;
+                }
+            }
+
+            .skills {
+                grid-template-columns: repeat(auto-fit, minmax(7rem, 8rem));
+                grid-template-rows: repeat(auto-fit, minmax(7rem, 8rem));
+
+                &__information {
+
+                    &-header {
+
+                        h3 {
+                            font-size: 1.5rem;
+                        }
+                    }
+
+                    &-content {
+                        
+                        p {
+                            font-size: .8rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__container {
+            position: static;
         }
     }
 
@@ -184,9 +237,7 @@
 }
 
 //! 768px
-@media (max-width: 768px) {
-
-}
+@media (max-width: 768px) {}
 
 //! 600px
 @media (max-width: 600px) {
@@ -231,44 +282,45 @@
 
 //! 480px
 @media (max-width: 480px) {
-        //! Header de toda la pagina
-        header {
 
-            .nav {
-                width: 100%;
-    
-            }
+    //! Header de toda la pagina
+    header {
+
+        .nav {
+            width: 100%;
+
         }
-    
-        .home {
+    }
 
-            &__biography {
-                row-gap: 1rem;
+    .home {
 
-                &-profile {
-                    width: 13rem;
-                }
-    
-                .headline {
-    
-                    &__text {
-    
-                        &-name {
-                            font-size: 1.5rem;
-    
-                            span {
-                                font-size: 2rem;
-                            }
+        &__biography {
+            row-gap: 1rem;
+
+            &-profile {
+                width: 13rem;
+            }
+
+            .headline {
+
+                &__text {
+
+                    &-name {
+                        font-size: 1.5rem;
+
+                        span {
+                            font-size: 2rem;
                         }
-    
-                        &-summary {
-                            font-size: .7rem;
-                        }
-    
                     }
+
+                    &-summary {
+                        font-size: .7rem;
+                    }
+
                 }
             }
         }
+    }
 }
 
 //! 375px

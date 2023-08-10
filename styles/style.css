@@ -365,28 +365,6 @@ header .menu {
     background-position-x: 1%;
   }
 }
-@keyframes Swipe {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(0.2rem);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-@keyframes SwipeSmall {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(0.25rem);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
 .home {
   width: 100%;
   height: 100vh;
@@ -740,6 +718,7 @@ header .menu {
 }
 .project__profile {
   padding: 0 7vw;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -935,14 +914,12 @@ header .menu {
 .project__projects-arrowleft-icon {
   position: relative;
   height: 2rem;
-  animation: Swipe 2s infinite;
 }
 .project__projects-arrowleft-iconsmall {
   height: 1.5rem;
   position: absolute;
   top: 0.25rem;
   left: -1rem;
-  animation: SwipeSmall 2s infinite;
 }
 .project__projects-arrowright {
   position: absolute;
@@ -955,23 +932,23 @@ header .menu {
 .project__projects-arrowright-icon {
   position: relative;
   height: 2rem;
-  animation: Swipe 2s infinite;
+  transition: 1s all;
 }
 .project__projects-arrowright-iconsmall {
   height: 1.5rem;
   position: absolute;
   top: 0.25rem;
   left: 1rem;
-  animation: SwipeSmall 2s infinite;
+  transition: 1s all;
+}
+.project__projects-arrowright .active-svg {
+  transform: scaleX(-1);
 }
 .project__projects .active-arrow {
   transform: translateX(0);
 }
-.project__projects .final-arrow {
-  transform: rotate(180deg);
-}
 .project__projects .cards {
-  width: 86vw;
+  width: 85vw;
   height: 100%;
   display: flex;
   justify-content: flex-start;
@@ -1013,8 +990,8 @@ header .menu {
   flex-direction: column;
   padding: 1.5rem;
   transition: 1s all;
-  opacity: 1;
-  transform: translateY(0%);
+  opacity: 0;
+  transform: translateY(-100%);
 }
 .project__projects .cards__container-card .hover__information {
   height: fit-content;
@@ -1042,17 +1019,15 @@ header .menu {
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
-  column-gap: 0.5rem;
+  column-gap: 0.2rem;
 }
 .project__projects .cards__container-card .hover__information-title-star .icon {
   width: 1rem;
-  height: 1rem;
   color: var(--mainFixed);
 }
 .project__projects .cards__container-card .hover__information-title-star .count {
   font-family: var(--paragraph);
   font-size: 1rem;
-  letter-spacing: 0.1rem;
   color: var(--mainFixed);
 }
 .project__projects .cards__container-card .hover__information-paragraph {
@@ -1061,7 +1036,6 @@ header .menu {
   letter-spacing: 0.1rem;
   line-height: 1.6;
   color: var(--mainFixed);
-  text-align: justify;
 }
 .project__projects .cards__container-card .hover__information .skills {
   display: flex;
@@ -1194,7 +1168,7 @@ header .menu {
   width: 100%;
   height: 100%;
 }
-.project__projects .cards__container-card:hover .cards__container-card-hover {
+.project__projects .cards__container-card:hover .hover {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1483,6 +1457,9 @@ header .menu {
 }
 
 @media (max-width: 1328px) {
+  .home__biography-profile {
+    width: 20rem;
+  }
   .about {
     height: 100%;
   }
@@ -1514,6 +1491,29 @@ header .menu {
   }
   .home__biography .headline__container {
     column-gap: 1rem;
+  }
+  .about {
+    height: 100%;
+  }
+  .about__hability {
+    padding-top: 0;
+    height: 100%;
+  }
+  .about__hability-information-paragraph {
+    font-size: 0.8rem;
+  }
+  .about__hability .skills {
+    grid-template-columns: repeat(auto-fit, minmax(7rem, 8rem));
+    grid-template-rows: repeat(auto-fit, minmax(7rem, 8rem));
+  }
+  .about__hability .skills__information-header h3 {
+    font-size: 1.5rem;
+  }
+  .about__hability .skills__information-content p {
+    font-size: 0.8rem;
+  }
+  .about__container {
+    position: static;
   }
 }
 @media (max-width: 960px) {

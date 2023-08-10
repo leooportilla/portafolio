@@ -16,6 +16,7 @@
 
     &__profile {
         padding: 0 7vw;
+        width: 100%;
         @include flex(flex-start, flex-start, column);
         row-gap: 2rem;
 
@@ -173,7 +174,6 @@
             &-icon {
                 position: relative;
                 height: 2rem;
-                animation: Swipe 2s infinite;
             }
 
             &-iconsmall {
@@ -181,7 +181,6 @@
                 position: absolute;
                 top: .25rem;
                 left: -1rem;
-                animation: SwipeSmall 2s infinite;
             }
         }
 
@@ -193,11 +192,10 @@
             transition: 2s all;
             transform: translateX(6vw);
             
-
             &-icon {
                 position: relative;
                 height: 2rem;
-                animation: Swipe 2s infinite;
+                transition: 1s all;
             }
 
             &-iconsmall {
@@ -205,7 +203,11 @@
                 position: absolute;
                 top: .25rem;
                 left: 1rem;
-                animation: SwipeSmall 2s infinite;
+                transition: 1s all;
+            }
+
+            .active-svg {
+                transform: scaleX(-1);
             }
         }
 
@@ -213,12 +215,8 @@
             transform: translateX(0);
         }
 
-        .final-arrow {
-            transform: rotate(180deg);
-        }
-
         .cards {
-            width: 86vw;
+            width: 85vw;
             height: 100%;
             @include flex(flex-start, flex-start, column);
             row-gap: 1.5vw;
@@ -251,8 +249,8 @@
                         @include flex(space-between, center, column);
                         padding: 1.5rem;
                         transition: 1s all;
-                        opacity: 1;
-                        transform: translateY(0%);
+                        opacity: 0;
+                        transform: translateY(-100%);
 
                         &__information {
                             height: fit-content;
@@ -272,18 +270,16 @@
 
                                 &-star {
                                     @include flex(flex-start, center, row);
-                                    column-gap: .5rem;
+                                    column-gap: .2rem;
 
                                     .icon {
                                         width: 1rem;
-                                        height: 1rem;
                                         color: var(--mainFixed);
                                     }
 
                                     .count {
                                         font-family: var(--paragraph);
                                         font-size: 1rem;
-                                        letter-spacing: .1rem;
                                         color: var(--mainFixed);
                                     }
                                 }
@@ -295,7 +291,6 @@
                                 letter-spacing: .1rem;
                                 line-height: 1.6;
                                 color: var(--mainFixed);
-                                text-align: justify;
                             }
 
                             .skills {
@@ -438,7 +433,7 @@
                         height: 100%;
                     }
 
-                    &:hover .cards__container-card-hover {
+                    &:hover .hover {
                         opacity: 1;
                         transform: translateY(0);
                     }

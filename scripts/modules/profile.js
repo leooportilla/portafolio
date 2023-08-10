@@ -1,3 +1,5 @@
+import { project } from "./project";
+
 const userName        = document.querySelector(`.container__user-information-name`)
 const userImage       = document.querySelector(`.container__image`)
 const userGitHud      = document.querySelector(`.container__user-information-link`)
@@ -48,7 +50,7 @@ export const profile = async (user = `leooportilla`) => {
         }
 
         if (error.message === `403`) {
-            userImage.innerHTML = `Limite de Acceso`
+            userName.innerHTML = `Limite de Acceso`
             userDescription.innerHTML = `Lo siento mucho, pero en este momento el acceso a la información que estás buscando ha sido limitado. Por favor, inténtalo de nuevo más tarde asi puedes acceder a la información que necesitas`
         }
 
@@ -93,7 +95,7 @@ export const search = () => {
                 }, 1300)
 
                 profile(inputProfile.value)
-                project(text.value) 
+                project(inputProfile.value) 
 
             } else {
                 errorProfile.classList.add(`active-error`)
