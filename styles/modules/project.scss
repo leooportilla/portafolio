@@ -169,7 +169,8 @@
             top: 45%;
             cursor: pointer;
             transition: 2s all;
-            transform: translateX(-6vw);
+            opacity: 0;
+            transform: translateX(-3vw);
 
             &-icon {
                 position: relative;
@@ -190,7 +191,8 @@
             top: 45%;
             cursor: pointer;
             transition: 2s all;
-            transform: translateX(6vw);
+            opacity: 0;
+            transform: translateX(3vw);
             
             &-icon {
                 position: relative;
@@ -212,6 +214,7 @@
         }
 
         .active-arrow {
+            opacity: 1;
             transform: translateX(0);
         }
 
@@ -235,7 +238,6 @@
                     border-radius: 1.5rem;
                     overflow: hidden;
                     position: relative;
-                    cursor: pointer;
                     @include boxShadow();
 
                     .hover {

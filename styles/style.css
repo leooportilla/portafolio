@@ -909,7 +909,8 @@ header .menu {
   top: 45%;
   cursor: pointer;
   transition: 2s all;
-  transform: translateX(-6vw);
+  opacity: 0;
+  transform: translateX(-3vw);
 }
 .project__projects-arrowleft-icon {
   position: relative;
@@ -927,7 +928,8 @@ header .menu {
   top: 45%;
   cursor: pointer;
   transition: 2s all;
-  transform: translateX(6vw);
+  opacity: 0;
+  transform: translateX(3vw);
 }
 .project__projects-arrowright-icon {
   position: relative;
@@ -945,6 +947,7 @@ header .menu {
   transform: scaleX(-1);
 }
 .project__projects .active-arrow {
+  opacity: 1;
   transform: translateX(0);
 }
 .project__projects .cards {
@@ -973,7 +976,6 @@ header .menu {
   border-radius: 1.5rem;
   overflow: hidden;
   position: relative;
-  cursor: pointer;
   box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
 }
 .project__projects .cards__container-card .hover {

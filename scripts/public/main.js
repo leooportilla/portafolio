@@ -603,6 +603,9 @@ const project = async (user = `leooportilla`) => {
                 if (lenght <= 0) {
                     leftButton.classList.remove(`active-arrow`);
                     rightButton.classList.remove(`active-arrow`);
+                } else if (lenght > 0) {
+                    leftButton.classList.add(`active-arrow`);
+                    rightButton.classList.add(`active-arrow`);
                 }
 
                 localStorage.setItem(`Lenght`, lenght);
@@ -942,7 +945,7 @@ const skillsInformation = () => {
 
 document.addEventListener(`DOMContentLoaded`, () => {
     profile();
-    project(`eduardofierropro`);
+    project();
     buttonTop();
     menu();
 });

@@ -7,7 +7,7 @@ import { skillsInformation } from "./skills_information";
 
 document.addEventListener(`DOMContentLoaded`, () => {
     profile()
-    project(`eduardofierropro`)
+    project()
     buttonTop()
     menu()
 })
