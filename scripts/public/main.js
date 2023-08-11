@@ -36,6 +36,14 @@ const buttonTop = () => {
     buttonHome.addEventListener(`click`, () => window.scrollTo({behavior: `smooth`, top: 0}));
 };
 
+const maps = () => {
+    let div = L.map('maps').setView([10.01885,-69.24233], 6);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(div);
+
+    L.marker([10.01885,-69.24233]).addTo(div).bindPopup('Mi ubicacion');
+};
+
 //! Delcaracion de variable para la funcion Menu
 const section      = document.querySelectorAll(`.nav__section`);
 const mediaQuery   = window.matchMedia(`(max-width: 960px)`);
@@ -948,6 +956,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
     project();
     buttonTop();
     menu();
+    maps();
 });
 
 arrow();

@@ -1,5 +1,6 @@
 import { buttonMode } from "./button_mode";
 import { buttonTop } from "./button_top";
+import { maps } from "./maps";
 import { menu } from "./menu";
 import { profile, search } from "./profile";
 import { arrow, project } from "./project";
@@ -10,6 +11,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
     project()
     buttonTop()
     menu()
+    maps()
 })
 
 arrow()

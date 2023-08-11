@@ -12,13 +12,8 @@
     height: 100vh;
     position: relative;
 
-    svg {
-        width: .5rem;
-    }
-
     &__information {
-        @include flex(center, center, row);
-        column-gap: 2rem;
+        @include flex(space-between, center, row);
         padding: 0 7vw;
 
         .form {
@@ -94,7 +89,7 @@
                     @include boxShadow();
                     border-radius: 1.5rem;
                     width: 100%;
-                    height: 25rem;
+                    height: 20rem;
                     font-family: var(--paragraph);
                     color: var(--alternative);
                     font-size: 1rem;
@@ -111,11 +106,11 @@
                 &-button {
                     width: 100%;
                     @include flex(space-between, center, row);
-    
+
                     &-submit {
                         @include buttonStandar(var(--second), var(--alternativeFixed));
                     }
-                    
+
                     &-links {
                         @include flex(flex-end, center, row);
                         column-gap: 2rem;
@@ -127,6 +122,15 @@
                 }
             }
         }
+
+        &-maps {
+            width: 40rem;
+            height: 40rem;
+            color: var(--first);
+            border-radius: 50%;
+            @include boxShadow();
+        }
+
     }
 
     &__container {
