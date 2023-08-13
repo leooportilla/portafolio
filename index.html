@@ -491,17 +491,23 @@
                         Estaré encantado en responderte. También puedes seguirme en mis redes sociales para conocerme un
                         poco mas, si tienes alguna pregunta o necesitas mas información, no dudes en contactarme.</p>
 
-                    <form class="form__content" action="">
+                    <form class="form__content" action="https://formsubmit.co/leoportilla67@gmail.com" method="POST">
+
+                        <input type="hidden" name="_subject" value="¡Nuevo envío!" >
+                        <input type="hidden" name="_next" value="http://127.0.0.1:5500/portafolio/index.html#contact" >
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+
 
                         <div class="form__content-header">
-                            <input class="form__content-header-name" type="text" name="name" id="name" required
+                            <input class="form__content-header-name" type="text" name="Nombre" id="name" required
                                 spellcheck="false" placeholder="Nombre" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$">
-                            <input class="form__content-header-email" type="email" name="email" id="email" required
+                            <input class="form__content-header-email" type="email" name="Correo" id="email" required
                                 pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
                                 spellcheck="false" placeholder="Correo electronico">
                         </div>
 
-                        <textarea class="form__content-messange" name="messange" pattern=" ^.{1,255}$" required
+                        <textarea class="form__content-messange" name="Mensaje" pattern=" ^.{1,255}$" required
                             placeholder="Mensaje que desea enviar"></textarea>
 
                         <div class="form__content-button">
