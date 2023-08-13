@@ -584,6 +584,9 @@ header .menu {
   transform: translateX(-101%);
   transition: 1s all;
 }
+.about__hability .skills__information:focus {
+  outline: none;
+}
 .about__hability .skills__information-header {
   width: 100%;
   height: 2rem;

@@ -4,6 +4,7 @@ import { project } from "./project"
 //! Declaracion de variable para la funcion de cerrar el input
 const inputUser    = document.querySelector(`.container__user-input`)
 const errorProfile = document.querySelector(`.container__user-error`)
+const windowSkills = document.querySelector(`.skills__information`)
 
 //! Cerrar el input de la busqueda del perfil
 export const closeProfile = () => {
@@ -48,6 +49,19 @@ export const closeProfile = () => {
             inputUser.classList.remove(`active-input`)
             inputUser.style.width = 0
             inputUser.value = ``
+        }
+    })
+}
+
+export const keaboard = () => {
+
+    document.addEventListener(`keyup`, event => {
+
+        if (document.activeElement === windowSkills) {
+
+            if (event.key === `Escape`) {
+                windowSkills.classList.remove(`active`)
+            }
         }
     })
 }

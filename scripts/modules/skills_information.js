@@ -120,6 +120,8 @@ export const skillsInformation = () => {
             containerInformation.classList.toggle(`active`)
         }
 
+        containerInformation.focus()
+
         //! Evento para cerrar la ventana de las skills
         containerInformation.addEventListener(`click`, evento => {
 

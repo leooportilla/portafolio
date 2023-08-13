@@ -814,6 +814,7 @@ const search = () => {
 //! Declaracion de variable para la funcion de cerrar el input
 const inputUser    = document.querySelector(`.container__user-input`);
 const errorProfile = document.querySelector(`.container__user-error`);
+const windowSkills = document.querySelector(`.skills__information`);
 
 //! Cerrar el input de la busqueda del perfil
 const closeProfile = () => {
@@ -858,6 +859,19 @@ const closeProfile = () => {
             inputUser.classList.remove(`active-input`);
             inputUser.style.width = 0;
             inputUser.value = ``;
+        }
+    });
+};
+
+const keaboard = () => {
+
+    document.addEventListener(`keyup`, event => {
+
+        if (document.activeElement === windowSkills) {
+
+            if (event.key === `Escape`) {
+                windowSkills.classList.remove(`active`);
+            }
         }
     });
 };
@@ -1033,6 +1047,8 @@ const skillsInformation = () => {
             containerInformation.classList.toggle(`active`);
         }
 
+        containerInformation.focus();
+
         //! Evento para cerrar la ventana de las skills
         containerInformation.addEventListener(`click`, evento => {
 
@@ -1057,6 +1073,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
     maps();
 });
 
+keaboard();
 closeProfile();
 arrow();
 search();
