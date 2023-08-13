@@ -74,7 +74,7 @@ export const search = () => {
 
             setTimeout(() => {
                 errorProfile.classList.add(`active`)
-            }, 1000)
+            }, 250)
 
         } else {
 

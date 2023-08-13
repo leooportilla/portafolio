@@ -614,10 +614,57 @@ export const arrow = () => {
                 cardsOne.style.transform = `translateX(-${translate}vw)`
                 cardsTwo.style.transform = `translateX(-${translate}vw)`
             }
-    
+
             //! Si en dado caso el usuario llega al final y luego se devulve a la seccion anterior, hacemos que las flechas de las izquierda se elimen las clases
             if (svgRightArrow[0].classList.contains(`active-svg`)) svgRightArrow.forEach(arrow => arrow.classList.remove(`active-svg`))
         }
     })
 
+    document.addEventListener(`keyup`, event => {
+
+        if (document.activeElement === containerCards || document.activeElement === rightButton || document.activeElement === leftButton) {
+
+            if (event.key === `ArrowRight`) {
+
+                if (rightButton.classList.contains(`active-arrow`)) {
+
+                    //! Si el movimiento es menor a la secciones calculadas puede trasladarse otro seccion mas
+                    if (countMove < parseInt(localStorage.getItem(`Lenght`))) {
+                        translate += config()
+                        countMove++
+                        cardsOne.style.transform = `translateX(-${translate}vw)`
+                        cardsTwo.style.transform = `translateX(-${translate}vw)`
+
+                        //! Validad en cada movimiento si llegar al final de todas la secciones para rotar las flechas
+                        if (countMove === parseInt(localStorage.getItem(`Lenght`))) {
+                            svgRightArrow.forEach(arrow => arrow.classList.add(`active-svg`))
+                        }
+
+                        //! Por si el movimiento es mayor a la seccion, por ende la clase del final de las flecha debe estar activo debemos colocar todo por defecto
+                    } else {
+                        countMove = 1
+                        translate = 0
+                        cardsOne.style.transform = `translateX(-${translate}vw)`
+                        cardsTwo.style.transform = `translateX(-${translate}vw)`
+                        svgRightArrow.forEach(arrow => arrow.classList.remove(`active-svg`))
+                    }
+                }
+            }
+
+            if (event.key === `ArrowLeft`) {
+
+                if (leftButton.classList.contains(`active-arrow`)) {
+                    if (countMove > 0) {
+                        translate -= config()
+                        countMove--
+                        cardsOne.style.transform = `translateX(-${translate}vw)`
+                        cardsTwo.style.transform = `translateX(-${translate}vw)`
+                    }
+        
+                    //! Si en dado caso el usuario llega al final y luego se devulve a la seccion anterior, hacemos que las flechas de las izquierda se elimen las clases
+                    if (svgRightArrow[0].classList.contains(`active-svg`)) svgRightArrow.forEach(arrow => arrow.classList.remove(`active-svg`))
+                }
+            }
+        } 
+    })
 }

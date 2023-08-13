@@ -172,6 +172,10 @@
             opacity: 0;
             transform: translateX(-3vw);
 
+            &:focus {
+                outline: none;
+            }
+
             &-icon {
                 position: relative;
                 height: 2rem;
@@ -193,6 +197,10 @@
             transition: 2s all;
             opacity: 0;
             transform: translateX(3vw);
+
+            &:focus {
+                outline: none;
+            }
             
             &-icon {
                 position: relative;
@@ -225,6 +233,10 @@
             row-gap: 1.5vw;
             overflow: hidden;
             position: relative;
+
+            &:focus {
+                outline: none;
+            }
 
             &__container {
                 height: 45%;

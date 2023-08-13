@@ -36,55 +36,6 @@ const buttonTop = () => {
     buttonHome.addEventListener(`click`, () => window.scrollTo({behavior: `smooth`, top: 0}));
 };
 
-const maps = () => {
-    let div = L.map('maps').setView([10.01885,-69.24233], 6);
-
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(div);
-
-    L.marker([10.01885,-69.24233]).addTo(div).bindPopup('Mi ubicacion');
-};
-
-//! Delcaracion de variable para la funcion Menu
-const section      = document.querySelectorAll(`.nav__section`);
-const mediaQuery   = window.matchMedia(`(max-width: 960px)`);
-const buttonMenu   = document.querySelector(`.menu`);
-const menuComplet  = document.querySelector(`.nav`);
-const buttonClose  = document.querySelector(`.nav__close`);
-const mainDocument = document.querySelector(`main`);
-
-//! Funcion para el menu (Cerrarlo y abrirlo)
-const menu = () => {
-
-    //! Quitamos la clase hover al primer enlace para que todos se vean iguales en el menu  
-    if (mediaQuery.matches) {
-        section[0].classList.remove(`hover`);
-    }
-
-    //! Todo partira desde que se abre el menu, hacer click en el boton se abrira el menu, colocando la clase y ademas bloqueamos que el usuario pueda seguir bajando con el menu abierto
-    buttonMenu.addEventListener(`click`, () => {
-        menuComplet.classList.add(`active-menu`);
-        mainDocument.style.height = `100vh`;
-
-        //! Comprobamos si el menu esta abierto
-        if (menuComplet.classList.contains(`active-menu`)) {
-
-            //! Si hacemos click en la X se cerrara el menu y la persona podra seguir navegandi en la pagina
-            buttonClose.addEventListener(`click`, () => {
-                mainDocument.style.height = ``;
-                menuComplet.classList.remove(`active-menu`);
-            });
-
-            //! Si hacemos click en algunos de las secciones con el evento por defecto de los enlace ira automaticamente a la seccion que le dio click asi que quitamos el bloqueo y escondemos el menu
-            section.forEach(section => {
-                section.addEventListener(`click`, () => {
-                    mainDocument.style.height = ``;
-                    menuComplet.classList.remove(`active-menu`);    
-                });
-            });
-        }
-    });
-};
-
 //! Declaracion de varibale para las funciones de la carga del perfil y las busqueda de los perfiles
 const leftButton = document.querySelector(`.project__projects-arrowleft`);
 const rightButton = document.querySelector(`.project__projects-arrowright`);
@@ -701,12 +652,59 @@ const arrow = () => {
                 cardsOne.style.transform = `translateX(-${translate}vw)`;
                 cardsTwo.style.transform = `translateX(-${translate}vw)`;
             }
-    
+
             //! Si en dado caso el usuario llega al final y luego se devulve a la seccion anterior, hacemos que las flechas de las izquierda se elimen las clases
             if (svgRightArrow[0].classList.contains(`active-svg`)) svgRightArrow.forEach(arrow => arrow.classList.remove(`active-svg`));
         }
     });
 
+    document.addEventListener(`keyup`, event => {
+
+        if (document.activeElement === containerCards || document.activeElement === rightButton || document.activeElement === leftButton) {
+
+            if (event.key === `ArrowRight`) {
+
+                if (rightButton.classList.contains(`active-arrow`)) {
+
+                    //! Si el movimiento es menor a la secciones calculadas puede trasladarse otro seccion mas
+                    if (countMove < parseInt(localStorage.getItem(`Lenght`))) {
+                        translate += config();
+                        countMove++;
+                        cardsOne.style.transform = `translateX(-${translate}vw)`;
+                        cardsTwo.style.transform = `translateX(-${translate}vw)`;
+
+                        //! Validad en cada movimiento si llegar al final de todas la secciones para rotar las flechas
+                        if (countMove === parseInt(localStorage.getItem(`Lenght`))) {
+                            svgRightArrow.forEach(arrow => arrow.classList.add(`active-svg`));
+                        }
+
+                        //! Por si el movimiento es mayor a la seccion, por ende la clase del final de las flecha debe estar activo debemos colocar todo por defecto
+                    } else {
+                        countMove = 1;
+                        translate = 0;
+                        cardsOne.style.transform = `translateX(-${translate}vw)`;
+                        cardsTwo.style.transform = `translateX(-${translate}vw)`;
+                        svgRightArrow.forEach(arrow => arrow.classList.remove(`active-svg`));
+                    }
+                }
+            }
+
+            if (event.key === `ArrowLeft`) {
+
+                if (leftButton.classList.contains(`active-arrow`)) {
+                    if (countMove > 0) {
+                        translate -= config();
+                        countMove--;
+                        cardsOne.style.transform = `translateX(-${translate}vw)`;
+                        cardsTwo.style.transform = `translateX(-${translate}vw)`;
+                    }
+        
+                    //! Si en dado caso el usuario llega al final y luego se devulve a la seccion anterior, hacemos que las flechas de las izquierda se elimen las clases
+                    if (svgRightArrow[0].classList.contains(`active-svg`)) svgRightArrow.forEach(arrow => arrow.classList.remove(`active-svg`));
+                }
+            }
+        } 
+    });
 };
 
 const userName        = document.querySelector(`.container__user-information-name`);
@@ -714,7 +712,7 @@ const userImage       = document.querySelector(`.container__image`);
 const userGitHud      = document.querySelector(`.container__user-information-link`);
 const buttonSearch    = document.querySelector(`.container__user-label`);
 const inputProfile    = document.querySelector(`.container__user-input`);
-const errorProfile    = document.querySelector(`.container__user-error`);
+const errorProfile$1    = document.querySelector(`.container__user-error`);
 const userFollowing   = document.querySelector(`.following`);
 const userFollowers   = document.querySelector(`.followers`);
 const userRepository  = document.querySelector(`.repository`);
@@ -782,19 +780,19 @@ const search = () => {
             inputProfile.style.width = `calc(${userName.getBoundingClientRect().width}px)`;
 
             setTimeout(() => {
-                errorProfile.classList.add(`active`);
-            }, 1000);
+                errorProfile$1.classList.add(`active`);
+            }, 250);
 
         } else {
 
             if (pattern.test(inputProfile.value)) {
 
-                errorProfile.classList.remove(`active-error`);
+                errorProfile$1.classList.remove(`active-error`);
 
                 setTimeout(() => {
                     inputProfile.classList.remove(`active-input`);
                     inputProfile.style.width = 0;
-                    errorProfile.classList.remove(`active`);
+                    errorProfile$1.classList.remove(`active`);
                 }, 500);
 
 
@@ -807,8 +805,108 @@ const search = () => {
                 project(inputProfile.value); 
 
             } else {
+                errorProfile$1.classList.add(`active-error`);
+            }
+        }
+    });
+};
+
+//! Declaracion de variable para la funcion de cerrar el input
+const inputUser    = document.querySelector(`.container__user-input`);
+const errorProfile = document.querySelector(`.container__user-error`);
+
+//! Cerrar el input de la busqueda del perfil
+const closeProfile = () => {
+
+    inputUser.addEventListener(`keyup`, evento => {
+
+        //! Validamos la entrada del usuario
+        let pattern = new RegExp(inputUser.pattern);
+
+        //! Si presiona enter, evaluamos si el valor es valido con el patron buscamos el perfil, si no mostramos un mensaje de error
+        if (evento.key === `Enter`) {
+
+            if (pattern.test(inputUser.value)) {
+
+                //! Escondemos todo
+                inputUser.classList.remove(`active-input`);
+                errorProfile.classList.remove(`active-error`);
+
+                setTimeout(()=> {
+                    errorProfile.classList.remove(`active`);
+                }, 300);
+
+                inputUser.style.width = 0;
+                inputUser.value = ``;
+                
+                //! Buscamo el perfil con la funcion de la API
+                profile(inputUser.value);
+                project(inputUser.value);
+                
+                inputUser.value = ``;
+            } else {
                 errorProfile.classList.add(`active-error`);
             }
+        }
+
+        //! Si presiona escape, cerramos el input sin buscar nada
+        if (evento.key === `Escape`) {
+
+            //! Escondemos todo
+            errorProfile.classList.remove(`active`);
+            errorProfile.classList.remove(`active-error`);
+            inputUser.classList.remove(`active-input`);
+            inputUser.style.width = 0;
+            inputUser.value = ``;
+        }
+    });
+};
+
+const maps = () => {
+    let div = L.map('maps').setView([10.01885,-69.24233], 6);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(div);
+
+    L.marker([10.01885,-69.24233]).addTo(div).bindPopup('Mi ubicacion');
+};
+
+//! Delcaracion de variable para la funcion Menu
+const section      = document.querySelectorAll(`.nav__section`);
+const mediaQuery   = window.matchMedia(`(max-width: 960px)`);
+const buttonMenu   = document.querySelector(`.menu`);
+const menuComplet  = document.querySelector(`.nav`);
+const buttonClose  = document.querySelector(`.nav__close`);
+const mainDocument = document.querySelector(`main`);
+
+//! Funcion para el menu (Cerrarlo y abrirlo)
+const menu = () => {
+
+    //! Quitamos la clase hover al primer enlace para que todos se vean iguales en el menu  
+    if (mediaQuery.matches) {
+        section[0].classList.remove(`hover`);
+    }
+
+    //! Todo partira desde que se abre el menu, hacer click en el boton se abrira el menu, colocando la clase y ademas bloqueamos que el usuario pueda seguir bajando con el menu abierto
+    buttonMenu.addEventListener(`click`, () => {
+        menuComplet.classList.add(`active-menu`);
+        mainDocument.style.height = `100vh`;
+
+        //! Comprobamos si el menu esta abierto
+        if (menuComplet.classList.contains(`active-menu`)) {
+
+            //! Si hacemos click en la X se cerrara el menu y la persona podra seguir navegandi en la pagina
+            buttonClose.addEventListener(`click`, () => {
+                mainDocument.style.height = ``;
+                menuComplet.classList.remove(`active-menu`);
+            });
+
+            //! Si hacemos click en algunos de las secciones con el evento por defecto de los enlace ira automaticamente a la seccion que le dio click asi que quitamos el bloqueo y escondemos el menu
+            section.forEach(section => {
+                section.addEventListener(`click`, () => {
+                    mainDocument.style.height = ``;
+                    menuComplet.classList.remove(`active-menu`);    
+                });
+            });
         }
     });
 };
@@ -959,6 +1057,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
     maps();
 });
 
+closeProfile();
 arrow();
 search();
 buttonMode();

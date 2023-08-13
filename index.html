@@ -444,7 +444,7 @@
 
             <article class="project__projects">
 
-                <div class="project__projects-arrowleft">
+                <div class="project__projects-arrowleft" tabindex="0">
 
                     <svg class="project__projects-arrowleft-icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 224.2 559.2">
@@ -463,7 +463,7 @@
                     </svg>
                 </div>
 
-                <div class="project__projects-arrowright">
+                <div class="project__projects-arrowright" tabindex="0">
                     <svg class="project__projects-arrowright-icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 224.24 559.19">
                         <path
@@ -477,7 +477,7 @@
                     </svg>
                 </div>
 
-                <div class="project__projects-cards cards"></div>
+                <div class="project__projects-cards cards" tabindex="0"></div>
             </article>
         </section>
 
@@ -500,8 +500,9 @@
 
 
                         <div class="form__content-header">
-                            <input class="form__content-header-name" type="text" name="Nombre" id="name" required
-                                spellcheck="false" placeholder="Nombre" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$">
+                            <input class="form__content-header-name" type="text" name="Nombre" required spellcheck="false" placeholder="Nombre" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$">
+                            <div class="form__content-header-errorname">Nombre invalido</div>
+
                             <input class="form__content-header-email" type="email" name="Correo" id="email" required
                                 pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
                                 spellcheck="false" placeholder="Correo electronico">
