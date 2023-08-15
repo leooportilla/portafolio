@@ -35,7 +35,7 @@
                 border-radius: 1.5rem;
                 width: 12.5rem;
                 height: 12.5rem;
-                @include boxShadow();
+                @include boxShadow(var(--opacityAlternative));
             }
 
             &__user {
@@ -250,7 +250,7 @@
                     border-radius: 1.5rem;
                     overflow: hidden;
                     position: relative;
-                    @include boxShadow();
+                    @include boxShadow(var(--opacityAlternative));
 
                     .hover {
                         position: absolute;
@@ -346,7 +346,7 @@
                                 padding: .5rem 1rem .5rem .5rem;
                                 border-radius: .7rem;
                                 background-color: var(--second);
-                                @include boxShadow();
+                                @include boxShadow(var(--opacityFixed));
                                 @include flex (flex-start, center, row);
                                 column-gap: .5rem;
 
@@ -397,7 +397,7 @@
                                 padding: .5rem 1rem .5rem .5rem;
                                 border-radius: .7rem;
                                 background-color: var(--second);
-                                @include boxShadow();
+                                @include boxShadow(var(--opacityFixed));
                                 @include flex (flex-start, center, row);
                                 column-gap: .5rem;
 

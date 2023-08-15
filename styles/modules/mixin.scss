@@ -10,8 +10,8 @@
 }
 
 //! Sombrar unica para todo los elementos necesarios
-@mixin boxShadow() {
-    box-shadow: 0 5px 5px rgb(35, 37, 40, .4);
+@mixin boxShadow($color) {
+    box-shadow: 0 5px 5px $color;
 }
 
 //! Estandar del button en la pagina
@@ -23,7 +23,7 @@
     padding: .75rem 2rem .75rem 1rem;
     border-radius: 1rem;
     background-color: $background;
-    @include boxShadow();
+    @include boxShadow(var(--opacityFixed));
     @include flex (flex-start, center, row);
     column-gap: .5rem;
 

@@ -24,7 +24,7 @@ header {
         background-color: var(--first);
         position: relative;
         cursor: pointer;
-        @include boxShadow();
+        @include boxShadow(var(--opacityFixed));
 
         //! Icono de la luna
         &__moon {
@@ -47,7 +47,7 @@ header {
             position: absolute;
             left: 5%;
             transition: .5s all;
-            @include boxShadow();
+            @include boxShadow(var(--opacityFixed));
         }
 
         //! Con esta clase lograre mover el circula de manera

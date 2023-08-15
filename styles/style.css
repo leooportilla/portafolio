@@ -145,6 +145,8 @@ body {
   --mainFixed: #D8DBE2;
   --alternativeFixed: #232528;
   --Opacity: rgb(35, 37, 40,.9);
+  --opacityAlternative: rgb(35, 37, 40, .4);
+  --opacityFixed: rgb(35, 37, 40,.4);
   --first: #C92D2D;
   --firstDark: #ad1a20;
   --second: #F2BB05;
@@ -165,6 +167,7 @@ body {
 :root.dark {
   --main: #232528;
   --alternative: #D8DBE2;
+  --opacityAlternative: rgb(216, 219, 226, .2);
 }
 
 body {
@@ -196,7 +199,7 @@ body .buttonhome__button {
   padding: 0.75rem 2rem 0.75rem 1rem;
   border-radius: 1rem;
   background-color: var(--alternative);
-  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+  box-shadow: 0 5px 5px var(--opacityFixed);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -265,7 +268,7 @@ header .switch {
   background-color: var(--first);
   position: relative;
   cursor: pointer;
-  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+  box-shadow: 0 5px 5px var(--opacityFixed);
 }
 header .switch__moon {
   width: 1.3rem;
@@ -283,7 +286,7 @@ header .switch__label {
   position: absolute;
   left: 5%;
   transition: 0.5s all;
-  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+  box-shadow: 0 5px 5px var(--opacityFixed);
 }
 header .switch .move {
   left: 55%;
@@ -430,7 +433,7 @@ header .menu {
   padding: 0.75rem 2rem 0.75rem 1rem;
   border-radius: 1rem;
   background-color: var(--second);
-  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+  box-shadow: 0 5px 5px var(--opacityFixed);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -643,7 +646,7 @@ header .menu {
   position: relative;
   cursor: pointer;
   transition: 1s all;
-  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+  box-shadow: 0 5px 5px var(--opacityFixed);
 }
 .about__hability .skills__container-svg {
   color: var(--mainFixed);
@@ -740,7 +743,7 @@ header .menu {
   border-radius: 1.5rem;
   width: 12.5rem;
   height: 12.5rem;
-  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+  box-shadow: 0 5px 5px var(--opacityAlternative);
 }
 .project__profile .container__user {
   grid-area: User;
@@ -780,7 +783,7 @@ header .menu {
   padding: 0.75rem 2rem 0.75rem 1rem;
   border-radius: 1rem;
   background-color: var(--alternative);
-  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+  box-shadow: 0 5px 5px var(--opacityFixed);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -988,7 +991,7 @@ header .menu {
   border-radius: 1.5rem;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+  box-shadow: 0 5px 5px var(--opacityAlternative);
 }
 .project__projects .cards__container-card .hover {
   position: absolute;
@@ -1093,7 +1096,7 @@ header .menu {
   padding: 0.5rem 1rem 0.5rem 0.5rem;
   border-radius: 0.7rem;
   background-color: var(--second);
-  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+  box-shadow: 0 5px 5px var(--opacityFixed);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -1139,7 +1142,7 @@ header .menu {
   padding: 0.5rem 1rem 0.5rem 0.5rem;
   border-radius: 0.7rem;
   background-color: var(--second);
-  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+  box-shadow: 0 5px 5px var(--opacityFixed);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -1261,7 +1264,7 @@ header .menu {
 }
 .contact__information .form__content-header-name {
   background-color: var(--main);
-  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+  box-shadow: 0 5px 5px var(--opacityAlternative);
   border-radius: 1.5rem;
   height: 3rem;
   width: 100%;
@@ -1286,7 +1289,7 @@ header .menu {
 }
 .contact__information .form__content-header-email {
   background-color: var(--main);
-  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+  box-shadow: 0 5px 5px var(--opacityAlternative);
   border-radius: 1.5rem;
   height: 3rem;
   width: 100%;
@@ -1301,7 +1304,7 @@ header .menu {
 }
 .contact__information .form__content-messange {
   background-color: var(--main);
-  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+  box-shadow: 0 5px 5px var(--opacityAlternative);
   border-radius: 1.5rem;
   width: 100%;
   height: 20rem;
@@ -1334,7 +1337,7 @@ header .menu {
   padding: 0.75rem 2rem 0.75rem 1rem;
   border-radius: 1rem;
   background-color: var(--second);
-  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+  box-shadow: 0 5px 5px var(--opacityFixed);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -1387,7 +1390,7 @@ header .menu {
   padding: 0.75rem 2rem 0.75rem 1rem;
   border-radius: 1rem;
   background-color: var(--second);
-  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+  box-shadow: 0 5px 5px var(--opacityFixed);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -1430,7 +1433,7 @@ header .menu {
   height: 40rem;
   color: var(--first);
   border-radius: 50%;
-  box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+  box-shadow: 0 5px 5px var(--opacityAlternative);
 }
 .contact__container {
   width: 100%;
@@ -1618,7 +1621,7 @@ header .menu {
     padding: 0.75rem 2rem 0.75rem 1rem;
     border-radius: 1rem;
     background-color: var(--mainFixed);
-    box-shadow: 0 5px 5px rgba(35, 37, 40, 0.4);
+    box-shadow: 0 5px 5px var(--opacityFixed);
     display: flex;
     justify-content: flex-start;
     align-items: center;
