@@ -162,7 +162,7 @@
         height: 60%;
         position: relative;
         overflow: hidden;
-        
+
         &-arrowleft {
             position: absolute;
             left: 5vw;
@@ -201,7 +201,7 @@
             &:focus {
                 outline: none;
             }
-            
+
             &-icon {
                 position: relative;
                 height: 2rem;
@@ -471,6 +471,55 @@
                     color: var(--alternative);
                 }
             }
+        }
+    }
+
+    &__range {
+        padding: 0 7vw;
+        width: 100%;
+        height: .25rem;
+        position: relative;
+
+        &-content {
+            background-color: var(--first);
+            border-radius: 1.5rem;
+            height: 100%;
+            position: relative;
+            z-index: 10;
+            transition: 1s all;
+
+            &::after {
+                content: "";
+                width: .8rem;
+                height: .8rem;
+                border-radius: 50%;
+                background-color: var(--first);
+                position: absolute;
+                top: -.25rem;
+                right: 0;
+            }
+
+            &-count {
+                width: 1.5rem;
+                height: 1.5rem;
+                border-radius: 50%;
+                background-color: var(--first);
+                position: absolute;
+                right: -.3rem;
+                top: -2rem;
+                font-family: var(--paragraph);
+                color: var(--mainFixed);
+                font-size: .8rem;
+                @include flex(center, center, row);
+            }
+        }
+
+        &-container {
+            background-color: #a7a7a7;
+            border-radius: 1.5rem;
+            width: 99%;
+            height: 100%;
+            transform: translateY(-.25rem);
         }
     }
 }

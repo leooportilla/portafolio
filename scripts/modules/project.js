@@ -3,6 +3,8 @@ const leftButton = document.querySelector(`.project__projects-arrowleft`)
 const rightButton = document.querySelector(`.project__projects-arrowright`)
 const svgRightArrow = document.querySelectorAll(`.project__projects-arrowright svg`)
 const containerCards = document.querySelector(`.cards`)
+const rangeSlide = document.querySelector(`.project__range-content`)
+const countSlide = document.querySelector(`.project__range-content-count`)
 
 const widthMax = window.matchMedia(`(min-width: 1500px)`)
 const width1328px = window.matchMedia(`(min-width: 1328px)`)
@@ -520,11 +522,16 @@ export const project = async (user = `leooportilla`) => {
                 containerCards.appendChild(cardsOne)
                 containerCards.appendChild(cardsTwo)
 
+                rangeSlide.style.width = `${100 / lenght}%`
+                countSlide.innerHTML = `1`
+
+
                 //! Para esconder las flechas cuando no tenga mas de una seccion el container de las cards
-                if (lenght <= 0) {
+                console.log(lenght)
+                if (lenght <= 1) {
                     leftButton.classList.remove(`active-arrow`)
                     rightButton.classList.remove(`active-arrow`)
-                } else if (lenght > 0) {
+                } else if (lenght > 1) {
                     leftButton.classList.add(`active-arrow`)
                     rightButton.classList.add(`active-arrow`)
                 }
@@ -577,6 +584,7 @@ export const arrow = () => {
     let countMove = 1
     let translate = 0
 
+
     //! Pendiente al evento de la flecha derecha
     rightButton.addEventListener(`click`, () => {
 
@@ -588,6 +596,8 @@ export const arrow = () => {
                 countMove++
                 cardsOne.style.transform = `translateX(-${translate}vw)`
                 cardsTwo.style.transform = `translateX(-${translate}vw)`
+                rangeSlide.style.width = `${(100 / parseInt(localStorage.getItem(`Lenght`))) * countMove}%`
+                countSlide.innerHTML = `${countMove}`
 
                 //! Validad en cada movimiento si llegar al final de todas la secciones para rotar las flechas
                 if (countMove === parseInt(localStorage.getItem(`Lenght`))) {
@@ -600,6 +610,8 @@ export const arrow = () => {
                 translate = 0
                 cardsOne.style.transform = `translateX(-${translate}vw)`
                 cardsTwo.style.transform = `translateX(-${translate}vw)`
+                rangeSlide.style.width = `${(100 / parseInt(localStorage.getItem(`Lenght`))) * countMove}%`
+                countSlide.innerHTML = `${countMove}`
                 svgRightArrow.forEach(arrow => arrow.classList.remove(`active-svg`))
             }
         }
@@ -608,11 +620,19 @@ export const arrow = () => {
     leftButton.addEventListener(`click`, () => {
 
         if (leftButton.classList.contains(`active-arrow`)) {
-            if (countMove > 0) {
-                translate -= config()
-                countMove--
+
+            if (countMove >= 1) {
+
+                if (translate > 0) xtranslate -= config()
+                if (countMove != 1)countMove--
+
                 cardsOne.style.transform = `translateX(-${translate}vw)`
                 cardsTwo.style.transform = `translateX(-${translate}vw)`
+                
+                if (countMove >= 1) {
+                    rangeSlide.style.width = `${(100 / parseInt(localStorage.getItem(`Lenght`))) * countMove}%`
+                    countSlide.innerHTML = `${countMove}`
+                }
             }
 
             //! Si en dado caso el usuario llega al final y luego se devulve a la seccion anterior, hacemos que las flechas de las izquierda se elimen las clases
@@ -634,6 +654,8 @@ export const arrow = () => {
                         countMove++
                         cardsOne.style.transform = `translateX(-${translate}vw)`
                         cardsTwo.style.transform = `translateX(-${translate}vw)`
+                        rangeSlide.style.width = `${(100 / parseInt(localStorage.getItem(`Lenght`))) * countMove}%`
+                        countSlide.innerHTML = `${countMove}`
 
                         //! Validad en cada movimiento si llegar al final de todas la secciones para rotar las flechas
                         if (countMove === parseInt(localStorage.getItem(`Lenght`))) {
@@ -646,6 +668,8 @@ export const arrow = () => {
                         translate = 0
                         cardsOne.style.transform = `translateX(-${translate}vw)`
                         cardsTwo.style.transform = `translateX(-${translate}vw)`
+                        rangeSlide.style.width = `${(100 / parseInt(localStorage.getItem(`Lenght`))) * countMove}%`
+                        countSlide.innerHTML = `${countMove}`
                         svgRightArrow.forEach(arrow => arrow.classList.remove(`active-svg`))
                     }
                 }
@@ -654,17 +678,25 @@ export const arrow = () => {
             if (event.key === `ArrowLeft`) {
 
                 if (leftButton.classList.contains(`active-arrow`)) {
-                    if (countMove > 0) {
-                        translate -= config()
-                        countMove--
+
+                    if (countMove >= 1) {
+
+                        if (translate > 0) translate -= config()
+                        if (countMove != 1) countMove--
+
                         cardsOne.style.transform = `translateX(-${translate}vw)`
                         cardsTwo.style.transform = `translateX(-${translate}vw)`
+
+                        if (countMove >= 1) {
+                            rangeSlide.style.width = `${(100 / parseInt(localStorage.getItem(`Lenght`))) * countMove}%`
+                            countSlide.innerHTML = `${countMove}`
+                        }
                     }
-        
+
                     //! Si en dado caso el usuario llega al final y luego se devulve a la seccion anterior, hacemos que las flechas de las izquierda se elimen las clases
                     if (svgRightArrow[0].classList.contains(`active-svg`)) svgRightArrow.forEach(arrow => arrow.classList.remove(`active-svg`))
                 }
             }
-        } 
+        }
     })
 }

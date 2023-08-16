@@ -26,19 +26,17 @@ export const closeProfile = () => {
                 setTimeout(()=> {
                     errorProfile.classList.remove(`active`)
                 }, 300)
-
-                inputUser.style.width = 0
-                inputUser.value = ``
                 
                 //! Buscamo el perfil con la funcion de la API
                 profile(inputUser.value)
                 project(inputUser.value)
-                
+
+                inputUser.style.width = 0
                 inputUser.value = ``
             } else {
                 errorProfile.classList.add(`active-error`)
             }
-        }
+        }   
 
         //! Si presiona escape, cerramos el input sin buscar nada
         if (evento.key === `Escape`) {
