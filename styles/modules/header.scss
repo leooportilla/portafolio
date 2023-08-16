@@ -46,7 +46,7 @@ header {
             background-color: var(--mainFixed);
             position: absolute;
             left: 5%;
-            transition: .5s all;
+            transition: .3s all;
             @include boxShadow(var(--opacityFixed));
         }
 
@@ -82,7 +82,7 @@ header {
                 font-family: var(--paragraph);
                 color: var(--alternative);
                 letter-spacing: .1rem;
-                transition: .5s;
+                transition: .3s all;
                 z-index: 5;
             }
     
@@ -94,7 +94,7 @@ header {
                 background-color: var(--first);
                 border-radius: 5rem;
                 transform: translateX(-150%);
-                transition: 1s all;
+                transition: .6s all;
                 z-index: 1;
             }
     

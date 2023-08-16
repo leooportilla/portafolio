@@ -127,15 +127,6 @@
                     &-submit {
                         @include buttonStandar(var(--second), var(--alternativeFixed));
                     }
-
-                    &-links {
-                        @include flex(flex-end, center, row);
-                        column-gap: 2rem;
-
-                        &-link {
-                            @include buttonStandar(var(--second), var(--alternativeFixed));
-                        }
-                    }
                 }
             }
         }
@@ -146,12 +137,40 @@
             color: var(--first);
             border-radius: 50%;
             @include boxShadow(var(--opacityAlternative));
+
+            .leaflet-popup  {
+                margin-bottom: 2rem;
+            }
+
+            .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+                background-color: var(--alternative);
+            }
+            
+            .leaflet-popup-content {
+                font-size: .8rem;
+                color: var(--main);
+                font-family: var(--paragraph);
+            }
         }
 
     }
 
     &__container {
         @include containerWave();
+        height: 35vh;
+    }
+
+    &__links {
+        width: 100%;
+        position: absolute;
+        bottom: 4rem;
+        @include flex(center, center, row);
+        column-gap: 2rem;
+
+        &-link {
+            @include buttonStandar(var(--alternative), var(--main));
+            @include buttonSmall()
+        }
     }
 
     &__footer {
@@ -162,6 +181,6 @@
         font-family: var(--paragraph);
         font-size: .8rem;
         letter-spacing: .1rem;
-        color: var(--alternative);
+        color: var(--mainFixed);
     }
 }

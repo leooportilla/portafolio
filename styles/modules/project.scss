@@ -241,7 +241,7 @@
             &__container {
                 height: 45%;
                 @include flex(flex-start, flex-start, row);
-                transition: 2s all;
+                transition: 1s all;
                 column-gap: 1.5vw;
 
                 &-card {
@@ -262,7 +262,7 @@
                         border-radius: 1.5rem;
                         @include flex(space-between, center, column);
                         padding: 1.5rem;
-                        transition: 1s all;
+                        transition: .5s all;
                         transform: translateX(-100%);
 
                         &__information {
@@ -353,14 +353,14 @@
                                 .svg {
                                     width: fit-content;
                                     height: .6rem;
-                                    transition: 1s all;
+                                    transition: .4s all;
                                 }
 
                                 .title {
                                     font-family: var(--paragraph);
                                     font-size: .6rem;
                                     letter-spacing: .1rem;
-                                    transition: 1s all;
+                                    transition: .4s all;
                                 }
 
                                 .arrow {
@@ -369,7 +369,7 @@
                                     position: absolute;
                                     right: .75rem;
                                     opacity: 0;
-                                    transition: 1s all;
+                                    transition: .4s all;
                                     transform: translateX(-10rem);
                                 }
 
@@ -388,7 +388,6 @@
                                 }
                             }
 
-
                             &-code {
                                 color: var(--alternativeFixed);
                                 cursor: pointer;
@@ -404,14 +403,14 @@
                                 .svg {
                                     width: fit-content;
                                     height: .6rem;
-                                    transition: 1s all;
+                                    transition: .4s all;
                                 }
 
                                 .title {
                                     font-family: var(--paragraph);
                                     font-size: .6rem;
                                     letter-spacing: .1rem;
-                                    transition: 1s all;
+                                    transition: .4s all;
                                 }
 
                                 .arrow {
@@ -420,7 +419,7 @@
                                     position: absolute;
                                     right: .75rem;
                                     opacity: 0;
-                                    transition: 1s all;
+                                    transition: .4s all;
                                     transform: translateX(-10rem);
                                 }
 

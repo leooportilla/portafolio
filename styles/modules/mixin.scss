@@ -30,14 +30,14 @@
     .svg {
         width: fit-content;
         height: 1rem;
-        transition: 1s all;
+        transition: .4s all;
     }
 
     .title {
         font-family: var(--paragraph);
         font-size: .8rem;
         letter-spacing: .1rem;
-        transition: 1s all;
+        transition: .4s all;
     }
 
     .arrow {
@@ -46,7 +46,7 @@
         position: absolute;
         right: .75rem;
         opacity: 0;
-        transition: 1s all;
+        transition: .4s all;
         transform: translateX(-10rem);
     }
 
