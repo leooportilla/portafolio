@@ -1,4 +1,4 @@
-import { buttonMode } from "./button_mode";
+import { buttonMode, save } from "./button_mode";
 import { buttonTop } from "./button_top";
 import { closeProfile, keaboard } from "./keyboard";
 import { maps } from "./maps";
@@ -8,10 +8,11 @@ import { arrow, project } from "./project";
 import { skillsInformation } from "./skills_information";
 
 document.addEventListener(`DOMContentLoaded`, () => {
+    save()
+    menu()
     profile()
     project()
     buttonTop()
-    menu()
     maps()
 })
 
