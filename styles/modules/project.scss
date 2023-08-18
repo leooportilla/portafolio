@@ -251,6 +251,9 @@
                     overflow: hidden;
                     position: relative;
                     @include boxShadow(var(--opacityAlternative));
+                    transform: translateY(5rem);
+                    opacity: 0;
+                    transition: .5s all;
 
                     .hover {
                         position: absolute;
@@ -448,6 +451,11 @@
                     &:hover .hover {
                         transform: translateX(0);
                     }
+                }
+
+                .observe {
+                    transform: translateY(0);
+                    opacity: 1;
                 }
             }
 

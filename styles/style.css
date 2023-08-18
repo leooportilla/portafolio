@@ -439,6 +439,9 @@ header .menu {
   align-items: center;
   flex-direction: row;
   column-gap: 0.5rem;
+  transition: 1s all;
+  transform: translateY(1rem);
+  opacity: 0;
 }
 .home__biography .headline__container-links .svg {
   width: fit-content;
@@ -470,6 +473,10 @@ header .menu {
 .home__biography .headline__container-links:hover .arrow {
   opacity: 1;
   transform: translateX(0);
+}
+.home__biography .headline__container .observe-links {
+  transform: translateY(0);
+  opacity: 1;
 }
 .home__container {
   width: 100%;
@@ -548,6 +555,7 @@ header .menu {
   color: var(--mainFixed);
 }
 .about__hability-information-paragraph {
+  text-indent: 2rem;
   text-align: justify;
   font-family: var(--paragraph);
   font-size: 1rem;
@@ -570,6 +578,9 @@ header .menu {
   overflow: hidden;
   position: relative;
   padding-top: 0.5rem;
+}
+.about__hability .skills .active {
+  transform: translateX(2.5%);
 }
 .about__hability .skills__information {
   width: 95%;
@@ -637,9 +648,6 @@ header .menu {
   color: var(--mainFixed);
   text-align: end;
 }
-.about__hability .skills .active {
-  transform: translateX(2.5%);
-}
 .about__hability .skills__container {
   overflow: hidden;
   border-radius: 1.5rem;
@@ -647,6 +655,9 @@ header .menu {
   cursor: pointer;
   transition: 0.3s all;
   box-shadow: 0 5px 5px var(--opacityFixed);
+  transform: translateX(10rem);
+  opacity: 0;
+  transition: 0.5s all;
 }
 .about__hability .skills__container-svg {
   color: var(--mainFixed);
@@ -666,6 +677,10 @@ header .menu {
 }
 .about__hability .skills__container:hover {
   transform: scale(1.025);
+}
+.about__hability .skills .observe-links {
+  transform: translateY(0);
+  opacity: 1;
 }
 .about__container {
   background-color: var(--main);
@@ -992,6 +1007,9 @@ header .menu {
   overflow: hidden;
   position: relative;
   box-shadow: 0 5px 5px var(--opacityAlternative);
+  transform: translateY(5rem);
+  opacity: 0;
+  transition: 0.5s all;
 }
 .project__projects .cards__container-card .hover {
   position: absolute;
@@ -1186,6 +1204,10 @@ header .menu {
 }
 .project__projects .cards__container-card:hover .hover {
   transform: translateX(0);
+}
+.project__projects .cards__container .observe {
+  transform: translateY(0);
+  opacity: 1;
 }
 .project__projects .cards__error {
   margin: auto;

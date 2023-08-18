@@ -61,6 +61,14 @@
 
                 &-links {
                     @include buttonStandar(var(--second), var(--alternativeFixed));
+                    transition: 1s all;
+                    transform: translateY(1rem);
+                    opacity: 0;
+                }
+
+                .observe-links {
+                    transform: translateY(0);
+                    opacity: 1;
                 }
             }
         }
