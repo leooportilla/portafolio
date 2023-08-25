@@ -34,13 +34,13 @@ export const observeIntersetion = () => {
             if (entry.isIntersecting) {
 
                 setTimeout(() => {
-                    entry.target.classList.add('observe-links');
+                    entry.target.classList.add('observe');
                 }, index * 100);
 
             } else {
 
                 setTimeout(() => {
-                    entry.target.classList.remove('observe-links');
+                    entry.target.classList.remove('observe');
                 }, index * 100);
             }
         })

@@ -7,6 +7,25 @@
 //! Key Frames - Animaciones
 @use "./keyframe.scss"as *;
 
+@media (min-width: 2000px) {
+    .project {
+
+        &__projects {
+
+            .cards {
+
+                &__container {
+
+                    &-card {
+                        width: 15.7vw;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
 @media (max-width: 1328px) {
 
     .home {
@@ -31,6 +50,23 @@
         &__container {
             position: static;
         }
+    }
+
+    .project {
+
+        &__projects {
+
+            .cards {
+
+                &__container {
+
+                    &-card {
+                        width: 27.15vw;
+                    }
+                }
+            }
+        }
+
     }
 }
 
@@ -91,7 +127,7 @@
                     }
 
                     &-content {
-                        
+
                         p {
                             font-size: .8rem;
                         }
@@ -103,6 +139,23 @@
         &__container {
             position: static;
         }
+    }
+
+    .project {
+
+        &__projects {
+
+            .cards {
+
+                &__container {
+
+                    &-card {
+                        width: 41vw;
+                    }
+                }
+            }
+        }
+
     }
 
 }
@@ -277,6 +330,24 @@
                 }
             }
         }
+    }
+
+    .project {
+
+        &__projects {
+            padding: 0 12vw;
+
+            .cards {
+
+                &__container {
+
+                    &-card {
+                        width: 76vw;
+                    }
+                }
+            }
+        }
+
     }
 }
 

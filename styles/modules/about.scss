@@ -140,7 +140,7 @@
                 cursor: pointer;
                 transition: .3s all;
                 @include boxShadow(var(--opacityFixed));
-                transform: translateX(10rem);
+                transform: translateX(5rem);
                 opacity: 0;
                 transition: .5s all;
 
@@ -168,7 +168,7 @@
                 }
             }
 
-            .observe-links {
+            .observe {
                 transform: translateY(0);
                 opacity: 1;
             }

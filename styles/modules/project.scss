@@ -227,7 +227,7 @@
         }
 
         .cards {
-            width: 85vw;
+            width: 100%;
             height: 100%;
             @include flex(flex-start, flex-start, column);
             row-gap: 1.5vw;
@@ -238,12 +238,16 @@
                 outline: none;
             }
 
+            //! El width se colocara directamente en el HTML mediante Javascript que evalua cuantas cards hay
             &__container {
-                height: 45%;
+                height: 46%;
                 @include flex(flex-start, flex-start, row);
                 transition: 1s all;
                 column-gap: 1.5vw;
 
+                //! El tamanio de las cards es a base 100vw - 14vw (padding) - 4.5vw (column-gap internos entre las cards) / 4 (cards que se deben ver en tamanio de 1500px de pantalla)
+                //! Cuantas cards se deben ver en cada pantalla sera cambiado con javascripts dinamicamente
+                //! En resument la formula seria: Pantalla - Padding - Gap / Cards
                 &-card {
                     width: 20vw;
                     height: 100%;
