@@ -673,7 +673,7 @@ header .menu {
   border-radius: 50%;
 }
 .about__hability .skills__container:hover .skills__container-hover {
-  transform: translateY(9rem);
+  transform: translateY(8rem);
 }
 .about__hability .skills__container:hover {
   transform: scale(1.025);
@@ -1635,25 +1635,27 @@ header .menu {
   .home__biography .headline__container {
     column-gap: 1rem;
   }
-  .about {
-    height: 100%;
-  }
-  .about__hability {
-    padding-top: 0;
-    height: 100%;
-  }
   .about__hability-information-paragraph {
     font-size: 0.8rem;
   }
   .about__hability .skills {
     grid-template-columns: repeat(auto-fit, minmax(7rem, 8rem));
     grid-template-rows: repeat(auto-fit, minmax(7rem, 8rem));
+    gap: 1.5rem;
+  }
+  .about__hability .skills__information {
+    row-gap: 1rem;
+    padding: 1.5rem;
   }
   .about__hability .skills__information-header h3 {
     font-size: 1.5rem;
   }
+  .about__hability .skills__information-header .close {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
   .about__hability .skills__information-content p {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
   .about__container {
     position: static;
@@ -1698,7 +1700,6 @@ header .menu {
     flex-direction: row;
     background-color: transparent;
     height: 2rem;
-    padding: 0 1rem;
     border-radius: 1rem;
     position: relative;
     overflow: hidden;
@@ -1707,9 +1708,8 @@ header .menu {
   header .nav__section span {
     font-size: 1.5rem;
     color: var(--mainFixed);
-    padding: 0 0.5rem;
   }
-  header .nav__section:hover::after {
+  header .nav__section::after {
     content: none;
   }
   header .nav__section:active span {
@@ -1825,6 +1825,26 @@ header .menu {
   }
   .home__container {
     height: 15vh;
+  }
+  .about__hability {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+  .about__hability-information {
+    width: 100%;
+  }
+  .about__hability-information-paragraph {
+    text-indent: 0;
+  }
+  .about__hability .skills {
+    width: 100%;
+  }
+  .about__hability .skills .active {
+    width: 100%;
+    transform: translateX(0);
   }
 }
 @media (max-width: 600px) {

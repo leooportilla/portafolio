@@ -100,11 +100,8 @@
     }
 
     .about {
-        height: 100%;
 
         &__hability {
-            padding-top: 0;
-            height: 100%;
 
             &-information {
 
@@ -116,20 +113,28 @@
             .skills {
                 grid-template-columns: repeat(auto-fit, minmax(7rem, 8rem));
                 grid-template-rows: repeat(auto-fit, minmax(7rem, 8rem));
+                gap: 1.5rem;
 
                 &__information {
+                    row-gap: 1rem;
+                    padding: 1.5rem;
 
                     &-header {
 
                         h3 {
                             font-size: 1.5rem;
                         }
+
+                        .close {
+                            width: 1.5rem;
+                            height: 1.5rem;
+                        }
                     }
 
                     &-content {
 
                         p {
-                            font-size: .8rem;
+                            font-size: .7rem;
                         }
                     }
                 }
@@ -197,7 +202,6 @@
                 @include flex(center, center, row);
                 background-color: transparent;
                 height: 2rem;
-                padding: 0 1rem;
                 border-radius: 1rem;
                 position: relative;
                 overflow: hidden;
@@ -206,10 +210,9 @@
                 span {
                     font-size: 1.5rem;
                     color: var(--mainFixed);
-                    padding: 0 .5rem;
                 }
 
-                &:hover::after {
+                &::after {
                     content: none;
                 }
 
@@ -285,6 +288,31 @@
 
         &__container {
             height: 15vh;
+        }
+    }
+
+    .about {
+    
+        &__hability {
+            @include flex(center, flex-start, column);
+            row-gap: 2rem;
+
+            &-information {
+                width: 100%;
+
+                &-paragraph {
+                    text-indent: 0;
+                }
+            }
+
+            .skills {
+                width: 100%;
+
+                .active {
+                    width: 100%;
+                    transform: translateX(0);
+                }
+            }
         }
     }
 }
