@@ -7,25 +7,6 @@
 //! Key Frames - Animaciones
 @use "./keyframe.scss"as *;
 
-@media (min-width: 2000px) {
-    .project {
-
-        &__projects {
-
-            .cards {
-
-                &__container {
-
-                    &-card {
-                        width: 15.7vw;
-                    }
-                }
-            }
-        }
-
-    }
-}
-
 @media (max-width: 1328px) {
 
     .home {
@@ -155,7 +136,7 @@
                 &__container {
 
                     &-card {
-                        width: 41vw;
+                        width: 41.5vw;
                     }
                 }
             }
@@ -292,7 +273,7 @@
     }
 
     .about {
-    
+
         &__hability {
             @include flex(center, flex-start, column);
             row-gap: 2rem;
@@ -312,6 +293,39 @@
                     width: 100%;
                     transform: translateX(0);
                 }
+            }
+        }
+    }
+
+    .project {
+
+        &__profile {
+
+            .container {
+                grid-template-areas:
+                "User User"
+                "Image Description"
+                "Image Description";
+
+
+                    &__image {
+                        width: 10rem;
+                        height: 10rem;
+                    }
+
+                    &__description {
+                        
+                        &-stadistic {
+                            column-gap: 1rem;
+
+                            &-content {
+
+                                h4 {
+                                    font-size: .7rem;
+                                }
+                            }
+                        }
+                    }
             }
         }
     }

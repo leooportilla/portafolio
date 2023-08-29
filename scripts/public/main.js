@@ -147,16 +147,12 @@ const templateLanguage = (url, svg) => {
 };
 
 const config = () => {
-    if (window.screen.width > 1328) return 80
-    if (window.screen.width > 1328) return 80
-    if (window.screen.width > 1024 && window.screen.width <= 1328) return 81.5
-    if (window.screen.width > 600 && window.screen.width <= 1024) return 83
+    if (window.screen.width > 600 ) return 86
     if (window.screen.width <= 600) return 76
 };
 
 const countCards = () => {
-    if (window.screen.width > 2000 ) return 5
-    if (window.screen.width > 1328 && window.screen.width <= 1500 ) return 4
+    if (window.screen.width > 1328 ) return 4
     if (window.screen.width > 1024 && window.screen.width <= 1328) return 3
     if (window.screen.width > 600 && window.screen.width <= 1024) return 2
     if (window.screen.width <= 600) return 1
@@ -845,10 +841,10 @@ const project = async (user = `leooportilla`) => {
                 });
 
                 //! Calcula cuantas seccion deben a ver en el container de las cards
-                const lenght = Math.ceil((data.length / countCards()) / 2);
+                const length = Math.ceil((data.length / countCards()) / 2);
 
                 //! Calcula el width para el container
-                let widthTotal = Math.ceil(lenght * config());
+                let widthTotal = Math.ceil(length * config());
                 cardsOne.style.width = `${widthTotal}vw`;
                 cardsTwo.style.width = `${widthTotal}vw`;
 
@@ -856,21 +852,20 @@ const project = async (user = `leooportilla`) => {
                 containerCards.appendChild(cardsOne);
                 containerCards.appendChild(cardsTwo);
 
-                rangeSlide.style.width = `${100 / lenght}%`;
+                rangeSlide.style.width = `${100 / length}%`;
                 countSlide.innerHTML = `1`;
 
-
                 //! Para esconder las flechas cuando no tenga mas de una seccion el container de las cards
-                if (lenght <= 1) {
+                if (length <= 1) {
                     leftButton.classList.remove(`active-arrow`);
                     rightButton.classList.remove(`active-arrow`);
-                } else if (lenght > 1) {
+                } else if (length > 1) {
                     leftButton.classList.add(`active-arrow`);
                     rightButton.classList.add(`active-arrow`);
                 }
 
                 //! Guardamos el valor de la secciones para que la funcion de las arrow pueda saber cuantas existen 
-                localStorage.setItem(`Lenght`, lenght);
+                localStorage.setItem(`Lenght`, length);
 
                 //! Desconectamos el observador para que no sobre cargue, si ya existe una carga
                 observeProject.disconnect();
