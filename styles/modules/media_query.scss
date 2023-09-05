@@ -166,7 +166,7 @@
             z-index: 925;
             background-color: var(--firstDark);
             clip-path: circle(0% at 100% 0%);
-            transition: all 1s ease-in-out;
+            transition: all .7s;
 
             &__close {
                 display: block;

@@ -1679,7 +1679,7 @@ header .menu {
     z-index: 925;
     background-color: var(--firstDark);
     clip-path: circle(0% at 100% 0%);
-    transition: all 1s ease-in-out;
+    transition: all 0.7s;
   }
   header .nav__close {
     display: block;
