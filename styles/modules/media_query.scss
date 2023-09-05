@@ -83,8 +83,10 @@
     .about {
 
         &__hability {
+            padding-bottom: 0;
 
             &-information {
+                padding: 0;
 
                 &-paragraph {
                     font-size: .8rem;
@@ -431,6 +433,19 @@
                         font-size: .7rem;
                     }
 
+                }
+            }
+        }
+    }
+    
+    .about {
+
+        &__hability {
+
+            &-information {
+
+                &-title {
+                    font-size: 2rem;
                 }
             }
         }

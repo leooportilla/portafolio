@@ -64,11 +64,11 @@
             padding: 0.8rem 0;
 
             .active {
-                transform: translateX(2.5%);
+                transform: translateX(0);
             }
 
             &__information {
-                width: 95%;
+                width: 100%;
                 height: 100%;
                 background-color: var(--alternativeFixed);
                 @include flex(flex-start, flex-start, column);
