@@ -21,19 +21,19 @@
     }
 
     .about {
-        height: 100%;
 
         &__hability {
             padding-top: 0;
             height: 100%;
         }
-
-        &__container {
-            position: static;
-        }
     }
 
     .project {
+
+        .container__image {
+            width: 10rem;
+            height: 10rem;
+        }
 
         &__projects {
 
@@ -134,6 +134,7 @@
             .cards {
 
                 &__container {
+                    height: 50%;
 
                     &-card {
                         width: 41.5vw;

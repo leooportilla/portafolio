@@ -136,7 +136,7 @@ body {
 @font-face {
   font-display: swap;
   font-family: Titan One;
-  src: url(../media/fonts/titan_One.ttf);
+  src: url(../media/fonts/titan_one.ttf);
 }
 :root {
   --main: #D8DBE2;
@@ -523,12 +523,12 @@ header .menu {
 
 .about {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: relative;
   background-color: var(--firstDark);
 }
 .about__hability {
-  padding: 5rem 7vw 0 7vw;
+  padding: 0 7vw 25vh 7vw;
   width: 100%;
   height: 75%;
   display: flex;
@@ -576,7 +576,7 @@ header .menu {
   gap: 2rem;
   overflow: hidden;
   position: relative;
-  padding-top: 0.5rem;
+  padding: 0.8rem 0;
 }
 .about__hability .skills .active {
   transform: translateX(2.5%);
@@ -688,6 +688,7 @@ header .menu {
   position: absolute;
   bottom: 0;
   transform: rotate(180deg);
+  bottom: -1px;
 }
 .about__container-one {
   width: 100%;
@@ -725,16 +726,18 @@ header .menu {
   bottom: 0;
   animation: Move 120s infinite alternate;
 }
+.about__container-three {
+  bottom: -1px;
+}
 
 .project {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   row-gap: 2rem;
-  padding-top: 2rem;
 }
 .project__profile {
   padding: 0 7vw;
@@ -749,7 +752,6 @@ header .menu {
   display: grid;
   grid-template-areas: "Image User" "Image Description";
   grid-template-rows: 3rem 1fr;
-  width: 100%;
   column-gap: 2rem;
 }
 .project__profile .container__image {
@@ -919,13 +921,13 @@ header .menu {
 .project__projects {
   padding: 0 7vw;
   width: 100%;
-  height: 60%;
+  height: 70%;
   position: relative;
   overflow: hidden;
 }
 .project__projects-arrowleft {
   position: absolute;
-  left: 5vw;
+  left: 4vw;
   top: 45%;
   cursor: pointer;
   transition: 2s all;
@@ -947,7 +949,7 @@ header .menu {
 }
 .project__projects-arrowright {
   position: absolute;
-  right: 6vw;
+  right: 5vw;
   top: 45%;
   cursor: pointer;
   transition: 2s all;
@@ -986,12 +988,13 @@ header .menu {
   row-gap: 1.5vw;
   overflow: hidden;
   position: relative;
+  padding-bottom: 2rem;
 }
 .project__projects .cards:focus {
   outline: none;
 }
 .project__projects .cards__container {
-  height: 46%;
+  height: 32vh;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -1594,15 +1597,13 @@ header .menu {
   .home__biography-profile {
     width: 20rem;
   }
-  .about {
-    height: 100%;
-  }
   .about__hability {
     padding-top: 0;
     height: 100%;
   }
-  .about__container {
-    position: static;
+  .project .container__image {
+    width: 10rem;
+    height: 10rem;
   }
   .project__projects .cards__container-card {
     width: 27.15vw;
@@ -1653,6 +1654,9 @@ header .menu {
   }
   .about__container {
     position: static;
+  }
+  .project__projects .cards__container {
+    height: 50%;
   }
   .project__projects .cards__container-card {
     width: 41.5vw;

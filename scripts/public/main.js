@@ -964,7 +964,7 @@ const arrow = () => {
 
             if (countMove >= 1) {
 
-                if (translate > 0) xtranslate -= config();
+                if (translate > 0) translate -= config();
                 if (countMove != 1)countMove--;
 
                 cardsOne.style.transform = `translateX(-${translate}vw)`;
