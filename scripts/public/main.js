@@ -100,7 +100,10 @@ const observeProject = new IntersectionObserver(entries => {
         }
     });
 
-}, {rootMargin: "0px", threshold: .4});
+}, {
+    rootMargin: "0px",
+    threshold: .4
+});
 
 const language = {
     javascript: {
@@ -147,12 +150,12 @@ const templateLanguage = (url, svg) => {
 };
 
 const config = () => {
-    if (window.screen.width > 600 ) return 86
+    if (window.screen.width > 600) return 86
     if (window.screen.width <= 600) return 76
 };
 
 const countCards = () => {
-    if (window.screen.width > 1328 ) return 4
+    if (window.screen.width > 1328) return 4
     if (window.screen.width > 1024 && window.screen.width <= 1328) return 3
     if (window.screen.width > 600 && window.screen.width <= 1024) return 2
     if (window.screen.width <= 600) return 1
@@ -272,7 +275,7 @@ const project = async (user = `leooportilla`) => {
                                 if (words !== "") return words[0].toUpperCase() + words.substring(1)
                             });
 
-                            //! Muchas veces los nombre de los repositorios son extenson
+                            //! Muchas veces los nombre de los repositorios son extenzon
                             //! Con esta condicion validamos si es corto, si lo es lo mostramos completo
                             if (repository.name.length <= 24) {
                                 nameRepository = nameRepository.join(` `);
@@ -286,7 +289,21 @@ const project = async (user = `leooportilla`) => {
 
                     //! Guardaremos la descripcion en la variable si existe, si el repositorio no tiene guardaremos en la variable una recomendacion
                     let descriptionRepository;
-                    repository.description !== undefined && repository.description !== null ? descriptionRepository = repository.description : descriptionRepository = `No hay una descripción detallada disponible para su repositorio. Una descripción detallada es esencial para ayudar a otros a comprender el propósito y la funcionalidad de su repositorio.`;
+
+                    if (repository.description !== undefined && repository.description !== null) {
+
+                        //! Muchas veces los nombre de los repositorios son extenzon
+                        //! Con esta condicion validamos si es corto, si lo es lo mostramos completo
+                        if (repository.description.split(` `).length <= 25) {
+                            descriptionRepository = repository.description;
+                            
+                            //! Si el nombre se hace mucho mas extenso solo mostraremos la primera 25 palabras
+                        } else {
+                            descriptionRepository = repository.description.split(` `).splice(0,25).join(` `) + `...`;
+                        }
+                    } else {
+                        descriptionRepository = `No hay una descripción detallada disponible para su repositorio. Una descripción detallada es esencial para ayudar a otros a comprender el propósito y la funcionalidad de su repositorio.`;
+                    }
 
                     //! Con este arreglo verificamos que no agregemos un lenguaje dos veces
                     let verify = [];
@@ -463,7 +480,7 @@ const project = async (user = `leooportilla`) => {
                     } else if (window.screen.width > 1024 && window.screen.width <= 1328) {
 
                         if (count <= 3) {
-                            
+
                             cardsOne.insertAdjacentHTML(`beforeend`, `<div class="cards__container-card" data-observe="project">
                                         <img class="cards__container-card-image" src="./media/images/project_${imageRepository}.png" alt="Projecto del portafolio pagina web">
                     
@@ -588,7 +605,7 @@ const project = async (user = `leooportilla`) => {
                         }
                     } else if (window.screen.width > 600 && window.screen.width <= 1024) {
 
-                        if (count <= 2) {                         
+                        if (count <= 2) {
                             cardsOne.insertAdjacentHTML(`beforeend`, `<div class="cards__container-card" data-observe="project">
                                         <img class="cards__container-card-image" src="./media/images/project_${imageRepository}.png" alt="Projecto del portafolio pagina web">
                     
@@ -713,7 +730,7 @@ const project = async (user = `leooportilla`) => {
                         }
                     } else if (window.screen.width <= 600) {
 
-                        if (count == 1) {                         
+                        if (count == 1) {
                             cardsOne.insertAdjacentHTML(`beforeend`, `<div class="cards__container-card" data-observe="project">
                                         <img class="cards__container-card-image" src="./media/images/project_${imageRepository}.png" alt="Projecto del portafolio pagina web">
                     
@@ -876,7 +893,7 @@ const project = async (user = `leooportilla`) => {
                 //! Observamos cada proyecto para que realice la transicion
                 dataProject$1.forEach(element => {
                     observeProject.observe(element);
-                }); 
+                });
 
 
             } else {
@@ -965,11 +982,11 @@ const arrow = () => {
             if (countMove >= 1) {
 
                 if (translate > 0) translate -= config();
-                if (countMove != 1)countMove--;
+                if (countMove != 1) countMove--;
 
                 cardsOne.style.transform = `translateX(-${translate}vw)`;
                 cardsTwo.style.transform = `translateX(-${translate}vw)`;
-                
+
                 if (countMove >= 1) {
                     rangeSlide.style.width = `${(100 / parseInt(localStorage.getItem(`Lenght`))) * countMove}%`;
                     countSlide.innerHTML = `${countMove}`;

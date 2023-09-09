@@ -30,9 +30,15 @@
 
     .project {
 
-        .container__image {
-            width: 10rem;
-            height: 10rem;
+        &__profile {
+
+            .container {
+                
+                &__image {
+                    width: 11rem;
+                    height: 11rem;
+                }
+            }
         }
 
         &__projects {
@@ -126,17 +132,29 @@
 
         &__container {
             position: static;
+            transform: rotate(180deg) translateY(-1px)
         }
     }
 
     .project {
 
+        &__profile {
+
+            .container {
+                
+                &__image {
+                    width: 10rem;
+                    height: 10rem;
+                }
+            }
+        }
+
+        
         &__projects {
 
             .cards {
 
                 &__container {
-                    height: 50%;
 
                     &-card {
                         width: 41.5vw;
@@ -310,10 +328,9 @@
                 "Image Description"
                 "Image Description";
 
-
                     &__image {
-                        width: 10rem;
-                        height: 10rem;
+                        width: 9rem;
+                        height: 9rem;
                     }
 
                     &__description {
@@ -335,7 +352,97 @@
 }
 
 //! 768px
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+
+    .project__projects-arrowright-icon {
+        height: 1.5rem;
+    }
+    
+    .project {
+
+        &__profile {
+
+            .container {
+
+                    &__user {
+
+                        &-input, &-error {
+                            font-size: .6rem;
+                        }
+
+                        &-information {
+
+                            &-name {
+                                font-size: 1.5rem;
+                            }
+
+                            &-link {
+                                font-size: .6rem;
+                            }
+                        }
+                        
+                        &-label .title {
+                            font-size: .6rem;
+                        }
+                    }
+                    
+                    &__image {
+                        width: 7rem;
+                        height: 7rem;
+                    }
+
+                    &__description {
+                        
+                        &-paragraph {
+                            font-size: .6rem;
+                        }
+
+                        &-stadistic {
+                            column-gap: 1rem;
+
+                            &-content {
+                                column-gap: 0.3rem;
+
+                                h4 {
+                                    font-size: .6rem;
+                                }
+
+                                svg {
+                                    width: .8rem;
+                                    height: .8rem;
+                                }
+                            }
+                        }
+                    }
+            }
+        }
+
+        &__projects {
+
+            &-arrowright {
+
+                &-icon {
+                    height: 1.5rem;
+                }
+
+                &-iconsmall {
+                    height: 1rem;
+                }
+            }
+
+            &-arrowleft {
+
+                &-icon {
+                    height: 1.5rem;
+                }
+
+                &-iconsmall {
+                    height: 1rem;
+                }
+            }
+        }
+    }
+}
 
 //! 600px
 @media (max-width: 600px) {
