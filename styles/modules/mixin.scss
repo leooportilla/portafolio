@@ -67,11 +67,11 @@
 
 //! Estandar del button en la pagina
 @mixin buttonSmall () {
-    padding: 1rem;
+    padding: .7rem;
     border-radius: 50%;
 
     .svg {
-        height: 1.5rem;
+        height: 1.3rem;
     }
 
     .title {

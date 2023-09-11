@@ -1066,6 +1066,7 @@ const buttonSearch    = document.querySelector(`.container__user-label`);
 const inputProfile    = document.querySelector(`.container__user-input`);
 const errorProfile$1    = document.querySelector(`.container__user-error`);
 const userFollowing   = document.querySelector(`.following`);
+const userStadistic   = document.querySelector(`.container__description-stadistic`);
 const userFollowers   = document.querySelector(`.followers`);
 const userRepository  = document.querySelector(`.repository`);
 const userDescription = document.querySelector(`.container__description-paragraph`);
@@ -1113,9 +1114,7 @@ const profile = async (user = `leooportilla`) => {
             userDescription.innerHTML = `Lo siento mucho, pero en este momento el acceso a la información que estás buscando ha sido limitado. Por favor, inténtalo de nuevo más tarde asi puedes acceder a la información que necesitas`;
         }
 
-        userRepository.innerHTML = `Repositorio: 0`;
-        userFollowers.innerHTML = `Seguidores: 0`;
-        userFollowing.innerHTML = `Siguiendo: 0`;
+        userStadistic.style.display = `none`;
     }
 };
 

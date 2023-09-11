@@ -752,9 +752,12 @@ header .menu {
   row-gap: 2rem;
 }
 .project__profile .container {
+  width: 100%;
+  max-width: 60rem;
   display: grid;
   grid-template-areas: "Image User" "Image Description";
   grid-template-rows: 3rem 1fr;
+  grid-template-columns: min-content;
   column-gap: 2rem;
 }
 .project__profile .container__image {
@@ -768,9 +771,10 @@ header .menu {
   grid-area: User;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: row;
   position: relative;
+  column-gap: 3rem;
 }
 .project__profile .container__user-information {
   display: flex;
@@ -787,7 +791,7 @@ header .menu {
   color: var(--first);
 }
 .project__profile .container__user-information-link {
-  text-decoration: none;
+  text-decoration: underline;
   font-family: var(--paragraph);
   font-size: 0.8rem;
   letter-spacing: 0.1rem;
@@ -902,6 +906,8 @@ header .menu {
   align-items: flex-start;
   flex-direction: row;
   column-gap: 2rem;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
 }
 .project__profile .container__description-stadistic-content {
   display: flex;
@@ -1536,7 +1542,7 @@ header .menu {
   align-items: center;
   flex-direction: row;
   column-gap: 0.5rem;
-  padding: 1rem;
+  padding: 0.7rem;
   border-radius: 50%;
 }
 .contact__links-link .svg {
@@ -1571,7 +1577,7 @@ header .menu {
   transform: translateX(0);
 }
 .contact__links-link .svg {
-  height: 1.5rem;
+  height: 1.3rem;
 }
 .contact__links-link .title {
   display: none;
@@ -1748,7 +1754,7 @@ header .menu {
     align-items: center;
     flex-direction: row;
     column-gap: 0.5rem;
-    padding: 1rem;
+    padding: 0.7rem;
     border-radius: 50%;
   }
   header .nav__container-links .svg {
@@ -1783,7 +1789,7 @@ header .menu {
     transform: translateX(0);
   }
   header .nav__container-links .svg {
-    height: 1.5rem;
+    height: 1.3rem;
   }
   header .nav__container-links .title {
     display: none;
@@ -1869,24 +1875,65 @@ header .menu {
   }
 }
 @media (max-width: 768px) {
+  body .buttonhome__button {
+    padding: 0.7rem;
+    border-radius: 50%;
+  }
+  body .buttonhome__button .svg {
+    height: 1.3rem;
+  }
+  body .buttonhome__button .title {
+    display: none;
+  }
+  body .buttonhome__button .arrow {
+    display: none;
+  }
+  body .buttonhome__button:hover .svg {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  body .buttonhome__button:active {
+    filter: brightness(0.8);
+  }
+  body .buttonhome__button .svg {
+    width: 1.3rem;
+  }
   .project__projects-arrowright-icon {
     height: 1.5rem;
+  }
+  .project__profile .container {
+    column-gap: 1rem;
   }
   .project__profile .container__user-input, .project__profile .container__user-error {
     font-size: 0.6rem;
   }
-  .project__profile .container__user-information-name {
-    font-size: 1.5rem;
-  }
-  .project__profile .container__user-information-link {
+  .project__profile .container__user-label {
+    padding: 0.7rem;
+    border-radius: 50%;
     font-size: 0.6rem;
   }
+  .project__profile .container__user-label .svg {
+    height: 1.3rem;
+  }
   .project__profile .container__user-label .title {
+    display: none;
+  }
+  .project__profile .container__user-label .arrow {
+    display: none;
+  }
+  .project__profile .container__user-label:hover .svg {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .project__profile .container__user-label:active {
+    filter: brightness(0.8);
+  }
+  .project__profile .container__user .title {
     font-size: 0.6rem;
   }
   .project__profile .container__image {
-    width: 7rem;
-    height: 7rem;
+    width: 8rem;
+    height: 8rem;
   }
   .project__profile .container__description-paragraph {
     font-size: 0.6rem;
@@ -1937,11 +1984,11 @@ header .menu {
     column-gap: 1.5rem;
   }
   .home__biography .headline__container-links {
-    padding: 1rem;
+    padding: 0.7rem;
     border-radius: 50%;
   }
   .home__biography .headline__container-links .svg {
-    height: 1.5rem;
+    height: 1.3rem;
   }
   .home__biography .headline__container-links .title {
     display: none;
@@ -1955,6 +2002,24 @@ header .menu {
   }
   .home__biography .headline__container-links:active {
     filter: brightness(0.8);
+  }
+  .project__profile .container__user {
+    align-items: center;
+  }
+  .project__profile .container__user-information {
+    column-gap: 0.5rem;
+  }
+  .project__profile .container__user-information-name {
+    font-size: 1.3rem;
+  }
+  .project__profile .container__user-information-link {
+    font-size: 0.6rem;
+  }
+  .project__profile .container__description-paragraph {
+    font-size: 0.6rem;
+  }
+  .project__profile .container__description-stadistic-content {
+    column-gap: 0.3rem;
   }
   .project__projects {
     padding: 0 12vw;

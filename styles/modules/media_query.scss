@@ -350,6 +350,14 @@
 //! 768px
 @media (max-width: 768px) {
 
+    body .buttonhome__button {
+        @include buttonSmall();
+        
+        .svg {
+            width: 1.3rem;
+        }
+    }
+
     .project__projects-arrowright-icon {
         height: 1.5rem;
     }
@@ -359,6 +367,7 @@
         &__profile {
 
             .container {
+                column-gap: 1rem;
 
                 &__user {
 
@@ -367,25 +376,19 @@
                         font-size: .6rem;
                     }
 
-                    &-information {
-
-                        &-name {
-                            font-size: 1.5rem;
-                        }
-
-                        &-link {
-                            font-size: .6rem;
-                        }
+                    &-label {
+                        @include buttonSmall();
+                        font-size: .6rem;
                     }
 
-                    &-label .title {
+                    .title {
                         font-size: .6rem;
                     }
                 }
 
                 &__image {
-                    width: 7rem;
-                    height: 7rem;
+                    width: 8rem;
+                    height: 8rem;
                 }
 
                 &__description {
@@ -443,6 +446,7 @@
 
 //! 600px
 @media (max-width: 600px) {
+
     .home {
 
         &__biography {
@@ -482,6 +486,43 @@
     }
 
     .project {
+
+        &__profile {
+
+            .container {
+
+                &__user {
+                    align-items: center;
+
+                    &-information {
+                        column-gap: .5rem;
+
+                        &-name {
+                            font-size: 1.3rem;
+                        }
+
+                        &-link {
+                            font-size: .6rem;
+                        }
+                    }
+
+                }
+                
+                &__description {
+
+                    &-paragraph {
+                        font-size: .6rem;
+                    }
+
+                    &-stadistic {
+
+                        &-content {
+                            column-gap: 0.3rem;
+                        }
+                    }
+                }
+            }
+        }
 
         &__projects {
             padding: 0 12vw;

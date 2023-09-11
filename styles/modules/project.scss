@@ -20,11 +20,14 @@
         row-gap: 2rem;
 
         .container {
+            width: 100%;
+            max-width: 60rem;
             display: grid;
             grid-template-areas:
                 "Image User"
                 "Image Description";
             grid-template-rows: 3rem 1fr;
+            grid-template-columns: min-content;
             column-gap: 2rem;
 
 
@@ -38,8 +41,9 @@
 
             &__user {
                 grid-area: User;
-                @include flex(space-between, center, row);
+                @include flex(space-between, flex-start, row);
                 position: relative;
+                column-gap: 3rem;
 
                 &-information {
                     @include flex(flex-start, center, row);
@@ -54,7 +58,7 @@
                     }
 
                     &-link {
-                        text-decoration: none;
+                        text-decoration: underline;
                         font-family: var(--paragraph);
                         font-size: .8rem;
                         letter-spacing: .1rem;
@@ -131,6 +135,8 @@
                 &-stadistic {
                     @include flex(flex-start, flex-start, row);
                     column-gap: 2rem;
+                    flex-wrap: wrap;
+                    row-gap: .5rem;
 
                     &-content {
                         @include flex(flex-start, flex-start, row);
