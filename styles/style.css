@@ -1037,6 +1037,7 @@ header .menu {
   padding: 1.5rem;
   transition: 0.5s all;
   transform: translateX(-100%);
+  z-index: 30;
 }
 .project__projects .cards__container-card .hover__information {
   height: fit-content;
@@ -1046,38 +1047,9 @@ header .menu {
   flex-direction: column;
   row-gap: 1rem;
 }
-.project__projects .cards__container-card .hover__information-title {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-}
-.project__projects .cards__container-card .hover__information-title-name {
-  font-family: var(--title);
-  font-size: 1rem;
-  letter-spacing: 0.1rem;
-  color: var(--mainFixed);
-}
-.project__projects .cards__container-card .hover__information-title-star {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: row;
-  column-gap: 0.2rem;
-}
-.project__projects .cards__container-card .hover__information-title-star .icon {
-  width: 1rem;
-  color: var(--mainFixed);
-}
-.project__projects .cards__container-card .hover__information-title-star .count {
-  font-family: var(--paragraph);
-  font-size: 1rem;
-  color: var(--mainFixed);
-}
 .project__projects .cards__container-card .hover__information-paragraph {
   font-family: var(--paragraph);
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   letter-spacing: 0.1rem;
   line-height: 1.6;
   color: var(--mainFixed);
@@ -1139,7 +1111,7 @@ header .menu {
 }
 .project__projects .cards__container-card .hover__footer-visit .title {
   font-family: var(--paragraph);
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   letter-spacing: 0.1rem;
   transition: 0.4s all;
 }
@@ -1185,7 +1157,7 @@ header .menu {
 }
 .project__projects .cards__container-card .hover__footer-code .title {
   font-family: var(--paragraph);
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   letter-spacing: 0.1rem;
   transition: 0.4s all;
 }
@@ -1212,6 +1184,51 @@ header .menu {
 .project__projects .cards__container-card-image {
   width: 100%;
   height: 100%;
+}
+.project__projects .cards__container-card .name {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+.project__projects .cards__container-card .name__title {
+  z-index: 30;
+  font-family: var(--paragraph);
+  letter-spacing: 0.1rem;
+  color: var(--main);
+}
+.project__projects .cards__container-card .name__statistics {
+  z-index: 30;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  column-gap: 0.5rem;
+}
+.project__projects .cards__container-card .name__statistics-icon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--main);
+}
+.project__projects .cards__container-card .name__statistics-count {
+  font-family: var(--paragraph);
+  letter-spacing: 0.1rem;
+  color: var(--main);
+}
+.project__projects .cards__container-card .name::before {
+  content: "";
+  width: 100%;
+  height: 8rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  background: linear-gradient(180deg, transparent 0, var(--alternative) 100%);
 }
 .project__projects .cards__container-card:hover .hover {
   transform: translateX(0);

@@ -276,43 +276,16 @@
                         padding: 1.5rem;
                         transition: .5s all;
                         transform: translateX(-100%);
+                        z-index: 30;
 
                         &__information {
                             height: fit-content;
                             @include flex(flex-start, flex-start, column);
                             row-gap: 1rem;
 
-                            &-title {
-                                width: 100%;
-                                @include flex(space-between, center, row);
-
-                                &-name {
-                                    font-family: var(--title);
-                                    font-size: 1rem;
-                                    letter-spacing: .1rem;
-                                    color: var(--mainFixed);
-                                }
-
-                                &-star {
-                                    @include flex(flex-start, center, row);
-                                    column-gap: .2rem;
-
-                                    .icon {
-                                        width: 1rem;
-                                        color: var(--mainFixed);
-                                    }
-
-                                    .count {
-                                        font-family: var(--paragraph);
-                                        font-size: 1rem;
-                                        color: var(--mainFixed);
-                                    }
-                                }
-                            }
-
                             &-paragraph {
                                 font-family: var(--paragraph);
-                                font-size: .6rem;
+                                font-size: .7rem;
                                 letter-spacing: .1rem;
                                 line-height: 1.6;
                                 color: var(--mainFixed);
@@ -370,7 +343,7 @@
 
                                 .title {
                                     font-family: var(--paragraph);
-                                    font-size: .6rem;
+                                    font-size: .7rem;
                                     letter-spacing: .1rem;
                                     transition: .4s all;
                                 }
@@ -420,7 +393,7 @@
 
                                 .title {
                                     font-family: var(--paragraph);
-                                    font-size: .6rem;
+                                    font-size: .7rem;
                                     letter-spacing: .1rem;
                                     transition: .4s all;
                                 }
@@ -455,6 +428,52 @@
                     &-image {
                         width: 100%;
                         height: 100%;
+                    }
+
+                    .name {
+                        width: 100%;
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        @include flex(space-between, flex-start, row);
+                        padding: 0 1.5rem 1.5rem 1.5rem;
+
+                        &__title {
+                            z-index: 30;
+                            font-family: var(--paragraph);
+                            letter-spacing: .1rem;
+                            color: var(--main);
+                        }
+
+                        &__statistics {
+                            z-index: 30;
+                            @include flex (flex-start, flex-start, row);
+                            column-gap: .5rem;
+
+                            &-icon {
+                                width: 1rem;
+                                height: 1rem;
+                                color: var(--main);
+                            }
+
+                            &-count {
+                                font-family: var(--paragraph);
+                                letter-spacing: .1rem;
+                                color: var(--main);
+                            }
+                        }
+
+                        &::before {
+                            content: "";
+                            width: 100%;
+                            height: 8rem;
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            z-index: 20;
+                            background: linear-gradient(180deg, transparent 0, var(--alternative) 100%);
+                        }
+
                     }
 
                     &:hover .hover {
