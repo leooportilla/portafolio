@@ -42,6 +42,11 @@
         &__hability {
             padding-top: 0;
             height: 100%;
+
+            .skills__container {
+                width: 9rem;
+                height: 9rem;
+            }
         }
     }
 
@@ -81,23 +86,19 @@
         width: 26rem;
     }
 
-
     .about {
 
         &__hability {
             padding-bottom: 0;
 
             &-information {
-                padding: 0;
 
                 &-paragraph {
-                    font-size: .8rem;
+                    font-size: .7rem;
                 }
             }
 
             .skills {
-                grid-template-columns: repeat(auto-fit, minmax(7rem, 8rem));
-                grid-template-rows: repeat(auto-fit, minmax(7rem, 8rem));
                 gap: 1.5rem;
 
                 &__information {
@@ -119,9 +120,14 @@
                     &-content {
 
                         p {
-                            font-size: .7rem;
+                            font-size: .6rem;
                         }
                     }
+                }
+
+                &__container {
+                    width: 8rem;
+                    height: 8rem;
                 }
             }
         }
@@ -542,7 +548,7 @@
 }
 
 //! 480px
-@media (max-width: 480px) {
+@media (max-width: 480px) { 
 
     //! Header de toda la pagina
     header {
@@ -591,6 +597,11 @@
                 &-title {
                     font-size: 2rem;
                 }
+            }
+
+            .skills__container {
+                width: 7rem;
+                height: 7rem;
             }
         }
     }
