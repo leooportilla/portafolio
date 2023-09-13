@@ -536,6 +536,7 @@
             .cards {
 
                 &__container {
+                    column-gap: 0;
 
                     &-card {
                         width: 76vw;

@@ -2044,6 +2044,9 @@ header .menu {
   .project__projects {
     padding: 0 12vw;
   }
+  .project__projects .cards__container {
+    column-gap: 0;
+  }
   .project__projects .cards__container-card {
     width: 76vw;
   }
