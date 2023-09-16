@@ -9,34 +9,96 @@
 
 .contact {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position: relative;
+    padding: 0 7vw;
+    padding-top: 2rem;
 
-    &__information {
-        @include flex(space-between, center, row);
-        padding: 0 7vw;
+    &__maps {
+        width: 100%;
+        height: 25vh;
+        color: var(--first);
+        border-radius: 1.5rem;
+        @include boxShadow(var(--opacityAlternative));
+
+        .leaflet-popup {
+            margin-bottom: 2rem;
+        }
+
+        .leaflet-popup-content-wrapper,
+        .leaflet-popup-tip {
+            background-color: var(--alternative);
+        }
+
+        .leaflet-popup-content {
+            font-size: .8rem;
+            color: var(--main);
+            font-family: var(--paragraph);
+        }
+
+        .leaflet-control {
+            display: none
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-areas:
+            "Information Form"
+            "Cv Form";
+        grid-auto-columns: 1fr;
+        column-gap: 5rem;
+        row-gap: 7rem;
+        padding-bottom: 30vh;
+        margin-top: 3rem;
+
+        &-information {
+            grid-area: Information;
+            @include flex(flex-start, flex-start, column);
+            z-index: 30;
+
+            &-title {
+                font-family: var(--title);
+                font-size: 1.8rem;
+                letter-spacing: .1rem;
+                color: var(--alternative);
+                line-height: 1.6;
+            }
+
+            &-description {
+                font-family: var(--paragraph);
+                font-size: .8rem;
+                letter-spacing: .1rem;
+                color: var(--alternative);
+                line-height: 1.6;
+                margin-top: .5rem;
+                text-align: justify;
+            }
+        }
+
+        &-cv {
+            grid-area: Cv;
+            width: 90%;
+
+            &-button {
+                @include buttonStandar(var(--second), var(--alternative))
+            }
+
+            &-paragraph {
+                margin-top: 1rem;
+                font-family: var(--paragraph);
+                font-size: .7rem;
+                letter-spacing: .1rem;
+                color: var(--alternative);
+                line-height: 1.6;
+            }
+        }
 
         .form {
+            grid-area: Form;
             @include flex(flex-start, center, column);
             row-gap: 1rem;
-            width: 50%;
             z-index: 10;
-
-            &__title {
-                font-family: var(--title);
-                font-size: 2rem;
-                letter-spacing: .1rem;
-                color: var(--alternative);
-                line-height: 1.6;
-            }
-
-            &__description {
-                font-family: var(--paragraph);
-                font-size: 1rem;
-                letter-spacing: .1rem;
-                color: var(--alternative);
-                line-height: 1.6;
-            }
 
             &__content {
                 @include flex(center, center, column);
@@ -54,12 +116,12 @@
                     &-name {
                         background-color: var(--main);
                         @include boxShadow(var(--opacityAlternative));
-                        border-radius: 1.5rem;
+                        border-radius: 1rem;
                         height: 3rem;
                         width: 100%;
                         font-family: var(--paragraph);
                         color: var(--alternative);
-                        font-size: 1rem;
+                        font-size: .8rem;
                         padding-left: 2rem;
                         outline: none;
                         z-index: 10;
@@ -82,12 +144,12 @@
                     &-email {
                         background-color: var(--main);
                         @include boxShadow(var(--opacityAlternative));
-                        border-radius: 1.5rem;
+                        border-radius: 1rem;
                         height: 3rem;
                         width: 100%;
                         font-family: var(--paragraph);
                         color: var(--alternative);
-                        font-size: 1rem;
+                        font-size: .8rem;
                         padding-left: 2rem;
                         outline: none;
 
@@ -102,14 +164,15 @@
                     @include boxShadow(var(--opacityAlternative));
                     border-radius: 1.5rem;
                     width: 100%;
-                    height: 20rem;
+                    height: 100%;
                     font-family: var(--paragraph);
                     color: var(--alternative);
-                    font-size: 1rem;
+                    font-size: .8rem;
                     padding-left: 2rem;
                     padding-top: 2rem;
                     text-align: justify;
                     outline: none;
+                    resize: none;
 
                     &::placeholder {
                         color: inherit;
@@ -131,28 +194,6 @@
             }
         }
 
-        &-maps {
-            width: 40rem;
-            height: 40rem;
-            color: var(--first);
-            border-radius: 50%;
-            @include boxShadow(var(--opacityAlternative));
-
-            .leaflet-popup  {
-                margin-bottom: 2rem;
-            }
-
-            .leaflet-popup-content-wrapper, .leaflet-popup-tip {
-                background-color: var(--alternative);
-            }
-            
-            .leaflet-popup-content {
-                font-size: .8rem;
-                color: var(--main);
-                font-family: var(--paragraph);
-            }
-        }
-
     }
 
     &__container {
@@ -164,6 +205,7 @@
         width: 100%;
         position: absolute;
         bottom: 4rem;
+        left: 0;
         @include flex(center, center, row);
         column-gap: 2rem;
 
@@ -176,6 +218,7 @@
     &__footer {
         position: absolute;
         bottom: 2rem;
+        left: 0;
         width: 100%;
         text-align: center;
         font-family: var(--paragraph);

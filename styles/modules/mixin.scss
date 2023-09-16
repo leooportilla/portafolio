@@ -17,6 +17,7 @@
 //! Estandar del button en la pagina
 @mixin buttonStandar ($background, $color) {
     color: $color;
+    width: fit-content;
     cursor: pointer;
     overflow: hidden;
     position: relative;
@@ -98,6 +99,7 @@
     height: 25vh;
     position: absolute;
     bottom: 0;
+    left: 0;
     transform: rotate($direction);
 
     &-one {
