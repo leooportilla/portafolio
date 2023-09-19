@@ -43,9 +43,44 @@
             padding-top: 0;
             height: 100%;
 
-            .skills__container {
-                width: 9rem;
-                height: 9rem;
+            &-information {
+
+                &-title {
+                    font-size: 2.5rem;
+                }
+
+                &-paragraph {
+                    font-size: .7rem;
+                }
+            }
+
+            .skills {
+
+                &__container {
+                    width: 8.5rem;
+                    height: 8.5rem;
+                }
+
+                &__information {
+
+                    &-content p,
+                    a {
+                        font-size: .7rem;
+                    }
+
+                    &-header {
+                        h3 {
+                            font-size: 1.5rem;
+                        }
+
+                        svg {
+                            width: 1.5rem;
+                            height: 1.5rem;
+                        }
+                    }
+                }
+
+
             }
         }
     }
@@ -60,6 +95,17 @@
                     width: 11rem;
                     height: 11rem;
                 }
+
+                &__description {
+
+                    &-paragraph {
+                        font-size: .8rem;
+                    }
+
+                    &-stadistic-content h4 {
+                        font-size: .7rem;
+                    }
+                }
             }
         }
 
@@ -71,12 +117,70 @@
 
                     &-card {
                         width: 27.15vw;
+
+                        .name__title,
+                        .name__statistics-count {
+                            font-size: .8rem;
+                        }
+
+                        .name__statistics-icon {
+                            width: .8rem;
+                            height: .8rem;
+                        }
+
+                        .hover__information-paragraph {
+                            font-size: .6rem;
+                        }
                     }
                 }
             }
+
         }
 
+        &__range {
+            margin-bottom: 1rem;
+        }
     }
+
+    .contact {
+
+        &__content {
+            column-gap: 3rem;
+
+            &-information {
+
+                &-title {
+                    font-size: 1.5rem;
+                }
+
+                &-description {
+                    font-size: .8rem;
+                }
+            }
+
+            &-cv-paragraph {
+                font-size: .6rem;
+            }
+
+            .form__content {
+
+                &-header-name,
+                &-header-email {
+                    font-size: .8rem;
+                }
+
+                &-messange {
+                    font-size: .8rem;
+                }
+            }
+
+        }
+
+        &__footer {
+            font-size: .7rem;
+        }
+    }
+
 }
 
 //! 1024px
@@ -91,38 +195,12 @@
         &__hability {
             padding-bottom: 0;
 
-            &-information {
-
-                &-paragraph {
-                    font-size: .7rem;
-                }
-            }
-
             .skills {
                 gap: 1.5rem;
 
                 &__information {
                     row-gap: 1rem;
                     padding: 1.5rem;
-
-                    &-header {
-
-                        h3 {
-                            font-size: 1.5rem;
-                        }
-
-                        .close {
-                            width: 1.5rem;
-                            height: 1.5rem;
-                        }
-                    }
-
-                    &-content {
-
-                        p {
-                            font-size: .6rem;
-                        }
-                    }
                 }
 
                 &__container {
@@ -278,10 +356,6 @@
                         }
                     }
 
-                    &-summary {
-                        font-size: .8rem;
-                    }
-
                 }
 
                 &__container {
@@ -340,17 +414,30 @@
 
                     &-stadistic {
                         column-gap: 1rem;
-
-                        &-content {
-
-                            h4 {
-                                font-size: .7rem;
-                            }
-                        }
                     }
                 }
             }
         }
+    }
+
+    .contact__content {
+        grid-template-areas:
+            "Information"
+            "Form"
+            "Cv";
+        row-gap: 2rem;
+
+        .form {
+            margin-bottom: 5rem;
+
+            &__content {
+
+                &-messange {
+                    height: 13rem;
+                }
+            }
+        }
+
     }
 }
 
@@ -359,14 +446,14 @@
 
     body .buttonhome__button {
         @include buttonSmall();
-        
+
         .svg {
             width: 1.3rem;
         }
     }
 
-    .project__projects-arrowright-icon {
-        height: 1.5rem;
+    .home__biography .headline__container .observe-links {
+        @include buttonSmall(); 
     }
 
     .project {
@@ -376,50 +463,26 @@
             .container {
                 column-gap: 1rem;
 
+
                 &__user {
 
-                    &-input,
-                    &-error {
-                        font-size: .6rem;
+                    &-input {
+                        font-size: .7rem;
                     }
 
                     &-label {
                         @include buttonSmall();
-                        font-size: .6rem;
                     }
 
-                    .title {
-                        font-size: .6rem;
+                    &-information-name {
+                        font-size: 1.5rem;
                     }
+
                 }
 
                 &__image {
                     width: 8rem;
                     height: 8rem;
-                }
-
-                &__description {
-
-                    &-paragraph {
-                        font-size: .6rem;
-                    }
-
-                    &-stadistic {
-                        column-gap: 1rem;
-
-                        &-content {
-                            column-gap: 0.3rem;
-
-                            h4 {
-                                font-size: .6rem;
-                            }
-
-                            svg {
-                                width: .8rem;
-                                height: .8rem;
-                            }
-                        }
-                    }
                 }
             }
         }
@@ -454,6 +517,13 @@
 //! 600px
 @media (max-width: 600px) {
 
+    header {
+
+        .nav {
+            width: 100%;
+        }
+    }
+
     .home {
 
         &__biography {
@@ -475,21 +545,18 @@
                         }
                     }
 
-                    &-summary {
-                        font-size: .8rem;
-                    }
-
                 }
 
                 &__container {
                     column-gap: 1.5rem;
-
-                    &-links {
-                        @include buttonSmall()
-                    }
                 }
             }
         }
+    }
+
+    .about__hability .skills .observe {
+        width: 7rem;
+        height: 7rem;
     }
 
     .project {
@@ -504,27 +571,27 @@
                     &-information {
                         column-gap: .5rem;
 
-                        &-name {
-                            font-size: 1.3rem;
-                        }
-
                         &-link {
                             font-size: .6rem;
                         }
                     }
 
                 }
-                
+
                 &__description {
 
                     &-paragraph {
-                        font-size: .6rem;
+                        font-size: .7rem;
                     }
 
                     &-stadistic {
 
                         &-content {
                             column-gap: 0.3rem;
+
+                            h4 {
+                                font-size: .6rem;
+                            }
                         }
                     }
                 }
@@ -533,6 +600,14 @@
 
         &__projects {
             padding: 0 12vw;
+
+            &-arrowright {
+                right: 8vw;
+            }
+
+            &-arrowleft {
+                left: 7vw;
+            }
 
             .cards {
 
@@ -550,16 +625,7 @@
 }
 
 //! 480px
-@media (max-width: 480px) { 
-
-    //! Header de toda la pagina
-    header {
-
-        .nav {
-            width: 100%;
-
-        }
-    }
+@media (max-width: 480px) {
 
     .home {
 
@@ -601,10 +667,141 @@
                 }
             }
 
-            .skills__container {
-                width: 7rem;
-                height: 7rem;
+            .skills {
+
+                &__information {
+
+                    &-content p,
+                    a {
+                        font-size: .6rem;
+                    }
+
+                    &-header {
+                        h3 {
+                            font-size: 1.2rem;
+                        }
+
+                        svg {
+                            width: 1.2rem;
+                            height: 1.2rem;
+                        }
+                    }
+                }
+
+
             }
+        }
+    }
+
+    .project {
+
+        &__profile {
+
+            .container {
+
+                &__user-information {
+
+                    &-name {
+                        font-size: 1.2rem;
+                    }
+
+                    &-link {
+                        font-size: .6rem;
+                    }
+                }
+
+
+                &__image {
+                    width: 7rem;
+                    height: 7rem;
+                }
+
+                &__description {
+
+                    &-stadistic-content h4 {
+                        font-size: .6rem;
+                    }
+                }
+            }
+        }
+
+        &__projects {
+
+            .cards {
+
+                &__container {
+
+                    &-card {
+
+                        .name__title,
+                        .name__statistics-count {
+                            font-size: .7rem;
+                        }
+
+                        .name__statistics-icon {
+                            width: .7rem;
+                            height: .7rem;
+                        }
+
+                        .hover__information-paragraph {
+                            font-size: .6rem;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        &__range {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .contact {
+
+        &__content {
+            column-gap: 3rem;
+
+            &-information {
+
+                &-title {
+                    font-size: 1.2rem;
+                }
+
+                &-description {
+                    font-size: .7rem;
+                }
+            }
+            
+            &-cv {
+                
+                &-button {
+                    @include buttonSmall();
+                }
+
+                &-paragraph {
+                    font-size: .6rem;
+                }
+            }
+            
+
+            .form__content {
+
+                &-header-name,
+                &-header-email, &-messange  {
+                    font-size: .7rem;
+                    padding-left: 1rem;
+                }
+
+                &-button-submit {
+                    @include buttonSmall();
+                }
+            }
+
+        }
+
+        &__footer {
+            font-size: .6rem;
         }
     }
 }

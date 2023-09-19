@@ -116,7 +116,7 @@
                     }
 
                     a {
-                        text-decoration: none;
+                        text-decoration: underline;
                         font-family: var(--paragraph);
                         font-size: 1rem;
                         letter-spacing: .1rem;
@@ -124,7 +124,17 @@
                         text-align: end;
                     }
                 }
+
             }
+            .active {
+                transform: translateX(0);
+            }
+
+            .observe {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
 
             &__container {
                 width: 10rem;
@@ -162,11 +172,6 @@
                 &:hover{
                     transform: scale(1.025);
                 }
-            }
-
-            .observe {
-                transform: translateY(0);
-                opacity: 1;
             }
         }
     }

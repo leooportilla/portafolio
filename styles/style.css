@@ -643,12 +643,19 @@ header .menu {
   line-height: 1.6;
 }
 .about__hability .skills__information-content a {
-  text-decoration: none;
+  text-decoration: underline;
   font-family: var(--paragraph);
   font-size: 1rem;
   letter-spacing: 0.1rem;
   color: var(--mainFixed);
   text-align: end;
+}
+.about__hability .skills .active {
+  transform: translateX(0);
+}
+.about__hability .skills .observe {
+  transform: translateY(0);
+  opacity: 1;
 }
 .about__hability .skills__container {
   width: 10rem;
@@ -682,10 +689,6 @@ header .menu {
 }
 .about__hability .skills__container:hover {
   transform: scale(1.025);
-}
-.about__hability .skills .observe {
-  transform: translateY(0);
-  opacity: 1;
 }
 .about__container {
   background-color: var(--main);
@@ -899,7 +902,7 @@ header .menu {
 }
 .project__profile .container__description-paragraph {
   font-family: var(--paragraph);
-  font-size: 0.8rem;
+  font-size: 1rem;
   letter-spacing: 0.1rem;
   text-align: justify;
   color: var(--alternative);
@@ -1362,14 +1365,14 @@ header .menu {
 }
 .contact__content-information-title {
   font-family: var(--title);
-  font-size: 1.8rem;
+  font-size: 2rem;
   letter-spacing: 0.1rem;
   color: var(--alternative);
   line-height: 1.6;
 }
 .contact__content-information-description {
   font-family: var(--paragraph);
-  font-size: 0.8rem;
+  font-size: 1rem;
   letter-spacing: 0.1rem;
   color: var(--alternative);
   line-height: 1.6;
@@ -1379,9 +1382,10 @@ header .menu {
 .contact__content-cv {
   grid-area: Cv;
   width: 90%;
+  z-index: 30;
 }
 .contact__content-cv-button {
-  color: var(--alternative);
+  color: var(--alternativeFixed);
   width: fit-content;
   cursor: pointer;
   overflow: hidden;
@@ -1471,22 +1475,13 @@ header .menu {
   width: 100%;
   font-family: var(--paragraph);
   color: var(--alternative);
-  font-size: 0.8rem;
+  font-size: 1rem;
   padding-left: 2rem;
   outline: none;
   z-index: 10;
 }
 .contact__content .form__content-header-name::placeholder {
   color: inherit;
-}
-.contact__content .form__content-header-errorname {
-  position: absolute;
-  left: 2rem;
-  font-family: var(--paragraph);
-  color: var(--first);
-  font-size: 1rem;
-  transform: translateY(0);
-  transition: 1s all;
 }
 .contact__content .form__content-header-email {
   background-color: var(--main);
@@ -1496,7 +1491,7 @@ header .menu {
   width: 100%;
   font-family: var(--paragraph);
   color: var(--alternative);
-  font-size: 0.8rem;
+  font-size: 1rem;
   padding-left: 2rem;
   outline: none;
 }
@@ -1511,7 +1506,7 @@ header .menu {
   height: 100%;
   font-family: var(--paragraph);
   color: var(--alternative);
-  font-size: 0.8rem;
+  font-size: 1rem;
   padding-left: 2rem;
   padding-top: 2rem;
   text-align: justify;
@@ -1520,9 +1515,6 @@ header .menu {
 }
 .contact__content .form__content-messange::placeholder {
   color: inherit;
-}
-.contact__content .form__content .error-active {
-  transform: translateY(-2rem);
 }
 .contact__content .form__content-button {
   width: 100%;
@@ -1684,6 +1676,7 @@ header .menu {
   transform: translateX(0);
 }
 .contact__links-link .svg {
+  width: 1.3rem;
   height: 1.3rem;
 }
 .contact__links-link .title {
@@ -1734,16 +1727,74 @@ header .menu {
     padding-top: 0;
     height: 100%;
   }
+  .about__hability-information-title {
+    font-size: 2.5rem;
+  }
+  .about__hability-information-paragraph {
+    font-size: 0.7rem;
+  }
   .about__hability .skills__container {
-    width: 9rem;
-    height: 9rem;
+    width: 8.5rem;
+    height: 8.5rem;
+  }
+  .about__hability .skills__information-content p,
+  .about__hability .skills__information a {
+    font-size: 0.7rem;
+  }
+  .about__hability .skills__information-header h3 {
+    font-size: 1.5rem;
+  }
+  .about__hability .skills__information-header svg {
+    width: 1.5rem;
+    height: 1.5rem;
   }
   .project__profile .container__image {
     width: 11rem;
     height: 11rem;
   }
+  .project__profile .container__description-paragraph {
+    font-size: 0.8rem;
+  }
+  .project__profile .container__description-stadistic-content h4 {
+    font-size: 0.7rem;
+  }
   .project__projects .cards__container-card {
     width: 27.15vw;
+  }
+  .project__projects .cards__container-card .name__title,
+  .project__projects .cards__container-card .name__statistics-count {
+    font-size: 0.8rem;
+  }
+  .project__projects .cards__container-card .name__statistics-icon {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+  .project__projects .cards__container-card .hover__information-paragraph {
+    font-size: 0.6rem;
+  }
+  .project__range {
+    margin-bottom: 1rem;
+  }
+  .contact__content {
+    column-gap: 3rem;
+  }
+  .contact__content-information-title {
+    font-size: 1.5rem;
+  }
+  .contact__content-information-description {
+    font-size: 0.8rem;
+  }
+  .contact__content-cv-paragraph {
+    font-size: 0.6rem;
+  }
+  .contact__content .form__content-header-name, .contact__content .form__content-header-email {
+    font-size: 0.8rem;
+  }
+  .contact__content .form__content-messange {
+    font-size: 0.8rem;
+  }
+  .contact__footer {
+    font-size: 0.7rem;
   }
 }
 @media (max-width: 1024px) {
@@ -1753,25 +1804,12 @@ header .menu {
   .about__hability {
     padding-bottom: 0;
   }
-  .about__hability-information-paragraph {
-    font-size: 0.7rem;
-  }
   .about__hability .skills {
     gap: 1.5rem;
   }
   .about__hability .skills__information {
     row-gap: 1rem;
     padding: 1.5rem;
-  }
-  .about__hability .skills__information-header h3 {
-    font-size: 1.5rem;
-  }
-  .about__hability .skills__information-header .close {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-  .about__hability .skills__information-content p {
-    font-size: 0.6rem;
   }
   .about__hability .skills__container {
     width: 8rem;
@@ -1901,6 +1939,7 @@ header .menu {
     transform: translateX(0);
   }
   header .nav__container-links .svg {
+    width: 1.3rem;
     height: 1.3rem;
   }
   header .nav__container-links .title {
@@ -1943,9 +1982,6 @@ header .menu {
   .home__biography .headline__text-name span {
     font-size: 3rem;
   }
-  .home__biography .headline__text-summary {
-    font-size: 0.8rem;
-  }
   .home__biography .headline__container {
     column-gap: 1rem;
   }
@@ -1983,8 +2019,15 @@ header .menu {
   .project__profile .container__description-stadistic {
     column-gap: 1rem;
   }
-  .project__profile .container__description-stadistic-content h4 {
-    font-size: 0.7rem;
+  .contact__content {
+    grid-template-areas: "Information" "Form" "Cv";
+    row-gap: 2rem;
+  }
+  .contact__content .form {
+    margin-bottom: 5rem;
+  }
+  .contact__content .form__content-messange {
+    height: 13rem;
   }
 }
 @media (max-width: 768px) {
@@ -1993,6 +2036,7 @@ header .menu {
     border-radius: 50%;
   }
   body .buttonhome__button .svg {
+    width: 1.3rem;
     height: 1.3rem;
   }
   body .buttonhome__button .title {
@@ -2011,21 +2055,39 @@ header .menu {
   body .buttonhome__button .svg {
     width: 1.3rem;
   }
-  .project__projects-arrowright-icon {
-    height: 1.5rem;
+  .home__biography .headline__container .observe-links {
+    padding: 0.7rem;
+    border-radius: 50%;
+  }
+  .home__biography .headline__container .observe-links .svg {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  .home__biography .headline__container .observe-links .title {
+    display: none;
+  }
+  .home__biography .headline__container .observe-links .arrow {
+    display: none;
+  }
+  .home__biography .headline__container .observe-links:hover .svg {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .home__biography .headline__container .observe-links:active {
+    filter: brightness(0.8);
   }
   .project__profile .container {
     column-gap: 1rem;
   }
-  .project__profile .container__user-input, .project__profile .container__user-error {
-    font-size: 0.6rem;
+  .project__profile .container__user-input {
+    font-size: 0.7rem;
   }
   .project__profile .container__user-label {
     padding: 0.7rem;
     border-radius: 50%;
-    font-size: 0.6rem;
   }
   .project__profile .container__user-label .svg {
+    width: 1.3rem;
     height: 1.3rem;
   }
   .project__profile .container__user-label .title {
@@ -2041,28 +2103,12 @@ header .menu {
   .project__profile .container__user-label:active {
     filter: brightness(0.8);
   }
-  .project__profile .container__user .title {
-    font-size: 0.6rem;
+  .project__profile .container__user-information-name {
+    font-size: 1.5rem;
   }
   .project__profile .container__image {
     width: 8rem;
     height: 8rem;
-  }
-  .project__profile .container__description-paragraph {
-    font-size: 0.6rem;
-  }
-  .project__profile .container__description-stadistic {
-    column-gap: 1rem;
-  }
-  .project__profile .container__description-stadistic-content {
-    column-gap: 0.3rem;
-  }
-  .project__profile .container__description-stadistic-content h4 {
-    font-size: 0.6rem;
-  }
-  .project__profile .container__description-stadistic-content svg {
-    width: 0.8rem;
-    height: 0.8rem;
   }
   .project__projects-arrowright-icon {
     height: 1.5rem;
@@ -2078,6 +2124,9 @@ header .menu {
   }
 }
 @media (max-width: 600px) {
+  header .nav {
+    width: 100%;
+  }
   .home__biography-profile {
     width: 25rem;
   }
@@ -2090,31 +2139,12 @@ header .menu {
   .home__biography .headline__text-name span {
     font-size: 2.5rem;
   }
-  .home__biography .headline__text-summary {
-    font-size: 0.8rem;
-  }
   .home__biography .headline__container {
     column-gap: 1.5rem;
   }
-  .home__biography .headline__container-links {
-    padding: 0.7rem;
-    border-radius: 50%;
-  }
-  .home__biography .headline__container-links .svg {
-    height: 1.3rem;
-  }
-  .home__biography .headline__container-links .title {
-    display: none;
-  }
-  .home__biography .headline__container-links .arrow {
-    display: none;
-  }
-  .home__biography .headline__container-links:hover .svg {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  .home__biography .headline__container-links:active {
-    filter: brightness(0.8);
+  .about__hability .skills .observe {
+    width: 7rem;
+    height: 7rem;
   }
   .project__profile .container__user {
     align-items: center;
@@ -2122,20 +2152,26 @@ header .menu {
   .project__profile .container__user-information {
     column-gap: 0.5rem;
   }
-  .project__profile .container__user-information-name {
-    font-size: 1.3rem;
-  }
   .project__profile .container__user-information-link {
     font-size: 0.6rem;
   }
   .project__profile .container__description-paragraph {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
   .project__profile .container__description-stadistic-content {
     column-gap: 0.3rem;
   }
+  .project__profile .container__description-stadistic-content h4 {
+    font-size: 0.6rem;
+  }
   .project__projects {
     padding: 0 12vw;
+  }
+  .project__projects-arrowright {
+    right: 8vw;
+  }
+  .project__projects-arrowleft {
+    left: 7vw;
   }
   .project__projects .cards__container {
     column-gap: 0;
@@ -2145,9 +2181,6 @@ header .menu {
   }
 }
 @media (max-width: 480px) {
-  header .nav {
-    width: 100%;
-  }
   .home__biography-profile {
     width: 22rem;
   }
@@ -2163,9 +2196,104 @@ header .menu {
   .about__hability-information-title {
     font-size: 2rem;
   }
-  .about__hability .skills__container {
+  .about__hability .skills__information-content p,
+  .about__hability .skills__information a {
+    font-size: 0.6rem;
+  }
+  .about__hability .skills__information-header h3 {
+    font-size: 1.2rem;
+  }
+  .about__hability .skills__information-header svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  .project__profile .container__user-information-name {
+    font-size: 1.2rem;
+  }
+  .project__profile .container__user-information-link {
+    font-size: 0.6rem;
+  }
+  .project__profile .container__image {
     width: 7rem;
     height: 7rem;
+  }
+  .project__profile .container__description-stadistic-content h4 {
+    font-size: 0.6rem;
+  }
+  .project__projects .cards__container-card .name__title,
+  .project__projects .cards__container-card .name__statistics-count {
+    font-size: 0.7rem;
+  }
+  .project__projects .cards__container-card .name__statistics-icon {
+    width: 0.7rem;
+    height: 0.7rem;
+  }
+  .project__projects .cards__container-card .hover__information-paragraph {
+    font-size: 0.6rem;
+  }
+  .project__range {
+    margin-bottom: 1rem;
+  }
+  .contact__content {
+    column-gap: 3rem;
+  }
+  .contact__content-information-title {
+    font-size: 1.2rem;
+  }
+  .contact__content-information-description {
+    font-size: 0.7rem;
+  }
+  .contact__content-cv-button {
+    padding: 0.7rem;
+    border-radius: 50%;
+  }
+  .contact__content-cv-button .svg {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  .contact__content-cv-button .title {
+    display: none;
+  }
+  .contact__content-cv-button .arrow {
+    display: none;
+  }
+  .contact__content-cv-button:hover .svg {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .contact__content-cv-button:active {
+    filter: brightness(0.8);
+  }
+  .contact__content-cv-paragraph {
+    font-size: 0.6rem;
+  }
+  .contact__content .form__content-header-name, .contact__content .form__content-header-email, .contact__content .form__content-messange {
+    font-size: 0.7rem;
+    padding-left: 1rem;
+  }
+  .contact__content .form__content-button-submit {
+    padding: 0.7rem;
+    border-radius: 50%;
+  }
+  .contact__content .form__content-button-submit .svg {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  .contact__content .form__content-button-submit .title {
+    display: none;
+  }
+  .contact__content .form__content-button-submit .arrow {
+    display: none;
+  }
+  .contact__content .form__content-button-submit:hover .svg {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .contact__content .form__content-button-submit:active {
+    filter: brightness(0.8);
+  }
+  .contact__footer {
+    font-size: 0.6rem;
   }
 }
 @media (max-width: 375px) {

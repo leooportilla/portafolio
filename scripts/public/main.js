@@ -1363,49 +1363,49 @@ const information = {
     html: {
         title: `Que es HTML<span>?</span>`,
         summary: `HTML (HyperText Markup Language) es un lenguaje de marcado utilizado para crear páginas web. Es la columna vertebral de cualquier sitio web y se utiliza para estructurar el contenido de la página web y darle formato. HTML utiliza etiquetas para definir diferentes tipos de contenido, como encabezados, párrafos, imágenes, enlaces y formularios. Los navegadores web utilizan el código HTML para renderizar el contenido de una página web y mostrarlo al usuario final. Es una parte fundamental del desarrollo web y es esencial para cualquier desarrollador frontend.`,
-        url: `#`,
+        url: `https://developer.mozilla.org/es/docs/Web/HTML`,
     },
 
     css: {
         title: `Que es CSS<span>?</span>`,
         summary: `CSS (Cascading Style Sheets) es un lenguaje de diseño utilizado para dar estilo y presentación a páginas web escritas en HTML. CSS se utiliza para definir la apariencia visual de los elementos HTML en una página, como el color, el tamaño, la posición y la tipografía. Permite a los desarrolladores frontend separar la estructura y el contenido de una página web de su diseño visual, lo que hace que el código sea más fácil de mantener y actualizar. CSS se puede aplicar a elementos individuales en una página o a la página completa a través de un archivo externo. Es una herramienta esencial para cualquier desarrollador frontend que busque crear sitios web atractivos y visualmente atractivos.`,
-        url: `#`,
+        url: `https://developer.mozilla.org/es/docs/Web/CSS`,
     },
 
     sass: {
         title: `Que es Sass<span>?</span>`,
         summary: `Sass es un preprocesador de CSS que permite a los desarrolladores escribir hojas de estilo de manera más eficiente y con menos repetición de código. Ofrece características como anidamiento de estilos, mixins y variables, y puede generar hojas de estilo automáticamente cuando se realizan cambios. Aunque tiene una sintaxis más compleja que CSS, Sass tiene muchas herramientas y una gran comunidad de usuarios.`,
-        url: `#`,
+        url: `https://sass-lang.com/`,
     },
 
     javascript: {
         title: `Que es JavaScript<span>?</span>`,
         summary: `JavaScript es un lenguaje de programación utilizado para crear aplicaciones web interactivas y dinámicas. Es un lenguaje de programación de alto nivel, interpretado y orientado a objetos que se ejecuta en el lado del cliente (en el navegador web) o en el lado del servidor (utilizando Node.js). JavaScript se utiliza para agregar interactividad a páginas web, como animaciones, validación de formularios, efectos de desplazamiento y mucho más. También se utiliza para crear aplicaciones web completas, incluidos juegos, aplicaciones de chat y aplicaciones empresariales. Es una herramienta esencial para cualquier desarrollador web y es una de las tecnologías más populares en la actualidad.`,
-        url: `#`,
+        url: `https://developer.mozilla.org/es/docs/Web/JavaScript`,
     },
 
     githud: {
         title: `Que es GitHud<span>?</span>`,
         summary: `GitHub es una plataforma de alojamiento de proyectos y código abierto que utiliza Git como sistema de control de versiones. Fue comprada por Microsoft en 2018 y permite a los desarrolladores crear repositorios para sus aplicaciones de forma gratuita, siempre y cuando sean de código abierto. Los usuarios pueden colaborar en proyectos dejando comentarios, informando errores y realizando mejoras. Además, ofrece herramientas adicionales como un wiki para cada proyecto, un sistema de seguimiento de problemas, herramientas de revisión de código y gráficos para ver actualizaciones y cambios. Es una herramienta esencial para muchos desarrolladores y cuenta con una interfaz fácil de usar.`,
-        url: `#`,
+        url: `https://github.com/`,
     },
 
     illustrator: {
         title: `Que es Illustrator<span>?</span>`,
         summary: `Abode Illustrator es una aplicación de edición de gráficos vectoriales que se utiliza para la ilustración, el diseño grafico y la maquetación. Es desarrollado y comercializado por Adobe Systems y es el primer programa oficial de su tipo lanzado por la compañía. Adobe Illustrator contiene opciones creativas, un acceso mas sencillo a las herramientas y una gran versatilidad para producir rápidamente gráficos flexibles cuyos usos se dan en maquetación publicación, impresión, video, publicación en la Web y dispositivos móviles. Illustrator es compatible con otros programas de diseño y edición como Photoshop. El programa es muy conocido entre los diseñadores gráficos por la calidad de los colores en los archivos de salida.`,
-        url: `#`,
+        url: `https://www.adobe.com/la/products/illustrator.html`,
     },
 
     photoshop: {
         title: `Que es Photoshop<span>?</span>`,
         summary: `Photoshop es una herramienta de diseño gráfico y edición de imágenes que se utiliza para crear y manipular gráficos para aplicaciones web o de escritorio. Es una de las herramientas más populares en la industria y permite a los desarrolladores crear imágenes de alta calidad para utilizar en aplicaciones, sitios web y otros proyectos. Photoshop es compatible con muchos formatos de archivo diferentes, lo que permite a los desarrolladores integrar fácilmente sus diseños en sus proyectos. También cuenta con una gran cantidad de características avanzadas, como capas, filtros y herramientas de edición de texto.`,
-        url: `#`,
+        url: `https://www.adobe.com/la/products/photoshop.html`,
     },
 
     figma: {
         title: `Que es Figma<span>?</span>`,
         summary: `Figma es una herramienta de diseño de interfaces colaborativa que te permite crear, prototipar, desarrollar y recopilar comentarios en una sola plataforma. Con Figma puedes diseñar en un espacio compartido y trabajar en tiempo real con tu equipo, crear prototipos realistas que permitan iterar rápidamente sobre flujos y estados, probar la experiencia interactiva completa para obtener mejores comentarios, antes, acercar el diseño y el desarrollo con el modo Dev, un pizarrón en línea donde todos los que construyen productos pueden colaborar. Figma es una herramienta muy utilizada por equipos de diseño, desarrollo y producto que quieren construir productos significativos con facilidad y eficiencia.`,
-        url: `#`,
+        url: `https://www.figma.com/`,
     }
 
 
@@ -1424,7 +1424,7 @@ const template = (title, summary, url) => {
 
     <div class="skills__information-content">
         <p>${summary}</p>
-        <a href="${url}">Sitio Web</a>
+        <a href="${url}" target="_blank">Sitio Web</a>
     </div>`
 };
 
