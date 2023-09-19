@@ -1352,7 +1352,7 @@ header .menu {
   grid-auto-columns: 1fr;
   column-gap: 5rem;
   row-gap: 7rem;
-  padding-bottom: 30vh;
+  padding-bottom: 25vh;
   margin-top: 3rem;
 }
 .contact__content-information {
@@ -1577,7 +1577,7 @@ header .menu {
   bottom: 0;
   left: 0;
   transform: rotate(0);
-  height: 35vh;
+  height: 25vh;
 }
 .contact__container-one {
   width: 100%;
@@ -1787,10 +1787,7 @@ header .menu {
   .contact__content-cv-paragraph {
     font-size: 0.6rem;
   }
-  .contact__content .form__content-header-name, .contact__content .form__content-header-email {
-    font-size: 0.8rem;
-  }
-  .contact__content .form__content-messange {
+  .contact__content .form__content-header-name, .contact__content .form__content-header-email, .contact__content .form__content-messange {
     font-size: 0.8rem;
   }
   .contact__footer {
@@ -2023,8 +2020,15 @@ header .menu {
     grid-template-areas: "Information" "Form" "Cv";
     row-gap: 2rem;
   }
-  .contact__content .form {
-    margin-bottom: 5rem;
+  .contact__content-cv {
+    width: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .contact__content-cv-button {
+    align-self: flex-end;
   }
   .contact__content .form__content-messange {
     height: 13rem;
@@ -2110,16 +2114,10 @@ header .menu {
     width: 8rem;
     height: 8rem;
   }
-  .project__projects-arrowright-icon {
+  .project__projects-arrowright-icon, .project__projects-arrowleft-icon {
     height: 1.5rem;
   }
-  .project__projects-arrowright-iconsmall {
-    height: 1rem;
-  }
-  .project__projects-arrowleft-icon {
-    height: 1.5rem;
-  }
-  .project__projects-arrowleft-iconsmall {
+  .project__projects-arrowright-iconsmall, .project__projects-arrowleft-iconsmall {
     height: 1rem;
   }
 }
@@ -2235,7 +2233,7 @@ header .menu {
     margin-bottom: 1rem;
   }
   .contact__content {
-    column-gap: 3rem;
+    row-gap: 0.5rem;
   }
   .contact__content-information-title {
     font-size: 1.2rem;

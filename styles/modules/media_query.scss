@@ -9,132 +9,111 @@
 
 @media (max-width: 1328px) {
 
-    .home {
+    .home__biography {
+        column-gap: 1rem;
 
-        &__biography {
-            column-gap: 1rem;
+        &-profile {
+            width: 28rem;
+        }
 
-            &-profile {
-                width: 28rem;
-            }
+        .headline__text-name {
+            font-size: 2.5rem;
 
-            .headline__text-name {
-                font-size: 2.5rem;
-
-                span {
-                    font-size: 3rem;
-                }
-            }
-
-            .headline__text-summary {
-                font-size: .8rem;
-            }
-
-            .headline__container {
-                column-gap: 1rem;
+            span {
+                font-size: 3rem;
             }
         }
 
+        .headline__text-summary {
+            font-size: .8rem;
+        }
+
+        .headline__container {
+            column-gap: 1rem;
+        }
     }
 
-    .about {
+    .about__hability {
+        padding-top: 0;
+        height: 100%;
 
-        &__hability {
-            padding-top: 0;
-            height: 100%;
+        &-information {
 
-            &-information {
+            &-title {
+                font-size: 2.5rem;
+            }
 
-                &-title {
-                    font-size: 2.5rem;
-                }
+            &-paragraph {
+                font-size: .7rem;
+            }
+        }
 
-                &-paragraph {
+        .skills {
+
+            &__container {
+                width: 8.5rem;
+                height: 8.5rem;
+            }
+
+            &__information {
+
+                &-content p,
+                a {
                     font-size: .7rem;
                 }
-            }
 
-            .skills {
-
-                &__container {
-                    width: 8.5rem;
-                    height: 8.5rem;
-                }
-
-                &__information {
-
-                    &-content p,
-                    a {
-                        font-size: .7rem;
+                &-header {
+                    h3 {
+                        font-size: 1.5rem;
                     }
 
-                    &-header {
-                        h3 {
-                            font-size: 1.5rem;
-                        }
-
-                        svg {
-                            width: 1.5rem;
-                            height: 1.5rem;
-                        }
+                    svg {
+                        width: 1.5rem;
+                        height: 1.5rem;
                     }
                 }
-
-
             }
         }
     }
+
 
     .project {
 
-        &__profile {
+        &__profile .container {
 
-            .container {
+            &__image {
+                width: 11rem;
+                height: 11rem;
+            }
 
-                &__image {
-                    width: 11rem;
-                    height: 11rem;
+            &__description {
+
+                &-paragraph {
+                    font-size: .8rem;
                 }
 
-                &__description {
-
-                    &-paragraph {
-                        font-size: .8rem;
-                    }
-
-                    &-stadistic-content h4 {
-                        font-size: .7rem;
-                    }
+                &-stadistic-content h4 {
+                    font-size: .7rem;
                 }
             }
         }
 
-        &__projects {
+        &__projects .cards__container-card {
+            width: 27.15vw;
 
-            .cards {
-
-                &__container {
-
-                    &-card {
-                        width: 27.15vw;
-
-                        .name__title,
-                        .name__statistics-count {
-                            font-size: .8rem;
-                        }
-
-                        .name__statistics-icon {
-                            width: .8rem;
-                            height: .8rem;
-                        }
-
-                        .hover__information-paragraph {
-                            font-size: .6rem;
-                        }
-                    }
-                }
+            .name__title,
+            .name__statistics-count {
+                font-size: .8rem;
             }
 
+            .name__statistics-icon {
+                width: .8rem;
+                height: .8rem;
+            }
+
+            .hover__information-paragraph {
+                font-size: .6rem;
+            }
         }
 
         &__range {
@@ -165,10 +144,7 @@
             .form__content {
 
                 &-header-name,
-                &-header-email {
-                    font-size: .8rem;
-                }
-
+                &-header-email,
                 &-messange {
                     font-size: .8rem;
                 }
@@ -218,39 +194,21 @@
 
     .project {
 
-        &__profile {
-
-            .container {
-
-                &__image {
-                    width: 10rem;
-                    height: 10rem;
-                }
-            }
+        &__profile .container__image {
+            width: 10rem;
+            height: 10rem;
         }
 
 
-        &__projects {
-
-            .cards {
-
-                &__container {
-
-                    &-card {
-                        width: 41.5vw;
-                    }
-                }
-            }
+        &__projects .cards__container-card {
+            width: 41.5vw;
         }
-
     }
 
 }
 
 //! 960px
 @media (max-width: 960px) {
-
-    //! Header de toda la pagina
     header {
 
         .nav {
@@ -369,54 +327,42 @@
         }
     }
 
-    .about {
+    .about__hability {
+        @include flex(center, flex-start, column);
+        row-gap: 2rem;
 
-        &__hability {
-            @include flex(center, flex-start, column);
-            row-gap: 2rem;
+        &-information {
+            width: 100%;
+            padding: 0;
 
-            &-information {
-                width: 100%;
-                padding: 0;
-
-                &-paragraph {
-                    text-indent: 0;
-                }
+            &-paragraph {
+                text-indent: 0;
             }
+        }
 
-            .skills {
+        .skills {
+            width: 100%;
+
+            .active {
                 width: 100%;
-
-                .active {
-                    width: 100%;
-                    transform: translateX(0);
-                }
+                transform: translateX(0);
             }
         }
     }
 
-    .project {
+    .project__profile .container {
+        grid-template-areas:
+            "User User"
+            "Image Description"
+            "Image Description";
 
-        &__profile {
+        &__image {
+            width: 9rem;
+            height: 9rem;
+        }
 
-            .container {
-                grid-template-areas:
-                    "User User"
-                    "Image Description"
-                    "Image Description";
-
-                &__image {
-                    width: 9rem;
-                    height: 9rem;
-                }
-
-                &__description {
-
-                    &-stadistic {
-                        column-gap: 1rem;
-                    }
-                }
-            }
+        &__description-stadistic {
+            column-gap: 1rem;
         }
     }
 
@@ -427,17 +373,18 @@
             "Cv";
         row-gap: 2rem;
 
-        .form {
-            margin-bottom: 5rem;
+        &-cv {
+            width: auto;
+            @include flex(flex-start, flex-start, column);
 
-            &__content {
-
-                &-messange {
-                    height: 13rem;
-                }
+            &-button {
+                align-self: flex-end;
             }
         }
 
+        .form__content-messange {
+            height: 13rem;
+        }
     }
 }
 
@@ -453,53 +400,40 @@
     }
 
     .home__biography .headline__container-links {
-        @include buttonSmall(); 
+        @include buttonSmall();
     }
 
     .project {
 
-        &__profile {
-
-            .container {
-                column-gap: 1rem;
+        &__profile .container {
+            column-gap: 1rem;
 
 
-                &__user {
+            &__user {
 
-                    &-input {
-                        font-size: .7rem;
-                    }
-
-                    &-label {
-                        @include buttonSmall();
-                    }
-
-                    &-information-name {
-                        font-size: 1.5rem;
-                    }
-
+                &-input {
+                    font-size: .7rem;
                 }
 
-                &__image {
-                    width: 8rem;
-                    height: 8rem;
+                &-label {
+                    @include buttonSmall();
                 }
+
+                &-information-name {
+                    font-size: 1.5rem;
+                }
+
+            }
+
+            &__image {
+                width: 8rem;
+                height: 8rem;
             }
         }
 
         &__projects {
 
-            &-arrowright {
-
-                &-icon {
-                    height: 1.5rem;
-                }
-
-                &-iconsmall {
-                    height: 1rem;
-                }
-            }
-
+            &-arrowright,
             &-arrowleft {
 
                 &-icon {
@@ -517,16 +451,11 @@
 //! 600px
 @media (max-width: 600px) {
 
-    header {
-
-        .nav {
+    header .nav {
             width: 100%;
         }
-    }
 
-    .home {
-
-        &__biography {
+    .home__biography {
 
             &-profile {
                 width: 25rem;
@@ -552,7 +481,6 @@
                 }
             }
         }
-    }
 
     .about__hability .skills__container {
         width: 7rem;
@@ -561,9 +489,7 @@
 
     .project {
 
-        &__profile {
-
-            .container {
+        &__profile .container {
 
                 &__user {
                     align-items: center;
@@ -584,19 +510,15 @@
                         font-size: .7rem;
                     }
 
-                    &-stadistic {
-
-                        &-content {
+                    &-stadistic-content {
                             column-gap: 0.3rem;
 
                             h4 {
                                 font-size: .6rem;
                             }
                         }
-                    }
                 }
             }
-        }
 
         &__projects {
             padding: 0 12vw;
@@ -609,16 +531,13 @@
                 left: 7vw;
             }
 
-            .cards {
-
-                &__container {
+            .cards__container {
                     column-gap: 0;
 
                     &-card {
                         width: 76vw;
                     }
                 }
-            }
         }
 
     }
@@ -627,17 +546,13 @@
 //! 480px
 @media (max-width: 480px) {
 
-    .home {
-
-        &__biography {
+    .home__biography {
 
             &-profile {
                 width: 22rem;
             }
 
-            .headline {
-
-                &__text {
+            .headline__text {
 
                     &-name {
                         font-size: 1.5rem;
@@ -650,26 +565,16 @@
                     &-summary {
                         font-size: .7rem;
                     }
-
                 }
-            }
         }
-    }
 
-    .about {
+    .about__hability {
 
-        &__hability {
-
-            &-information {
-
-                &-title {
+            &-information-title {
                     font-size: 2rem;
                 }
-            }
 
-            .skills {
-
-                &__information {
+            .skills__information {
 
                     &-content p,
                     a {
@@ -687,17 +592,11 @@
                         }
                     }
                 }
-
-
-            }
         }
-    }
 
     .project {
 
-        &__profile {
-
-            .container {
+        &__profile .container {
 
                 &__user-information {
 
@@ -710,28 +609,17 @@
                     }
                 }
 
-
                 &__image {
                     width: 7rem;
                     height: 7rem;
                 }
 
-                &__description {
-
-                    &-stadistic-content h4 {
+                &__description-stadistic-content h4 {
                         font-size: .6rem;
                     }
-                }
             }
-        }
 
-        &__projects {
-
-            .cards {
-
-                &__container {
-
-                    &-card {
+        &__projects .cards__container-card {
 
                         .name__title,
                         .name__statistics-count {
@@ -747,10 +635,6 @@
                             font-size: .6rem;
                         }
                     }
-                }
-            }
-
-        }
 
         &__range {
             margin-bottom: 1rem;
@@ -760,7 +644,7 @@
     .contact {
 
         &__content {
-            column-gap: 3rem;
+            row-gap: .5rem;
 
             &-information {
 
@@ -772,9 +656,9 @@
                     font-size: .7rem;
                 }
             }
-            
+
             &-cv {
-                
+
                 &-button {
                     @include buttonSmall();
                 }
@@ -783,12 +667,13 @@
                     font-size: .6rem;
                 }
             }
-            
+
 
             .form__content {
 
                 &-header-name,
-                &-header-email, &-messange  {
+                &-header-email,
+                &-messange {
                     font-size: .7rem;
                     padding-left: 1rem;
                 }
@@ -808,9 +693,7 @@
 
 //! 375px
 @media (max-width: 375px) {
-    .home {
-
-        &__biography {
+    .home__biography {
 
             &-profile {
                 width: 20rem;
@@ -822,17 +705,13 @@
                     width: 16rem;
                 }
 
-                &__container {
-
-                    &-links {
+                &__container-links {
                         padding: .7rem;
 
                         .svg {
                             height: 1rem;
                         }
                     }
-                }
             }
         }
-    }
 }
