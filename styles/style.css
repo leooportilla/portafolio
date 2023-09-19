@@ -2055,25 +2055,25 @@ header .menu {
   body .buttonhome__button .svg {
     width: 1.3rem;
   }
-  .home__biography .headline__container .observe-links {
+  .home__biography .headline__container-links {
     padding: 0.7rem;
     border-radius: 50%;
   }
-  .home__biography .headline__container .observe-links .svg {
+  .home__biography .headline__container-links .svg {
     width: 1.3rem;
     height: 1.3rem;
   }
-  .home__biography .headline__container .observe-links .title {
+  .home__biography .headline__container-links .title {
     display: none;
   }
-  .home__biography .headline__container .observe-links .arrow {
+  .home__biography .headline__container-links .arrow {
     display: none;
   }
-  .home__biography .headline__container .observe-links:hover .svg {
+  .home__biography .headline__container-links:hover .svg {
     opacity: 1;
     transform: translateX(0);
   }
-  .home__biography .headline__container .observe-links:active {
+  .home__biography .headline__container-links:active {
     filter: brightness(0.8);
   }
   .project__profile .container {
@@ -2142,7 +2142,7 @@ header .menu {
   .home__biography .headline__container {
     column-gap: 1.5rem;
   }
-  .about__hability .skills .observe {
+  .about__hability .skills__container {
     width: 7rem;
     height: 7rem;
   }

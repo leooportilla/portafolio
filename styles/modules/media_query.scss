@@ -452,7 +452,7 @@
         }
     }
 
-    .home__biography .headline__container .observe-links {
+    .home__biography .headline__container-links {
         @include buttonSmall(); 
     }
 
@@ -554,7 +554,7 @@
         }
     }
 
-    .about__hability .skills .observe {
+    .about__hability .skills__container {
         width: 7rem;
         height: 7rem;
     }
