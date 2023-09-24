@@ -1,6 +1,7 @@
 //! Declaracion de variables para las funcion de las skills
-const skills = document.querySelector(`.skills`)
+const skills               = document.querySelector(`.skills`)
 const containerInformation = document.querySelector(`.skills__information`)
+
 const information = {
     html: {
         title: `Que es HTML<span>?</span>`,
@@ -26,8 +27,8 @@ const information = {
         url: `https://developer.mozilla.org/es/docs/Web/JavaScript`,
     },
 
-    githud: {
-        title: `Que es GitHud<span>?</span>`,
+    github: {
+        title: `Que es GitHub<span>?</span>`,
         summary: `GitHub es una plataforma de alojamiento de proyectos y código abierto que utiliza Git como sistema de control de versiones. Fue comprada por Microsoft en 2018 y permite a los desarrolladores crear repositorios para sus aplicaciones de forma gratuita, siempre y cuando sean de código abierto. Los usuarios pueden colaborar en proyectos dejando comentarios, informando errores y realizando mejoras. Además, ofrece herramientas adicionales como un wiki para cada proyecto, un sistema de seguimiento de problemas, herramientas de revisión de código y gráficos para ver actualizaciones y cambios. Es una herramienta esencial para muchos desarrolladores y cuenta con una interfaz fácil de usar.`,
         url: `https://github.com/`,
     },
@@ -79,7 +80,7 @@ export const skillsInformation = () => {
         //! Busca dento el evento cual es la etiqueta con la clase mas cercana
         const search = evento.target.closest(`.skills__container`)
 
-        //! Ademas si la etiqueta buscada contiene una de estas clases, abre la ventana y agregarle la informacion 
+        //! Ademas si la etiqueta buscada contiene una de estas clases, abre la ventana y agrega la informacion 
         if (search?.classList.contains(`html`)) {
             containerInformation.innerHTML = template(information.html.title, information.html.summary, information.html.url)
             containerInformation.classList.toggle(`active`)
@@ -100,8 +101,8 @@ export const skillsInformation = () => {
             containerInformation.classList.toggle(`active`)
         }
 
-        if (search?.classList.contains(`githud`)) {
-            containerInformation.innerHTML = template(information.githud.title, information.githud.summary, information.githud.url)
+        if (search?.classList.contains(`github`)) {
+            containerInformation.innerHTML = template(information.github.title, information.github.summary, information.github.url)
             containerInformation.classList.toggle(`active`)
         }
 
@@ -120,12 +121,13 @@ export const skillsInformation = () => {
             containerInformation.classList.toggle(`active`)
         }
 
+        //! Hacemos focus al contenedor de la informacion para que el usuario con la tecla ESC pueda cerrarlo
         containerInformation.focus()
 
         //! Evento para cerrar la ventana de las skills
         containerInformation.addEventListener(`click`, evento => {
 
-            //! Al dar click en el boton de cerrar, quitamos la clase como tambien el contenido de lla
+            //! Al dar click en el boton de cerrar, quitamos la clase como tambien el contenido de ella
             if (evento.target.closest(`.close`)) {
                 containerInformation.classList.remove(`active`)
         
