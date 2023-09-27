@@ -1,16 +1,16 @@
 import { project } from "./project";
 
-const userName        = document.querySelector(`.container__user-information-name`)
-const userImage       = document.querySelector(`.container__image`)
-const userGitHud      = document.querySelector(`.container__user-information-link`)
-const buttonSearch    = document.querySelector(`.container__user-label`)
-const inputProfile    = document.querySelector(`.container__user-input`)
-const errorProfile    = document.querySelector(`.container__user-error`)
+const userName        = document.querySelector(`.user__information-name`)
+const userImage       = document.querySelector(`.project__profile-image`)
+const userGitHud      = document.querySelector(`.user__information-link`)
+const buttonSearch    = document.querySelector(`.user__label`)
+const inputProfile    = document.querySelector(`.user__input`)
+const errorProfile    = document.querySelector(`.user__error`)
 const userFollowing   = document.querySelector(`.following`)
-const userStadistic   = document.querySelector(`.container__description-stadistic`)
+const userStadistic   = document.querySelector(`.description__stadistic`)
 const userFollowers   = document.querySelector(`.followers`)
 const userRepository  = document.querySelector(`.repository`)
-const userDescription = document.querySelector(`.container__description-paragraph`)
+const userDescription = document.querySelector(`.description__paragraph`)
 
 //! Carga de los perfiles, por defecto al carga la pagina tendra los datos de Leonardo Portilla
 export const profile = async (user = `leooportilla`) => {
@@ -28,6 +28,7 @@ export const profile = async (user = `leooportilla`) => {
 
         //! Si la peticion es correcta mandamos la informacion a la pagina
         if (answer.status == 200) {
+            userStadistic.style.visibility = `visible`
             userImage.setAttribute(`src`, `${data.avatar_url}`)
 
             //! Cuando los usuarios no tengan su nombre configurado colocamos el login
@@ -43,7 +44,7 @@ export const profile = async (user = `leooportilla`) => {
 
         //! Si capturamos algun error, toda la informacion la mandamos por defecto
     } catch (error) {
-        userImage.setAttribute(`src`, `./media/images/users.png`)
+        userImage.setAttribute(`src`, `./media/images/users.svg`)
 
         if (error.message === `404`) {
             userName.innerHTML = `No registrado`
@@ -55,7 +56,7 @@ export const profile = async (user = `leooportilla`) => {
             userDescription.innerHTML = `Lo siento mucho, pero en este momento el acceso a la información que estás buscando ha sido limitado. Por favor, inténtalo de nuevo más tarde asi puedes acceder a la información que necesitas`
         }
 
-        userStadistic.style.display = `none`
+        userStadistic.style.visibility = `hidden`
     }
 }
 
