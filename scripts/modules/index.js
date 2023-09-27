@@ -7,6 +7,7 @@ import { observeIntersetion } from "./observe";
 import { profile, search } from "./profile";
 import { arrow, project } from "./project";
 import { skillsInformation } from "./skills_information";
+import { validationForm } from "./validation_form";
 
 document.addEventListener(`DOMContentLoaded`, () => {
     save()
@@ -18,6 +19,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
     observeIntersetion()
 })
 
+validationForm()
 keaboard()
 closeProfile()
 arrow()

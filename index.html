@@ -242,7 +242,8 @@
                         es<span>Sass</span>.</p>
 
                     <p class="about__hability-information-paragraph">En resumen, soy un desarrollador creativo con
-                        habilidades técnicas de diseño y de codificacion. Estoy comprometido de aprender y crecer en el campo
+                        habilidades técnicas de diseño y de codificacion. Estoy comprometido de aprender y crecer en el
+                        campo
                         del desarrollo frontend, dispuesto a trabajar duro para alcanzar mis <span>objetivos
                             profesionales</span>. Me encantaría trabajar en equipo y dispuesto a colaborar con
                         otros desarrolladores, diseñadores y miembros del equipo para crear experiencias de usuario de
@@ -539,20 +540,24 @@
                     <input type="hidden" name="_template" value="table">
 
 
-                    <div class="form__content-header">
-                        <input class="form__content-header-name" type="text" name="Nombre" required spellcheck="false"
+                    <div class="form__header">
+                        <input class="input form__header-name" type="text" name="Nombre"  spellcheck="false"
                             placeholder="Nombre" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$">
+                        <h4 class="error">Usuario invalido</h4>
 
-                        <input class="form__content-header-email" type="email" name="Correo" id="email" required
+                        <input class="input form__header-email" type="email" name="Correo" id="email" 
                             pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
                             spellcheck="false" placeholder="Correo electronico">
+                        <h4 class="error email">Correo invalido</h4>
                     </div>
 
-                    <textarea class="form__content-messange" name="Mensaje" pattern=" ^.{1,255}$" required
+                    <textarea class="input form__messange" name="Mensaje"
                         placeholder="Mensaje que desea enviar"></textarea>
 
-                    <div class="form__content-button">
-                        <button class="form__content-button-submit" type="submit">
+                    <h4 class="error messange">Debe ingresar un mensaje</h4>
+
+                    <div class="form__button">
+                        <button class="form__button-submit" type="submit">
                             <svg class="svg" viewBox="0 0 16 17" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M4.51684 11.1429C7.46721 8.50578 10.4172 5.86824 13.3676 3.23108L6.53588 11.8419L13.5018 14.3326C13.5018 14.3326 14.0216 14.4896 14.1517 13.9862L15.9996 1.03216C15.9996 1.03216 16.0251 0.250238 15.262 0.513721C10.259 3.24464 5.25591 5.97557 0.252494 8.7061C0.207018 8.73788 0.114958 8.81188 0.0554333 8.94362C0.032141 8.99555 -0.018141 9.11063 0.00663028 9.25903C0.0114366 9.28693 0.034729 9.41169 0.137881 9.52096C0.234008 9.62248 0.343445 9.65193 0.385963 9.66084C1.7628 10.1549 3.13964 10.6485 4.51684 11.1425V11.1429Z" />

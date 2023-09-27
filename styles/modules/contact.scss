@@ -14,6 +14,12 @@
     padding: 0 7vw;
     padding-top: 2rem;
 
+    font-size: 1rem;
+    font-family: var(--paragraph);
+    color: var(--alternative);
+    letter-spacing: .1rem;
+    line-height: 1.6;
+
     &__maps {
         width: 100%;
         height: 25vh;
@@ -60,17 +66,10 @@
             &-title {
                 font-family: var(--title);
                 font-size: 2rem;
-                letter-spacing: .1rem;
-                color: var(--alternative);
-                line-height: 1.6;
+
             }
 
             &-description {
-                font-family: var(--paragraph);
-                font-size: 1rem;
-                letter-spacing: .1rem;
-                color: var(--alternative);
-                line-height: 1.6;
                 margin-top: .5rem;
                 text-align: justify;
             }
@@ -87,11 +86,7 @@
 
             &-paragraph {
                 margin-top: 1rem;
-                font-family: var(--paragraph);
                 font-size: .7rem;
-                letter-spacing: .1rem;
-                color: var(--alternative);
-                line-height: 1.6;
             }
         }
 
@@ -100,83 +95,68 @@
             @include flex(flex-start, center, column);
             row-gap: 1rem;
             z-index: 10;
+            position: relative;
 
-            &__content {
-                @include flex(center, center, column);
-                row-gap: 1rem;
+            input, textarea {
+                background-color: var(--main);
+                @include boxShadow(var(--opacityAlternative));
+                border-radius: 1rem;
                 width: 100%;
+                height: 3rem;
+                padding-left: 2rem;
+                outline: none;
+                z-index: 20;
+
+                &::placeholder {
+                    color: inherit;
+                }
+
+                &::selection {
+                    color: var(--main);
+                    background-color: var(--alternative);
+                }
+            }
+
+            &__header {
+                @include flex(center, center, row);
+                column-gap: 1rem;
+                width: 100%;
+                position: relative;
+
+                & .error.email {
+                    left: calc(50% + 2.5rem);
+                }
+            }
+
+            textarea {
+                padding-top: 1rem;
+                text-align: justify;
+                margin-top: 1.5rem;
                 height: 100%;
-                margin-top: 1rem;
+            }
 
-                &-header {
-                    @include flex(center, center, row);
-                    column-gap: 1rem;
-                    width: 100%;
-                    position: relative;
+            .error {
+                color: var(--first);
+                position: absolute;
+                left: 2rem;
+                top: 0;
+                transition: .5s all;
+            }
 
-                    &-name {
-                        background-color: var(--main);
-                        @include boxShadow(var(--opacityAlternative));
-                        border-radius: 1rem;
-                        height: 3rem;
-                        width: 100%;
-                        font-family: var(--paragraph);
-                        color: var(--alternative);
-                        font-size: 1rem;
-                        padding-left: 2rem;
-                        outline: none;
-                        z-index: 10;
+            & .error.messange{
+                top: 5.5rem;
+            }
 
-                        &::placeholder {
-                            color: inherit;
-                        }
-                    }
+            .error-active {
+                transform: translateY(-1.5rem);
+            }
 
-                    &-email {
-                        background-color: var(--main);
-                        @include boxShadow(var(--opacityAlternative));
-                        border-radius: 1rem;
-                        height: 3rem;
-                        width: 100%;
-                        font-family: var(--paragraph);
-                        color: var(--alternative);
-                        font-size: 1rem;
-                        padding-left: 2rem;
-                        outline: none;
+            &__button {
+                width: 100%;
+                @include flex(space-between, center, row);
 
-                        &::placeholder {
-                            color: inherit;
-                        }
-                    }
-                }
-
-                &-messange {
-                    background-color: var(--main);
-                    @include boxShadow(var(--opacityAlternative));
-                    border-radius: 1.5rem;
-                    width: 100%;
-                    height: 100%;
-                    font-family: var(--paragraph);
-                    color: var(--alternative);
-                    font-size: 1rem;
-                    padding-left: 2rem;
-                    padding-top: 2rem;
-                    text-align: justify;
-                    outline: none;
-                    resize: none;
-
-                    &::placeholder {
-                        color: inherit;
-                    }
-                }
-
-                &-button {
-                    width: 100%;
-                    @include flex(space-between, center, row);
-
-                    &-submit {
-                        @include buttonStandar(var(--second), var(--alternativeFixed));
-                    }
+                &-submit {
+                    @include buttonStandar(var(--second), var(--alternativeFixed));
                 }
             }
         }
@@ -208,9 +188,7 @@
         left: 0;
         width: 100%;
         text-align: center;
-        font-family: var(--paragraph);
         font-size: .8rem;
-        letter-spacing: .1rem;
         color: var(--mainFixed);
     }
 }

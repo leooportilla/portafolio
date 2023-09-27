@@ -42,6 +42,7 @@ a {
   text-decoration: none;
   color: inherit;
   font-size: inherit;
+  letter-spacing: inherit;
 }
 
 //! ... excepto los que se encuentran en párrafos
@@ -80,6 +81,7 @@ em {
   font-style: inherit;
   text-decoration: none;
   color: inherit;
+  letter-spacing: inherit;
 }
 
 //! Evitamos problemas con los pseudoelementos de quotes
@@ -113,6 +115,7 @@ label {
   display: block;
   //! (Opcional)
   appearance: none;
+  letter-spacing: inherit;
 }
 
 //! Reseteamos las tablas
@@ -134,8 +137,6 @@ svg {
 body {
   min-height: 100vh;
   font-size: 100%;
-  font-family: var(--tipo-principal);
-  color: var(--negro);
   -webkit-font-smoothing: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

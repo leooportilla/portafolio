@@ -122,6 +122,7 @@
     }
 
     .contact {
+        font-size: .8rem;
 
         &__content {
             column-gap: 3rem;
@@ -131,23 +132,10 @@
                 &-title {
                     font-size: 1.5rem;
                 }
-
-                &-description {
-                    font-size: .8rem;
-                }
             }
 
             &-cv-paragraph {
                 font-size: .6rem;
-            }
-
-            .form__content {
-
-                &-header-name,
-                &-header-email,
-                &-messange {
-                    font-size: .8rem;
-                }
             }
 
         }
@@ -382,7 +370,7 @@
             }
         }
 
-        .form__content-messange {
+        & .form textarea {
             height: 13rem;
         }
     }
@@ -452,35 +440,35 @@
 @media (max-width: 600px) {
 
     header .nav {
-            width: 100%;
-        }
+        width: 100%;
+    }
 
     .home__biography {
 
-            &-profile {
-                width: 25rem;
+        &-profile {
+            width: 25rem;
+        }
+
+        .headline {
+
+            &__text {
+                font-size: 1rem;
+
+                &-name {
+                    font-size: 1.8rem;
+
+                    span {
+                        font-size: 2.5rem;
+                    }
+                }
+
             }
 
-            .headline {
-
-                &__text {
-                    font-size: 1rem;
-
-                    &-name {
-                        font-size: 1.8rem;
-
-                        span {
-                            font-size: 2.5rem;
-                        }
-                    }
-
-                }
-
-                &__container {
-                    column-gap: 1.5rem;
-                }
+            &__container {
+                column-gap: 1.5rem;
             }
         }
+    }
 
     .about__hability .skills__container {
         width: 7rem;
@@ -491,34 +479,34 @@
 
         &__profile .container {
 
-                &__user {
-                    align-items: center;
+            &__user {
+                align-items: center;
 
-                    &-information {
-                        column-gap: .5rem;
+                &-information {
+                    column-gap: .5rem;
 
-                        &-link {
-                            font-size: .6rem;
-                        }
+                    &-link {
+                        font-size: .6rem;
                     }
-
                 }
 
-                &__description {
+            }
 
-                    &-paragraph {
-                        font-size: .7rem;
+            &__description {
+
+                &-paragraph {
+                    font-size: .7rem;
+                }
+
+                &-stadistic-content {
+                    column-gap: 0.3rem;
+
+                    h4 {
+                        font-size: .6rem;
                     }
-
-                    &-stadistic-content {
-                            column-gap: 0.3rem;
-
-                            h4 {
-                                font-size: .6rem;
-                            }
-                        }
                 }
             }
+        }
 
         &__projects {
             padding: 0 12vw;
@@ -532,12 +520,12 @@
             }
 
             .cards__container {
-                    column-gap: 0;
+                column-gap: 0;
 
-                    &-card {
-                        width: 76vw;
-                    }
+                &-card {
+                    width: 76vw;
                 }
+            }
         }
 
     }
@@ -548,93 +536,93 @@
 
     .home__biography {
 
-            &-profile {
-                width: 22rem;
+        &-profile {
+            width: 22rem;
+        }
+
+        .headline__text {
+
+            &-name {
+                font-size: 1.5rem;
+
+                span {
+                    font-size: 2rem;
+                }
             }
 
-            .headline__text {
-
-                    &-name {
-                        font-size: 1.5rem;
-
-                        span {
-                            font-size: 2rem;
-                        }
-                    }
-
-                    &-summary {
-                        font-size: .7rem;
-                    }
-                }
+            &-summary {
+                font-size: .7rem;
+            }
         }
+    }
 
     .about__hability {
 
-            &-information-title {
-                    font-size: 2rem;
-                }
-
-            .skills__information {
-
-                    &-content p,
-                    a {
-                        font-size: .6rem;
-                    }
-
-                    &-header {
-                        h3 {
-                            font-size: 1.2rem;
-                        }
-
-                        svg {
-                            width: 1.2rem;
-                            height: 1.2rem;
-                        }
-                    }
-                }
+        &-information-title {
+            font-size: 2rem;
         }
+
+        .skills__information {
+
+            &-content p,
+            a {
+                font-size: .6rem;
+            }
+
+            &-header {
+                h3 {
+                    font-size: 1.2rem;
+                }
+
+                svg {
+                    width: 1.2rem;
+                    height: 1.2rem;
+                }
+            }
+        }
+    }
 
     .project {
 
         &__profile .container {
 
-                &__user-information {
+            &__user-information {
 
-                    &-name {
-                        font-size: 1.2rem;
-                    }
-
-                    &-link {
-                        font-size: .6rem;
-                    }
+                &-name {
+                    font-size: 1.2rem;
                 }
 
-                &__image {
-                    width: 7rem;
-                    height: 7rem;
+                &-link {
+                    font-size: .6rem;
                 }
-
-                &__description-stadistic-content h4 {
-                        font-size: .6rem;
-                    }
             }
+
+            &__image {
+                width: 7rem;
+                height: 7rem;
+            }
+
+            &__description-stadistic-content h4 {
+                font-size: .6rem;
+            }
+        }
 
         &__projects .cards__container-card {
 
-                        .name__title,
-                        .name__statistics-count {
-                            font-size: .7rem;
-                        }
+            .name__title,
+            .name__statistics-count {
+                font-size: .7rem;
+            }
 
-                        .name__statistics-icon {
-                            width: .7rem;
-                            height: .7rem;
-                        }
+            .name__statistics-icon {
+                width: .7rem;
+                height: .7rem;
+            }
 
-                        .hover__information-paragraph {
-                            font-size: .6rem;
-                        }
-                    }
+            .hover__information-paragraph {
+                font-size: .6rem;
+            }
+        }
 
         &__range {
             margin-bottom: 1rem;
@@ -642,20 +630,15 @@
     }
 
     .contact {
+        font-size: .7rem;
 
         &__content {
             row-gap: .5rem;
 
-            &-information {
-
-                &-title {
-                    font-size: 1.2rem;
-                }
-
-                &-description {
-                    font-size: .7rem;
-                }
+            &-information-title {
+                font-size: 1.2rem;
             }
+
 
             &-cv {
 
@@ -669,16 +652,28 @@
             }
 
 
-            .form__content {
+            & .form {
+                margin-top: 1rem;
 
-                &-header-name,
-                &-header-email,
-                &-messange {
-                    font-size: .7rem;
+                input,
+                textarea {
                     padding-left: 1rem;
                 }
 
-                &-button-submit {
+                &__header .error.email {
+                    left: calc(50% + 1.5rem);
+                }
+
+                .error {
+                    left: 1rem;
+                }
+
+                .error-active {
+                    transform: translateY(-1rem);
+                }
+
+
+                &__button-submit {
                     @include buttonSmall();
                 }
             }
@@ -695,23 +690,23 @@
 @media (max-width: 375px) {
     .home__biography {
 
-            &-profile {
-                width: 20rem;
+        &-profile {
+            width: 20rem;
+        }
+
+        .headline {
+
+            &__text {
+                width: 16rem;
             }
 
-            .headline {
+            &__container-links {
+                padding: .7rem;
 
-                &__text {
-                    width: 16rem;
+                .svg {
+                    height: 1rem;
                 }
-
-                &__container-links {
-                        padding: .7rem;
-
-                        .svg {
-                            height: 1rem;
-                        }
-                    }
             }
         }
+    }
 }
