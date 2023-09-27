@@ -13,6 +13,12 @@
     @include flex(flex-start, center, column);
     row-gap: 2rem;
 
+    font-size: 1rem;
+    font-family: var(--paragraph);
+    color: var(--alternative);
+    letter-spacing: .1rem;
+    line-height: 1.6;
+
     &__profile {
         padding: 0 7vw;
         width: 100%;
@@ -53,15 +59,12 @@
                     &-name {
                         font-family: var(--title);
                         font-size: 2rem;
-                        letter-spacing: .1rem;
                         color: var(--first);
                     }
 
                     &-link {
                         text-decoration: underline;
-                        font-family: var(--paragraph);
                         font-size: .8rem;
-                        letter-spacing: .1rem;
                         color: var(--alternative);
                         cursor: pointer;
                     }
@@ -73,9 +76,7 @@
 
                 &-input {
                     position: absolute;
-                    font-family: var(--paragraph);
                     font-size: .8rem;
-                    letter-spacing: .1rem;
                     color: var(--main);
                     background-color: var(--alternative);
                     height: 2.5rem;
@@ -100,9 +101,7 @@
                 &-error {
                     position: absolute;
                     margin-left: 2rem;
-                    font-family: var(--paragraphBig);
                     font-size: .8rem;
-                    letter-spacing: .1rem;
                     color: var(--first);
                     display: none;
                     transition: .5s all;
@@ -124,12 +123,7 @@
                 row-gap: 1rem;
 
                 &-paragraph {
-                    font-family: var(--paragraph);
-                    font-size: 1rem;
-                    letter-spacing: .1rem;
                     text-align: justify;
-                    color: var(--alternative);
-                    line-height: 1.6;
                 }
 
                 &-stadistic {
@@ -149,10 +143,7 @@
                         }
 
                         h4 {
-                            color: var(--alternative);
-                            font-family: var(--paragraph);
                             font-size: .8rem;
-                            letter-spacing: .1rem;
                         }
                     }
                 }
@@ -263,6 +254,11 @@
                     transform: translateY(5rem);
                     opacity: 0;
                     transition: .5s all;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    @include flex(space-between, flex-end, row);
+                    padding: 0 1.5rem 1.5rem 1.5rem;
 
                     .hover {
                         position: absolute;
@@ -284,10 +280,7 @@
                             row-gap: 1rem;
 
                             &-paragraph {
-                                font-family: var(--paragraph);
                                 font-size: .7rem;
-                                letter-spacing: .1rem;
-                                line-height: 1.6;
                                 color: var(--mainFixed);
                             }
 
@@ -342,9 +335,7 @@
                                 }
 
                                 .title {
-                                    font-family: var(--paragraph);
                                     font-size: .7rem;
-                                    letter-spacing: .1rem;
                                     transition: .4s all;
                                 }
 
@@ -392,9 +383,7 @@
                                 }
 
                                 .title {
-                                    font-family: var(--paragraph);
                                     font-size: .7rem;
-                                    letter-spacing: .1rem;
                                     transition: .4s all;
                                 }
 
@@ -425,56 +414,38 @@
                         }
                     }
 
-                    &-image {
-                        width: 100%;
-                        height: 100%;
+                    &-title {
+                        z-index: 20;
+                        color: var(--mainFixed);
                     }
 
-                    .name {
-                        width: 100%;
-                        position: absolute;
-                        left: 0;
-                        bottom: 0;
-                        @include flex(space-between, flex-start, row);
-                        padding: 0 1.5rem 1.5rem 1.5rem;
+                    &-statistics {
+                        z-index: 20;
+                        @include flex (flex-start, center, row);
+                        column-gap: .5rem;
 
-                        &__title {
-                            z-index: 30;
-                            font-family: var(--paragraph);
-                            letter-spacing: .1rem;
+                        &-icon {
+                            width: 1rem;
+                            height: 1rem;
                             color: var(--mainFixed);
                         }
 
-                        &__statistics {
-                            z-index: 30;
-                            @include flex (flex-start, flex-start, row);
-                            column-gap: .5rem;
-
-                            &-icon {
-                                width: 1rem;
-                                height: 1rem;
-                                color: var(--mainFixed);
-                            }
-
-                            &-count {
-                                font-family: var(--paragraph);
-                                letter-spacing: .1rem;
-                                color: var(--mainFixed);
-                            }
+                        &-count {
+                            color: var(--mainFixed);
                         }
-
-                        &::before {
-                            content: "";
-                            width: 100%;
-                            height: 8rem;
-                            position: absolute;
-                            bottom: 0;
-                            left: 0;
-                            z-index: 20;
-                            background: linear-gradient(180deg, transparent 0, var(--alternativeFixed) 100%);
-                        }
-
                     }
+
+                    &::before {
+                        content: "";
+                        width: 100%;
+                        height: 8rem;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        z-index: 20;
+                        background: linear-gradient(180deg, transparent 0, var(--alternativeFixed) 100%);
+                    }
+
 
                     &:hover .hover {
                         transform: translateX(0);
@@ -492,22 +463,15 @@
             }
 
             &__error {
-                margin: auto;
                 @include flex(center, center, column);
                 row-gap: 2rem;
+                height: 32rem;
+                width: 100%;
 
                 &-svg {
-                    margin: auto;
-                    width: 15rem;
+                    width: 25vh;
                     color: var(--first);
                     filter: drop-shadow(0 5px 5px rgb(35, 37, 40, .4));
-                }
-
-                &-title {
-                    font-family: var(--paragraphBig);
-                    font-size: 1rem;
-                    letter-spacing: .1rem;
-                    color: var(--alternative);
                 }
             }
         }

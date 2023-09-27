@@ -78,6 +78,7 @@
 
 
     .project {
+        font-size: .8rem;
 
         &__profile .container {
 
@@ -86,27 +87,15 @@
                 height: 11rem;
             }
 
-            &__description {
-
-                &-paragraph {
-                    font-size: .8rem;
-                }
-
-                &-stadistic-content h4 {
+            &__description-stadistic-content h4 {
                     font-size: .7rem;
                 }
-            }
         }
 
         &__projects .cards__container-card {
             width: 27.15vw;
 
-            .name__title,
-            .name__statistics-count {
-                font-size: .8rem;
-            }
-
-            .name__statistics-icon {
+            &-statistics-icon {
                 width: .8rem;
                 height: .8rem;
             }
@@ -392,16 +381,13 @@
     }
 
     .project {
+        font-size: .7rem;
 
         &__profile .container {
             column-gap: 1rem;
 
 
             &__user {
-
-                &-input {
-                    font-size: .7rem;
-                }
 
                 &-label {
                     @include buttonSmall();
@@ -492,20 +478,14 @@
 
             }
 
-            &__description {
-
-                &-paragraph {
-                    font-size: .7rem;
-                }
-
-                &-stadistic-content {
+            &__description-stadistic-content {
                     column-gap: 0.3rem;
 
                     h4 {
                         font-size: .6rem;
                     }
                 }
-            }
+            
         }
 
         &__projects {
@@ -609,12 +589,7 @@
 
         &__projects .cards__container-card {
 
-            .name__title,
-            .name__statistics-count {
-                font-size: .7rem;
-            }
-
-            .name__statistics-icon {
+            &-statistics-icon {
                 width: .7rem;
                 height: .7rem;
             }
