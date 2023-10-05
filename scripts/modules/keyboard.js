@@ -2,8 +2,8 @@ import { profile } from "./profile"
 import { project } from "./project"
 
 //! Declaracion de variable para la funcion de cerrar el input
-const inputUser    = document.querySelector(`.container__user-input`)
-const errorProfile = document.querySelector(`.container__user-error`)
+const inputUser    = document.querySelector(`.user__input`)
+const errorProfile = document.querySelector(`.use__error`)
 const windowSkills = document.querySelector(`.skills__information`)
 
 //! Cerrar el input de la busqueda del perfil
@@ -51,7 +51,8 @@ export const closeProfile = () => {
     })
 }
 
-export const keaboard = () => {
+//! Cerrar la ventana de la informacion de las habilidades
+export const closeSkills = () => {
 
     document.addEventListener(`keyup`, event => {
 

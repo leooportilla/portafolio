@@ -5,9 +5,14 @@
 @use "./mixin.scss" as *;
 
 body {
-    color: var(--alternative);
     background-color: var(--main);
     width: 100%;
+
+    font-size: 1rem;
+    font-family: var(--paragraph);
+    color: var(--alternative);
+    letter-spacing: .1rem;
+    line-height: 1.6;
 
     
     //! Disenio para barra de scroll

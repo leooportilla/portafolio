@@ -30,22 +30,16 @@
                 text-align: end;
                 font-family: var(--title);
                 font-size: 3rem;
-                letter-spacing: .1rem;
                 color: var(--mainFixed);
             }
 
             &-paragraph {
                 text-indent: 2rem;
                 text-align: justify;
-                font-family: var(--paragraph);
-                font-size: 1rem;
                 color: var(--mainFixed);
-                letter-spacing: .1rem;
-                line-height: 1.6;
 
                 span {
                     color: var(--alternativeFixed);
-                    ;
                 }
             }
         }
@@ -82,10 +76,9 @@
                     height: 2rem;
                     @include flex(space-between, center, row);
 
-                    h3 {
+                    &-title {
                         font-family: var(--title);
                         font-size: 2rem;
-                        letter-spacing: .1rem;
                         color: var(--mainFixed);
 
                         span {
@@ -93,7 +86,7 @@
                         }
                     }
 
-                    svg {
+                    &-svg {
                         color: var(--mainFixed);
                         height: 2rem;
                         width: 2rem;
@@ -106,26 +99,21 @@
                     height: 100%;
                     @include flex(space-between, flex-end, column);
 
-                    p {
-                        font-family: var(--paragraph);
+                    &-paragraph {
                         font-size: .8rem;
-                        letter-spacing: .1rem;
                         color: var(--mainFixed);
                         text-align: justify;
-                        line-height: 1.6;
                     }
 
-                    a {
+                    &-link {
                         text-decoration: underline;
-                        font-family: var(--paragraph);
-                        font-size: 1rem;
-                        letter-spacing: .1rem;
                         color: var(--mainFixed);
                         text-align: end;
                     }
                 }
 
             }
+
             .active {
                 transform: translateX(0);
             }
@@ -134,7 +122,6 @@
                 transform: translateY(0);
                 opacity: 1;
             }
-
 
             &__container {
                 width: 10rem;

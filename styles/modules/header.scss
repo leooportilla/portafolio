@@ -50,20 +50,23 @@ header {
             @include boxShadow(var(--opacityFixed));
         }
 
-        //! Con esta clase lograre mover el circula de manera
+        //! Con esta clase movere el circula 
         .move {
             left: 55%;
         }
     }
 
+    //! Botones de navegacion
     .nav {
         @include flex(center, center, row);
         column-gap: 1rem;
 
+        //! Icono para el cerrar el menu (Solo se muestra en modo responsivo)
         &__close {
             display: none;
         }
         
+        //! Seccion de cada boton
         &__section {
             @include flex(center, center, row);
             background-color: var(--main);
@@ -72,20 +75,13 @@ header {
             border-radius: 1rem;
             position: relative;
             overflow: hidden;
-
-            &-svg {
-                display: none
-            }
-    
+            
             span {
                 @include flex(center, center, row);
-                font-family: var(--paragraph);
-                color: var(--alternative);
-                letter-spacing: .1rem;
                 transition: .3s all;
                 z-index: 5;
             }
-    
+            
             &::after {
                 content: "";
                 position: absolute;

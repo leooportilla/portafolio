@@ -2,6 +2,7 @@
 const skills               = document.querySelector(`.skills`)
 const containerInformation = document.querySelector(`.skills__information`)
 
+//! Informnacion de las habilidades (descripcion, titulo, pagina)
 const information = {
     html: {
         title: `Que es HTML<span>?</span>`,
@@ -58,17 +59,17 @@ const information = {
 const template = (title, summary, url) => {
    
     return `<div class="skills__information-header">
-        <h3>${title}</h3>
-        <svg class="close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-            <path class="cls-1"
-                d="m31.26,26.69l-.1-.11-.22-.22-.12-.11-10.23-10.24,10.57-10.57c.27-.31.49-.66.63-1.06.14-.35.21-.73.21-1.13,0-1.79-1.46-3.25-3.25-3.25-.4,0-.78.07-1.14.21-.34.12-.65.31-.93.53h0s-.42.43-.42.43l-10.25,10.25L5.75,1.18l-.21-.22-.42-.36-.06-.04c-.22-.15-.46-.27-.72-.36-.34-.13-.71-.2-1.1-.2C1.5,0,.08,1.37,0,3.09v.33c.01.33.08.64.19.94.12.35.31.67.54.96l4.81,4.81,5.87,5.87-5.87,5.86L.95,26.45l-.02.02c-.32.33-.58.72-.74,1.16-.11.3-.18.62-.19.96v.33c.08,1.72,1.51,3.08,3.24,3.08.39,0,.77-.07,1.11-.2.45-.16.86-.42,1.19-.75l10.46-10.46,10.35,10.35.22.22c.3.28.65.49,1.04.63.36.14.74.21,1.14.21,1.79,0,3.25-1.45,3.25-3.25,0-.41-.08-.8-.22-1.16-.13-.33-.3-.63-.52-.9ZM13.82,13.59l-.12.12h0s.08-.09.12-.12Z" />
-        </svg>
-    </div>
+                <h3 class="skills__information-header-title">${title}</h3>
+                <svg class="skills__information-header-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <path class="cls-1"
+                        d="m31.26,26.69l-.1-.11-.22-.22-.12-.11-10.23-10.24,10.57-10.57c.27-.31.49-.66.63-1.06.14-.35.21-.73.21-1.13,0-1.79-1.46-3.25-3.25-3.25-.4,0-.78.07-1.14.21-.34.12-.65.31-.93.53h0s-.42.43-.42.43l-10.25,10.25L5.75,1.18l-.21-.22-.42-.36-.06-.04c-.22-.15-.46-.27-.72-.36-.34-.13-.71-.2-1.1-.2C1.5,0,.08,1.37,0,3.09v.33c.01.33.08.64.19.94.12.35.31.67.54.96l4.81,4.81,5.87,5.87-5.87,5.86L.95,26.45l-.02.02c-.32.33-.58.72-.74,1.16-.11.3-.18.62-.19.96v.33c.08,1.72,1.51,3.08,3.24,3.08.39,0,.77-.07,1.11-.2.45-.16.86-.42,1.19-.75l10.46-10.46,10.35,10.35.22.22c.3.28.65.49,1.04.63.36.14.74.21,1.14.21,1.79,0,3.25-1.45,3.25-3.25,0-.41-.08-.8-.22-1.16-.13-.33-.3-.63-.52-.9ZM13.82,13.59l-.12.12h0s.08-.09.12-.12Z" />
+                </svg>
+            </div>
 
-    <div class="skills__information-content">
-        <p>${summary}</p>
-        <a href="${url}" target="_blank">Sitio Web</a>
-    </div>`
+            <div class="skills__information-content">
+                <p class="skills__information-content-paragraph">${summary}</p>
+                <a class="skills__information-content-link" href="${url}" target="_blank">Sitio Web</a>
+            </div>`
 }
 
 //! Abrir y cerrar la skills
@@ -128,7 +129,7 @@ export const skillsInformation = () => {
         containerInformation.addEventListener(`click`, evento => {
 
             //! Al dar click en el boton de cerrar, quitamos la clase como tambien el contenido de ella
-            if (evento.target.closest(`.close`)) {
+            if (evento.target.closest(`.skills__information-header-svg`)) {
                 containerInformation.classList.remove(`active`)
         
                 //! Un Timeout para que se borre el contenido sin que el usuario se pueda dar cuenta

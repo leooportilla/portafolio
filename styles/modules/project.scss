@@ -13,138 +13,123 @@
     @include flex(flex-start, center, column);
     row-gap: 2rem;
 
-    font-size: 1rem;
-    font-family: var(--paragraph);
-    color: var(--alternative);
-    letter-spacing: .1rem;
-    line-height: 1.6;
-
     &__profile {
         padding: 0 7vw;
         width: 100%;
-        @include flex(flex-start, flex-start, column);
-        row-gap: 2rem;
+        display: grid;
+        grid-template-areas:
+            "Image User"
+            "Image Description";
+        grid-template-rows: 3rem 1fr;
+        grid-template-columns: min-content;
+        column-gap: 2rem;
 
-        .container {
-            width: 100%;
-            max-width: 60rem;
-            display: grid;
-            grid-template-areas:
-                "Image User"
-                "Image Description";
-            grid-template-rows: 3rem 1fr;
-            grid-template-columns: min-content;
-            column-gap: 2rem;
+        &-image {
+            grid-area: Image;
+            border-radius: 1.5rem;
+            width: 12.5rem;
+            height: 12.5rem;
+            @include boxShadow(var(--opacityAlternative));
+        }
 
+        .user {
+            grid-area: User;
+            @include flex(space-between, flex-start, row);
+            position: relative;
+            column-gap: 3rem;
 
-            &__image {
-                grid-area: Image;
-                border-radius: 1.5rem;
-                width: 12.5rem;
-                height: 12.5rem;
-                @include boxShadow(var(--opacityAlternative));
-            }
+            &__information {
+                @include flex(flex-start, center, row);
+                column-gap: 2rem;
+                overflow: hidden;
 
-            &__user {
-                grid-area: User;
-                @include flex(space-between, flex-start, row);
-                position: relative;
-                column-gap: 3rem;
-
-                &-information {
-                    @include flex(flex-start, center, row);
-                    column-gap: 2rem;
-                    overflow: hidden;
-
-                    &-name {
-                        font-family: var(--title);
-                        font-size: 2rem;
-                        color: var(--first);
-                    }
-
-                    &-link {
-                        text-decoration: underline;
-                        font-size: .8rem;
-                        color: var(--alternative);
-                        cursor: pointer;
-                    }
-                }
-
-                &-label {
-                    @include buttonStandar(var(--alternative), var(--main));
-                }
-
-                &-input {
-                    position: absolute;
-                    font-size: .8rem;
-                    color: var(--main);
-                    background-color: var(--alternative);
-                    height: 2.5rem;
-                    width: 0;
-                    border-radius: 1rem;
-                    padding: 0;
-                    outline: none;
-                    transition: 1s all;
-                    min-width: 0;
-                    z-index: 10;
-
-                    &::placeholder {
-                        color: inherit;
-                    }
-                }
-
-                .active-input {
-                    padding: 0 2rem;
-                    min-width: 15rem;
-                }
-
-                &-error {
-                    position: absolute;
-                    margin-left: 2rem;
-                    font-size: .8rem;
+                &-name {
+                    font-family: var(--title);
+                    font-size: 2rem;
                     color: var(--first);
-                    display: none;
-                    transition: .5s all;
-                    z-index: 5;
                 }
 
-                .active {
-                    display: inline-block;
-                }
-
-                .active-error {
-                    transform: translateY(-2rem);
+                &-link {
+                    text-decoration: underline;
+                    font-size: .8rem;
+                    color: var(--alternative);
+                    cursor: pointer;
                 }
             }
 
-            &__description {
-                grid-area: Description;
-                @include flex(flex-start, flex-start, column);
-                row-gap: 1rem;
+            &__label {
+                @include buttonStandar(var(--alternative), var(--main));
+            }
 
-                &-paragraph {
-                    text-align: justify;
+            &__input {
+                position: absolute;
+                font-size: .8rem;
+                color: var(--main);
+                background-color: var(--alternative);
+                height: 2.5rem;
+                width: 0;
+                border-radius: 1rem;
+                padding: 0;
+                outline: none;
+                transition: 1s all;
+                min-width: 0;
+                z-index: 10;
+
+                &::placeholder {
+                    color: inherit;
                 }
+            }
 
-                &-stadistic {
-                    @include flex(flex-start, flex-start, row);
-                    column-gap: 2rem;
-                    flex-wrap: wrap;
-                    row-gap: .5rem;
+            .active-input {
+                padding: 0 2rem;
+                min-width: 15rem;
+            }
 
-                    &-content {
-                        @include flex(flex-start, flex-start, row);
-                        column-gap: .5rem;
+            &__error {
+                position: absolute;
+                margin-left: 2rem;
+                font-size: .8rem;
+                color: var(--first);
+                display: none;
+                transition: .5s all;
+                z-index: 5;
+            }
 
-                        svg {
-                            color: var(--alternative);
-                            height: 1rem;
-                            width: 1rem;
-                        }
+            .active {
+                display: inline-block;
+            }
 
-                        h4 {
-                            font-size: .8rem;
-                        }
+            .active-error {
+                transform: translateY(-2rem);
+            }
+        }
+
+        .description {
+            grid-area: Description;
+            @include flex(flex-start, flex-start, column);
+            row-gap: 1rem;
+
+            &__paragraph {
+                max-width: 65rem
+            }
+
+            &__stadistic {
+                @include flex(flex-start, flex-start, row);
+                column-gap: 2rem;
+                flex-wrap: wrap;
+                row-gap: .5rem;
+
+                &-content {
+                    @include flex(flex-start, center, row);
+                    column-gap: .5rem;
+
+                    &-svg {
+                        height: 1rem;
+                        width: 1rem;
+                    }
+
+                    &-title {
+                        font-size: .8rem;
                     }
                 }
             }
@@ -511,15 +496,15 @@
                 position: absolute;
                 right: -.3rem;
                 top: -2rem;
-                font-family: var(--paragraph);
                 color: var(--mainFixed);
                 font-size: .8rem;
+                letter-spacing: 0;
                 @include flex(center, center, row);
             }
         }
 
         &-container {
-            background-color: #a7a7a7;
+            background-color: var(--three);
             border-radius: 1.5rem;
             width: 99%;
             height: 100%;

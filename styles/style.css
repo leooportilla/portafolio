@@ -171,9 +171,13 @@ body {
 }
 
 body {
-  color: var(--alternative);
   background-color: var(--main);
   width: 100%;
+  font-size: 1rem;
+  font-family: var(--paragraph);
+  color: var(--alternative);
+  letter-spacing: 0.1rem;
+  line-height: 1.6;
 }
 body::-webkit-scrollbar {
   width: 0.4rem;
@@ -312,17 +316,11 @@ header .nav__section {
   position: relative;
   overflow: hidden;
 }
-header .nav__section-svg {
-  display: none;
-}
 header .nav__section span {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  font-family: var(--paragraph);
-  color: var(--alternative);
-  letter-spacing: 0.1rem;
   transition: 0.3s all;
   z-index: 5;
 }
@@ -383,31 +381,31 @@ header .menu {
   align-items: center;
   flex-direction: row;
   column-gap: 4rem;
+  z-index: 20;
 }
 .home__biography-profile {
-  z-index: 20;
   width: 35rem;
   filter: drop-shadow(0 5px 5px rgba(35, 37, 40, 0.5));
 }
-.home__biography .headline {
-  font-family: var(--paragraphBig);
-  color: var(--alternative);
-  letter-spacing: 0.1rem;
-  z-index: 20;
-}
 .home__biography .headline__text {
-  font-size: 2rem;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
   column-gap: 0.5rem;
   margin-bottom: 2rem;
+  line-height: normal;
 }
 .home__biography .headline__text .red {
+  font-size: 2rem;
   color: var(--first);
 }
+.home__biography .headline__text-greetings {
+  font-family: var(--paragraphBig);
+  font-size: 2rem;
+}
 .home__biography .headline__text-name {
+  font-family: var(--paragraphBig);
   font-size: 3rem;
 }
 .home__biography .headline__text-name span {
@@ -417,8 +415,6 @@ header .menu {
 }
 .home__biography .headline__text-summary {
   color: var(--three);
-  font-family: var(--paragraph);
-  font-size: 1rem;
 }
 .home__biography .headline__container {
   display: flex;
@@ -553,17 +549,12 @@ header .menu {
   text-align: end;
   font-family: var(--title);
   font-size: 3rem;
-  letter-spacing: 0.1rem;
   color: var(--mainFixed);
 }
 .about__hability-information-paragraph {
   text-indent: 2rem;
   text-align: justify;
-  font-family: var(--paragraph);
-  font-size: 1rem;
   color: var(--mainFixed);
-  letter-spacing: 0.1rem;
-  line-height: 1.6;
 }
 .about__hability-information-paragraph span {
   color: var(--alternativeFixed);
@@ -608,16 +599,15 @@ header .menu {
   align-items: center;
   flex-direction: row;
 }
-.about__hability .skills__information-header h3 {
+.about__hability .skills__information-header-title {
   font-family: var(--title);
   font-size: 2rem;
-  letter-spacing: 0.1rem;
   color: var(--mainFixed);
 }
-.about__hability .skills__information-header h3 span {
+.about__hability .skills__information-header-title span {
   color: var(--second);
 }
-.about__hability .skills__information-header svg {
+.about__hability .skills__information-header-svg {
   color: var(--mainFixed);
   height: 2rem;
   width: 2rem;
@@ -631,19 +621,13 @@ header .menu {
   align-items: flex-end;
   flex-direction: column;
 }
-.about__hability .skills__information-content p {
-  font-family: var(--paragraph);
+.about__hability .skills__information-content-paragraph {
   font-size: 0.8rem;
-  letter-spacing: 0.1rem;
   color: var(--mainFixed);
   text-align: justify;
-  line-height: 1.6;
 }
-.about__hability .skills__information-content a {
+.about__hability .skills__information-content-link {
   text-decoration: underline;
-  font-family: var(--paragraph);
-  font-size: 1rem;
-  letter-spacing: 0.1rem;
   color: var(--mainFixed);
   text-align: end;
 }
@@ -745,38 +729,24 @@ header .menu {
   align-items: center;
   flex-direction: column;
   row-gap: 2rem;
-  font-size: 1rem;
-  font-family: var(--paragraph);
-  color: var(--alternative);
-  letter-spacing: 0.1rem;
-  line-height: 1.6;
 }
 .project__profile {
   padding: 0 7vw;
   width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-  row-gap: 2rem;
-}
-.project__profile .container {
-  width: 100%;
-  max-width: 60rem;
   display: grid;
   grid-template-areas: "Image User" "Image Description";
   grid-template-rows: 3rem 1fr;
   grid-template-columns: min-content;
   column-gap: 2rem;
 }
-.project__profile .container__image {
+.project__profile-image {
   grid-area: Image;
   border-radius: 1.5rem;
   width: 12.5rem;
   height: 12.5rem;
   box-shadow: 0 5px 5px var(--opacityAlternative);
 }
-.project__profile .container__user {
+.project__profile .user {
   grid-area: User;
   display: flex;
   justify-content: space-between;
@@ -785,7 +755,7 @@ header .menu {
   position: relative;
   column-gap: 3rem;
 }
-.project__profile .container__user-information {
+.project__profile .user__information {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -793,18 +763,18 @@ header .menu {
   column-gap: 2rem;
   overflow: hidden;
 }
-.project__profile .container__user-information-name {
+.project__profile .user__information-name {
   font-family: var(--title);
   font-size: 2rem;
   color: var(--first);
 }
-.project__profile .container__user-information-link {
+.project__profile .user__information-link {
   text-decoration: underline;
   font-size: 0.8rem;
   color: var(--alternative);
   cursor: pointer;
 }
-.project__profile .container__user-label {
+.project__profile .user__label {
   color: var(--main);
   width: fit-content;
   cursor: pointer;
@@ -820,16 +790,16 @@ header .menu {
   flex-direction: row;
   column-gap: 0.5rem;
 }
-.project__profile .container__user-label .svg {
+.project__profile .user__label .svg {
   width: fit-content;
   height: 1rem;
   transition: 0.4s all;
 }
-.project__profile .container__user-label .title {
+.project__profile .user__label .title {
   font-size: 0.8rem;
   transition: 0.4s all;
 }
-.project__profile .container__user-label .arrow {
+.project__profile .user__label .arrow {
   width: auto;
   height: 1rem;
   position: absolute;
@@ -838,18 +808,18 @@ header .menu {
   transition: 0.4s all;
   transform: translateX(-10rem);
 }
-.project__profile .container__user-label:hover .svg {
+.project__profile .user__label:hover .svg {
   opacity: 0;
   transform: translateX(-1.5rem);
 }
-.project__profile .container__user-label:hover .title {
+.project__profile .user__label:hover .title {
   transform: translateX(-1.5rem);
 }
-.project__profile .container__user-label:hover .arrow {
+.project__profile .user__label:hover .arrow {
   opacity: 1;
   transform: translateX(0);
 }
-.project__profile .container__user-input {
+.project__profile .user__input {
   position: absolute;
   font-size: 0.8rem;
   color: var(--main);
@@ -863,14 +833,14 @@ header .menu {
   min-width: 0;
   z-index: 10;
 }
-.project__profile .container__user-input::placeholder {
+.project__profile .user__input::placeholder {
   color: inherit;
 }
-.project__profile .container__user .active-input {
+.project__profile .user .active-input {
   padding: 0 2rem;
   min-width: 15rem;
 }
-.project__profile .container__user-error {
+.project__profile .user__error {
   position: absolute;
   margin-left: 2rem;
   font-size: 0.8rem;
@@ -879,13 +849,13 @@ header .menu {
   transition: 0.5s all;
   z-index: 5;
 }
-.project__profile .container__user .active {
+.project__profile .user .active {
   display: inline-block;
 }
-.project__profile .container__user .active-error {
+.project__profile .user .active-error {
   transform: translateY(-2rem);
 }
-.project__profile .container__description {
+.project__profile .description {
   grid-area: Description;
   display: flex;
   justify-content: flex-start;
@@ -893,10 +863,10 @@ header .menu {
   flex-direction: column;
   row-gap: 1rem;
 }
-.project__profile .container__description-paragraph {
-  text-align: justify;
+.project__profile .description__paragraph {
+  max-width: 65rem;
 }
-.project__profile .container__description-stadistic {
+.project__profile .description__stadistic {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -905,19 +875,18 @@ header .menu {
   flex-wrap: wrap;
   row-gap: 0.5rem;
 }
-.project__profile .container__description-stadistic-content {
+.project__profile .description__stadistic-content {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: row;
   column-gap: 0.5rem;
 }
-.project__profile .container__description-stadistic-content svg {
-  color: var(--alternative);
+.project__profile .description__stadistic-content-svg {
   height: 1rem;
   width: 1rem;
 }
-.project__profile .container__description-stadistic-content h4 {
+.project__profile .description__stadistic-content-title {
   font-size: 0.8rem;
 }
 .project__projects {
@@ -1262,16 +1231,16 @@ header .menu {
   position: absolute;
   right: -0.3rem;
   top: -2rem;
-  font-family: var(--paragraph);
   color: var(--mainFixed);
   font-size: 0.8rem;
+  letter-spacing: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
 }
 .project__range-container {
-  background-color: #a7a7a7;
+  background-color: var(--three);
   border-radius: 1.5rem;
   width: 99%;
   height: 100%;
@@ -1284,11 +1253,6 @@ header .menu {
   position: relative;
   padding: 0 7vw;
   padding-top: 2rem;
-  font-size: 1rem;
-  font-family: var(--paragraph);
-  color: var(--alternative);
-  letter-spacing: 0.1rem;
-  line-height: 1.6;
 }
 .contact__maps {
   width: 100%;
@@ -1307,7 +1271,6 @@ header .menu {
 .contact__maps .leaflet-popup-content {
   font-size: 0.8rem;
   color: var(--main);
-  font-family: var(--paragraph);
 }
 .contact__maps .leaflet-control {
   display: none;
@@ -1546,7 +1509,13 @@ header .menu {
   bottom: 0;
   animation: Move 120s infinite alternate;
 }
-.contact__links {
+.contact__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.contact__footer-links {
   width: 100%;
   position: absolute;
   bottom: 4rem;
@@ -1557,7 +1526,7 @@ header .menu {
   flex-direction: row;
   column-gap: 2rem;
 }
-.contact__links-link {
+.contact__footer-links-link {
   color: var(--main);
   width: fit-content;
   cursor: pointer;
@@ -1575,16 +1544,16 @@ header .menu {
   padding: 0.7rem;
   border-radius: 50%;
 }
-.contact__links-link .svg {
+.contact__footer-links-link .svg {
   width: fit-content;
   height: 1rem;
   transition: 0.4s all;
 }
-.contact__links-link .title {
+.contact__footer-links-link .title {
   font-size: 0.8rem;
   transition: 0.4s all;
 }
-.contact__links-link .arrow {
+.contact__footer-links-link .arrow {
   width: auto;
   height: 1rem;
   position: absolute;
@@ -1593,35 +1562,35 @@ header .menu {
   transition: 0.4s all;
   transform: translateX(-10rem);
 }
-.contact__links-link:hover .svg {
+.contact__footer-links-link:hover .svg {
   opacity: 0;
   transform: translateX(-1.5rem);
 }
-.contact__links-link:hover .title {
+.contact__footer-links-link:hover .title {
   transform: translateX(-1.5rem);
 }
-.contact__links-link:hover .arrow {
+.contact__footer-links-link:hover .arrow {
   opacity: 1;
   transform: translateX(0);
 }
-.contact__links-link .svg {
+.contact__footer-links-link .svg {
   width: 1.3rem;
   height: 1.3rem;
 }
-.contact__links-link .title {
+.contact__footer-links-link .title {
   display: none;
 }
-.contact__links-link .arrow {
+.contact__footer-links-link .arrow {
   display: none;
 }
-.contact__links-link:hover .svg {
+.contact__footer-links-link:hover .svg {
   opacity: 1;
   transform: translateX(0);
 }
-.contact__links-link:active {
+.contact__footer-links-link:active {
   filter: brightness(0.8);
 }
-.contact__footer {
+.contact__footer-title {
   position: absolute;
   bottom: 2rem;
   left: 0;
@@ -1632,6 +1601,9 @@ header .menu {
 }
 
 @media (max-width: 1328px) {
+  body {
+    font-size: 0.8rem;
+  }
   .home__biography {
     column-gap: 1rem;
   }
@@ -1643,9 +1615,6 @@ header .menu {
   }
   .home__biography .headline__text-name span {
     font-size: 3rem;
-  }
-  .home__biography .headline__text-summary {
-    font-size: 0.8rem;
   }
   .home__biography .headline__container {
     column-gap: 1rem;
@@ -1664,25 +1633,21 @@ header .menu {
     width: 8.5rem;
     height: 8.5rem;
   }
-  .about__hability .skills__information-content p,
-  .about__hability .skills__information a {
-    font-size: 0.7rem;
-  }
-  .about__hability .skills__information-header h3 {
+  .about__hability .skills__information-header-title {
     font-size: 1.5rem;
   }
-  .about__hability .skills__information-header svg {
+  .about__hability .skills__information-header-svg {
     width: 1.5rem;
     height: 1.5rem;
   }
-  .project {
-    font-size: 0.8rem;
+  .about__hability .skills__information-content .about__hability .skills__information-paragraph, .about__hability .skills__information-link {
+    font-size: 0.7rem;
   }
-  .project__profile .container__image {
+  .project__profile__image {
     width: 11rem;
     height: 11rem;
   }
-  .project__profile .container__description-stadistic-content h4 {
+  .project__profile .description__stadistic-content-title {
     font-size: 0.7rem;
   }
   .project__projects .cards__container-card {
@@ -1697,9 +1662,6 @@ header .menu {
   }
   .project__range {
     margin-bottom: 1rem;
-  }
-  .contact {
-    font-size: 0.8rem;
   }
   .contact__content {
     column-gap: 3rem;
@@ -1736,7 +1698,7 @@ header .menu {
     position: static;
     transform: rotate(180deg) translateY(-1px);
   }
-  .project__profile .container__image {
+  .project__profile-image {
     width: 10rem;
     height: 10rem;
   }
@@ -1924,14 +1886,14 @@ header .menu {
     width: 100%;
     transform: translateX(0);
   }
-  .project__profile .container {
+  .project__profile {
     grid-template-areas: "User User" "Image Description" "Image Description";
   }
-  .project__profile .container__image {
+  .project__profile-image {
     width: 9rem;
     height: 9rem;
   }
-  .project__profile .container__description-stadistic {
+  .project__profile .description__stadistic {
     column-gap: 1rem;
   }
   .contact__content {
@@ -1953,6 +1915,9 @@ header .menu {
   }
 }
 @media (max-width: 768px) {
+  body {
+    font-size: 0.7rem;
+  }
   body .buttonhome__button {
     padding: 0.7rem;
     border-radius: 50%;
@@ -1998,39 +1963,36 @@ header .menu {
   .home__biography .headline__container-links:active {
     filter: brightness(0.8);
   }
-  .project {
-    font-size: 0.7rem;
-  }
-  .project__profile .container {
+  .project__profile {
     column-gap: 1rem;
   }
-  .project__profile .container__user-label {
+  .project__profile__image {
+    width: 8rem;
+    height: 8rem;
+  }
+  .project__profile .user__label {
     padding: 0.7rem;
     border-radius: 50%;
   }
-  .project__profile .container__user-label .svg {
+  .project__profile .user__label .svg {
     width: 1.3rem;
     height: 1.3rem;
   }
-  .project__profile .container__user-label .title {
+  .project__profile .user__label .title {
     display: none;
   }
-  .project__profile .container__user-label .arrow {
+  .project__profile .user__label .arrow {
     display: none;
   }
-  .project__profile .container__user-label:hover .svg {
+  .project__profile .user__label:hover .svg {
     opacity: 1;
     transform: translateX(0);
   }
-  .project__profile .container__user-label:active {
+  .project__profile .user__label:active {
     filter: brightness(0.8);
   }
-  .project__profile .container__user-information-name {
+  .project__profile .user__information-name {
     font-size: 1.5rem;
-  }
-  .project__profile .container__image {
-    width: 8rem;
-    height: 8rem;
   }
   .project__projects-arrowright-icon, .project__projects-arrowleft-icon {
     height: 1.5rem;
@@ -2046,9 +2008,6 @@ header .menu {
   .home__biography-profile {
     width: 25rem;
   }
-  .home__biography .headline__text {
-    font-size: 1rem;
-  }
   .home__biography .headline__text-name {
     font-size: 1.8rem;
   }
@@ -2062,19 +2021,19 @@ header .menu {
     width: 7rem;
     height: 7rem;
   }
-  .project__profile .container__user {
+  .project__profile .user {
     align-items: center;
   }
-  .project__profile .container__user-information {
+  .project__profile .user__information {
     column-gap: 0.5rem;
   }
-  .project__profile .container__user-information-link {
+  .project__profile .user__information-link {
     font-size: 0.6rem;
   }
-  .project__profile .container__description-stadistic-content {
+  .project__profile .description__stadistic-content {
     column-gap: 0.3rem;
   }
-  .project__profile .container__description-stadistic-content h4 {
+  .project__profile .description__stadistic-content-title {
     font-size: 0.6rem;
   }
   .project__projects {
@@ -2103,9 +2062,6 @@ header .menu {
   .home__biography .headline__text-name span {
     font-size: 2rem;
   }
-  .home__biography .headline__text-summary {
-    font-size: 0.7rem;
-  }
   .about__hability-information-title {
     font-size: 2rem;
   }
@@ -2120,17 +2076,17 @@ header .menu {
     width: 1.2rem;
     height: 1.2rem;
   }
-  .project__profile .container__user-information-name {
-    font-size: 1.2rem;
-  }
-  .project__profile .container__user-information-link {
-    font-size: 0.6rem;
-  }
-  .project__profile .container__image {
+  .project__profile-image {
     width: 7rem;
     height: 7rem;
   }
-  .project__profile .container__description-stadistic-content h4 {
+  .project__profile .user__information-name {
+    font-size: 1.2rem;
+  }
+  .project__profile .user__information-link {
+    font-size: 0.6rem;
+  }
+  .project__profile .description__stadistic-content-title {
     font-size: 0.6rem;
   }
   .project__projects .cards__container-card-statistics-icon {
@@ -2142,9 +2098,6 @@ header .menu {
   }
   .project__range {
     margin-bottom: 1rem;
-  }
-  .contact {
-    font-size: 0.7rem;
   }
   .contact__content {
     row-gap: 0.5rem;
