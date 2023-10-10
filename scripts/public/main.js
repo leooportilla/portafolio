@@ -341,23 +341,11 @@ const project = async (user = `leooportilla`) => {
                     }
 
                     //! Guardaremos la descripcion en la variable si existe, si el repositorio no tiene guardaremos en la variable una recomendacion
-                    let descriptionRepository;
+                    let descriptionRepository; 
 
-                    if (repository.description !== undefined && repository.description !== null) {
+                    !(repository.description == undefined && repositorydescription == null && repositorydescription.trim() === "") ? descriptionRepository = repository.description : descriptionRepository = `No hay una descripción detallada disponible para su repositorio. Una descripción detallada es esencial para ayudar a otros a comprender el propósito y la funcionalidad de su repositorio.`;
 
-                        //! Muchas veces los nombre de los repositorios son extenzon
-                        //! Con esta condicion validamos si es corto, si lo es lo mostramos completo
-                        if (repository.description.split(` `).length <= 30) {
-                            descriptionRepository = repository.description;
-
-                            //! Si el nombre se hace mucho mas extenso solo mostraremos la primera 25 palabras
-                        } else {
-                            descriptionRepository = repository.description.split(` `).splice(0, 30).join(` `) + `...`;
-                        }
-                    } else {
-                        descriptionRepository = `No hay una descripción detallada disponible para su repositorio. Una descripción detallada es esencial para ayudar a otros a comprender el propósito y la funcionalidad de su repositorio.`;
-                    }
-
+                    console.log(descriptionRepository, repository.description);
                     //! Con este arreglo verificamos que no agregemos un lenguaje dos veces
                     let verify = [];
                     //! Vamos guardando cada plantilla

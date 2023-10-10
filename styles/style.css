@@ -1020,6 +1020,10 @@ header .menu {
 .project__projects .cards__container-card .hover__information-paragraph {
   font-size: 0.7rem;
   color: var(--mainFixed);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
 }
 .project__projects .cards__container-card .hover__information .skills {
   display: flex;
