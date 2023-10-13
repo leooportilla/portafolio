@@ -68,11 +68,11 @@ const buttonTop = () => {
 };
 
 //! Declaracion de varibale para las funciones de la carga del perfil y las busqueda de los perfiles
-const leftButton     = document.querySelector(`.project__projects-arrowleft`);
-const rangeSlide     = document.querySelector(`.project__range-content`);
-const countSlide     = document.querySelector(`.project__range-content-count`);
-const rightButton    = document.querySelector(`.project__projects-arrowright`);
-const svgRightArrow  = document.querySelectorAll(`.project__projects-arrowright svg`);
+const leftButton = document.querySelector(`.project__projects-arrowleft`);
+const rangeSlide = document.querySelector(`.project__range-content`);
+const countSlide = document.querySelector(`.project__range-content-count`);
+const rightButton = document.querySelector(`.project__projects-arrowright`);
+const svgRightArrow = document.querySelectorAll(`.project__projects-arrowright svg`);
 const containerCards = document.querySelector(`.cards`);
 
 //! Elemento de etiqueta donde ire guardando todos los proyectos
@@ -121,6 +121,11 @@ const language = {
         svg: `<svg class="skills__container-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495.28 495.29"><path d="m0,0v495.29h495.28V0H0Zm283.52,274.52h-62.14v177.7h-49.87v-177.7h-62.02v-40.13h174.03v40.13Zm168.54,117.63c-.16,5.61-.76,20.37-10.89,34.39-10.01,13.85-23.52,18.98-33.02,22.59-12.68,4.81-22.99,5.43-35.66,6.19-8.05.48-21.58,1.2-38.86-2.18-13.15-2.57-23.73-6.59-31.19-9.97l.46-49.3c7.85,6.62,20.29,15.14,37.15,19.72,3.47.94,15.03,3.87,29.69,2.75,7.22-.55,13.75-1.97,19.95-5.73,5.78-3.51,7.62-6.84,8.25-8.14,2.24-4.6,1.7-9.02,1.5-10.55-.59-4.3-2.45-7.24-3.56-8.94-2.1-3.23-4.83-5.88-10.43-9.52-6.13-3.98-11.22-6.24-15.82-8.25-17.7-7.75-16.96-6.99-22.59-9.75-6.21-3.04-12.9-6.37-20.52-12.38-3.81-3.01-7.9-6.27-12.16-11.7-5.77-7.36-8.6-14.53-9.97-18.8-1.02-3.17-3.6-12.14-2.64-23.85.43-5.24,1.76-19.15,11.81-31.98,7.96-10.17,17.35-14.49,25.23-18.12,15.3-7.05,28.36-7.86,44.02-8.83,9.13-.56,22.43-1.29,39.33,2.3,8.08,1.71,14.68,3.93,19.37,5.73l.12,45.86c-10.18-6.37-19.5-9.79-26.14-11.7-13.39-3.84-23.75-3.82-26.6-3.78-7.37.12-15.49.34-23.85,5.16-3.15,1.81-7.71,4.53-10.09,10.09-.64,1.51-2.25,5.85-1.03,11.01.92,3.88,3.04,6.57,4.93,8.59,6.75,7.26,15.09,11.04,27.97,16.74,15.9,7.04,15.67,6.81,19.26,8.6,9.42,4.7,15.37,7.67,22.02,13.07,4.35,3.54,10.99,9.03,16.28,18.23,8.02,13.95,7.82,27.5,7.68,32.45Z"/></svg>`,
         url: `https://www.typescriptlang.org/`,
     },
+
+    markdown: {
+        svg: `<svg class="skills__container-icon"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.62 384"><path d="m426.62,362.67c0,11.78-9.55,21.33-21.33,21.33H21.33C9.55,384,0,374.45,0,362.67V21.33C0,9.55,9.55,0,21.33,0h383.96c11.78,0,21.33,9.55,21.33,21.33v341.34Zm-235.2-180.79c.13-.13.35-.13.48,0,.06.06.1.15.1.24v84.23c0,.19.15.34.34.34h41.94c.19,0,.34-.15.34-.34V117.65c0-.19-.15-.34-.34-.34h-42.15c-.09,0-.18.04-.24.1l-42.32,42.33c-.13.13-.35.13-.48,0l-42.31-42.33c-.06-.06-.15-.1-.24-.1h-42.2c-.19,0-.34.15-.34.34v148.7c0,.19.15.34.34.34h41.93c.19,0,.34-.15.34-.34v-84.27c.01-.19.16-.34.35-.34.09,0,.18.04.24.1l41.89,41.89c.13.13.35.13.48,0l41.85-41.85Zm107.2,20.49c0,.18-.14.32-.32.32h-41.49c-.18,0-.32.14-.32.31,0,.09.04.17.1.23l63.2,63.2c.12.13.33.13.45,0,0,0,0,0,0,0l63.19-63.19c.13-.12.13-.33,0-.45-.06-.06-.14-.1-.23-.1h-41.59c-.18,0-.32-.14-.32-.32h0v-84.74c0-.18-.14-.32-.32-.32h-42.05c-.18,0-.32.14-.32.32h0v84.74Z"/></svg>`,
+        url: `https://markdown.es/`
+    }
 };
 
 //! Instancia del intersention Observer
@@ -271,7 +276,6 @@ const project = async (user = `leooportilla`) => {
                             nameRepository = `Portafolio`;
                             break;
 
-
                         case `precio-unico`:
                             imageRepository = `single-price`;
                             nameRepository = `Precio Unico`;
@@ -281,7 +285,6 @@ const project = async (user = `leooportilla`) => {
                             imageRepository = `characteristic`;
                             nameRepository = `Pagina de Caracteristicas`;
                             break;
-
 
                         case `perfil-tarjeta`:
                             imageRepository = `profile-card`;
@@ -297,7 +300,6 @@ const project = async (user = `leooportilla`) => {
                             imageRepository = `subscription-card`;
                             nameRepository = `Tarjeta de Suscripcion`;
                             break;
-
 
                         case `vista-previa-estadistica`:
                             imageRepository = `preview-statistics`;
@@ -317,6 +319,11 @@ const project = async (user = `leooportilla`) => {
                         case `QR-tarjeta`:
                             imageRepository = `qr-card`;
                             nameRepository = `Tarjeta de QR`;
+                            break;
+
+                        case `leooportilla`:
+                            imageRepository = `readme`;
+                            nameRepository = `Readme`;
                             break;
 
                             //! Corregimos el nombre del repositorio
@@ -341,7 +348,7 @@ const project = async (user = `leooportilla`) => {
                     }
 
                     //! Guardaremos la descripcion en la variable si existe, si el repositorio no tiene guardaremos en la variable una recomendacion
-                    let descriptionRepository; 
+                    let descriptionRepository;
                     !(repository.description == undefined && repositorydescription == null && repositorydescription.trim() === "") ? descriptionRepository = repository.description : descriptionRepository = `No hay una descripción detallada disponible para su repositorio. Una descripción detallada es esencial para ayudar a otros a comprender el propósito y la funcionalidad de su repositorio.`;
 
                     //! Con este arreglo verificamos que no agregemos un lenguaje dos veces
@@ -386,6 +393,11 @@ const project = async (user = `leooportilla`) => {
                                     template += templateLanguage(language.typescript.url, language.typescript.svg);
                                     verify.push(`TYPESCRIPT`);
                                     break;
+
+                                case `MARKDOWN`:
+                                    template += templateLanguage(language.markdown.url, language.markdown.svg);
+                                    verify.push(`MARKDOWN`);
+                                    break;
                             }
                         }
                     });
@@ -407,7 +419,6 @@ const project = async (user = `leooportilla`) => {
                     } else if (window.screen.width > 1024 && window.screen.width <= 1328) {
 
                         if (count <= 3) {
-
                             cardsOne.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url));
                         }
 
@@ -419,7 +430,6 @@ const project = async (user = `leooportilla`) => {
                             count = 0;
                         }
                     } else if (window.screen.width > 600 && window.screen.width <= 1024) {
-
                         if (count <= 2) {
                             cardsOne.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url));
                         }
@@ -432,7 +442,6 @@ const project = async (user = `leooportilla`) => {
                             count = 0;
                         }
                     } else if (window.screen.width <= 600) {
-
                         if (count == 1) {
                             cardsOne.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url));
                         }
@@ -693,6 +702,7 @@ const profile = async (user = `leooportilla`) => {
             userFollowers.innerHTML = `Seguidores: ${data.followers}`;
             userFollowing.innerHTML = `Siguiendo: ${data.following}`;
             userGitHud.setAttribute(`href`, `${data.html_url}`);
+            
         }
 
         //! Si capturamos algun error, toda la informacion la mandamos por defecto
@@ -759,7 +769,7 @@ const search = () => {
 
 //! Declaracion de variable para la funcion de cerrar el input
 const inputUser    = document.querySelector(`.user__input`);
-const errorProfile = document.querySelector(`.use__error`);
+const errorProfile = document.querySelector(`.user__error`);
 const windowSkills = document.querySelector(`.skills__information`);
 
 //! Cerrar el input de la busqueda del perfil

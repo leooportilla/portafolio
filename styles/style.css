@@ -12,8 +12,6 @@
   border: 0;
   box-sizing: border-box;
   vertical-align: baseline;
-  user-select: none;
-  -webkit-user-select: none;
 }
 
 *::before,

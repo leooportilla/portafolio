@@ -3,7 +3,7 @@ import { project } from "./project"
 
 //! Declaracion de variable para la funcion de cerrar el input
 const inputUser    = document.querySelector(`.user__input`)
-const errorProfile = document.querySelector(`.use__error`)
+const errorProfile = document.querySelector(`.user__error`)
 const windowSkills = document.querySelector(`.skills__information`)
 
 //! Cerrar el input de la busqueda del perfil

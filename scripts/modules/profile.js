@@ -39,6 +39,7 @@ export const profile = async (user = `leooportilla`) => {
             userFollowers.innerHTML = `Seguidores: ${data.followers}`
             userFollowing.innerHTML = `Siguiendo: ${data.following}`
             userGitHud.setAttribute(`href`, `${data.html_url}`)
+            
         }
 
         //! Si capturamos algun error, toda la informacion la mandamos por defecto
