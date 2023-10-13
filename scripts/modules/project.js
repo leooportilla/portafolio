@@ -1,9 +1,9 @@
 //! Declaracion de varibale para las funciones de la carga del perfil y las busqueda de los perfiles
-const leftButton = document.querySelector(`.project__projects-arrowleft`)
-const rangeSlide = document.querySelector(`.project__range-content`)
-const countSlide = document.querySelector(`.project__range-content-count`)
-const rightButton = document.querySelector(`.project__projects-arrowright`)
-const svgRightArrow = document.querySelectorAll(`.project__projects-arrowright svg`)
+const leftButton     = document.querySelector(`.project__projects-arrowleft`)
+const rangeSlide     = document.querySelector(`.project__range-content`)
+const countSlide     = document.querySelector(`.project__range-content-count`)
+const rightButton    = document.querySelector(`.project__projects-arrowright`)
+const svgRightArrow  = document.querySelectorAll(`.project__projects-arrowright svg`)
 const containerCards = document.querySelector(`.cards`)
 
 //! Elemento de etiqueta donde ire guardando todos los proyectos
@@ -335,55 +335,24 @@ export const project = async (user = `leooportilla`) => {
 
                     //! Segun el tamanio de pantalla se ira guardando de manera diferente las cards
                     if (window.screen.width > 1328) {
-                        if (count <= 4) {
-                            cardsOne.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url))
-                        }
-
-                        if (count > 4 && count <= 8) {
-                            cardsTwo.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url))
-                        }
-
-                        if (count === 8) {
-                            count = 0
-                        }
+                        if (count <= 4) cardsOne.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url))
+                        if (count > 4 && count <= 8) cardsTwo.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url))
+                        if (count === 8) count = 0
 
                     } else if (window.screen.width > 1024 && window.screen.width <= 1328) {
+                        if (count <= 3) cardsOne.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url))
+                        if (count > 3 && count <= 6) cardsTwo.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url))
+                        if (count === 6) count = 0
 
-                        if (count <= 3) {
-                            cardsOne.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url))
-                        }
-
-                        if (count > 3 && count <= 6) {
-                            cardsTwo.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url))
-                        }
-
-                        if (count === 6) {
-                            count = 0
-                        }
                     } else if (window.screen.width > 600 && window.screen.width <= 1024) {
-                        if (count <= 2) {
-                            cardsOne.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url))
-                        }
+                        if (count <= 2) cardsOne.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url))
+                        if (count > 2 && count <= 4) cardsTwo.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url))
+                        if (count === 4) count = 0
 
-                        if (count > 2 && count <= 4) {
-                            cardsTwo.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url))
-                        }
-
-                        if (count === 4) {
-                            count = 0
-                        }
                     } else if (window.screen.width <= 600) {
-                        if (count == 1) {
-                            cardsOne.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url))
-                        }
-
-                        if (count == 2) {
-                            cardsTwo.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url))
-                        }
-
-                        if (count == 2) {
-                            count = 0
-                        }
+                        if (count == 1) cardsOne.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url))
+                        if (count == 2) cardsTwo.insertAdjacentHTML(`beforeend`, templateCard(imageRepository, nameRepository, repository.stargazers_count, descriptionRepository, template, repository.homepage, repository.html_url))
+                        if (count == 2) count = 0
                     }
                     count++;
                 });
@@ -425,9 +394,6 @@ export const project = async (user = `leooportilla`) => {
                 dataProject.forEach(element => {
                     observeProject.observe(element)
                 })
-
-                //! Al terminar de cargar toda la funcion el focus sera tomado por el slider para que el usuario pueda moverlo con su teclado
-                containerCards.focus()
             } else {
                 containerCards.insertAdjacentHTML(`afterbegin`, `<div class="cards__error">
                                                                     <svg class="cards__error-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 634.73 597.81">
