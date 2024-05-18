@@ -1,18 +1,19 @@
 {
-	"name": "modulos",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"type": "module",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"javascript": "rollup --watch --config",
-		"sass": "sass --watch ./styles/modules/style.scss ./styles/style.css"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
+  "name": "portafolio-com",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "rollup": "rollup --watch --config",
+    "sass": "sass --watch ./src/styles/modules/style.scss ./src/styles/style.css"
+  },
   "devDependencies": {
-    "rollup": "^3.22.0"
+    "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "sass": "^1.77.2"
   }
 }

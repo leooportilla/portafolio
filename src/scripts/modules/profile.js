@@ -44,7 +44,7 @@ export const profile = async (user = `leooportilla`) => {
 
         //! Si capturamos algun error, toda la informacion la mandamos por defecto
     } catch (error) {
-        userImage.setAttribute(`src`, `./media/images/users.svg`)
+        userImage.setAttribute(`src`, `https://firebasestorage.googleapis.com/v0/b/mi-portafolioo.appspot.com/o/users.svg?alt=media&token=b00daf80-fd02-4d70-b250-df062ea0817a`)
 
         if (error.message === `404`) {
             userName.innerHTML = `No registrado`

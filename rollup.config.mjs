@@ -1,7 +1,7 @@
 export default {
-	input: './scripts/modules/index.js',
+	input: './src/scripts/modules/index.js',
 	output: {
-		file: './scripts/public/main.js',
+		file: './src/scripts/public/main.js',
 		format: 'cjs'
 	},
 };

@@ -154,7 +154,7 @@ const observeProject = new IntersectionObserver(entries => {
 
 //! Plantilla para las tarjeta de los proyectos
 const templateCard = (image, name, stars, description, skills, page, code) => {
-    return `<div class="cards__container-card" data-observe="project"  style="background-image: url(./media/images/project_${image}.png);">
+    return `<div class="cards__container-card" data-observe="project"  style="background-image: url(https://firebasestorage.googleapis.com/v0/b/mi-portafolioo.appspot.com/o/project_${image}.png?alt=media&token=89e8523d-7fb5-4c46-b3d1-b2dcaed43300;">
 
     <h3 class="cards__container-card-title">${name}</h3>
 
@@ -673,7 +673,7 @@ const profile = async (user = `leooportilla`) => {
 
         //! Si capturamos algun error, toda la informacion la mandamos por defecto
     } catch (error) {
-        userImage.setAttribute(`src`, `./media/images/users.svg`);
+        userImage.setAttribute(`src`, `https://firebasestorage.googleapis.com/v0/b/mi-portafolioo.appspot.com/o/users.svg?alt=media&token=b00daf80-fd02-4d70-b250-df062ea0817a`);
 
         if (error.message === `404`) {
             userName.innerHTML = `No registrado`;

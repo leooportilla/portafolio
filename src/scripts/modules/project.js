@@ -85,7 +85,7 @@ const observeProject = new IntersectionObserver(entries => {
 
 //! Plantilla para las tarjeta de los proyectos
 const templateCard = (image, name, stars, description, skills, page, code) => {
-    return `<div class="cards__container-card" data-observe="project"  style="background-image: url(./media/images/project_${image}.png);">
+    return `<div class="cards__container-card" data-observe="project"  style="background-image: url(https://firebasestorage.googleapis.com/v0/b/mi-portafolioo.appspot.com/o/project_${image}.png?alt=media&token=89e8523d-7fb5-4c46-b3d1-b2dcaed43300;">
 
     <h3 class="cards__container-card-title">${name}</h3>
 
